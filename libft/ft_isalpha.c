@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:10:52 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/04/23 20:19:04 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/04/24 17:20:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<ctype.h> /*LIBRERIA DE TODAS LAS FUNCIONES TIPO IS.*/
 #include	<stdio.h> /*LIBRERIA PARA EL PRINTF DEL MAIN.*/
-
 /*ESTA FUNCION COMPRUEBA SI UN CARACTER ES ALFABETICO.*/
 int	ft_isalpha(int x)
 {
@@ -20,7 +19,6 @@ int	ft_isalpha(int x)
 		return (1);
 	return (0);
 }
-
 /*
 int	main(void)
 {

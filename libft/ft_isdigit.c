@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 19:47:15 by kevlar            #+#    #+#             */
-/*   Updated: 2023/04/23 20:19:05 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/04/24 17:20:35 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<ctype.h> /*LIBRERIA DE TODAS LAS FUNCIONES TIPO IS.*/
 #include	<stdio.h> /*LIBRERIA PARA EL PRINTF DEL MAIN.*/
-
 /*ESTA FUNCION COMPRUEBA SI UN CARACTER ES NUMERICO.*/
 int	ft_isdigit(int x)
 {
@@ -20,7 +19,6 @@ int	ft_isdigit(int x)
 		return (1);
 	return (0);
 }
-
 /*
 int	main(void)
 {
