@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:00:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/04/29 15:16:40 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:27:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include	<stdio.h> /*LIBRERIA PARA EL PRINTF DEL MAIN.*/
 
 /*ESTA FUNCION COMPRUEBA SI UN CARACTER ES IMPRIMIBLE (VER TABLA ASCII).*/
-int	ft_isascii(int x)
+int	ft_isprint(int x)
 {
 	if ((x >= 32 && x <= 126))
 		return (1);
@@ -26,7 +26,7 @@ int	main(void)
 	char	x;
 
 	x = '@';
-	printf("%d",ft_isalnum(x));
+	printf("%d",ft_isprint(x));
 	return (0);
 }
 */
