@@ -6,12 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 20:14:49 by kevlar            #+#    #+#             */
-/*   Updated: 2023/04/29 15:27:35 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/01 15:07:48 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<ctype.h> /*LIBRERIA DE TODAS LAS FUNCIONES TIPO IS.*/
-#include	<stdio.h> /*LIBRERIA PARA EL PRINTF DEL MAIN.*/
+#include	"libft.h" /*LIBRERIA CUSTOM*/
 
 /*ESTA FUNCION COMPRUEBA SI UN CARACTER ES UN CARACTER ASCII.*/
 int	ft_isascii(int x)
@@ -20,6 +19,7 @@ int	ft_isascii(int x)
 		return (1);
 	return (0);
 }
+
 /*
 int	main(void)
 {

@@ -6,12 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:00:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/04/29 16:10:19 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/01 15:07:48 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<ctype.h> /*LIBRERIA DE TODAS LAS FUNCIONES TIPO IS.*/
-#include	<stdio.h> /*LIBRERIA PARA EL PRINTF DEL MAIN.*/
+#include	"libft.h" /*LIBRERIA CUSTOM*/
 
 /*ESTA FUNCION COMPRUEBA SI UN CARACTER ES IMPRIMIBLE (VER TABLA ASCII).*/
 int	ft_isprint(int x)
@@ -20,6 +19,7 @@ int	ft_isprint(int x)
 		return (1);
 	return (0);
 }
+
 /*
 int	main(void)
 {

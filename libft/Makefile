@@ -2,10 +2,10 @@
 NAME = libft.a
 
 # Variable, son los ficheros que queremos compilar
-FUNCTIONS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c
+FUNCTIONS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_bzero.c
 
 # Variable, compilar
-GCC = gcc
+CC = gcc
 
 # Variable, flags para compilar
 FLAGS = -Wall -Werror -Wextra
@@ -27,8 +27,8 @@ clean:
 	rm -f $(OBJECTS)
 	
 # Regla, elimina absolutamente todos los archivos derivados del programa
-fclean:
-	rm -f $(NAME) $(OBJECTS)
+fclean: clean
+	rm -f $(NAME)
 	
 # Regla, elimina todo y vuelve a compilar automaticamente el programa
 re: fclean all

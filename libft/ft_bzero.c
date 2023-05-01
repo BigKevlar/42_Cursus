@@ -1,32 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/23 19:47:15 by kevlar            #+#    #+#             */
-/*   Updated: 2023/05/01 15:07:46 by jmartos-         ###   ########.fr       */
+/*   Created: 2023/05/01 12:49:31 by jmartos-          #+#    #+#             */
+/*   Updated: 2023/05/01 15:07:53 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM*/
 
-/*ESTA FUNCION COMPRUEBA SI UN CARACTER ES NUMERICO.*/
-int	ft_isdigit(int x)
+/*ESTA FUNCION COPIA EL CARACTER "0" EN LAS PRIMERAS "N" POSICIONES.*/
+void	ft_bzero(void *s, size_t n)
 {
-	if ((x >= '0' && x <= '9'))
-		return (1);
-	return (0);
+	unsigned char	*str;
+	int				i;
+
+	str = (unsigned char *)s;
+	i = 0;
+	if (n == 0)
+		return ;
+	while (i < n)
+	{
+		str[i] = 0;
+		i++;
+	}
+	return ;
 }
 
 /*
-int	main(void)
+int main ()
 {
-	char	x;
+	unsigned char	*phrase;
 
-	x = '4';
-	printf("%d",ft_isdigit(x));
+	phrase = "FundacionTelefonica";
+	printf(phrase);
+	printf(ft_bzero(phrase, 7));
 	return (0);
 }
 */

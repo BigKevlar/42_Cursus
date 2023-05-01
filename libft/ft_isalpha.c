@@ -6,12 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:10:52 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/04/29 16:33:47 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/01 15:07:20 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<ctype.h> /*LIBRERIA DE TODAS LAS FUNCIONES TIPO IS.*/
-#include	<stdio.h> /*LIBRERIA PARA EL PRINTF DEL MAIN.*/
+#include	"libft.h" /*LIBRERIA CUSTOM*/
 
 /*ESTA FUNCION COMPRUEBA SI UN CARACTER ES ALFABETICO.*/
 int	ft_isalpha(int x)
@@ -20,6 +19,7 @@ int	ft_isalpha(int x)
 		return (1);
 	return (0);
 }
+
 /*
 int	main(void)
 {
