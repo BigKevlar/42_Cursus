@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 19:47:15 by kevlar            #+#    #+#             */
-/*   Updated: 2023/05/01 15:07:46 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:23:29 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,3 @@ int	ft_isdigit(int x)
 		return (1);
 	return (0);
 }
-
-/*
-int	main(void)
-{
-	char	x;
-
-	x = '4';
-	printf("%d",ft_isdigit(x));
-	return (0);
-}
-*/

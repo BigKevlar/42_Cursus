@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:10:52 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/01 15:07:20 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:23:27 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,3 @@ int	ft_isalpha(int x)
 		return (1);
 	return (0);
 }
-
-/*
-int	main(void)
-{
-	char	x;
-
-	x = 'a';
-	printf("%d",ft_isalpha(x));
-	return (0);
-}
-*/

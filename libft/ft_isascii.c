@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 20:14:49 by kevlar            #+#    #+#             */
-/*   Updated: 2023/05/01 15:07:48 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:23:28 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,3 @@ int	ft_isascii(int x)
 		return (1);
 	return (0);
 }
-
-/*
-int	main(void)
-{
-	char	x;
-
-	x = '+';
-	printf("%d",ft_isascii(x));
-	return (0);
-}
-*/

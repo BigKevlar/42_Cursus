@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:49:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/01 15:07:53 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:23:26 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,3 @@ void	ft_bzero(void *s, size_t n)
 	}
 	return ;
 }
-
-/*
-int main ()
-{
-	unsigned char	*phrase;
-
-	phrase = "FundacionTelefonica";
-	printf(phrase);
-	printf(ft_bzero(phrase, 7));
-	return (0);
-}
-*/

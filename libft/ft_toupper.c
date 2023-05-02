@@ -3,25 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:16:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/01 18:50:20 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:21:02 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM*/
 
 /*ESTA FUNCION CONVIERTE LAS MINUSCULAS EN MAYUSCULAS.*/
-char	ft_toupper(char c)
+int	ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
+	if (c >= 97 && c <= 122)
 	{
 		c -= 32;
-		return (c);
 	}
-	else if (c >= 'A' && c <= 'Z')
-		return (c);
-	else
-		return (0);
+	return (c);
 }
