@@ -16,11 +16,14 @@ AR = ar rcs
 # Variable, convierte todos los archivos .c en .o (son archivos temporales, por temas de optimizacion)
 OBJECTS = $(FUNCTIONS:.c=.o)
 
-# Regla, ejecuta el programa si solo ponemos "make"
+# Regla, ejecuta el programa si solo ponemos "make" (debe de haber otro make y object aqui dentro para los bonus???)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	$(AR) $(NAME) $(OBJECTS)
+
+$(OBJECTS): $(FUNCTIONS)
+	$(CC) $(FLAGS) -c $(FUNCTIONS)
 	
 # Regla, borra los archivos temporales .o
 clean:

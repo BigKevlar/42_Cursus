@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 11:31:27 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/03 12:55:43 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:33:11 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 /*ESTA FUNCION BUSCA UNA LETRA "C" DENTRO DE UN STRING "S".*/
 char	*ft_strchr(const char *s, int c)
 {
-	s = ((char *)s);
+	char	*s1;
+
+	s1 = (char *)s;
 	c = (char)c;
-	while (*s != c)
+	while (*s1 != c)
 	{
-		if (*s == '\0')
+		if (*s1 == '\0')
 			return (NULL);
-		s++;
+		s1++;
 	}
-	return (s);
+	return (s1);
 }
 
 /*

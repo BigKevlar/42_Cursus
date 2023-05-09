@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:35:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/09 14:22:17 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:57:53 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,29 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char	*src1;
 	char	*dst1;
-	int		cont;
+	size_t	cont;
 
 	src1 = (char *)src;
 	dst1 = (char *)dst;
 	cont = 0;
-	while (len > 0)
+	if (dst1 > src1)
 	{
-		dst1[cont] = src1[cont];
-		cont++;
-		len--;
+		while (len > 0)
+		{
+			len--;
+			dst1[len] = src1[len];
+		}
+	}
+	else
+	{
+		while (cont < len)
+		{
+			dst1[cont] = src1[cont];
+			cont++;
+		}
 	}
 	return (dst1);
 }
-/*EL "if" HACE QUE SI SON NULOS ALGUNO DE LOS DOS DEVUELVE 0.*/
 /*LA PARTE DE "return (dst)" PERMITE DEVOLVER EL PUNTERO/ARRAY AL PRINCIPIO.*/
 /*
 int main(void)
