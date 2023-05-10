@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:35:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/09 15:57:53 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/10 10:34:56 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	src1 = (char *)src;
 	dst1 = (char *)dst;
 	cont = 0;
+	if (src == NULL && dst == NULL)
+		return (0);
 	if (dst1 > src1)
 	{
-		while (len > 0)
-		{
-			len--;
+		while (len-- > 0)
 			dst1[len] = src1[len];
-		}
 	}
 	else
 	{
@@ -38,7 +37,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			cont++;
 		}
 	}
-	return (dst1);
+	return (dst);
 }
 /*LA PARTE DE "return (dst)" PERMITE DEVOLVER EL PUNTERO/ARRAY AL PRINCIPIO.*/
 /*
@@ -49,5 +48,4 @@ int main(void)
 
     printf("%s", ft_memmove(dst, src, 3));
     return (0);
-}
-*/
+}*/
