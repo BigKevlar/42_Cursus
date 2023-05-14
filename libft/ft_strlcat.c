@@ -6,32 +6,47 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:48:12 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/12 14:20:37 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/14 17:21:48 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM*/
 
-/*ESTA FUNCION COPIA "src" EN OTRO "dst" ASEGURANDO EL TAMAÑO EN DESTINO...*/
-/*..."dst_size" ACABADO EN NULO, Y DEVUELVE EL TAMAÑO DEL ARRAY DE ORIGEN.*/
-size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
+/*
+"dst" Y "src" TENDRAN SUS CONTADORES, PARA IR NAVEGANDO POR SUS POSICIONES.
+EL PRIMER BUCLE MUEVE LA POSICION DE "dst" HASTA DONDE QUEREMOS EMPEZAR A
+COPIAR LA CADENA "src".
+(TENGO QUE SEGUIR DESARROLLANDO LA EXPLICACIOND E ESTA FUNCION...)
+*/
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	cont;
-	int		src_size;
+	size_t	pos_dst;
+	size_t	pos_src;
 
-	cont = 0;
-	src_size = ft_strlen(src);
-	if (!dst || !src)
-		return (0);
-	if (dst_size != 0)
+	pos_dst = 0;
+	pos_src = 0;
+	while (dst[pos_dst] && pos_dst < size)
+		pos_dst++;
+	while (src[pos_src] && (pos_dst + pos_src + 1) < size)
 	{
-		while (src[cont] != '\0' && cont < dst_size - 1)
-		{
-			dst[cont] = src[src_size];
-			cont++;
-			src_size++;
-		}
-		dst[cont] = '\0';
+		dst[pos_dst + pos_src] = src[pos_src];
+		pos_src++;
 	}
-	return (src_size);
+	if (pos_dst < size)
+		dst[pos_dst + pos_src] = '\0';
+	return (pos_dst + ft_strlen(src));
 }
+/*
+int main(void)
+{
+	char		dest[20];
+	const char	*src = "Hola, mundo!";
+	size_t		size = sizeof(dest);
+	size_t		len = ft_strlcat(dest, src, size);
+
+	printf("Cadena copiada: %s\n", dest);
+	printf("Longitud de la cadena copiada: %zu\n", len);
+
+	return (0);
+}
+*/
