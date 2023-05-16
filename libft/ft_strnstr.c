@@ -6,31 +6,34 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:19:57 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/15 14:38:14 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/16 13:07:30 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM*/
 
 /*
-haystack = pajar
-needle = aguja
-tenemos que avanzar con dos blucles y dos contadores!!!!
+ESTA FUNCION BUSCA LA CADENA "needle" (aguja) EN LAS PRIMERAS "len" POSICIONES
+DE LA CADENA "haystack" (pajar). 
+(Nota: tenemos que avanzar con dos blucles/dos contadores).
 */
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned long	cont;
+	size_t	c1;
+	size_t	c2;
 
-	cont = 0;
-	if (!*needle)
+	c1 = 0;
+	c2 = 0;
+	if (needle[0] == '\0' && len >= 0)
 		return ((char *)haystack);
-	if (ft_strlen(needle) > ft_strlen(haystack))
-		return (0);
-	while (needle[cont] != '\0' && cont < len)
+	while (haystack[c1] && c1 < len)
 	{
-		if (needle[cont] == haystack[cont])
-			return ((char *)haystack);
-		cont++;
+		c2 = 0;
+		while (needle[c2] && (c1 + c2) < len && haystack[c1 + c2] == needle[c2])
+			++c2;
+		if (needle[c2] == 0)
+			return ((char *)(haystack + c1));
+		++c1;
 	}
-	return (0);
+	return (NULL);
 }
