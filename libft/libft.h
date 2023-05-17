@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/16 15:17:20 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:20:33 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include	<string.h> /*LIBRERIA PARA OPERACIONES DE MEMORIA.*/
 # include	<stdlib.h> /*LIBRERIA PARA GESTION DE MEMORIA.*/
 # include	<stdio.h> /*LIBRERIA PARA EL PRINTF.*/
-
+/*FUNCIONES OBLIGATORIAS*/
 int		ft_isalpha(int x);
 int		ft_isdigit(int x);
 int		ft_isalnum(int x);
@@ -41,5 +41,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+/*FUNCIONES ADICIONALES*/
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
