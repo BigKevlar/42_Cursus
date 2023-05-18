@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:15:46 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/18 14:22:06 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/18 15:09:08 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	cont2 = 0;
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (NULL);
 	str = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!str)
