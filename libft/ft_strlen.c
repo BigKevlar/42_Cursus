@@ -6,19 +6,19 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:02:48 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/02 11:23:30 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/18 13:52:39 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM*/
 
 /*ESTA FUNCION DEVUELVE LA LONGUITUD DE UN STRING.*/
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	n;
+	size_t	n;
 
 	n = 0;
-	while (str[n])
+	while (s[n])
 	{
 		n = n + 1;
 	}
