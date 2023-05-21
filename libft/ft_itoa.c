@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 12:11:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/21 14:03:37 by jmartos-         ###   ########.fr       */
+/*   Created: 2023/05/21 17:26:51 by jmartos-          #+#    #+#             */
+/*   Updated: 2023/05/21 19:13:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,47 +17,48 @@
 (a partir de estas funciones vamos a empezar a declarar los valores
 de las variables antes de la parte en la que van a usarse, por claridad)
 */
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static int	num_digit(long num)
 {
-	char	*str;
-	size_t	s_len;
+	int	cur;
 
-	if (!s)
-		return (NULL);
-	s_len = ft_strlen(s);
-	if (s_len <= start)
-		return (ft_strdup(""));
-	if (len > s_len - start)
-		len = s_len - start;
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	ft_strlcpy(str, s + start, len + 1);
-	return (str);
-}
-
-/*OPCION DOS (EN REVISION)*/
-/*
-{
-	size_t	cont1;
-	size_t	cont2;
-	char	*str;
-
-	str = malloc(sizeof(*s) * (len + 1));
-	if (!str)
-		return (NULL);
-	cont1 = 0;
-	cont2 = 0;
-	while (s[cont1])
+	cur = 0;
+	if (num == 0)
+		return (1);
+	if (num < 0)
+		cur++;
+	while (num != 0)
 	{
-		if (cont1 >= start && cont2 < len)
-		{
-			str[cont2] = s[cont1];
-			cont2++;
-		}
-		cont1++;
+		num = num / 10;
+		cur++;
 	}
-	str[cont2] = '\0';
-	return (str);
+	return (cur);
 }
-*/
+
+char	*ft_itoa(int n)
+{
+	long	len;
+	long	nl;
+	char	*result;
+
+	len = num_digit(n);
+	nl = n;
+	if (n < 0)
+		nl *= -1;
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	result[len] = 0;
+	if (nl == 0)
+		result[0] = '0';
+	else
+	{
+		while (len--, nl != 0)
+		{
+			result[len] = (nl % 10) + '0';
+			nl = (nl - (nl % 10)) / 10;
+		}
+		if (n < 0)
+			result[len] = '-';
+	}
+	return (result);
+}

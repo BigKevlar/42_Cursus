@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 12:11:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/21 14:03:37 by jmartos-         ###   ########.fr       */
+/*   Created: 2023/05/21 19:14:45 by jmartos-          #+#    #+#             */
+/*   Updated: 2023/05/21 19:26:26 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,47 +17,22 @@
 (a partir de estas funciones vamos a empezar a declarar los valores
 de las variables antes de la parte en la que van a usarse, por claridad)
 */
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
-	size_t	s_len;
+	int		cont;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (s_len <= start)
-		return (ft_strdup(""));
-	if (len > s_len - start)
-		len = s_len - start;
-	str = malloc(sizeof(char) * (len + 1));
+	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!str)
 		return (NULL);
-	ft_strlcpy(str, s + start, len + 1);
-	return (str);
-}
-
-/*OPCION DOS (EN REVISION)*/
-/*
-{
-	size_t	cont1;
-	size_t	cont2;
-	char	*str;
-
-	str = malloc(sizeof(*s) * (len + 1));
-	if (!str)
-		return (NULL);
-	cont1 = 0;
-	cont2 = 0;
-	while (s[cont1])
+	cont = 0;
+	while (s[cont])
 	{
-		if (cont1 >= start && cont2 < len)
-		{
-			str[cont2] = s[cont1];
-			cont2++;
-		}
-		cont1++;
+		str[cont] = f(cont, s[cont]);
+		++cont;
 	}
-	str[cont2] = '\0';
+	str[cont] = '\0';
 	return (str);
 }
-*/

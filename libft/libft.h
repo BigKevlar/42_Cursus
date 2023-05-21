@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/18 14:54:41 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/21 19:15:12 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include	<string.h> /*LIBRERIA PARA OPERACIONES DE MEMORIA.*/
 # include	<stdlib.h> /*LIBRERIA PARA GESTION DE MEMORIA.*/
 # include	<stdio.h> /*LIBRERIA PARA EL PRINTF.*/
+# include	<stddef.h> /*LIBRERIA PARA EL "size_t".*/
 /*FUNCIONES OBLIGATORIAS*/
 int		ft_isalpha(int x);
 int		ft_isdigit(int x);
@@ -45,5 +46,8 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
