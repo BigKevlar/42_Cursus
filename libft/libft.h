@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/22 13:12:39 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:26:45 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include	<stdio.h> /*LIBRERIA PARA EL PRINTF.*/
 # include	<unistd.h> /*LIBRERIA PARA EL write.*/
 # include	<stddef.h> /*LIBRERIA PARA EL "size_t".*/
+/*s_list es el nombre de la estructura, y y t_list es el alias/TIPADO del nodo*/
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 /*FUNCIONES OBLIGATORIAS*/
 int		ft_isalpha(int x);
 int		ft_isdigit(int x);
