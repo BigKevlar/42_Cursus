@@ -6,16 +6,27 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 20:14:49 by kevlar            #+#    #+#             */
-/*   Updated: 2023/05/02 11:23:28 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:53:20 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*ESTA FUNCION COMPRUEBA SI UN CARACTER ES UN CARACTER ASCII.*/
+/*#Comprueba si un caracter "x" esta representado en la tabla ASCII.#*/
 int	ft_isascii(int x)
 {
-	if ((x >= 0 && x <= 127))
+	if (x >= 0 && x <= 127)
 		return (1);
 	return (0);
 }
+
+/*
+int	main(void)
+{
+	if (ft_isascii('F'))
+		printf("El caracter SI esta en la tabla ASCII.\n");
+	else
+		printf("El caracter NO esta en la tabla ASCII.\n");
+	return (0);
+}
+*/
