@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 11:53:39 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/24 11:20:45 by jmartos-         ###   ########.fr       */
+/*   Created: 2023/05/24 10:08:44 by jmartos-          #+#    #+#             */
+/*   Updated: 2023/05/24 11:02:16 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM*/
 
 /*
-Cuenta el número de nodos de una lista.
+Toma como parámetro un nodo "lst" y libera la memoria del contenido
+utilizando la función "del" dada como parámetro, además de liberar el nodo.
+La memoria de "next" no debe liberarse.
 */
-int	ft_lstsize(t_list *lst)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t	cont;
-
-	cont = 0;
-	while (lst)
+	if (lst)
 	{
-		lst = lst->next;
-		cont++;
+		(*del)(lst->content);
+		free(lst);
 	}
-	return (cont);
 }

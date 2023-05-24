@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:00:35 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/22 12:15:49 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:26:37 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_counter(const char *str, char c)
 	return (cont2);
 }
 
-static void	ft_free_split(char **str, size_t i)
+static char	**ft_free_split(char **str, size_t i)
 {
 	while (i > 0)
 	{
@@ -41,6 +41,7 @@ static void	ft_free_split(char **str, size_t i)
 		free(str[i]);
 	}
 	free(str);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -58,17 +59,12 @@ char	**ft_split(char const *s, char c)
 		if (*s != c)
 		{
 			cont1 = 0;
-			while (*s != 0 && *s != c)
-			{
+			while (s[cont1] && s[cont1] != c)
 				cont1++;
-				s++;
-			}
-			str[++cont2] = ft_substr(s - cont1, 0, cont1);
+			str[++cont2] = ft_substr(s, 0, cont1);
 			if (!str[cont2])
-			{
-				ft_free_split(str, cont2);
-				return (NULL);
-			}
+				return (ft_free_split(str, cont2));
+			s += cont1;
 		}
 		else
 			s++;
@@ -78,7 +74,7 @@ char	**ft_split(char const *s, char c)
 }
 
 /*
-(FUNCION FREE PARA FT_SPLIT)
+(PRUEBA DE FUNCION FREE PARA FT_SPLIT)
 	static void	ft_free_split(char **str, size_t i)
 	{
 		while (i > 0)
@@ -88,7 +84,7 @@ char	**ft_split(char const *s, char c)
 		}
 		free(str);
 	}
-(FUNCION FT_FREE_SPLIT EN FT_SPLIT)
+(PRUEBA DE FUNCION FT_FREE_SPLIT EN FT_SPLIT)
 	if (!str[cont2])
 	{
 		ft_free_split(str, cont2);
