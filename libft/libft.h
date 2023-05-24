@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/22 14:26:45 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/24 09:55:40 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@
 # include	<stdio.h> /*LIBRERIA PARA EL PRINTF.*/
 # include	<unistd.h> /*LIBRERIA PARA EL write.*/
 # include	<stddef.h> /*LIBRERIA PARA EL "size_t".*/
-/*s_list es el nombre de la estructura, y y t_list es el alias/TIPADO del nodo*/
+/*
+La siguiente declaracion es para una estructura/nodo:
+"s_list" es el nombre de la estructura/clase, "t_list" es el
+alias del nodo (un nuevo "tipado"???)
+*/
 typedef struct s_list
 {
 	void			*content;
@@ -61,5 +65,11 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+/*BONUS*/
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif
