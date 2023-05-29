@@ -3,24 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:02:48 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/18 13:52:39 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:33:40 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*ESTA FUNCION DEVUELVE LA LONGUITUD DE UN STRING.*/
+/*#Devuelve a longuitud de una cadena/string.#*/
 size_t	ft_strlen(const char *s)
 {
-	size_t	n;
+	size_t	len;
 
-	n = 0;
-	while (s[n])
-	{
-		n = n + 1;
-	}
-	return (n);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }
+
+/*
+int	main(void)
+{
+	int	str;
+
+	str = ft_strlen("Hakunamatata");
+	printf("La cadena/string tiene %d caracteres.\n", str);
+	return (0);
+}
+*/

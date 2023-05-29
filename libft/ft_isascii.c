@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 20:14:49 by kevlar            #+#    #+#             */
-/*   Updated: 2023/05/24 14:53:20 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/28 16:21:19 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_isascii(int x)
 /*
 int	main(void)
 {
-	if (ft_isascii('F'))
+	if (ft_isascii('?'))
 		printf("El caracter SI esta en la tabla ASCII.\n");
 	else
 		printf("El caracter NO esta en la tabla ASCII.\n");
