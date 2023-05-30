@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 13:11:29 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/16 14:10:54 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/30 14:49:34 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-*/
+/*#Convierte la cadena "str", la analiza y la convierte en un valor entero
+(atoi = ASCII to Integer) hasta que encuentre algun caracter no numerico.#*/
 int	ft_atoi(const char *str)
 {
 	int	cont;
@@ -24,8 +24,8 @@ int	ft_atoi(const char *str)
 	num = 0;
 	aux = 1;
 	while (str[cont] == ' ' || str[cont] == '\t'
-		|| str[cont] == '\v' || str[cont] == '\f'
-		|| str[cont] == '\n' || str[cont] == '\r')
+			|| str[cont] == '\v' || str[cont] == '\f'
+			|| str[cont] == '\n' || str[cont] == '\r')
 		cont++;
 	if (str[cont] == '+' || str[cont] == '-')
 	{	
@@ -40,3 +40,14 @@ int	ft_atoi(const char *str)
 	}
 	return (num * aux);
 }
+
+/*
+int main(void)
+{
+	const char *str = "76874063-J";
+	int result = ft_atoi(str);
+	printf("El resultado de atoi es: %d\n", result);
+
+	return 0;
+}
+*/

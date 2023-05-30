@@ -3,21 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:48:12 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/14 17:21:48 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:46:25 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-"dst" Y "src" TENDRAN SUS CONTADORES, PARA IR NAVEGANDO POR SUS POSICIONES.
-EL PRIMER BUCLE MUEVE LA POSICION DE "dst" HASTA DONDE QUEREMOS EMPEZAR A
-COPIAR LA CADENA "src".
-(TENGO QUE SEGUIR DESARROLLANDO LA EXPLICACIOND E ESTA FUNCION...)
-*/
+/*#Copia la cadena "src" al final de "dst" asegurando que el tamaño "size"
+no se desborde.#*/
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	pos_dst;
@@ -36,17 +32,21 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		dst[pos_dst + pos_src] = '\0';
 	return (pos_dst + ft_strlen(src));
 }
+/*Las variables "dst" y "src" tendran sus propios contadores para ir
+navegando entre sus posiciones. El primer bucle mueve la posicion de
+destino hasta donde queremos empezar a copiar la cadena de origen.*/
+
 /*
 int main(void)
 {
-	char		dest[20];
-	const char	*src = "Hola, mundo!";
+	const char	src[42] = "Hola, mundo!";
+	char		dest[42];
 	size_t		size = sizeof(dest);
-	size_t		len = ft_strlcat(dest, src, size);
+	size_t		len;
 
+	len = ft_strlcat(dest, src, size);
 	printf("Cadena copiada: %s\n", dest);
 	printf("Longitud de la cadena copiada: %zu\n", len);
-
 	return (0);
 }
 */

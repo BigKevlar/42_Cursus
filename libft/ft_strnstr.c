@@ -6,34 +6,51 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:19:57 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/17 14:47:59 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/30 14:29:06 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-ESTA FUNCION BUSCA LA CADENA "needle" (aguja) EN LAS PRIMERAS "len" POSICIONES
-DE LA CADENA "haystack" (pajar). 
-(Nota: tenemos que avanzar con dos blucles/dos contadores).
-*/
+/*#Busca la cadena "neddle" (aguja) en la cadena "haystack" (pajar) durante
+un maximo de "len" posiciones. Se va avanzando con dos bucles/contadores.#*/
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	c1;
-	size_t	c2;
+	size_t	cont1;
+	size_t	cont2;
+	char	*haystack1;
+	char	*needle1;
 
-	c1 = 0;
-	c2 = 0;
-	if (needle[0] == '\0')
-		return ((char *)haystack);
-	while (haystack[c1] && c1 < len)
+	cont1 = 0;
+	cont2 = 0;
+	haystack1 = (char *)haystack;
+	needle1 = (char *)needle;
+	if (needle1[0] == '\0')
+		return (haystack1);
+	while (haystack1[cont1] && cont1 < len)
 	{
-		c2 = 0;
-		while (needle[c2] && (c1 + c2) < len && haystack[c1 + c2] == needle[c2])
-			++c2;
-		if (needle[c2] == 0)
-			return ((char *)(haystack + c1));
-		++c1;
+		cont2 = 0;
+		while (needle1[cont2] && (cont1 + cont2) < len && haystack1[cont1 + cont2] == needle1[cont2])
+			++cont2;
+		if (needle1[cont2] == 0)
+			return ((haystack1 + cont1));
+		++cont1;
 	}
 	return (NULL);
 }
+
+/*
+int main(void)
+{
+	char	haystack[42] = "Timon y Pumba";
+	char	needle[42] = "Pum";
+	size_t	len = 16;
+	char	*result = ft_strnstr(haystack, needle, len);
+	
+	if (result != NULL)
+		printf("La subcadena '%s' encontrada en '%s'\n", needle, haystack);
+	else
+		printf("La subcadena '%s' no se encontró en '%s'\n", needle, haystack);
+	return 0;
+}
+*/

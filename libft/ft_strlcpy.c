@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:15:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/12 13:44:12 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:46:45 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*ESTA FUNCION COPIA "src" EN OTRO "dst" ASEGURANDO EL TAMAÑO EN DESTINO...*/
-/*..."dst_size" ACABADO EN NULO, Y DEVUELVE EL TAMAÑO DEL ARRAY DE ORIGEN.*/
+/*#Copia la cadena "src" en "dst" asegurando el tamaño "dst_size" y el nulo.#*/
 size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 {
 	size_t	cont;
 	int		src_size;
 
-	cont = 0;
-	src_size = ft_strlen(src);
 	if (!dst || !src)
 		return (0);
+	cont = 0;
+	src_size = ft_strlen(src);
 	if (dst_size != 0)
 	{
 		while (src[cont] != '\0' && cont < dst_size - 1)
@@ -32,18 +31,20 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 		}
 		dst[cont] = '\0';
 	}
-	return (src_size);
+	return (cont);
 }
+
 /*
 int	main(void)
 {
-	char	*origen = "Hakunamatata";
-	char	destino[0];
-	int		tamaño_destino = sizeof(destino);
-
-	size_t	tamaño_origen = ft_strlcpy(destino, origen, tamaño_destino);
-	printf("Cadena copiada: %s\n", destino);
-	printf("Longitud de la cadena copiada: %zu\n", tamaño_origen);
-
+	const char	ori[42] = "Hakunamatata";
+	char		dest[42];
+	size_t		tam_dest = 3;
+	size_t		long;
+	
+	long = ft_strlcpy(dest, ori, tam_dest);
+	printf("Cadena copiada: %s\n", dest);
+	printf("Número de caracteres copiados: %zu\n", long);
+	return (0);
 }
 */

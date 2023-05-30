@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 10:17:30 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/15 11:41:56 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/30 14:04:34 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-(descripcion de la funcion)
-*/
+/*#Compara los primeros "n" bytes de "s1" y "s2" (en ASCII), y devuelve un
+número negativo si "s1" es menor que "s2", un número positivo si "s1" es
+mayor que "s2", o 0 si son iguales. Esta funcion es similar a ft_strncmp,
+con la diferencia de que esta no esta solo limitada a strings (terminaria
+si encontrase un NULL).#*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*ss1;
@@ -34,3 +36,21 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+/*
+int	main(void)
+{
+	const char string1[42] = "World";
+	const char string2[42] = "Hello";
+	size_t n = 10;
+	int result = ft_memcmp(string1, string2, n);
+
+	if (result < 0)
+		printf("'%s' es menor que '%s'.\n", string1, string2);
+	else if (result > 0)
+		printf("'%s' es mayor que '%s'.\n", string1, string2);
+	else
+		printf("'%s' es igual a '%s'.\n", string1, string2);
+	return 0;
+}
+*/

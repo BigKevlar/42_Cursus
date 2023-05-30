@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:16:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/02 11:21:02 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:50:13 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*ESTA FUNCION CONVIERTE LAS MINUSCULAS EN MAYUSCULAS.*/
+/*#Convierte un caracer alfabetico de minuscula a mayuscula.#*/
 int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
@@ -21,3 +21,15 @@ int	ft_toupper(int c)
 	}
 	return (c);
 }
+
+/*
+int main(void)
+{
+	char	word = 'a';
+	char	result = ft_toupper(word);
+
+	printf("Carácter original: %c\n", word);
+	printf("Carácter convertido: %c\n", result);
+	return 0;
+}
+*/
