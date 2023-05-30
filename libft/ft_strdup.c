@@ -3,27 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:15:51 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/16 15:59:38 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:35:43 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-*/
+/*# Duplica una cadena pasada como un puntero "s1" y devulve un puntero a un
+nuevo puntero que contiene dicha copia. #*/
 char	*ft_strdup(const char *s1)
 {
-	char	*pointer;
+	char	*new_array;
 	int		len;
 
 	len = ft_strlen(s1) + 1;
-	pointer = malloc(len);
-	if (!pointer)
+	new_array = malloc(len);
+	if (!new_array)
 		return (NULL);
-	pointer[len - 1] = '\0';
-	ft_strlcpy(pointer, s1, len);
-	return (pointer);
+	ft_strlcpy(new_array, s1, len);
+	new_array[len - 1] = '\0';
+	return (new_array);
 }
+
+/*
+int	main(void)
+{
+	char	*ori = "Hakunamatata";
+	char	*cpy;
+
+	cpy = ft_strdup(ori);
+	printf("%s\n", cpy);
+	printf("END\n");
+	return (0);
+}
+*/

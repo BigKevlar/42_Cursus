@@ -3,39 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:16:46 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/16 15:14:15 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:15:35 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-SIRVE PARA RESERVAR MEMORIA Y CREAR UNA MATRIZ "count" DE TAMAÑO "size" CADA UNA.
-*/
+/*#Reserva memoria y crea una matriz con "count" elementos y de
+tamaño "size" cada uno. Utilizamos la funcion ft_bzero para asegurarnos
+que todas las posiciones estan inicializadas correctamente (no como malloc).#*/
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*pointer;
+	void	*array;
 
-	pointer = malloc(count * size);
-	if (!pointer)
+	array = malloc(count * size);
+	if (!array)
 		return (NULL);
-	ft_bzero(pointer, count * size);
-	return (pointer);
+	ft_bzero(array, count * size);
+	return (array);
 }
+
+/*Este ejemplo reserva memoria para un array de 5 elementos de tipo int*/
 /*
 int	main(void)
 {
-	int	size = 8539;
+	size_t	count = 5;
+	size_t	size = sizeof(int);
+	int		*array = (int *)ft_calloc(count, size);
 
-	void *d1 = ft_calloc(size, sizeof(int));
-	void *d2 = calloc(size, sizeof(int));
-	if (memcmp(d1, d2, size * sizeof(int)))
-		exit(printf("TEST_FAILED"));
-	free(d1);
-	free(d2);
-	exit(printf("TEST_SUCCESS"));
+	array[0] = 42;
+	printf("%d\n", array[0]);
+	free(array);
+	return (0);
 }
 */

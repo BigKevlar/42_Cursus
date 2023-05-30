@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:15:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/30 11:46:45 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:34:45 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 {
 	size_t	cont;
-	int		src_size;
 
 	if (!dst || !src)
 		return (0);
 	cont = 0;
-	src_size = ft_strlen(src);
 	if (dst_size != 0)
 	{
 		while (src[cont] != '\0' && cont < dst_size - 1)
