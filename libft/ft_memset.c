@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:45:48 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/28 18:18:54 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:05:55 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,28 @@
 /*#Copia el caracter "c" en las primeras "len" posiciones de "b".#*/
 void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*str;
+	unsigned char	*str;
+	size_t	cont;
 
-	str = (char *)b;
+	str = (unsigned char *)b;
+	cont = 0;
 	while (len)
 	{
-		*str = c;
+		str[cont] = c;
+		cont++;
 		len--;
-		str++;
 	}
 	return (b);
 }
 
+/*En el main casteamos "char *" a "void *" para imprimir correctamente.*/
 /*
 int	main(void)
 {
-	char	string[] = "Hakunamatata";
-	char	character = 'x';
+	char	*phr;
 
-	ft_memset(string, character, 6);
-	printf("%s\n", string);
+	phr = ft_memset("Hakunamatata", 'x', 6);
+	printf("%p\n", (void *)phr);
 	return (0);
 }
 */

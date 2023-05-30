@@ -26,10 +26,10 @@ size_t	ft_strlen(const char *s)
 /*
 int	main(void)
 {
-	int	str;
+	size_t	str;
 
 	str = ft_strlen("Hakunamatata");
-	printf("La cadena/string tiene %d caracteres.\n", str);
+	printf("La cadena/string tiene %zu caracteres.\n", str);
 	return (0);
 }
 */

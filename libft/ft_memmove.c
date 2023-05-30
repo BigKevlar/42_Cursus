@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:35:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/10 10:34:56 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:13:19 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include    "libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*ESTA FUNCION COPIA "len" BYTES DE "src" EN "dst".*/
+/*#Copia al final de "dst" "len" bytes de "src", asegurando superposicion.#*/
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*src1;
 	char	*dst1;
+	char	*src1;
 	size_t	cont;
 
-	src1 = (char *)src;
 	dst1 = (char *)dst;
+	src1 = (char *)src;
 	cont = 0;
-	if (src == NULL && dst == NULL)
+	if (dst == NULL && src == NULL)
 		return (0);
 	if (dst1 > src1)
 	{
@@ -31,7 +31,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else
 	{
-		while (cont < len)
+		while (len > cont)
 		{
 			dst1[cont] = src1[cont];
 			cont++;
@@ -39,13 +39,17 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-/*LA PARTE DE "return (dst)" PERMITE DEVOLVER EL PUNTERO/ARRAY AL PRINCIPIO.*/
-/*
-int main(void)
-{
-    char dst[] = "Caracola";
-    char src[] = "Hola";
+/*Recordar que "return (dst)" permite devolver el puntero al inicio.*/
 
-    printf("%s", ft_memmove(dst, src, 3));
-    return (0);
-}*/
+/*
+int	main(void)
+{
+	char src[42] = "Hakunamatata";
+	char dst[sizeof(src)];
+
+	printf("Contenido de 'dst' antes de ft_memmove: %s\n", dst);
+	ft_memmove(dst, src, ft_strlen(src) + 1);
+	printf("Contenido de 'dst' despues de ft_memmove: %s\n", dst);
+	return (0);
+}
+*/
