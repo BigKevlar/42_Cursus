@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 17:25:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/30 14:03:32 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:01:31 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,14 @@ int	main(void)
 	int result = ft_strncmp(string1, string2, len);
 
 	if (result < 0)
-		printf("'%s' es menor que '%s' en los primeros %zu caracteres.\n", string1, string2, len);
+		printf("'%s' es menor que '%s' en los primeros %zu caracteres.\n", 
+		|| string1, string2, len);
 	else if (result > 0)
-		printf("'%s' es mayor que '%s' en los primeros %zu caracteres.\n", string1, string2, len);
+		printf("'%s' es mayor que '%s' en los primeros %zu caracteres.\n", 
+		|| string1, string2, len);
 	else
-		printf("'%s' es igual a '%s' en los primeros %zu caracteres.\n", string1, string2, len);
+		printf("'%s' es igual a '%s' en los primeros %zu caracteres.\n", 
+		|| string1, string2, len);
 	return (0);
 }
 */

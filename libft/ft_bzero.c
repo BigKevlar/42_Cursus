@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:49:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/29 15:14:49 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/05/31 12:10:28 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_bzero(void *s, size_t n)
 		return ;
 	while (n > cont)
 	{
-		str[cont] = '0';
+		str[cont] = '\0';
 		cont++;
 	}
 	return ;

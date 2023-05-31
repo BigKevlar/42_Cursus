@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 14:36:37 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/30 12:58:37 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:10:57 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,20 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*s1;
 	char	c1;
-	size_t	cont;
+	int		cont;
 
 	s1 = (char *)s;
 	c1 = (char)c;
-	cont = ft_strlen(s1);
-	while (cont != 0)
+	cont = 0;
+	while (s1[cont] != '\0')
+		cont++;
+	while (cont >= 0)
 	{
 		if (s1[cont] == c1)
 			return (s1 + cont);
 		cont--;
 	}
-	return (NULL);
+	return (0);
 }
 
 /*

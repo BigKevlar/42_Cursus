@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:15:51 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/30 15:35:43 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:45:52 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*# Duplica una cadena pasada como un puntero "s1" y devulve un puntero a un
-nuevo puntero que contiene dicha copia. #*/
+/*#Duplica una cadena pasada como un puntero "s1" y devulve un puntero a un
+nuevo puntero que contiene dicha copia.#*/
 char	*ft_strdup(const char *s1)
 {
 	char	*new_array;
