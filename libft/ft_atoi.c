@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 13:11:29 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/31 11:52:13 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:54:46 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ int	ft_atoi(const char *str)
 /*
 int main(void)
 {
-	const char *str = "76874063-J";
-	int result = ft_atoi(str);
-	printf("El resultado de atoi es: %d\n", result);
+	const char	*str;
+	int			result;
 
-	return 0;
+	str = "76874063-J";
+	result = ft_atoi(str);
+	printf("El resultado de atoi es: %d\n", result);
+	return (0);
 }
 */

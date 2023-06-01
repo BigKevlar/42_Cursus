@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:18:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/22 13:13:14 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/01 18:38:23 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-(DESCRIPCION)
-A cada carácter de la string "s", aplica la función "f" dando como
+/*#A cada carácter de la cadena "s" se aplica la función "f", dando como
 parámetros el índice de cada carácter dentro de "s" y la dirección
-del propio carácter, que podrá modificarse si es necesario.
-*/
+del propio carácter, que podrá modificarse si es necesario.#*/
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
+	int	cont;
 
-	i = 0;
-	while (s[i])
+	cont = 0;
+	while (s[cont])
 	{
-		f(i, s + i);
-		i++;
+		f(cont, s + cont);
+		cont++;
 	}
 }
+/*Similar a ft_strmapi pero sin reservar memoria y sin devolver nada???*/
+
+/*(...main en desarrollo...)*/

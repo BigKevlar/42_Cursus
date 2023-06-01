@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:00:35 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/24 12:26:37 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:52:32 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-LA FUNCION PRINCIPAL "ft_split", QUE RESERVA UN ARRAY DE STRINGS
-EN SUBSTRINGS USANDO "c" COMO DELIMITADOR ENTRE ELLOS.
-PARA ELLO USAMOS ANTES UNA FUNCION PARA IR ITERANDO ENTRE CARACTERES.
-*/
+/*#La función principal reserva en memoria una cadena de strings "s"
+en substrings usando un delimitador "c" para separarlos entre si.
+Para ello, usamos antes la subfunción "ft_counter" para iterar entre caracteres,
+y al final usamos "ft_free_split" para liberar la memoria utilizada.#*/
 static size_t	ft_counter(const char *str, char c)
 {
 	size_t	cont1;
@@ -73,21 +72,4 @@ char	**ft_split(char const *s, char c)
 	return (str);
 }
 
-/*
-(PRUEBA DE FUNCION FREE PARA FT_SPLIT)
-	static void	ft_free_split(char **str, size_t i)
-	{
-		while (i > 0)
-		{
-			i--;
-			free(str[i]);
-		}
-		free(str);
-	}
-(PRUEBA DE FUNCION FT_FREE_SPLIT EN FT_SPLIT)
-	if (!str[cont2])
-	{
-		ft_free_split(str, cont2);
-		return (NULL);
-	}
-*/
+/*(...main en desarrollo...)*/

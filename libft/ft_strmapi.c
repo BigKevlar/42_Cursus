@@ -3,20 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:14:45 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/21 19:26:26 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/01 18:05:13 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-(DESCRIPCION)
-(a partir de estas funciones vamos a empezar a declarar los valores
-de las variables antes de la parte en la que van a usarse, por claridad)
-*/
+/*#Ejecuta una funcion "f" dada a cada caracter de una cadena de caracteres y
+devuelve una nueva cadena con los resultados de esa funcion.#*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
@@ -36,3 +33,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[cont] = '\0';
 	return (str);
 }
+/*Que utilidad podria tener esta funcion???*/
+
+/*(...main en desarrollo...)*/

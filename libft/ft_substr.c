@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:11:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/21 14:03:37 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:59:23 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-(DESCRIPCION)
-(a partir de estas funciones vamos a empezar a declarar los valores
-de las variables antes de la parte en la que van a usarse, por claridad)
-*/
+/*#Toma la cadena "s", una posicion de inicio "start" y una longitud "len",
+y devuelve una nueva cadena que contiene una extraccion de "s" a partir
+de la posición "start" con la longitud especificada "len".#*/
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
@@ -25,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
-	if (s_len <= start)
+	if (start >= s_len)
 		return (ft_strdup(""));
 	if (len > s_len - start)
 		len = s_len - start;
@@ -36,28 +34,20 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-/*OPCION DOS (EN REVISION)*/
 /*
+int	main(void)
 {
-	size_t	cont1;
-	size_t	cont2;
-	char	*str;
+	const char		*str;
+	unsigned int	start;
+	size_t			len;
+	char			*part;
 
-	str = malloc(sizeof(*s) * (len + 1));
-	if (!str)
-		return (NULL);
-	cont1 = 0;
-	cont2 = 0;
-	while (s[cont1])
-	{
-		if (cont1 >= start && cont2 < len)
-		{
-			str[cont2] = s[cont1];
-			cont2++;
-		}
-		cont1++;
-	}
-	str[cont2] = '\0';
-	return (str);
+	str = "Hakunamatata";
+	start = 6;
+	len = 4;
+	part = ft_substr(str, start, len);
+	printf("Substring: %s\n", part);
+	free(part);
+	return (0);
 }
 */
