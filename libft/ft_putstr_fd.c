@@ -6,13 +6,13 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:57:24 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/01 18:38:21 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/06/01 18:57:11 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*#Envía la string "s" al file descriptor "fd" especificado.#*/
+/*#Envía la string "s" al descriptor "fd".#*/
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	cont;

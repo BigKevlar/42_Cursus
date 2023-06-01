@@ -6,16 +6,13 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 13:01:14 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/01 18:38:19 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/06/01 18:56:47 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-(DESCRIPCION)
-Envía el numero "n" al file descriptor "fd" dado, seguido de un salto de linea.
-*/
+/*#Envía el numero "n" al descriptor "fd", seguido de un salto de linea.#*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	chr;

@@ -6,13 +6,13 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:53:21 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/01 18:38:22 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/06/01 18:57:23 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*#Envía el carácter "c" al file descriptor "fd" especificado.#*/
+/*#Envía el carácter "c" al descriptor "fd".#*/
 void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);

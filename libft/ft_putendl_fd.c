@@ -6,13 +6,13 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 13:01:11 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/01 18:38:20 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/06/01 18:56:51 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*#Envía la string "s" al file descriptor "fd" dado, seguido de un salto de linea.#*/
+/*#Envía la string "s" al descriptor "fd", seguido de un salto de linea.#*/
 void	ft_putendl_fd(char *s, int fd)
 {
 	int	cont;
