@@ -6,25 +6,18 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:12:48 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/23 14:08:55 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/03 14:05:16 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-Un nodo es una estructura de listas enlazadas que se llaman entre si.
-En la parte de...
-	new_node->content = content;
-	new_node->next = NULL;
-... se hace referencia a que, el valor pasado por parametro pasara al campo
-"content" del nuevo nodo creado, y el NULL en "next" indica que va a moverse
-NULL a "next".
-*/
-/*
-Se crea un nuevo nodo utilizando malloc. La variable miembro "content" se
-inicializa con el contenido del parámetro "content". La variable "next" con NULL.
-*/
+/*#Se crea un nuevo nodo "node" utilizando malloc y le damos tipado "t_list", 
+pasando asi a ser una estructura de la lista. La variable miembro
+"content" se inicializa con el contenido del parámetro "content",
+(que estaria vacia de momento) y la variable "next" se inicia con NULL,
+porque se entiende que seria el ultimo mienmbro de la lista, por lo que
+no apunta a nadie (aun). Al final devolvemos lo que nos pide, un nuevo nodo.#*/
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*node;

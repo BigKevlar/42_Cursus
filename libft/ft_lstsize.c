@@ -6,15 +6,14 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:53:39 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/24 11:20:45 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/03 14:34:37 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-Cuenta el número de nodos de una lista.
-*/
+/*#Cuenta el número de nodos de una lista. La parte de "lst = lst->next" va
+avanzando y va aumentando el contador para luego devolverlo.#*/
 int	ft_lstsize(t_list *lst)
 {
 	size_t	cont;

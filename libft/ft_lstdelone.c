@@ -6,17 +6,15 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:08:44 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/24 11:02:16 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/03 13:21:01 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM*/
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*
-Toma como parámetro un nodo "lst" y libera la memoria del contenido
+/*#Toma como parámetro un nodo "lst" y libera la memoria del contenido
 utilizando la función "del" dada como parámetro, además de liberar el nodo.
-La memoria de "next" no debe liberarse.
-*/
+La memoria de "next" no debe liberarse.#*/
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (lst)
