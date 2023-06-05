@@ -3,37 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:01:10 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/03 13:21:33 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:34:27 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*#Itera la lista "lst" y aplica la función "f" al contenido de cada nodo.
-Crea una lista resultante de la aplicación correcta y sucesiva de la
-función "f" sobre cada nodo. La función ’del’ se utiliza para eliminar
+/*#Itera (avanza) en la lista "lst" y aplica la función "f" al contenido de
+cada nodo. Crea una lista resultante de la aplicación correcta y sucesiva
+de la función "f" sobre cada nodo. La función ’del’ se utiliza para eliminar
 el contenido de un nodo, si hace falta.#*/
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*res;
-	t_list	*tmp;
+	t_list	*result;
+	t_list	*aux;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	res = NULL;
+	result = NULL;
 	while (lst)
 	{
-		tmp = ft_lstnew(f(lst->content));
-		if (!tmp)
+		aux = ft_lstnew(f(lst->content));
+		if (!aux)
 		{
-			ft_lstclear(&res, del);
+			ft_lstclear(&result, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&res, tmp);
+		ft_lstadd_back(&result, aux);
 		lst = lst->next;
 	}
-	return (res);
+	return (result);
 }
+
+/*DESARROLLO*/
