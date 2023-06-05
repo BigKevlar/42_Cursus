@@ -6,24 +6,33 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:13:18 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/04 19:17:28 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:30:42 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*#Añade el nodo "new" al final de la lista "lst". Nos valemos de la
-funcion "ft_ltslast" para meter en la nueva lista "last" la ultima posicion.
-La parte de "last->next = new" Hara que el puntero de "next" aunte a "new".#*/
+/*#Añade el nodo "new" al final de la lista "lst".#*/
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*last;
+	t_list	*final;
 
 	if (!*lst)
 		*lst = new;
 	else
 	{
-		last = ft_lstlast(*lst);
-		last->next = new;
+		final = ft_lstlast(*lst);
+		final->next = new;
 	}
 }
+
+/*DESARROLLO*/
+/*Creamos una nueva variable tipo nodo llamada "final"
+(donde guardaremos la ultima posicion actual de la lista),
+y comprobamos que la lista no esta vacia (si asi fuese pues el puntero al
+que apuntaria "lst" seria la direccion de "new", que seria el primer nodo).
+Tras la verificacion, nos valemos de la funcion "ft_ltslast" para encontrar
+la direccion del puntero de la ultima posicion de la lista y guardarla en
+"final".
+Finalmente enlazamos la direccion de "new" al puntero "next" de "final",
+quedando asi "final" como el penultimo, y "new" como ultimo (con next NULL).*/

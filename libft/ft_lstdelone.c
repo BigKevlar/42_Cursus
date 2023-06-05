@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:08:44 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/03 13:21:01 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:56:25 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 		free(lst);
 	}
 }
+
+/*DESARROLLO*/
+/*"lst" corresponde al nodo que queremos modificar. Si existe, ejecutamos la
+funcion "del" para liberar la direccion memoria del contenido de ese nodo, y
+ejecutamos un free a la memoria que guarda el puntero del propio nodo. Eso si,
+!!!no liberamos la de su puntero que apunta al siguiente nodo!!!*/

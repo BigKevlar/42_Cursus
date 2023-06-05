@@ -6,15 +6,13 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:57:43 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/04 16:30:30 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/05 14:23:54 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*#Localiza el puntero al último nodo de la lista. La parte de
-"lst = lst->next" va machacandose con el puntero next del siguiente en
-la lista y vuelve a comprobarse de nuevo, hasta toparse con el ultimo nodo.#*/
+/*#Localiza el puntero al último nodo de la lista.#*/
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
@@ -23,3 +21,10 @@ t_list	*ft_lstlast(t_list *lst)
 		lst = lst->next;
 	return (lst);
 }
+
+/*DESARROLLO*/
+/*Primero se comprueba si la lista esta vacia. En caso que si, mientras
+el puntero de lista sea exista (porque hay un puntero "next" que no es NULL)
+"lst", que es el primer puntero de la lista, va siendo actualiado por el
+del siguiente nodo y vuelve a comprobarse de nuevo (esta vez en la posicion siguiente),
+hasta toparse con el ultimo nodo.*/

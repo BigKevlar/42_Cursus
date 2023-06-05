@@ -3,26 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:53:39 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/03 14:34:37 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/05 14:15:10 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/*#Cuenta el número de nodos de una lista. La parte de "lst = lst->next" va
-avanzando y va aumentando el contador para luego devolverlo.#*/
+/*#Cuenta el número de nodos de una lista.#*/
 int	ft_lstsize(t_list *lst)
 {
-	size_t	cont;
+	int	cont;
 
 	cont = 0;
 	while (lst)
 	{
-		lst = lst->next;
 		cont++;
+		lst = lst->next;
 	}
 	return (cont);
 }
+
+/*DESARROLLO*/
+/*Creamos un contador a 0 que aumentara mientras exista la lista.
+"lst", que es el primer puntero de la lista, va siendo actualiado por el
+del siguiente nodo y asi consecutivamente, y al final devuelve el contador
+con todos los nodos por los que paso.*/
