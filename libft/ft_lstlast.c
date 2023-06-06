@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:57:43 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/05 14:23:54 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/06 14:18:50 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ t_list	*ft_lstlast(t_list *lst)
 /*Primero se comprueba si la lista esta vacia. En caso que si, mientras
 el puntero de lista sea exista (porque hay un puntero "next" que no es NULL)
 "lst", que es el primer puntero de la lista, va siendo actualiado por el
-del siguiente nodo y vuelve a comprobarse de nuevo (esta vez en la posicion siguiente),
-hasta toparse con el ultimo nodo.*/
+del siguiente nodo y vuelve a comprobarse de nuevo (esta vez en la posicion
+siguiente), hasta toparse con el ultimo nodo.*/

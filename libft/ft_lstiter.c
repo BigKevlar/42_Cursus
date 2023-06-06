@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:59:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/05 16:34:25 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/06 15:39:31 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 contenido de cada nodo.#*/
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst)
+	while (lst != NULL)
 	{
 		(*f)(lst->content);
 		lst = lst->next;
@@ -24,3 +24,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 }
 
 /*DESARROLLO*/
+/*Mientras la lista exista/no este vacia le vamos a ir aplicando la
+funcion "f" al contenido de, en este caso, el primer nodo.
+Luego con "lst = lst->next" vamos actualizando el puntero al nodo de
+la lista y vamos avanzando de nodo hasta llegar al ultimo.*/

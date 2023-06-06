@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:15:42 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/05 16:25:27 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/06/06 15:36:42 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 /*DESARROLLO*/
 /*La funcion empieza comprobando si el nodo "lst" existe y si no es nulo.
-Si se cumple esta condicion ejecutamos nuestra funcion anterior "ft_lstdelone"
-para borrar su contenido y liberar la memoria de su contenido,
-pero no tocar su next.
+Si se cumple esta condicion ejecutamos nuestra funcion anterior
+"ft_lstdelone" para borrar su contenido y liberar la memoria de su
+contenido, pero no tocar su next.
 Al final actualizamos la direccion de "lst" con NULL.
 Vamos, que esta funcion borra todos los nodos, libera sus memorias, y deja
 el puntrero next de la lista en NULL.*/
