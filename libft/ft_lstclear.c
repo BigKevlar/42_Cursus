@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:15:42 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/06 15:36:42 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/06/07 16:00:45 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,27 @@ utilizando la función "del" y free. Al final, el puntero a la lista
 debe ser NULL.#*/
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*aux;
+
 	while (lst && *lst != NULL)
 	{
+		aux = (*lst)->next;
 		ft_lstdelone(*lst, del);
-		(*lst)->next = NULL;
+		*lst = aux;
 	}
+	*lst = NULL;
 }
 
 /*DESARROLLO*/
-/*La funcion empieza comprobando si el nodo "lst" existe y si no es nulo.
-Si se cumple esta condicion ejecutamos nuestra funcion anterior
-"ft_lstdelone" para borrar su contenido y liberar la memoria de su
-contenido, pero no tocar su next.
-Al final actualizamos la direccion de "lst" con NULL.
+/*Creamos un nodo auxiliar "aux".
+Comprobamos si la lista "lst" existe y si a donde apunta no es nulo.
+Si se cumple esta condicion guardamos en nuestro nodo auxiliar el puntero
+al siguiente nodo, y luego ejecutamos nuestra funcion anterior "ft_lstdelone"
+para borrar su contenido y liberar la memoria de su contenido.
+Despues actualizamos el puntero al siguiente nodo usando en nodo auxiliar
+en el que habiamos copiado el puntero al siguiente nodo.
+Al final de la lista actualizamos el puntero de la misma a NULL, aunque
+realmente no haria falta porque el ultimo nodo que
+se copio en la lista ya era NULL, pero nos aseguramos de ello.
 Vamos, que esta funcion borra todos los nodos, libera sus memorias, y deja
-el puntrero next de la lista en NULL.*/
+el puntero next de la lista en NULL.*/
