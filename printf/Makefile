@@ -1,11 +1,11 @@
 # Nombre del programa
 NAME = libftprintf.a
 
+# Ruta de "libft"
+LIBFT = ./libft/libft.a
+
 # Variable, son los ficheros que queremos compilar
 FUNCTIONS = ft_printf.c
-
-#dkfhbvsdlfhbxdlfghb
-LIBFT_PATH = ./libft/libft.a
 
 # Variable, convierte todos los archivos .c de FUNCTIONS en .o (por optimizacion)
 OBJECTS = $(FUNCTIONS:.c=.o)
