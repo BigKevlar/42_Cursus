@@ -1,8 +1,11 @@
-# Nombre del makefile
+# Nombre del programa
 NAME = libftprintf.a
 
 # Variable, son los ficheros que queremos compilar
-FUNCTIONS = 
+FUNCTIONS = ft_printf.c
+
+#dkfhbvsdlfhbxdlfghb
+LIBFT_PATH = ./libft/libft.a
 
 # Variable, convierte todos los archivos .c de FUNCTIONS en .o (por optimizacion)
 OBJECTS = $(FUNCTIONS:.c=.o)
@@ -21,6 +24,7 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	$(AR) $(NAME) $(OBJECTS)
+	$(MAKE) -C libft
 
 $(OBJECTS): $(FUNCTIONS)
 	$(CC) $(FLAGS) $(FUNCTIONS)

@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/03 18:35:27 by jmartos-         ###   ########.fr       */
+/*   Created: 2023/05/01 18:16:25 by jmartos-          #+#    #+#             */
+/*   Updated: 2023/05/30 11:50:13 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-#include	"libft/libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
-#include    <stdarg.h> /**/
-#include    <stdio.h>
+/*#Convierte un caracer alfabetico de minuscula a mayuscula.#*/
+int	ft_toupper(int c)
+{
+	if (c >= 97 && c <= 122)
+	{
+		c -= 32;
+	}
+	return (c);
+}
 
 /*
-Primer intento: vamos a crear, como dice el subject, una variable tipo estructura (lista)
-    typedef struct va_list
-        {
+int main(void)
+{
+	char	word = 'a';
+	char	result = ft_toupper(word);
 
-        }		va_list;
+	printf("Carácter original: %c\n", word);
+	printf("Carácter convertido: %c\n", result);
+	return 0;
+}
 */
-
-#endif

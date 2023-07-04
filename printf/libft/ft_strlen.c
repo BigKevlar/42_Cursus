@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/03 18:35:27 by jmartos-         ###   ########.fr       */
+/*   Created: 2023/04/29 16:02:48 by jmartos-          #+#    #+#             */
+/*   Updated: 2023/05/28 17:33:40 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-#include	"libft/libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
-#include    <stdarg.h> /**/
-#include    <stdio.h>
+/*#Devuelve a longuitud de una cadena/string.#*/
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
 
 /*
-Primer intento: vamos a crear, como dice el subject, una variable tipo estructura (lista)
-    typedef struct va_list
-        {
+int	main(void)
+{
+	size_t	str;
 
-        }		va_list;
+	str = ft_strlen("Hakunamatata");
+	printf("La cadena/string tiene %zu caracteres.\n", str);
+	return (0);
+}
 */
-
-#endif
