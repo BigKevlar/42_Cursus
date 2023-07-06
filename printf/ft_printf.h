@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/03 18:35:27 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/06 18:01:04 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,8 @@
 
 #include	"libft/libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 #include    <stdarg.h> /**/
-#include    <stdio.h>
+#include    <stdio.h> /**/
 
-/*
-Primer intento: vamos a crear, como dice el subject, una variable tipo estructura (lista)
-    typedef struct va_list
-        {
-
-        }		va_list;
-*/
+/* Vamos a incluir los prototipos de nuestras funciones. */
 
 #endif

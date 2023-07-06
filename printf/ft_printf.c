@@ -6,12 +6,13 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/03 18:34:47 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/06 18:01:50 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/* PARA HACER PRUEBAS!!! */
 int main(void)
 {
     printf("hello");
