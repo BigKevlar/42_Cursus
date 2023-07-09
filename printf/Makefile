@@ -4,10 +4,11 @@ NAME = libftprintf.a
 # Ruta de "libft".
 LIBFT = ./libft
 
-# Variable: son los ficheros que queremos compilar.
-FUNCTIONS = ft_printf.c
+# Variable: son los ficheros .c que queremos compilar para crear la libreria.
+FUNCTIONS = ft_printf.c \
+				ft_printf_char.c \
 
-# Variable: convierte todos los archivos .c de FUNCTIONS en .o (por optimizacion).
+# Variable: convierte todos los archivos .c de FUNCTIONS en .o (por optimizacion/velocidad).
 OBJECTS = $(FUNCTIONS:.c=.o)
 
 # Variable: compila.
