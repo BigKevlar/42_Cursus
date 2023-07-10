@@ -20,7 +20,7 @@ FLAGS = -Wall -Werror -Wextra -c
 # Variable: crea la libreria con la extension .h.
 AR = ar rcs
 
-# Regla: ejecuta el programa ("make").
+# Regla: ejecuta el programa ("make"). (NO HACE EL BONUS DE LIBFT???)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)

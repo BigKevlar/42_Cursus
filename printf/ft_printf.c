@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/08 17:44:32 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:07:57 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h" /*funcion printf CUSTOM "jmartos-"*/
+
+/* Antes de la funcion principal vamos a hacer una subfuncion que nos
+derivará a las demas subfunciones de fuera si encontrase los tipos
+despues de aparecer el simbolo de %. */
+int	checking_type()
+{
+	
+}
 
 /* Esta es la funcion principal, donde usaremos todas nuestras subfunciones. */
 int ft_printf(const char *input, ...)
@@ -27,13 +35,13 @@ int ft_printf(const char *input, ...)
 		if(*input == '%')
 		{
 			input++;
-			len += ft_printf_char(*input, types);
+			if (ft_strchr("cspdiuxX", *input))
+				len = len + checking_type()
+			else if (*input == '%')
+				len = len + ft_print_char(*input);
 		}
 		else
-		{
-			ft_print_char(*input);
-			len++;
-		}
+			len = len + ft_print_char(*input);
 		input++;
 	}
 	va_end(types)
