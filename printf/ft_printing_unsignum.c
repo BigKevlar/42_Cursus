@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_printing_unsignum.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 15:09:09 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/10 18:23:52 by kevlar           ###   ########.fr       */
+/*   Created: 2023/07/03 18:14:30 by jmartos-          #+#    #+#             */
+/*   Updated: 2023/07/12 18:36:43 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h" /*funcion printf CUSTOM "jmartos-"*/
+#include	"libft/libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/* Imprime un solo caracter o simbolo (%c, %%). */
-char	ft_print_char(char c)
+/* Imprime numeros enteros sin signo (%u). */
+int ft_printing_unsignum(int n)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
-}
+    int	len;
 
-/* DESARROLLO */
-/* Usaremos esta subfuncion para imprimir un valor tipo char por
-consola, y retornar un valor numerico 1 en return. Ojo, hay que tener en
-cuenta que podemos entender como char una letra, numero o un simbolo. */
+	len = 0;
+	if (n == '\0')
+	{
+		ft_putstr_fd("ERROR", 1);
+		return (5);
+	}
+    
+}

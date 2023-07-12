@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsignum.c                                :+:      :+:    :+:   */
+/*   ft_printing_signum.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 18:14:30 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/06 17:45:51 by jmartos-         ###   ########.fr       */
+/*   Created: 2023/07/03 18:12:28 by jmartos-          #+#    #+#             */
+/*   Updated: 2023/07/12 18:30:00 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft/libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
-/* Imprime numeros enteros sin signo (%d %i). */
+/* Imprime numeros enteros con signo (%d %i). */
