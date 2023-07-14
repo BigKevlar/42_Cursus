@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_unsignum.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:14:30 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/12 18:36:43 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/07/13 16:51:30 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int ft_printing_unsignum(int n)
 		ft_putstr_fd("ERROR", 1);
 		return (5);
 	}
-    
+    /*sirve para imprimir un solo numero como el printing_char, o varios???*/
 }
