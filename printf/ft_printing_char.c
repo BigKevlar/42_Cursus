@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_char.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:09:09 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/12 18:33:05 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/07/14 18:13:10 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h" /*funcion printf CUSTOM "jmartos-"*/
 
 /* Imprime un solo caracter o simbolo (%c, %%). */
-char	ft_printing_char(char c)
+int	ft_printing_char(char c)
 {
 	if (c == '\0')
 	{
