@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_char.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:09:09 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/14 18:13:10 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/16 20:11:23 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_printing_char(char c)
 }
 
 /* DESARROLLO */
-/* Esta subfuncion imprime un valor tipo char por consola con nuestra
+/* Esta subfuncion imprime un solo char por consola con nuestra
 funcion del libft "ft_putchar_fd". Pimero verifica que el valor
 introducido existe, retornando la frase "ERROR" con nuestra funcion
 "ft_putstr_fd" y retornando 5 porque tiene esos bits. Si existe
