@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/17 16:35:37 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:19:02 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	checking_type(va_list args, char *input)
 	else if (*input == 'i')
 		len = len + ft_printing_signum(va_args(args, int));
 	else if (*input == 'u')
-		len = len + ft_printing_unsignum();
+		len = len + ft_printing_unsignum(va_args(args, unsigned int));
 	else if (*input == 'x')
 		len = len + ft_printing_hexnum();
 	else if (*input == 'X')

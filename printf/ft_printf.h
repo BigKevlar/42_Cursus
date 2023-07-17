@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/14 18:30:34 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:13:27 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	ft_printf(const char *input, ...);
 int	ft_printing_char(char c);
 int	printing_string(char *s);
 int	ft_printing_signum(int n);
+int	ft_printing_unsignum(unsigned int n);
 
 #endif
