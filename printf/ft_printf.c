@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/14 18:41:26 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:35:37 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	ft_printf(const char *input, ...)
 }
 
 /*MAIN DE PRUEBA (cuidadin!, hay que descomentarlo para probar la funcion)*/
+/* . */
 /* DESARROLLO */
 /* Funcion principal. lo primero es que crearemos dos variables:
 una tipo int llamada "len" para contar nuestros pasos a traves de los
