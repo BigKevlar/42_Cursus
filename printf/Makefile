@@ -11,8 +11,10 @@ LIBFT = $(LIBFT_PATH)/libft.a
 FUNCTIONS = ft_printf.c \
 				ft_printing_char.c \
 				ft_printing_string.c \
-				ft_printing_signum \
 				ft_printing_unsignum \
+				ft_printing_signum \
+				ft_printing_pointer \
+				ft_printing_hexnum
 
 # Variable: convierte todos los archivos .c de FUNCTIONS en .o (por optimizacion/velocidad).
 OBJECTS = $(FUNCTIONS:.c=.o)

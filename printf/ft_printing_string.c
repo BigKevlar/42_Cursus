@@ -6,22 +6,22 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:08:59 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/14 18:13:06 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/19 16:06:43 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft/libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"ft_printf.h" /*funcion printf CUSTOM "jmartos-"*/
 
 /* Imprime una cadena de caracteres (%s). */
-int	printing_string(char *s)
+int	ft_printing_string(char *s)
 {
 	int	len;
 
 	len = 0;
 	if (!s)
 	{
-		ft_putstr_fd("ERROR", 1);
-		return (5);
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
 	while (s[len])
 		len++;
@@ -30,10 +30,3 @@ int	printing_string(char *s)
 }
 
 /* DESARROLLO */
-/* Esta subfuncion imprime un string por consola con nuestra
-funcion del libft "ft_putstr_fd". Pimero verifica que el valor
-introducido existe, retornando la frase "ERROR" con nuestra funcion
-"ft_putstr_fd" y retornando 5 porque tiene esos bits. Si existe
-se realizan dos acciones: se recorre el string y guardamos el numero
-de caracteres en "len" para devolverlos al final en return; y luego
-si ya imprimimos el string. */

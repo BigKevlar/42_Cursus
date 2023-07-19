@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/17 18:13:27 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/19 16:11:28 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,19 @@ representandose mediante "..." y se declara y usa con:
 "va_end" =>
 */
 # include    <stdarg.h>
+/* Esta libreria contiene entre otras cosas un tipado para variables
+llamado "uintptr_t", que lo usaremos cuando se necesite tratar una
+dirección de memoria como un valor entero sin signo o cuando necesitemos
+guardar direcciones de memoria en variables. */
+# include    <stdint.h>
 
 /* Vamos a incluir los prototipos de nuestras funciones. */
 int	ft_printf(const char *input, ...);
 int	ft_printing_char(char c);
 int	printing_string(char *s);
-int	ft_printing_signum(int n);
 int	ft_printing_unsignum(unsigned int n);
+int	ft_printing_signum(int n);
+int	ft_printing_pointer(unsigned long p);
+int	ft_printing_hexnum();
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:12:28 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/17 18:04:04 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/19 16:06:45 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft/libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"ft_printf.h" /*funcion printf CUSTOM "jmartos-"*/
 
 /* Imprime numeros enteros con signo (%d %i). */
 int	ft_printing_signum(int n)
@@ -36,4 +36,3 @@ int	ft_printing_signum(int n)
 }
 
 /* DESARROLLO */
-/*  */

@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/17 18:19:02 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/19 14:47:58 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ int	checking_type(va_list args, char *input)
 
 	len = 0;
 	if (*input == 'c')
-		len = len + ft_printing_char(va_args(args, char));
+		len = len + ft_printing_char(va_arg(args, char));
 	else if (*input == 's')
-		len = len + ft_printing_string(va_args(args, char *));
+		len = len + ft_printing_string(va_arg(args, char *));
 	else if (*input == 'p')
 		len = len + ft_printing_pointer();
 	else if (*input == 'd')
-		len = len + ft_printing_signum(va_args(args, int));
+		len = len + ft_printing_signum(va_arg(args, int));
 	else if (*input == 'i')
-		len = len + ft_printing_signum(va_args(args, int));
+		len = len + ft_printing_signum(va_arg(args, int));
 	else if (*input == 'u')
-		len = len + ft_printing_unsignum(va_args(args, unsigned int));
+		len = len + ft_printing_unsignum(va_arg(args, unsigned int));
 	else if (*input == 'x')
 		len = len + ft_printing_hexnum();
 	else if (*input == 'X')
