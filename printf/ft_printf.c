@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/19 14:47:58 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:46:58 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	checking_type(va_list args, char *input)
 	else if (*input == 's')
 		len = len + ft_printing_string(va_arg(args, char *));
 	else if (*input == 'p')
-		len = len + ft_printing_pointer();
+		len = len + ft_printing_pointer(va_arg(args, unsigned long));
 	else if (*input == 'd')
 		len = len + ft_printing_signum(va_arg(args, int));
 	else if (*input == 'i')
@@ -34,9 +34,9 @@ int	checking_type(va_list args, char *input)
 	else if (*input == 'u')
 		len = len + ft_printing_unsignum(va_arg(args, unsigned int));
 	else if (*input == 'x')
-		len = len + ft_printing_hexnum();
+		len = len + ft_printing_hexnum(va_arg(args, (unsigned int, char)));
 	else if (*input == 'X')
-		len = len + ft_printing_hexnum();
+		len = len + ft_printing_hexnum(va_arg(args, (unsigned int, char)));
 	else if (*input == '%')
 		len = len + ft_printing_char('%');
 	return (len);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/19 16:11:28 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:43:01 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ guardar direcciones de memoria en variables. */
 /* Vamos a incluir los prototipos de nuestras funciones. */
 int	ft_printf(const char *input, ...);
 int	ft_printing_char(char c);
-int	printing_string(char *s);
+int	ft_printing_string(char *s);
 int	ft_printing_unsignum(unsigned int n);
 int	ft_printing_signum(int n);
 int	ft_printing_pointer(unsigned long p);
-int	ft_printing_hexnum();
+int	ft_printing_hexnum(unsigned int n, char type);
 
 #endif
