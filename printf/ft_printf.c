@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/22 16:53:11 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/22 17:58:29 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int	checking_type(va_list args, char input)
 	int	len;
 
 	len = 0;
-	if (input == 'c')
+	if (input == '%')
+		len = len + ft_printing_char('%');
+	else if (input == 'c')
 		len = len + ft_printing_char(va_arg(args, int));
 	else if (input == 's')
 		len = len + ft_printing_string(va_arg(args, char *));
@@ -37,8 +39,6 @@ int	checking_type(va_list args, char input)
 		len = len + ft_printing_hexnum(va_arg(args, unsigned int), input);
 	else if (input == 'X')
 		len = len + ft_printing_hexnum(va_arg(args, unsigned int), input);
-	else if (input == '%')
-		len = len + ft_printing_char('%');
 	return (len);
 }
 
@@ -59,8 +59,7 @@ int	ft_printf(const char *input, ...)
 		if (input[cont] == '%')
 		{
 			cont++;
-			if (ft_strchr("cspdiuxX", input[cont]))
-				len = len + checking_type(va_arg(args, void *), *input);
+			len = len + checking_type(args, input[cont]);
 		}
 		else
 			len = len + ft_printing_char(input[cont]);
@@ -70,8 +69,6 @@ int	ft_printf(const char *input, ...)
 	return (len);
 }
 
-/*MAIN DE PRUEBA (cuidadin!, hay que descomentarlo para probar la funcion)*/
-/* . */
 /* DESARROLLO */
 /* Funcion principal. lo primero es que crearemos dos variables:
 una tipo int llamada "len" para contar nuestros pasos a traves de los
