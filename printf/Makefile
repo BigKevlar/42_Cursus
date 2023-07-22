@@ -39,7 +39,7 @@ $(NAME): $(OBJECTS)
 	$(AR) $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(FUNCTIONS)
-	$(CC) $(FLAGS) -I includes -c $< -o $@
+	$(CC) $(FLAGS) $(FUNCTIONS)
 
 # Regla: borra los archivos temporales .o de las funciones y de libft ("make clean").
 clean:

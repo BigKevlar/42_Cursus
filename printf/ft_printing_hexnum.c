@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_hexnum.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:15:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/22 14:09:06 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/22 16:44:41 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	hexnum_print(uintptr_t n, char type)
 {
 	if (n >= 16)
 	{
-		hexnum_print(n / 16);
-		hexnum_print(n % 16);
+		hexnum_print(n / 16, type);
+		hexnum_print(n % 16, type);
 	}
 	else
 	{
