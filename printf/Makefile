@@ -2,19 +2,19 @@
 NAME = libftprintf.a
 
 # Ruta de "libft".
-LIBFT_PATH = ./libft
+LIBFT_DIR = ./libft
 
 # Libft compilado.
-LIBFT = $(LIBFT_PATH)/libft.a
+LIBFT = $(LIBFT_DIR)/libft.a
 
 # Variable: son los ficheros .c que queremos compilar para crear la libreria.
 FUNCTIONS = ft_printf.c \
 				ft_printing_char.c \
 				ft_printing_string.c \
-				ft_printing_unsignum \
-				ft_printing_signum \
-				ft_printing_pointer \
-				ft_printing_hexnum
+				ft_printing_unsignum.c \
+				ft_printing_signum.c \
+				ft_printing_pointer.c \
+				ft_printing_hexnum.c
 
 # Variable: convierte todos los archivos .c de FUNCTIONS en .o (por optimizacion/velocidad).
 OBJECTS = $(FUNCTIONS:.c=.o)
@@ -34,18 +34,17 @@ AR = ar rcs
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	make -C $(LIBFT_PATH)
-	cp $(LIBFT) .
-	mv libft.a libftprintf.a
+	make -C $(LIBFT_DIR)
+	cp $(LIBFT) $(NAME)
 	$(AR) $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(FUNCTIONS)
-	$(CC) $(FLAGS) $(OBJECTS)
+	$(CC) $(FLAGS) -I includes -c $< -o $@
 
 # Regla: borra los archivos temporales .o de las funciones y de libft ("make clean").
 clean:
 	rm -f $(OBJECTS)
-	make clean -C $(LIBFT_PATH)
+	make clean -C $(LIBFT_DIR)
 	
 # Regla, elimina absolutamente todos los archivos derivados del programa ("make clean").
 fclean: clean
