@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_pointer.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:09:47 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/21 17:28:47 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/07/22 14:09:07 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h" /*funcion printf CUSTOM "jmartos-"*/
+#include	"ft_printf.h" /* funcion PRINTF CUSTOM "jmartos-" */
 
 /* Imprime la direccion de un puntero "void *" en valor hexadecimal (%p). */
 /* uintptr_t => tipado para direcciones de memoria (ver libreria de C). */

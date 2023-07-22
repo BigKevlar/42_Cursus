@@ -35,9 +35,12 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	make -C $(LIBFT_PATH)
-	cp $(LIBFT) $(NAME)
-	$(CC) $(FLAGS) $(OBJECTS)
+	cp $(LIBFT) .
+	mv libft.a libftprintf.a
 	$(AR) $(NAME) $(OBJECTS)
+
+$(OBJECTS): $(FUNCTIONS)
+	$(CC) $(FLAGS) $(OBJECTS)
 
 # Regla: borra los archivos temporales .o de las funciones y de libft ("make clean").
 clean:

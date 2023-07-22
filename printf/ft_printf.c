@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/21 17:46:58 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/07/22 14:07:01 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,28 @@
 derivará a las demas subfunciones de fuera si encontrase los tipos
 despues de aparecer el simbolo de %. */
 /* (... => void *arg) */
-int	checking_type(va_list args, char *input)
+int	checking_type(va_list args, char input)
 {
 	int	len;
 
 	len = 0;
-	if (*input == 'c')
-		len = len + ft_printing_char(va_arg(args, char));
-	else if (*input == 's')
+	if (input == 'c')
+		len = len + ft_printing_char(va_arg(args, int));
+	else if (input == 's')
 		len = len + ft_printing_string(va_arg(args, char *));
-	else if (*input == 'p')
+	else if (input == 'p')
 		len = len + ft_printing_pointer(va_arg(args, unsigned long));
-	else if (*input == 'd')
+	else if (input == 'd')
 		len = len + ft_printing_signum(va_arg(args, int));
-	else if (*input == 'i')
+	else if (input == 'i')
 		len = len + ft_printing_signum(va_arg(args, int));
-	else if (*input == 'u')
+	else if (input == 'u')
 		len = len + ft_printing_unsignum(va_arg(args, unsigned int));
-	else if (*input == 'x')
-		len = len + ft_printing_hexnum(va_arg(args, (unsigned int, char)));
-	else if (*input == 'X')
-		len = len + ft_printing_hexnum(va_arg(args, (unsigned int, char)));
-	else if (*input == '%')
+	else if (input == 'x')
+		len = len + ft_printing_hexnum(va_arg(args, unsigned int), input);
+	else if (input == 'X')
+		len = len + ft_printing_hexnum(va_arg(args, unsigned int), input);
+	else if (input == '%')
 		len = len + ft_printing_char('%');
 	return (len);
 }

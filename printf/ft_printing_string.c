@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_string.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:08:59 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/19 16:06:43 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/22 14:09:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h" /*funcion printf CUSTOM "jmartos-"*/
+#include	"ft_printf.h" /* funcion PRINTF CUSTOM "jmartos-" */
 
 /* Imprime una cadena de caracteres (%s). */
 int	ft_printing_string(char *s)

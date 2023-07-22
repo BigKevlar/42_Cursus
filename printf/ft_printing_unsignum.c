@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_unsignum.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:14:30 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/19 16:06:44 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/22 14:09:08 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h" /*funcion printf CUSTOM "jmartos-"*/
+#include	"ft_printf.h" /* funcion PRINTF CUSTOM "jmartos-" */
 
 /* Imprime numeros enteros sin signo (%u). */
 int	ft_printing_unsignum(unsigned int n)
