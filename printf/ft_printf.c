@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/22 17:58:29 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/24 16:52:40 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,3 +75,10 @@ una tipo int llamada "len" para contar nuestros pasos a traves de los
 caracteres a imprimir, y tambien una tipo lista (facilitada por la
 libreria <stdarg.h>) llamada "va_list" que contendrá dos argumentos,
 "args" y el propio "input", y nos servira mas adelante para */
+/*
+int	main(void)
+{
+	ft_printf("%d", 0);
+	return (0);
+}
+*/
