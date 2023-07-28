@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_char.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:09:09 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/22 17:25:11 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/27 17:13:21 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h" /* funcion PRINTF CUSTOM "jmartos-" */
+#include	"ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /* Imprime un solo caracter o simbolo (%c, %%). */
 int	ft_printing_char(int c)
@@ -20,3 +20,6 @@ int	ft_printing_char(int c)
 }
 
 /* DESARROLLO */
+/*
+Devuelve 1 e imprime por pantalla un unico caracter/simbolo/numero.
+*/

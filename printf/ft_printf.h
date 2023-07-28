@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/22 16:53:07 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/27 17:26:22 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,24 @@
 /* Libreria custom42 "jmartos-". */
 # include	"./libft/libft.h"
 /*
-Esta libreria ofrece macros y funciones utilizadas cuando no se sabe la
-cantidad ni tipos de argumentos que se van a recibir por parametros,
-representandose mediante "..." y se declara y usa con:
-"va_list" =>
-"va_start"=> 
-"va_arg" =>
+Esta libreria ofrece macros y funciones utilizadas cuando no se sabe ni la
+cantidad ni los tipos de argumento que se van a recibir por parametros,
+representandose mediante "..." en los argumentos, y se y usa así:
+"..." => argumentos de longitud variable pasado por parametros.
+"va_list args" => es el tipado de la variable.
+"va_start(args, input)" => inicializamos la variable con argumento e input.
+"va_arg(args, input)" => se pone cuando vamos a usar esta variable.
 "va_copy" =>
-"va_end" =>
+"va_end(args)" => se usa para cerrar la variable (libera memoria?).
 */
 # include    <stdarg.h>
-/* Esta libreria contiene entre otras cosas un tipado para variables
+/*
+Esta libreria contiene, entre otras cosas, un tipado para variables
 llamado "uintptr_t", que lo usaremos cuando se necesite tratar una
 dirección de memoria como un valor entero sin signo o cuando necesitemos
-guardar direcciones de memoria en variables. */
+guardar direcciones de memoria en variables.
+"uintptr_t" => tipado para direcciones de memoria (entre otros).
+*/
 # include    <stdint.h>
 
 /* Vamos a incluir los prototipos de nuestras funciones. */

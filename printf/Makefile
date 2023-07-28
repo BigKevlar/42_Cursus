@@ -4,10 +4,10 @@ NAME = libftprintf.a
 # Ruta de "libft".
 LIBFT_DIR = ./libft
 
-# Libft compilado.
+# Libreria "libft" compilada.
 LIBFT = $(LIBFT_DIR)/libft.a
 
-# Variable: son los ficheros .c que queremos compilar para crear la libreria.
+# Variable: son los ficheros ".c" de nuestro "ft_printf" que queremos compilar para crear la nueva libreria.
 FUNCTIONS = ft_printf.c \
 				ft_printing_char.c \
 				ft_printing_string.c \
@@ -16,7 +16,7 @@ FUNCTIONS = ft_printf.c \
 				ft_printing_pointer.c \
 				ft_printing_hexnum.c
 
-# Variable: convierte todos los archivos .c de FUNCTIONS en .o (por optimizacion/velocidad).
+# Variable: convierte todos los archivos ".c" de FUNCTIONS en ".o" (por optimizacion/velocidad).
 OBJECTS = $(FUNCTIONS:.c=.o)
 
 # Variable: compila.
@@ -28,9 +28,8 @@ FLAGS = -Wall -Werror -Wextra -c
 # Variable: crea la libreria con la extension .h.
 AR = ar rcs
 
-# Regla: ejecuta el programa ("make"). (NO HACE EL BONUS DE LIBFT???)
-# El flag -C permite no tener que andar pensando en que ruta estamos, se salta con "cd".
-# NOTA: -I includes -c $< -o $@
+# Regla: ejecuta el programa ("make"). Ojo: no hace falta compilar el bonus de nuestro libft.
+# El flag "-C" permite no tener que andar pensando en que ruta estamos, salta automaticamente con "cd".
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
@@ -41,16 +40,16 @@ $(NAME): $(OBJECTS)
 $(OBJECTS): $(FUNCTIONS)
 	$(CC) $(FLAGS) $(FUNCTIONS)
 
-# Regla: borra los archivos temporales .o de las funciones y de libft ("make clean").
+# Regla: borra los archivos temporales ".o" de ft_printf y de libft ("make clean").
 clean:
 	rm -f $(OBJECTS)
 	make clean -C $(LIBFT_DIR)
 	
-# Regla, elimina absolutamente todos los archivos derivados del programa ("make clean").
+# Regla: elimina absolutamente todos los archivos derivados del programa ("make clean").
 fclean: clean
 	rm -f $(NAME) $(LIBFT)
 	
-# Regla, elimina todo y vuelve a compilar automaticamente el programa ("make re").
+# Regla: elimina todo y vuelve a compilar automaticamente el programa ("make re").
 re: fclean all
 
 # ???¿¿¿

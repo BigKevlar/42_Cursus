@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_hexnum.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:15:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/22 16:44:41 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:09:29 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h" /* funcion PRINTF CUSTOM "jmartos-" */
+#include	"ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /* Imprime numeros en base hexadecimal en minusculas (%x) o mayusculas (%X). */
 /* Subfuncion que cuenta la longitud del numero hexadecimal. */

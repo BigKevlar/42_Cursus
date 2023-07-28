@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/24 16:52:40 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:55:25 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h" /*funcion printf CUSTOM "jmartos-"*/
+#include	"ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
-/* Antes de la funcion principal vamos a hacer una subfuncion que nos
+/*
+Antes de la funcion principal vamos a hacer una subfuncion que nos
 derivará a las demas subfunciones de fuera si encontrase los tipos
-despues de aparecer el simbolo de %. */
-/* (... => void *arg) */
+despues de aparecer el simbolo de %.
+*/
 int	checking_type(va_list args, char input)
 {
 	int	len;
@@ -70,11 +71,16 @@ int	ft_printf(const char *input, ...)
 }
 
 /* DESARROLLO */
-/* Funcion principal. lo primero es que crearemos dos variables:
+/*
+Funcion principal: lo primero es que crearemos dos variables:
 una tipo int llamada "len" para contar nuestros pasos a traves de los
-caracteres a imprimir, y tambien una tipo lista (facilitada por la
+caracteres a retornar, y tambien una tipo lista (facilitada por la
 libreria <stdarg.h>) llamada "va_list" que contendrá dos argumentos,
-"args" y el propio "input", y nos servira mas adelante para */
+"args" y el propio "input", que nos permitira acceder a los parametros
+siempre que se encuentre un simbolo % mediante la subfuncion, que navegara
+en las funciones para devolver lo que necesitemos.
+*/
+/* MAIN DE PRUEBA, descomentar para usar. */
 /*
 int	main(void)
 {
