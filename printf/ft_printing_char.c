@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_char.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:09:09 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/27 17:13:21 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/07/28 16:05:14 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int	ft_printing_char(int c)
 
 /* DESARROLLO */
 /*
-Devuelve 1 e imprime por pantalla un unico caracter/simbolo/numero.
+Devuelve e imprime por pantalla un unico caracter/simbolo/numero.
 */

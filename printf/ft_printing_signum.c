@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_signum.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:12:28 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/27 18:45:01 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/07/28 17:11:45 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,16 @@ int	ft_printing_signum(int n)
 }
 
 /* DESARROLLO */
+/*
+Nuestra funcion empieza declarando "len" valor 0 para ir contando, e
+imprimimos directamente el numero para no variar valor de "n". Tener
+en cuenta que nuestra funcion de libreria "ft_putnbr_fd" ya se encarga
+de poner el signo si hace falta, asi que no lo implementamos aqui.
+- Si "n" es menor que 0 o mayor que el menor numero que podemos alcanzar
+con un int, le cambiamos de negativo a positivo y contamos uno a "len"
+para contar el signo.
+- Si es 0, devolvemos 1.
+- Si es el numero mas pequeño negativo, devolvemos 11.
+En cualquier otro caso con un bucle recorremos todas las posiciones y
+vamos sumando 1 a "len", devolviendolo al final.
+*/
