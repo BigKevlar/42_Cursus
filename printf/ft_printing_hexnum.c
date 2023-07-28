@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_hexnum.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:15:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/28 17:03:54 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/28 17:59:41 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_printing_hexnum(unsigned int n, char type)
 	if (n == 0)
 	{
 		write(1, "0", 1);
-		return (1)
+		return (1);
 	}
 	else
 		hexnum_print(n, type);
@@ -61,22 +61,27 @@ int	ft_printing_hexnum(unsigned int n, char type)
 
 /* DESARROLLO */
 /*
-Al igual que en la subfuncion de la funcion anterior, "hexnum_len" la usamos
-contar la longitud del numero hexadecimal dividiendo el numero repetidamente entre 16
-mientras que "n" no sea 0, y aumentando "len" uno mas repetidamente.
+Al igual que en la subfuncion de la funcion anterior, "hexnum_len" la
+usamos contar la longitud del numero hexadecimal dividiendo el numero
+repetidamente entre 16 mientras que "n" no sea 0, y aumentando "len".
 */
 /*
-Tambien igual que en la anterior, tenemos una funcion ahora llamada "hexnum_print"
-mediante la que imprimiremos el numero teniendo en cuenta (despues de llamarse
-recursivamente y teniendo en cuenta su dividendo y modulo):
-- Si es menor o igual que 9 significa que es un numero decimal entre el 0 y 9, por lo
-que imprime el numero sumandole '0' para obtener su valor en ASCII.
-- Si no lo es hace una de dos: si es minuscula el caracter le quitamos 10 y sumamos
-'a' para que nos imprima un valor en minuscula. Si es mayuscula todo lo contrario,
-le sumamos 10 y 'A' para que nos imprima un valor en mayuscula.
+Tambien igual que en la anterior, tenemos una funcion ahora llamada 
+"hexnum_print"mediante la que imprimiremos el numero teniendo en
+cuenta (despues de llamarse recursivamente y teniendo en cuenta
+su dividendo y modulo):
+- Si es menor o igual que 9 significa que es un numero decimal entre
+el 0 y 9, por lo que imprime el numero sumandole '0' para obtener su
+valor en ASCII.
+- Si no lo es hace una de dos: si es minuscula el caracter le quitamos
+10 y sumamos 'a' para que nos imprima un valor en minuscula. Si es
+mayuscula todo lo contrario, le sumamos 10 y 'A' para que nos imprima
+un valor en mayuscula.
 */
 /*
-Ahora en la funcion principal: si el numero es '0' lo imprimimos y devolvemos 1.
-Si no llamamos a "hexnum_print" para imprimir el numero en hexadecimal ya sea en
-minisculas o mayusculas dependiendo del tipo "type" que le pasemos. Y por ultimo
-devuelve la longuitud directamente con "hexnum_len". */
+Ahora en la funcion principal: si el numero es '0' lo imprimimos y
+devolvemos 1. Si no llamamos a "hexnum_print" para imprimir el numero
+en hexadecimal ya sea en minisculas o mayusculas dependiendo
+del tipo "type" que le pasemos. Y por ultimo devuelve la longuitud
+directamente con "hexnum_len".
+*/

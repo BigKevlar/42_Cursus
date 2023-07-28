@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_signum.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:12:28 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/28 17:11:45 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:38:01 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_printing_signum(int n)
 Nuestra funcion empieza declarando "len" valor 0 para ir contando, e
 imprimimos directamente el numero para no variar valor de "n". Tener
 en cuenta que nuestra funcion de libreria "ft_putnbr_fd" ya se encarga
-de poner el signo si hace falta, asi que no lo implementamos aqui.
+de poner el signo "-" , asi que no lo implementamos aqui.
 - Si "n" es menor que 0 o mayor que el menor numero que podemos alcanzar
 con un int, le cambiamos de negativo a positivo y contamos uno a "len"
 para contar el signo.
