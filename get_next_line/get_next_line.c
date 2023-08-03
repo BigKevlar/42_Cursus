@@ -6,14 +6,65 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:23:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/31 18:03:42 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/03 17:47:20 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* . */
-#include "get_next_line.h"
+#include "get_next_line.h" /* Funcion get_next_line.h "jmartos-". */
 
-/* OJO! SOLO SE PUEDE USAR EN LA FUNCION PRINCIPAL: READ, MALLOC Y FREE. */
+/* Subfuncion: leerá e imprimira la primera linea del file descriptor pasado
+hasta que encuentre un salto de linea. */
+char	*read_one_line_fd(int fd)
+{
+	char	*line;
+
+	line = read(fd, buffer, BUFFER_SIZE);
+}
+
+/* Funcion principal: le pasamos "fd", que es el archivo de texto que va
+a leer...*/
+char	*get_next_line(int fd)
+{
+	char	*buffer;
+	char	*line;
+
+	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (!buffer)
+		return (NULL);
+	line = read_one_line_fd(fd);
+	
+
+
+
+}
+
+/*
+int	main(void)
+{
+	int		fd;
+	char	*content;
+
+	fd = open("file.txt", O_RDONLY);
+	content = get_next_line(3);
+	printf("%s", content);
+	free(content);
+	close(fd);
+	return (0);
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 char	*get_next_line(int fd)
 {
 	char	*buffer;
@@ -26,7 +77,6 @@ char	*get_next_line(int fd)
 	return (buffer);
 }
 
-/* Main de prueba */
 int	main(void)
 {
 	int	fd;
@@ -36,3 +86,4 @@ int	main(void)
 	close(fd);
 	return (0);
 }
+*/
