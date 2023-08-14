@@ -6,84 +6,62 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:23:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/03 17:47:20 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/14 20:58:29 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h" /* Funcion get_next_line.h "jmartos-". */
+#include "get_next_line.h"
 
-/* Subfuncion: leerá e imprimira la primera linea del file descriptor pasado
-hasta que encuentre un salto de linea. */
-char	*read_one_line_fd(int fd)
+/* Subfuncion: leerá la primera linea del file descriptor pasado por
+parametros hasta que encuentre un salto de linea. */
+/* Decripcion: */
+static char	*get_line(char *buffer)
 {
 	char	*line;
+	int		counter;
 
-	line = read(fd, buffer, BUFFER_SIZE);
+	counter = 0;
+	while (buffer[counter] != '\n')
+		counter++;
+	line = malloc(sizeof(char) * counter + 1);
+	if (!line)
+		return (NULL);
+	counter = 0;
+	while (buffer[counter] && buffer[counter] != '\n')
+	{
+		line[counter] = buffer[counter];
+		counter++;
+	}
+	counter++;
+	line[counter] = '\0';
+	return (line);
 }
 
-/* Funcion principal: le pasamos "fd", que es el archivo de texto que va
-a leer...*/
+/* Funcion principal: le pasamos "fd", que es el archivo de texto
+que va a leer, y entregará la linea leida.*/
+/* Decripcion: */
 char	*get_next_line(int fd)
 {
-	char	*buffer;
-	char	*line;
+	static char	*text;
+	char		*line;
+	int			buffer;
 
-	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (!buffer)
+	buffer = read(fd, text, BUFFER_SIZE);
+	if (!buffer || buffer <= 0)
 		return (NULL);
-	line = read_one_line_fd(fd);
-	
-
-
-
+	line = get_line(text);
+	return (line);
 }
 
-/*
 int	main(void)
 {
 	int		fd;
 	char	*content;
 
 	fd = open("file.txt", O_RDONLY);
-	content = get_next_line(3);
+	content = get_next_line(fd);
 	printf("%s", content);
 	free(content);
 	close(fd);
 	return (0);
 }
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-char	*get_next_line(int fd)
-{
-	char	*buffer;
-	int		bytes;
-
-	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	bytes = read(fd, buffer, BUFFER_SIZE);
-	if (fd > 0 && BUFFER_SIZE > 0 && read(fd, NULL, 0) >= 0)
-	
-	return (buffer);
-}
-
-int	main(void)
-{
-	int	fd;
-
-	fd = open("file.txt", 0);
-	printf("%s", get_next_line(3));
-	close(fd);
-	return (0);
-}
-*/

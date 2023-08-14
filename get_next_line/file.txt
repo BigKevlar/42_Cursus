@@ -1,19 +1,11 @@
-La Gran Guerra es el único evento que ha dado forma al mundo de Fallout en su forma actual. 
-El 23 de octubre de 2077, los Estados Unidos, China y otros países, se bombardean unos a otros con 
-un rápido intercambio de misiles nucleares, que tuvo una duración de dos horas. La destrucción causada 
-por la breve guerra nuclear fue asombrosa, la devastación ocasionada en los primeros momentos de la guerra
-no se comparan con todos los conflictos mundiales anteriores combinados. y los supervivientes 
-de los impactos y las explosiones rápidamente sufireron las secuelas radioactivas.
-Los juegos de Fallout tienen lugar varios años después de la Gran Guerra, explicando como la humanidad 
-lucha por sobrevivir e intentar reconstruir la civilización. Algunos grupos han conseguido sobrevivir a 
-duras penas por encima del suelo, ya sea rapiñando en las ruinas quemadas de las ciudades o mediante la 
-supervivencia y adaptación a mutaciones masivas. Las comunidades que fueron selladas en los Refugios subterráneos 
-durante la guerra, ahora están surgiendo a repoblar el paisaje maldito. Tratando de organizar y mantener 
-la raza humana, estos restos rotos de la civilización están amenazados por mutantes psicóticos, 
-bandas de delincuentes, asaltantes, y todo tipo de criaturas hostiles. Los dos primeros juegos transcurren
-sobre todo en la zona conocida como la región central, donde las principales amenazas hasta ahora han sido
-el Maestro y el Enclave, mientras que el tercer juego tiene lugar en Yermo Capital, en la Costa Este.
-Una de las principales influencias del mundo de fallout es la saga de peliculas Mad Max,
-un mundo postapocaliptico y desertico en el cual lo que quedó de humanidad trata de sobrevivir enfrentados
-por los restos de la civilización, el estilo cyber punk sale directamente de alli. En fallout 2
-la chaqueta de cuero es identica a la usada por el personaje Max en Mad Max 2.
+La Gran Guerra.
+El 23 de octubre de 2077.
+Los Estados Unidos, China y otros países, se bombardean unos a otros.
+La destrucción causada por la breve guerra nuclear fue asombrosa.
+Los supervivientes de los impactos y las explosiones rápidamente sufireron las secuelas radioactivas.
+Fallout explica como la humanidad lucha por sobrevivir e intentar reconstruir la civilización.
+Algunos grupos han conseguido sobrevivir a duras penas en la superficie.
+Otras comunidades que fueron selladas en refugios subterráneos horas antes de las bombas.
+Ahora están surgiendo para repoblar el paisaje maldito, tratando de organizar y mantener la raza humana.
+Están amenazados constantemente por mutantes psicóticos, bandas de delincuentes, asaltantes, y todo tipo de criaturas hostiles.
+Una de las principales influencias del mundo de Fallout es la saga de peliculas Mad Max, pero ambientada en los años 70'.
