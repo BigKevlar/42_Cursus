@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:32:15 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/14 23:10:33 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/15 16:02:54 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 /* Valor predeterminado de buffer. */
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
+#  define BUFFER_SIZE 42
 # endif
 
 /* Libreria para usar "malloc" y "free". */
@@ -29,5 +29,6 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
+size_t	ft_strlen(char *s);
 
 #endif
