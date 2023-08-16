@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:01:20 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/15 19:10:17 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:14:42 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ char	*ft_strjoin(char *str1, char *str2)
 
 	cont1 = 0;
 	cont2 = 0;
-	len1 = ft_strlen(str1);
-	len2 = ft_strlen(str2);
 	if (!str1 || !str2)
 		return (NULL);
+	len1 = ft_strlen(str1);
+	len2 = ft_strlen(str2);
 	new_str = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!new_str)
 		return (NULL);
@@ -63,4 +63,39 @@ char	*ft_strjoin(char *str1, char *str2)
 		new_str[cont1++] = str2[cont2++];
 	new_str[cont1] = '\0';
 	return (new_str);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
+{
+	size_t	cont;
+	size_t	src_size;
+
+	src_size = 0;
+	while (src[src_size] != '\0')
+		src_size++;
+	cont = 0;
+	if (dst_size != 0)
+	{
+		while (src[cont] != '\0' && cont < (dst_size - 1))
+		{
+			dst[cont] = src[cont];
+			cont++;
+		}
+		dst[cont] = '\0';
+	}
+	return (src_size);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*new_array;
+	int		len;
+
+	len = ft_strlen((char *)s1) + 1;
+	new_array = malloc(len);
+	if (!new_array)
+		return (NULL);
+	ft_strlcpy(new_array, s1, len);
+	new_array[len - 1] = '\0';
+	return (new_array);
 }
