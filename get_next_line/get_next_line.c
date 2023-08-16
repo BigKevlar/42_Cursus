@@ -6,32 +6,76 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:23:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/15 17:06:01 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/16 16:10:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/* Subfuncion */
-/* Decripcion: lee byte a byte la primera linea del file descriptor,
-hasta que encuentre un salto de linea o finalize la linea. */
-/* Analisis: */
-static char	*print_line(char *buffer)
+static char	*reading_fd(int fd, char *text)
+{
+	char	*buffer;
+	int		bytes;
+
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE));
+	if (!buffer)
+		return (NULL);
+	bytes = 1;
+	while (!(ft_strchr(text, '\n')) && bytes > 0)
+	{
+		bytes = read(fd, buffer, BUFFER_SIZE);
+		buffer[bytes] = '\0';
+		text = ft_strjoin(text, buffer);
+	}
+	free(buffer);
+	return (text);
+}
+
+static char	*printing_line(char *text)
 {
 	char	*line;
 	int		counter;
 
-	line = malloc(sizeof(char) * ft_strlen(buffer) + 1);
+	line = malloc(sizeof(char) * ft_strlen(text) + 1);
 	if (!line)
 		return (NULL);
 	counter = 0;
-	while (buffer[counter] && buffer[counter] != '\n')
+	while (text[counter] && text[counter] != '\n')
 	{
-		line[counter] = buffer[counter];
+		line[counter] = text[counter];
+		counter++;
+	}
+	if (text[counter] == '\n')
+	{
+		line[counter] = '\n';
 		counter++;
 	}
 	line[counter] = '\0';
 	return (line);
+}
+
+static char	*updating_text(char *text)
+{
+	char	*str;
+	int		cont1;
+	int		cont2;
+
+	cont1 = 0;
+	cont2 = 0;
+	str = malloc(sizeof(char) * (cont1 + 1));
+	if (!str)
+		return (NULL);
+	while (text[cont1] != '\n')
+		cont1++;
+	while (text[cont1])
+	{
+		str[cont2] = text[cont1];
+		cont1++;
+		cont2++;
+	}
+	str[cont2] = '\0';
+	free(text);
+	return (str);
 }
 
 /* Funcion principal */
@@ -40,30 +84,19 @@ por pantalla linea por linea el contenido hasta el final. */
 /* Analisis: */
 char	*get_next_line(int fd)
 {
-	char	*text;
-	char	*line;
-	int		bytes;
+	static char	*text;
+	char		*line;
 
-	text = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!text)
+	text = "";
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	bytes = 1;
-	while (bytes > 0)
-	{
-		bytes = read(fd, text, BUFFER_SIZE);
-	}
-	if (bytes <= 0)
-	{
-		free(text);
-		return (NULL);
-	}
-	line = print_line(text);
-	free(text);
+	text = reading_fd(fd, text);
+	line = printing_line(text);
+	text = updating_text(text);
 	return (line);
 }
 
 /* Main de prueba */
-/*
 int	main(void)
 {
 	int		fd;
@@ -80,4 +113,3 @@ int	main(void)
 	close(fd);
 	return (0);
 }
-*/

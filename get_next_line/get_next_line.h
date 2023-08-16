@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:32:15 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/15 16:02:54 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/15 18:57:08 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(char *s);
+char	*ft_strchr(char *str, int chr);
+char	*ft_strjoin(char *str1, char *str2);
 
 #endif
