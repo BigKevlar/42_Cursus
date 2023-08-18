@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:32:15 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 20:42:22 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 22:00:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-size_t	gnl_strlen(char *s);
+size_t	gnl_strlen(char *str);
 char	*gnl_strchr(char *str, int chr);
 char	*gnl_strjoin(char *str1, char *str2);
 size_t	gnl_strlcpy(char *dst, const char *src, size_t dst_size);
-char	*gnl_strdup(const char *s1);
+char	*gnl_strdup(const char *str);
 
 #endif

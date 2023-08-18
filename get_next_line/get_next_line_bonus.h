@@ -3,30 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:32:15 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 17:45:57 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 22:26:15 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
+/* Definimos y damos valor predeterminado a BUFFER_SIZE. */
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
 
+/* Libreria para usar "malloc" y "free". */
 # include <stdlib.h>
+/* Libreria para usar "printf" (solo en el main de prueba). */
 # include <stdio.h>
+/* Libreria para usar "open" y: 0 "O_RDONLY", 1 "O_WRONLY", 2 "O_RDWR". */
 # include <fcntl.h>
+/* Libreria para usar "read", "write", "close". */
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-size_t	gnl_strlen(char *s);
+size_t	gnl_strlen(char *str);
 char	*gnl_strchr(char *str, int chr);
 char	*gnl_strjoin(char *str1, char *str2);
 size_t	gnl_strlcpy(char *dst, const char *src, size_t dst_size);
-char	*gnl_strdup(const char *s1);
+char	*gnl_strdup(const char *str);
 
 #endif

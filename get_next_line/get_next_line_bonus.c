@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:23:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 17:45:09 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 23:07:05 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
+/* Paso 1: LEER. */
 static char	*reading_fd(int fd, char *text)
 {
 	char	*buffer;
@@ -27,7 +28,11 @@ static char	*reading_fd(int fd, char *text)
 		if (bytes == 0)
 			break ;
 		else if (bytes < 0)
-			return (free(text), free(buffer), NULL);
+		{
+			free(buffer);
+			free(text);
+			return (NULL);
+		}
 		buffer[bytes] = '\0';
 		text = gnl_strjoin(text, buffer);
 		if (!text)
@@ -37,6 +42,7 @@ static char	*reading_fd(int fd, char *text)
 	return (text);
 }
 
+/* Paso 2: IMPRIMIR. */
 static char	*printing_line(char *text)
 {
 	char	*line;
@@ -60,6 +66,7 @@ static char	*printing_line(char *text)
 	return (line);
 }
 
+/* Paso 3: ACTUALIZAR LA VARIABLE ESTATICA. */
 static char	*updating_text(char *text)
 {
 	char	*str;
@@ -88,6 +95,7 @@ static char	*updating_text(char *text)
 	return (str);
 }
 
+/* FUNCION PRINCIPAL (BONUS) */
 char	*get_next_line(int fd)
 {
 	static char	*text[256];
@@ -102,23 +110,49 @@ char	*get_next_line(int fd)
 	text[fd] = updating_text(text[fd]);
 	return (line);
 }
-
+/* FUNCION PARA ENCONTRAR LEAKS DE MEMORIA. */
+/*
+void leaks()
+{
+	system("leaks -q");
+}
+*/
+/*COMANDO PARA COMPILAR Y PROBAR EL PROGRAMA. */
+/*
+gcc -Wall -Werror -Wextra -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c -o test | ./test
+*/
+/* MAIN DE PRUEBA */
 /*
 int	main(void)
 {
-	int		fd;
-	char	*content;
+	int		fd[2];
+	char	*c1;
+	char	*c2;
 
-	fd = open("/Users/jmartos-/Documents/42/get_next_line/file.txt", O_RDONLY);
+
+	fd[0] = open("book1.txt", O_RDONLY);
+	fd[1] = open("book2.txt", O_RDONLY);
 //	atexit(leaks);
-	content = get_next_line(fd);
-	while (content != NULL)
+	c1 = get_next_line(fd[0]);
+	c2 = get_next_line(fd[1]);
+	while (c1 != NULL || c2 != NULL)
 	{
-		printf("%s", content);
-		free(content);
-		content = get_next_line(0);
+		if (c1 != NULL)
+		{
+			printf("%s", c1);
+			free(c1);
+			c1 = get_next_line(fd[0]);
+		}
+		
+		if (c2 != NULL)
+		{
+			printf("%s", c2);
+			free(c2);
+			c2 = get_next_line(fd[1]);
+		}
 	}
-	close(fd);
+	close(fd[0]);
+	close(fd[1]);
 	return (0);
 }
 */

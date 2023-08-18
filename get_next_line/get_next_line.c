@@ -6,17 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:23:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 21:06:16 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 22:31:25 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-/* NOTAS */
-/*
-- Con el comando "ulimit -a" podemos ver los limites del sistema para
-el usuario que esta en uso (muy util para ver el maximo de fd.
-*/
 
 /* Paso 1: LEER. */
 static char	*reading_fd(int fd, char *text)
@@ -124,12 +118,10 @@ void leaks()
 	system("leaks -q");
 }
 */
-
 /*COMANDO PARA COMPILAR Y PROBAR EL PROGRAMA. */
 /*
 gcc -Wall -Werror -Wextra -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c -o test | ./test
 */
-
 /* MAIN DE PRUEBA */
 /*
 int	main(void)
@@ -137,7 +129,7 @@ int	main(void)
 	int		fd;
 	char	*content;
 
-	fd = open("book.txt", O_RDONLY);
+	fd = open("book1.txt", O_RDONLY);
 //	atexit(leaks);
 	content = get_next_line(fd);
 	while (content != NULL)

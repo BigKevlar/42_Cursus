@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:01:20 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 17:45:28 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 22:27:21 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
+/* AQUI PONDREMOS FUNCIONES ADICIONALES, YA QUE NO USAMOS NUESTRA "LIBFT". */
 
+/* Cuenta la longuitud de una cadena "*str". */
 size_t	gnl_strlen(char *str)
 {
 	size_t	len;
@@ -22,6 +24,7 @@ size_t	gnl_strlen(char *str)
 	return (len);
 }
 
+/* Busca el caracter "chr" en la cadena "str". */
 char	*gnl_strchr(char *str, int chr)
 {
 	int		cont;
@@ -36,6 +39,7 @@ char	*gnl_strchr(char *str, int chr)
 	return (0);
 }
 
+/* Concatena las cadenas "str1" y "str2" en una nueva "new_str". */
 char	*gnl_strjoin(char *str1, char *str2)
 {
 	char	*new_str;
@@ -65,6 +69,8 @@ char	*gnl_strjoin(char *str1, char *str2)
 	return (new_str);
 }
 
+/* Copia la cadena "src" en la cadena "dst",
+asegurando el tamaño "dst_size" y el nulo. */
 size_t	gnl_strlcpy(char *dst, const char *src, size_t dst_size)
 {
 	size_t	cont;
@@ -86,16 +92,17 @@ size_t	gnl_strlcpy(char *dst, const char *src, size_t dst_size)
 	return (src_size);
 }
 
-char	*gnl_strdup(const char *s1)
+/* Copia una cadena "str" y devulve una nueva "new_str" con esa copia.#*/
+char	*gnl_strdup(const char *str)
 {
-	char	*new_array;
+	char	*new_str;
 	int		len;
 
-	len = gnl_strlen((char *)s1) + 1;
-	new_array = malloc(len);
-	if (!new_array)
+	len = gnl_strlen((char *)str) + 1;
+	new_str = malloc(len);
+	if (!new_str)
 		return (NULL);
-	gnl_strlcpy(new_array, s1, len);
-	new_array[len - 1] = '\0';
-	return (new_array);
+	gnl_strlcpy(new_str, str, len);
+	new_str[len - 1] = '\0';
+	return (new_str);
 }
