@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:01:20 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 15:28:58 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 21:08:12 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-/* AQUI PONDREMOS FUNCIONES ADICIONALES, SEAN DE NUESTRA "LIBFT" O NO. */
+/* AQUI PONDREMOS FUNCIONES ADICIONALES, YA QUE NO USAMOS LA "LIBFT" */
 
+/* Funcion que usaremos para contar la longuitud de una cadena. */
 size_t	gnl_strlen(char *str)
 {
 	size_t	len;
@@ -23,6 +24,7 @@ size_t	gnl_strlen(char *str)
 	return (len);
 }
 
+/*  */
 char	*gnl_strchr(char *str, int chr)
 {
 	int		cont;

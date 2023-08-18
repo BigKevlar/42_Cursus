@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:32:15 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 17:09:56 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 20:42:22 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-/* Valor predeterminado de buffer. */
+/* Definimos y damos valor predeterminado a BUFFER_SIZE. */
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
