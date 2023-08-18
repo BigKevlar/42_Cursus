@@ -6,12 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:01:20 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 15:40:07 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:45:28 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-/* AQUI PONDREMOS FUNCIONES ADICIONALES, SEAN DE NUESTRA "LIBFT" O NO. */
 
 size_t	gnl_strlen(char *str)
 {

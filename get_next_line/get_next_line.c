@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:23:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 16:24:04 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:42:26 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 /* NOTAS */
 /*
-- Con el comandos "ulimit -a" podemos ver los limites del sistema para
+- Con el comando "ulimit -a" podemos ver los limites del sistema para
 el usuario que esta en uso (muy util para ver el maximo de fd.
 */
 
-/* LEER */
+/* Paso 1: LEER. */
 static char	*reading_fd(int fd, char *text)
 {
 	char	*buffer;
@@ -34,7 +34,11 @@ static char	*reading_fd(int fd, char *text)
 		if (bytes == 0)
 			break ;
 		else if (bytes < 0)
-			return (free(text), free(buffer), NULL);
+		{
+			free(buffer);
+			free(text);
+			return (NULL);
+		}
 		buffer[bytes] = '\0';
 		text = gnl_strjoin(text, buffer);
 		if (!text)
@@ -44,7 +48,7 @@ static char	*reading_fd(int fd, char *text)
 	return (text);
 }
 
-/* IMPRIMIR */
+/* Paso 2: IMPRIMIR. */
 static char	*printing_line(char *text)
 {
 	char	*line;
@@ -68,7 +72,7 @@ static char	*printing_line(char *text)
 	return (line);
 }
 
-/* ACTUALIZAR */
+/* Paso 3: ACTUALIZAR LA VARIABLE ESTATICA. */
 static char	*updating_text(char *text)
 {
 	char	*str;
@@ -113,11 +117,11 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/* CHECK DE LEAKS DE MEMORIA */
+/* FUNCION PARA ENCONTRAR LEAKS DE MEMORIA */
 /*
 void leaks()
 {
-	system("leaks -q prueba > leaks.txt");
+	system("leaks -q prueba");
 }
 */
 
@@ -128,14 +132,14 @@ int	main(void)
 	int		fd;
 	char	*content;
 
-	fd = open("/Users/jmartos-/Documents/42/get_next_line/prueba.txt", O_RDONLY);
+	fd = open("prueba.txt", O_RDONLY);
 //	atexit(leaks);
 	content = get_next_line(fd);
 	while (content != NULL)
 	{
 		printf("%s", content);
 		free(content);
-		content = get_next_line(0);
+		content = get_next_line(fd);
 	}
 	close(fd);
 	return (0);

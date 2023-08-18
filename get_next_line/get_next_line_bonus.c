@@ -6,19 +6,12 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:23:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 15:51:48 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:45:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-/* NOTAS */
-/*
-- Con el comandos "ulimit -a" podemos ver los limites del sistema para
-el usuario que esta en uso (muy util para ver el maximo de fd.
-*/
-
-/* LEER */
 static char	*reading_fd(int fd, char *text)
 {
 	char	*buffer;
@@ -44,7 +37,6 @@ static char	*reading_fd(int fd, char *text)
 	return (text);
 }
 
-/* IMPRIMIR */
 static char	*printing_line(char *text)
 {
 	char	*line;
@@ -68,7 +60,6 @@ static char	*printing_line(char *text)
 	return (line);
 }
 
-/* ACTUALIZAR */
 static char	*updating_text(char *text)
 {
 	char	*str;
@@ -97,7 +88,6 @@ static char	*updating_text(char *text)
 	return (str);
 }
 
-/* FUNCION PRINCIPAL */
 char	*get_next_line(int fd)
 {
 	static char	*text[256];
@@ -113,15 +103,6 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/* CHECK DE LEAKS DE MEMORIA */
-/*
-void leaks()
-{
-	system("leaks -q prueba > leaks.txt");
-}
-*/
-
-/* MAIN DE PRUEBA */
 /*
 int	main(void)
 {
