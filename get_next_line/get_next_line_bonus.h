@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:32:15 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 14:58:44 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:00:11 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* if (fd > 0 && BUFFER_SIZE > 0 && read(fd, NULL, 0) >= 0) */
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 /* Valor predeterminado de buffer. */
 # ifndef BUFFER_SIZE

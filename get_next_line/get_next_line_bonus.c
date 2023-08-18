@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:23:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 16:24:04 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:51:48 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /* NOTAS */
 /*
@@ -100,16 +100,16 @@ static char	*updating_text(char *text)
 /* FUNCION PRINCIPAL */
 char	*get_next_line(int fd)
 {
-	static char	*text;
+	static char	*text[256];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	text = reading_fd(fd, text);
-	if (!text)
+	text[fd] = reading_fd(fd, text[fd]);
+	if (!text[fd])
 		return (NULL);
-	line = printing_line(text);
-	text = updating_text(text);
+	line = printing_line(text[fd]);
+	text[fd] = updating_text(text[fd]);
 	return (line);
 }
 
@@ -128,7 +128,7 @@ int	main(void)
 	int		fd;
 	char	*content;
 
-	fd = open("/Users/jmartos-/Documents/42/get_next_line/prueba.txt", O_RDONLY);
+	fd = open("/Users/jmartos-/Documents/42/get_next_line/file.txt", O_RDONLY);
 //	atexit(leaks);
 	content = get_next_line(fd);
 	while (content != NULL)
