@@ -1,4 +1,5 @@
-- Con el comando "ulimit -a" podemos ver los limites del sistema para el usuario que esta en uso (muy util para ver el maximo de fd por ejemplo).
+- Con el comando "ulimit -a" podemos ver los limites del sistema para el usuario que esta en uso (muy util para ver el maximo
+de "fd" por ejemplo).
 
 - Funcion para encontrar leaks de memoria:
         
@@ -9,7 +10,8 @@
 
         atexit(leaks);
 
-- Comando para compilar el programa con los flags de 42, un valor a la valiable predeterminado, y ejecutarlo automaticamente con un nombre persolalizado:
+- Comando para compilar el programa con los flags de 42, un valor a la valiable predeterminado, y ejecutarlo automaticamente
+con un nombre persolalizado:
         gcc -Wall -Werror -Wextra -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c -o test | ./test
 
 - 
