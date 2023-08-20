@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:23:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 22:31:25 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/20 15:54:51 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,17 +111,6 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/* FUNCION PARA ENCONTRAR LEAKS DE MEMORIA. */
-/*
-void leaks()
-{
-	system("leaks -q");
-}
-*/
-/*COMANDO PARA COMPILAR Y PROBAR EL PROGRAMA. */
-/*
-gcc -Wall -Werror -Wextra -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c -o test | ./test
-*/
 /* MAIN DE PRUEBA */
 /*
 int	main(void)
