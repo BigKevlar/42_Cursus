@@ -6,32 +6,38 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/29 15:40:40 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:54:30 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include	<ctype.h> /*LIBRERIA PARA PROCESAMIENTO DE CARACTERES.*/
-# include	<string.h> /*LIBRERIA PARA OPERACIONES DE MEMORIA.*/
-# include	<stdlib.h> /*LIBRERIA PARA GESTION DE MEMORIA.*/
-# include	<stdio.h> /*LIBRERIA PARA EL PRINTF.*/
-# include	<unistd.h> /*LIBRERIA PARA EL write.*/
-# include	<stddef.h> /*LIBRERIA PARA EL "size_t".*/
+/* Operar con caracteres. */
+# include	<ctype.h>
+/* Manipular strings. */
+# include	<string.h>
+/* Gestion de memoria para cadenas/arrays. */
+# include	<stdlib.h>
+/* Para el "printf". */
+# include	<stdio.h>
+/* Para el "write". */
+# include	<unistd.h>
+/* Para el "size_t". */
+# include	<stddef.h>
 /*
-La siguiente declaracion es para una estructura/nodo:
-"s_list" es el nombre de la estructura/clase, "t_list" es el
-alias del nodo (un nuevo "tipado"???)
+La siguiente declaracion es para crear una estructura:
+"s_list" es el nombre de la estructura y "t_list" es el
+alias de la estructura, su tipado para las funciones.
 */
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-/************************/
-/*FUNCIONES OBLIGATORIAS*/
-/************************/
+/**************************/
+/* FUNCIONES OBLIGATORIAS */
+/**************************/
 int		ft_isalpha(int x);
 int		ft_isdigit(int x);
 int		ft_isalnum(int x);
@@ -55,9 +61,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
-/***********************/
-/*FUNCIONES ADICIONALES*/
-/***********************/
+/*************************/
+/* FUNCIONES ADICIONALES */
+/*************************/
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
@@ -69,9 +75,9 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-/*******/
-/*BONUS*/
-/*******/
+/*********/
+/* BONUS */
+/*********/
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
