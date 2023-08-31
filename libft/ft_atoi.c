@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 13:11:29 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/01 14:54:46 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/08/31 15:09:49 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"libft.h" /* Libreria 42 "jmartos-". */
 
-/*#Convierte la cadena "str", la analiza y la convierte en un valor entero
-(atoi = ASCII to Integer) hasta que encuentre algun caracter no numerico.#*/
+/* Analiza al cadena "str" y la convierte en un valor entero
+(atoi = ASCII to Integer) hasta que encuentre algun caracter no numerico. */
 int	ft_atoi(const char *str)
 {
 	int	cont;

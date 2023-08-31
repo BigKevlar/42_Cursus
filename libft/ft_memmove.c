@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:35:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/29 18:13:19 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/08/31 14:52:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"libft.h" /* Libreria 42 "jmartos-". */
 
-/*#Copia al final de "dst" "len" bytes de "src", asegurando superposicion.#*/
+/* Copia al final de "dst" "len" bytes de "src", asegurando superposicion. */
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char	*dst1;

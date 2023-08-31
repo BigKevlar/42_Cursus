@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 13:51:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/29 17:47:42 by kevlar           ###   ########.fr       */
+/*   Updated: 2023/08/31 14:38:46 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"libft.h" /* Libreria 42 "jmartos-". */
 
-/*#Copia al final de "dst" "n" bytes de "src", directamente.#*/
+/* Copia al final de "dst" "n" bytes de "src", directamente. */
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char	*dst1;

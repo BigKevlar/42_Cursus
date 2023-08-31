@@ -6,14 +6,14 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:48:12 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/30 11:46:25 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:58:07 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"libft.h" /* Libreria 42 "jmartos-". */
 
-/*#Copia la cadena "src" al final de "dst" asegurando que el tamaño "size"
-no se desborde.#*/
+/* Copia la cadena "src" al final de "dst" asegurando que el tamaño "size"
+no se desborde. */
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	pos_dst;

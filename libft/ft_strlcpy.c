@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:15:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/31 12:55:08 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:56:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"libft.h" /* Libreria 42 "jmartos-". */
 
-/*#Copia la cadena "src" en "dst" asegurando el tamaño "dst_size" y el nulo.#*/
+/* Copia la cadena "src" en "dst" asegurando el tamaño "dst_size" y el nulo. */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 {
 	size_t	cont;

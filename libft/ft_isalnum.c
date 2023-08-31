@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 20:01:48 by kevlar            #+#    #+#             */
-/*   Updated: 2023/05/24 14:46:54 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:14:49 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"libft.h" /* Libreria 42 "jmartos-". */
 
-/*#Comprueba si un caracter "x" es alfanumerico.#*/
+/* Comprueba si un caracter "x" es alfanumerico. */
 int	ft_isalnum(int x)
 {
 	if ((x >= '0' && x <= '9') || (x >= 'a' && x <= 'z')

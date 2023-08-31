@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:49:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/31 12:10:28 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:28:24 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"libft.h" /* Libreria 42 "jmartos-". */
 
-/*#Copia el numero 0 en las primeras "n" posiciones de "s".#*/
+/* Copia el numero 0 en las primeras "n" posiciones de "s". */
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*str;

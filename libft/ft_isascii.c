@@ -6,13 +6,13 @@
 /*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 20:14:49 by kevlar            #+#    #+#             */
-/*   Updated: 2023/05/28 16:21:19 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:15:18 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"libft.h" /* Libreria 42 "jmartos-". */
 
-/*#Comprueba si un caracter "x" esta representado en la tabla ASCII.#*/
+/* Comprueba si un caracter "x" esta representado en la tabla ASCII. */
 int	ft_isascii(int x)
 {
 	if (x >= 0 && x <= 127)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 11:31:27 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/31 13:29:25 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:06:03 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include	"libft.h" /* Libreria 42 "jmartos-". */
 
-/*#Busca el primer caracter "c" dentro de una cadena "s".#*/
+/* Busca en la cadena "s" el primer caracter "c". */
 char	*ft_strchr(const char *s, int c)
 {
 	char	*s1;
