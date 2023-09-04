@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 15:16:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/04 16:58:43 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/09/04 17:39:44 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-/* Este "handler" sirve tanto para SIGUSR1 como para SIGUSR2. */
+/* Este "handler" sirve tanto para señales de SIGUSR1 como de SIGUSR2. */
 void	handler(int signal, siginfo_t *info, void *context)
 {
 	static int	bit;
@@ -50,6 +50,11 @@ de C (pid_t = int) y le metemos el pid del servidor con la funcion
 el valor de "sa_mask" (señales bloquedas) dentro de nuestra estructura.
 Esto se hace para que no se interrumpan otras señales mientras manejamos
 las nuestras, "SIGUSR1" y "SIGUSR2".
+*/
+/* Ahora vamos a configurar las flags (banderas) de nuestra estructura.
+significa que vamos a recibir informacion mediante "handler", al que le
+pasaremos por parametros: el numero de señal, el mensaje y un puntero vacio.
+Este "handler"
 */
 int	main(void)
 {
