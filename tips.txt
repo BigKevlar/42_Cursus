@@ -1,3 +1,7 @@
+- Para reiniciar el adaptador de red podemos usar el comando:
+
+        sudo systemctl reenable NetworkManager | sudo systemctl restart NetworkManager
+
 - Con el comando "ulimit -a" podemos ver los limites del sistema para el usuario que esta en uso (muy util para ver el maximo
 de "fd" por ejemplo).
 
