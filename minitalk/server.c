@@ -3,25 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 15:16:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/03 19:57:19 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:45:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+/* Este "handler" sirve tanto para SIGUSR1 como para SIGUSR2. */
 void	handler(int signal, siginfo_t *info, void *context)
 {
-	(void)context;
-	static int  i;
-	static char c;
+	static int	i;
+	static char	c;
 
-	if(signal == SIGUSR1)
+	(void)context;
+	if (signal == SIGUSR1)
 		c = c | (1 << i);
 	i++;
-	if(i == 8)
+	if (i == 8)
 	{
 		ft_printf("%c", c);
 		if (c == '\0')
@@ -52,8 +53,8 @@ las nuestras, "SIGUSR1" y "SIGUSR2".
 */
 int	main(void)
 {
-	pid_t   pid;
-	struct sigaction sig;
+	pid_t				pid;
+	struct sigaction	sig;
 
 	pid = getpid();
 	ft_printf("ProcessID del servidor: %d\n", pid);
@@ -62,7 +63,7 @@ int	main(void)
 	sig.sa_sigaction = handler;
 	sigaction(SIGUSR1, &sig, NULL);
 	sigaction(SIGUSR2, &sig, NULL);
-	while(1)
+	while (1)
 		pause();
 	return (0);
 }

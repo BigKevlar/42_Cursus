@@ -5,7 +5,7 @@ SERVER = server
 
 LIBFT = libft/libft.a
 
-FLAGS  = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 INCLUDES = -I libft/includes
 
