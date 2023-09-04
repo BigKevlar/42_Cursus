@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:45:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/04 15:46:59 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/09/04 16:25:17 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,32 @@ void	handler(int sig)
 
 void	byte(int pid, char c)
 {
-	int	i;
+	int	bit;
 
-	i = 0;
-	while (i < 8)
+	bit = 0;
+	while (bit < 8)
 	{
 		g_mutex = 0;
-		if (c & (1 << i))
+		if (c & (1 << bit))
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
 		while (g_mutex == 0)
 			usleep(1);
-		i++;
+		bit++;
 	}
 	return ;
 }
 
 void	send(int pid, char *str)
 {
-	int	i;
+	int	cont;
 
-	i = 0;
-	while (str[i])
+	cont = 0;
+	while (str[cont])
 	{
-		byte(pid, str[i]);
-		i++;
+		byte(pid, str[cont]);
+		cont++;
 	}
 	byte(pid, '\0');
 	return ;

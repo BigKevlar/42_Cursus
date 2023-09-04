@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 15:16:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/04 15:45:36 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/09/04 16:58:43 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 /* Este "handler" sirve tanto para SIGUSR1 como para SIGUSR2. */
 void	handler(int signal, siginfo_t *info, void *context)
 {
-	static int	i;
-	static char	c;
+	static int	bit;
+	static char	word;
 
 	(void)context;
 	if (signal == SIGUSR1)
-		c = c | (1 << i);
-	i++;
-	if (i == 8)
+		word = word | (1 << bit);
+	bit++;
+	if (bit == 8)
 	{
-		ft_printf("%c", c);
-		if (c == '\0')
+		ft_printf("%c", word);
+		if (word == '\0')
 		{
 			kill(info->si_pid, SIGUSR1);
 			ft_printf("\n");
 		}
-		i = 0;
-		c = 0;
+		bit = 0;
+		word = 0;
 	}
 	kill(info->si_pid, SIGUSR2);
 	return ;
