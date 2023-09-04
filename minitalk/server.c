@@ -1,0 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/03 15:16:19 by jmartos-          #+#    #+#             */
+/*   Updated: 2023/09/03 19:57:19 by jmartos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minitalk.h"
+
+void	handler(int signal, siginfo_t *info, void *context)
+{
+	(void)context;
+	static int  i;
+	static char c;
+
+	if(signal == SIGUSR1)
+		c = c | (1 << i);
+	i++;
+	if(i == 8)
+	{
+		ft_printf("%c", c);
+		if (c == '\0')
+		{
+			kill(info->si_pid, SIGUSR1);
+			ft_printf("\n");
+		}
+		i = 0;
+		c = 0;
+	}
+	kill(info->si_pid, SIGUSR2);
+	return ;
+}
+
+/* DESAROLLO
+*/
+/* Esta es la parte de servidor. Vamos a "arrancarlo".
+*/
+/* Como dice el subject, lo primero en el servidor es mostrar su pid.
+Para ello creamos la variable "pid" con el tipado "pid_t" de la libreria
+de C (pid_t = int) y le metemos el pid del servidor con la funcion
+"getpid" para imprimirlo por pantalla a continuacion con "ft_printf".
+*/
+/* Luego vamos a inicializar a 0 con la funcion  de C "sigemptyset()"
+el valor de "sa_mask" (señales bloquedas) dentro de nuestra estructura.
+Esto se hace para que no se interrumpan otras señales mientras manejamos
+las nuestras, "SIGUSR1" y "SIGUSR2".
+*/
+int	main(void)
+{
+	pid_t   pid;
+	struct sigaction sig;
+
+	pid = getpid();
+	ft_printf("ProcessID del servidor: %d\n", pid);
+	sigemptyset(&sig.sa_mask);
+	sig.sa_flags = SA_SIGINFO;
+	sig.sa_sigaction = handler;
+	sigaction(SIGUSR1, &sig, NULL);
+	sigaction(SIGUSR2, &sig, NULL);
+	while(1)
+		pause();
+	return (0);
+}
