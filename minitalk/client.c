@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:45:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/05 16:56:25 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:41:05 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ otra manera: por defecto esta cerrado, solo se abre cuando vamos a procesar
 un byte con nuestra funcion "byte", la cual lo cerrará hasta que termine
 de procesarlo.
 */
-int g_mutex = 0;
+int	g_mutex = 0;
 
 void	handler(int sig)
 {
