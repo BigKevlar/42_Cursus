@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 15:16:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/05 16:19:42 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:35:07 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(void)
 	pid = getpid();
 	ft_printf("ProcessID del servidor: %d\n", pid);
 	sigemptyset(&sig.sa_mask);
-	sig.sa_flags = SA_SIGINFO;
+	sig.sa_flags = SA_SIGINFO | SA_NODEFER;
 	sig.sa_sigaction = handler;
 	sigaction(SIGUSR1, &sig, NULL);
 	sigaction(SIGUSR2, &sig, NULL);

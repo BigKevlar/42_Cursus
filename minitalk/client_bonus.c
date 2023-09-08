@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:45:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/08 15:41:18 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:18:53 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 /* (Variable global) Vamos a usarla como "semaforo booleano" en el handler,
 para que no se de el caso en el que se hace un kill sin que el cliente haya
@@ -46,7 +46,7 @@ void	byte(int pid, char c)
 		else
 			kill(pid, SIGUSR2);
 		while (g_mutex == 0)
-			usleep(42);
+			usleep(1);
 		bit++;
 	}
 	return ;
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 {
 	int	pid;
 
-	if (argc != 3)
+	if (argc != 3 || !ft_isdigit_str(argv[1]))
 	{
 		ft_printf("Arguments ERROR\n");
 		return (0);
@@ -83,6 +83,9 @@ int	main(int argc, char **argv)
 	signal(SIGUSR1, handler);
 	signal(SIGUSR2, handler);
 	pid = ft_atoi(argv[1]);
-	send(pid, argv[2]);
+	if (pid > 0)
+		send(pid, argv[2]);
+	else
+		ft_printf("Pid ERROR\n");
 	return (0);
 }

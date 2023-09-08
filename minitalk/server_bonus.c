@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 15:16:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/05 16:43:47 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:48:04 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 /* En este "handler" sirve tanto para señales SIGUSR1 como SIGUSR2. */
 void	handler(int signal, siginfo_t *info, void *context)
@@ -71,7 +71,7 @@ int	main(void)
 	pid = getpid();
 	ft_printf("ProcessID del servidor: %d\n", pid);
 	sigemptyset(&sig.sa_mask);
-	sig.sa_flags = SA_SIGINFO;
+	sig.sa_flags = SA_SIGINFO | SA_NODEFER;
 	sig.sa_sigaction = handler;
 	sigaction(SIGUSR1, &sig, NULL);
 	sigaction(SIGUSR2, &sig, NULL);
