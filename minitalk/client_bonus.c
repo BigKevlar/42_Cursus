@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:45:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/08 17:18:53 by jmartos-         ###   ########.fr       */
+/*   Updated: 2023/09/09 13:23:48 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	handler(int sig)
 
 	g_mutex = 1;
 	if (sig == SIGUSR1)
-		ft_printf("Bits sent: %d\n", cont);
+		ft_printf("Bits enviados correctamente: %d\n", cont);
 	else
 		cont++;
 	return ;
@@ -77,7 +77,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 3 || !ft_isdigit_str(argv[1]))
 	{
-		ft_printf("Arguments ERROR\n");
+		ft_printf("ERROR! Argumentos invalidos...\n");
 		return (0);
 	}
 	signal(SIGUSR1, handler);
@@ -86,6 +86,6 @@ int	main(int argc, char **argv)
 	if (pid > 0)
 		send(pid, argv[2]);
 	else
-		ft_printf("Pid ERROR\n");
+		ft_printf("ERROR! El pID es invalido...\n");
 	return (0);
 }
