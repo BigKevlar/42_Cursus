@@ -1,3 +1,7 @@
+******************
+* TIPS GENERALES *
+******************
+
 - Con el comando "ulimit -a" podemos ver los limites del sistema para el usuario que esta en uso (muy util para ver el maximo
 de "fd" por ejemplo).
 
@@ -12,15 +16,195 @@ de "fd" por ejemplo).
 
 - Comando para compilar el programa con los flags de 42, un valor a la valiable predeterminado, y ejecutarlo automaticamente
 con un nombre persolalizado:
+
         gcc -Wall -Werror -Wextra -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c -o test | ./test
 
-- 
+- Con el comando "neofetch" vemos las caracteristicas del equipo.
 
-***********************
-* TRUQUILLOS PARA VIM *
-***********************
+- Con este comando reiniciamos todo el servicio de red del ordenador, en caso de problemas:
+
+        sudo systemctl reenable NetworkManager | sudo systemctl restart NetworkManager
+
+*************************
+* EDITOR DE TEXTO "VIM" *
+*************************
 
 :w (guardar)
 :q (salir)
 :syntax on (colores)
 :set number (numero de linea)
+
+***********
+* GRADEME *
+***********
+
+Si no esta instalado G++:
+
+        sudo apt install build-essential
+
+Y luego:
+
+        bash -c "$(curl https://grademe.fr)"
+
+**************
+* NORMINETTE *
+**************
+
+    sudo apt update
+    sudo apt install wget software-properties-common 
+    sudo add-apt-repository ppa:deadsnakes/ppa 
+    sudo apt update 
+    sudo apt install python3.9
+    wget https://bootstrap.pypa.io/get-pip.py
+    python3 ./get-pip.py     
+    python3 -m pip install --upgrade pip setuptools
+    python3 -m pip install norminette
+    git clone https://github.com/42Paris/norminette.git ~/.norminette/
+
+********
+* PACO *
+********
+
+	(en la carpeta home):
+    git clone git@vogsphere.42malaga.com:vogsphere/intra-uuid-451c1d93-d829-47c6-97de-5865d9e91a59-4680803-jmartos-
+    sudo apt install g++-12
+    sudo apt install clang-12
+    sudo apt install clang
+    sudo apt reinstall python3
+
+Alias para Frank y Norm:
+    nano ~/.bashrc
+        alias norminette=~/.norminette/norminette.rb
+        alias norma=~/.norminette/norminette.rb
+        alias francinette=/home/kevlar/francinette/tester.sh
+        alias paco=/home/kevlar/francinette/tester.sh
+    source ~/.bashrc
+
+*********
+* SLACK *
+*********
+
+    Nos descargamos el archivo .deb de la web oficial y usamos el comando siguiente en la carpeta donde este:
+        sudo dpkg -i archivodeinstalacion.deb
+    Y ingresamos con nuestro email de 42 (que esta redirigido al nuestro de Gmail):
+        jmartos-@student.42malaga.com
+
+**********
+* GITHUB *
+**********
+
+rama MAIN ó MASTER
+	(trabajas paralelamente en una copia local y no en el servidor)
+
+(TODO COMIENZA PONIENDO "git")
+
+sudo apt-get intall git
+	(instalat git)
+
+git --version
+	(saber que version de git esta intalada)
+
+git init
+	(comienza el repositorio en directorio en el que estamos)
+
+git status
+	(informacion del repositorio)
+
+git config --global user.name "kevlaroscuro"
+	(le decimos a git nuestro nombre, para el registro de usuario a
+	ojos de cambios y modificaciones en el trabajo de repositorios)
+
+git config --global user.email "kevlaroscuro@gmail.com"
+	(lo mismo, pero ponemos nuestro email)
+
+git config --list
+	(muestra la configuradion de Git)
+
+git add 
+	(hacer seguimiento de un archivo)
+
+git commit
+	(confirma los cambios y los sube al servidor)
+
+git commit -m ""
+	(confirmar cambios con la anotacion ya incluida)
+
+git commit --amend
+	(se abre un editor nano para cambiar el mensaje
+	de confirmacion	del commit)
+
+git restore --stage ""
+	(saca un archivo del seguimiento)
+
+git reset --hard HEAD^
+	(borrado forzoso del ultimo commit, la ultima confirmacion)
+
+git reset --hard HEAD~3
+	(borrado forzoso de commit tercero)
+
+git log
+	(muestra el historial)
+
+git pull
+	(descargas los cambios de GitHub 
+	a tu repositorio local, Y SE SOBREESCRIBE!)
+
+git push
+	(sube los cambios del local a la nube en GitHub)
+
+git push -f origin main
+	(sube los cambios de forma forzada a la rama main)
+	
+git remote add origin "URL.git"
+	(vinculamos el repositorio local en la nube)	
+
+git push --set-upstream origin master
+	(para configurar la rama master en main y el remoto como upstream
+	y tenerlo ya configurado automaticamente)
+
+git remote -v
+	(para saber si tenemos un repositorio vinculado en la nube)
+
+git remote set-url "nombre del repo local" "URL.git"
+	(para cambiar el repo si nos hemos equivocado)
+
+git clone "URL"
+	(clona el repositorio con la URL en nuestro
+	directorio local)
+
+(OJO! No es lo mismo "clonar" que "forkear". Para forkear lo haces
+en GitHub del destino a tu cuenta y luego ya clonas desde tu cuenta
+a local. Se usa para clonar repositorios publicos sin tener
+permisos)
+
+git remote add upstream "URL"
+	(despues de forkear, vincula el repositorio original con
+	el tuyo de GitHub)
+
+git fetch upstream
+	(similar al pull, ya que se descargan los cambios del 
+	repositorio original al tuyo de GitHub)
+
+git branch
+	(muestra las ramas del repositorio)
+
+git branch ""
+	(crea una nueva rama)
+
+git branch -d ""
+	(borra una rama)
+
+git checkout ""
+	(cambia de rama)
+
+git checkout -b ""
+	(crea una nueva rama y te translada a ella)
+
+git merge upstream/main
+	(fusiona dos ramas)
+
+git diff origin main
+	(compara los ficheros entre ramas)
+	
+git gc --aggressive --prune=all
+	(?¿)
