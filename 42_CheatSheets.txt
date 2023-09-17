@@ -33,6 +33,8 @@ con un nombre persolalizado:
 :q (salir)
 :syntax on (colores)
 :set number (numero de linea)
+yy (copiar)
+pp (pegar)
 
 ***********
 * GRADEME *
