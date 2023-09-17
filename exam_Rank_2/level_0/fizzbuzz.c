@@ -2,11 +2,10 @@
 
 int	main(void)
 {
-	int	num;
+	int	num = 1;
 	int	aux1;
 	int	aux2;
 
-	num = 1;
 	while (num <= 100)
 	{
 		if ((num % 3 == 0) && (num % 5 == 0))
