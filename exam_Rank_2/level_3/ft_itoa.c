@@ -12,3 +12,7 @@ Your function must be declared as follows:
 char	*ft_itoa(int nbr);
 */
 
+char	*ft_itoa(int nbr)
+{
+	
+}
