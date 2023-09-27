@@ -25,6 +25,11 @@ con un nombre persolalizado:
 
         sudo systemctl reenable NetworkManager | sudo systemctl restart NetworkManager
 
+- Y con este comando, que no se como funciona ni que modifica, correguimos de forma permanente el problema
+de la señal debil WiFi de las tarjetas Realtek RTL8723BE (en mi Lenovo B5400 funcionó):
+ 
+        echo "options rtl8723be fwlps=0" | sudo tee /etc/modprobe.d/rtl8723be.conf
+
 *************************
 * EDITOR DE TEXTO "VIM" *
 *************************
