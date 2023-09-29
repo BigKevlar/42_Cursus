@@ -31,21 +31,21 @@ int		ft_atoi(char *str)
 	int num = 0;
 	int sig = 1;
 
-	while (str[cont] == ' ' || (str[cont] >= 9 && str[cont] <= 13))
+	while (str[cont] == ' ' || (str[cont] >= 9 && str[cont] <= 13)) //si la primera posicion es espacio o un caracter especial tipo tab o algo asi ve saltando posiciones.
 		cont++;
-	if (str[cont] == '-')
+	if (str[cont] == '-') //si es el simbolo - cambiamos el valor de sig a negativo y avanzamos.
 	{
 		sig = -1;
 		cont++;
 	}
-	else if (str[cont] == '+')
+	else if (str[cont] == '+') //si es + simplemente avanzamos.
 		cont++;
-	while (str[cont] >= '0' && str[cont] <= '9')
+	while (str[cont] >= '0' && str[cont] <= '9') //si esta entre 0 y 9  cojemos el numero y le musltiplicamos 10 para saltar a la derecha, y le sumamos 0 para convertirlo en caracter y cont mas uno.
 	{
 		num = (num * 10) + (str[cont] - '0');
 		cont++;
 	}
-	return (num * sig);
+	return (num * sig); //devolvemos el numero mutiplicado por el signo, por si es negativo.
 }
 
 void	ft_putnbr(int num)
