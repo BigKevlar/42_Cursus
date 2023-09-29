@@ -46,10 +46,10 @@ int main(int ac, char **av)
 	if (ac >= 2)
 	{
 		cont = 0;
-		while (av[1][cont] == ' ' || av[1][cont] == '\t') // recorremos el string saltando espacios o tabulaciones al comienzo.
+		while (av[1][cont] == ' ' || av[1][cont] == '\t') //recorremos el string saltando espacios o tabulaciones al comienzo.
 			cont++;
-		word = cont; // guardamos en word la posicion del comienzo de la primera palabra.
-		while (av[1][cont] != '\0') // avanzamos hasta el final.
+		word = cont; //guardamos en word la posicion del comienzo de la primera palabra.
+		while (av[1][cont] != '\0') //avanzamos hasta el final.
 		{
 			while (av[1][cont] != '\0' && (av[1][cont] != ' ' && av[1][cont] != '\t')) // find the next word.
 				cont++;
