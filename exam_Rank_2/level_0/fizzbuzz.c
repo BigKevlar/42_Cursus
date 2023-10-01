@@ -43,9 +43,10 @@ $>
 
 int	main(void)
 {
-	int	num = 1;
-	int	aux1;
-	int	aux2;
+	int	num = 1; //comenzamos en 1, lo dice el enunciado del ejercicio.
+	int	dig; //será para un digito unicamente, si el numero es uno.
+	int	dig1; //será para el primer digito, si el numero son dos.
+	int	dig2; //será para el segundo digito, si el numero son dos.
 
 	while (num <= 100)
 	{
@@ -57,15 +58,15 @@ int	main(void)
 			write(1, "buzz", 4);
 		else if (num > 10)
 		{
-			aux1 = (num / 10) + '0';
-			aux2 = (num % 10) + '0';
-			write (1, &aux1, 1);
-			write (1, &aux2, 1);
+			dig1 = (num / 10) + '0';
+			dig2 = (num % 10) + '0';
+			write (1, &dig1, 1);
+			write (1, &dig2, 1);
 		}
 		else if (num < 10)
 		{
-			aux1 = num + '0';
-			write(1, &aux1, 1);
+			dig = num + '0';
+			write(1, &dig, 1);
 		}
 		write(1,"\n", 1);
 		num++;
