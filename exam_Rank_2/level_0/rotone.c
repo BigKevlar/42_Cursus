@@ -37,24 +37,19 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-    	while (av[1][cont])
+    	while (av[1][cont] != '\0')
 		{
-			if (av[1][cont] >= 'a' && av[1][cont] <= 'y')
+			if ((av[1][cont] >= 'a' && av[1][cont] <= 'y') || (av[1][cont] >= 'A' && av[1][cont] <= 'Y')) // si la letra es minuscula o mayuscula imprime la siguiente y avanza luego cont.
 			{	
 				av[1][cont]++;
 				write(1, &av[1][cont], 1);
 			}
-			else if (av[1][cont] >= 'A' && av[1][cont] <= 'Y')
-			{
-				av[1][cont]++;
-				write(1, &av[1][cont], 1);
-			}
-			else if (av[1][cont] == 'z')
+			else if (av[1][cont] == 'z') // si es exclusivamente la z escribe a y avanza cont.
 				write(1, "a", 1);
-			else if (av[1][cont] == 'Z')
+			else if (av[1][cont] == 'Z') // si es exclusivamente la Z escribe a y avanza cont.
 				write(1, "A", 1);
 			else
-				write(1, &av[1][cont], 1);
+				write(1, &av[1][cont], 1); // si es otro caracter simplemente imprimelo.
 			cont++;
 		}
 	}
