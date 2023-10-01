@@ -34,11 +34,11 @@ $
 
 int	main(int ac, char **av)
 {
-	int		n1 = atoi(av[1]);
+	int		n1 = atoi(av[1]); // debemos usar atoi para pasar los argumentos tipo char a numeros tipo int.
 	char	sig = av[2][0];
 	int		n2 = atoi(av[3]);
 
-	if (ac == 4)
+	if (ac == 4) //debe recoger 3 argumentos.
 	{
 		if (sig == '+')
 			printf("%d", n1 + n2);
