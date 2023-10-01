@@ -34,15 +34,15 @@ int main(int ac, char **av)
 	
 	if (ac == 2)
 	{
-		while (av[1][cont] != '\0')
+		while (av[1][cont] != '\0') //va hasta el final del string.
 			cont++;
-		while((av[1][cont] == " " || av[1][cont] == '\t') && cont != 0)
+		while((av[1][cont] == ' ' || av[1][cont] == '\t') && cont != 0) //retrocede hasta el final de la utima palabras si hay espacios o tabs, y es nulo cont.
 			cont--;
-		while((av[1][cont] != " " || av[1][cont] != '\t') && cont != 0)
+		while(av[1][cont] != ' ' && av[1][cont] != '\t') //ahora retrocede hasta el principio de la palabra si no encuentras espacios ni tabs
 			cont--;
-		while(av[1][cont] == " " || av[1][cont] == '\t')
+		if (av[1][cont] == ' ' || av[1][cont] == '\t') // si el sitio donde esta es un espacio o tab avanza  una posicion.
 			cont++;
-		while(av[1][cont] != "\0" && av[1][cont] != " " && av[1][cont] != '\t')
+		while(av[1][cont] != '\0' && av[1][cont] != ' ' && av[1][cont] != '\t') //por ultimo imprime la ultima palabra hasta que sea nulo o encuentre espacio o tab.
 		{
 			write(1, &av[1][cont], 1);
 			cont++;
