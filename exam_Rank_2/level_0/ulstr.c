@@ -31,13 +31,13 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		while (av[1][cont] != '\0')
+		while (av[1][cont] != '\0') //vamos a cambiar de minusculas a mayusculas y viceversa sumando o estando 32 posiciones en ascii segun convenga e imprimiendo.
 		{
 			if (av[1][cont] >= 'a' && av[1][cont] <= 'z')
 				av[1][cont] -= 32;
 			else if (av[1][cont] >= 'A' && av[1][cont] <= 'Z')
 				av[1][cont] += 32;
-			write(1, &av[1][cont], 1);
+			write(1, &av[1][cont], 1); //si no, escribe simplemente y siguiente posicion.
 			cont++;
 		}
 	}
