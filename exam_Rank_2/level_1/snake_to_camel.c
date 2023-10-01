@@ -31,14 +31,14 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		while (av[1][cont])
+		while (av[1][cont] != '\0')
 		{
-			if (av[1][cont] == '_')
+			if (av[1][cont] == '_') //comenzamos el array viendo si encuentra un _ y si es asi la siguiente palabra la pasamos a mayuscula e imprimimos
 			{
 				cont++;
 				av[1][cont] -= 32;
 			}
-			write(1, &av[1][cont], 1);
+			write(1, &av[1][cont], 1); //tanto si lo es como si no imprimimos y saltamos de posicion.
 			cont++;
 		}
 	}
