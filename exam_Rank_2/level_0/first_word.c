@@ -36,9 +36,9 @@ int main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		while (av[1][cont] == ' ' || av[1][cont] == '\t')
+		while (av[1][cont] == ' ' || av[1][cont] == '\t') //saltamos los espacios o tabulaciones que pudiera haber antes de la primera palabra.
 			cont++;
-		while (av[1][cont] != '\0' && av[1][cont] != ' ' && av[1][cont] != '\t')
+		while (av[1][cont] != '\0' && av[1][cont] != ' ' && av[1][cont] != '\t') //hasta que no termine o no encuentre ni espacios ni tabuaciones.
 		{
 			write (1, &av[1][cont], 1);
 			cont++;
