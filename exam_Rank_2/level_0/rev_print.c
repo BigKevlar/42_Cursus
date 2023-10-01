@@ -24,16 +24,14 @@ $
 int	main(int ac, char **av)
 {
 	int		cont = 0;
-	char	*str = av[1];
 
 	if (ac == 2)
 	{
-		while (str[cont])
+		while (av[1][cont] != '\0') //avanzamos hasta el final.
 			cont++;
-		cont--;
-		while (cont >= 0)
+		while (cont >= 0) // imprimimos en sentido contrario.
 		{
-			write(1, &str[cont], 1);
+			write(1, &av[1][cont], 1);
 			cont--;
 		}
 	}
