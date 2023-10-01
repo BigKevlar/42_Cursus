@@ -34,24 +34,24 @@ $>
 
 int	main(int ac, char **av)
 {
-	int		c = 0;
+	int		cont = 0;
 	char	word = 0;
 
 	if (ac == 2)
 	{
-		while (av[1][c] != '\0')
+		while (av[1][cont] != '\0')
 		{
-			word = 1;
-			if (av[1][c] >= 'A' && av[1][c] <= 'Z')
-				word += av[1][c] - 'A';
-			if (av[1][c] >= 'a' && av[1][c] <= 'z')
-				word += av[1][c] - 'a';
-			while (word != 0)
+			word = 1; //inicializamos siempre el bucle con word en 1, para darle el valor numerico correspondiente al numero del abecedario.
+			if (av[1][cont] >= 'A' && av[1][cont] <= 'Z')
+				word += av[1][cont] - 'A';
+			if (av[1][cont] >= 'a' && av[1][cont] <= 'z')
+				word += av[1][cont] - 'a';
+			while (word != 0) //imprimimos la letra tantas veces como no llegue word a 0, que es su posicion en el calendario.
 			{
-				write(1, &av[1][c], 1);
+				write(1, &av[1][cont], 1);
 				word--;
 			}
-			c++;
+			cont++;
 		}
 	}
     write (1, "\n", 1);
