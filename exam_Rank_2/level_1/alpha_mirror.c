@@ -32,18 +32,19 @@ $>
 
 int	main(int ac, char **av)
 {
-	int cont = 0;
+	int 	c = 0; //provamos a poner el contador solo con una letra para simplificar codigo.
+	char	*str = av[1]; //provamos a meter el argumento dentro de un string para simpificar 
 
 	if (ac == 2)
 	{
-		while (av[1][cont] != '\0')
+		while (str[c] != '\0')
 		{
-			if (av[1][cont] >= 'a' && av[1][cont] <= 'z')
-				av[1][cont] = ('z' - av[1][cont]) + 'a';
-			else if (av[1][cont] >= 'A' && av[1][cont] <= 'Z')
-				av[1][cont] = ('Z' - av[1][cont]) + 'A';
-			write(1, &av[1][cont], 1);
-			cont++;
+			if (str[c] >= 'a' && str[c] <= 'z') //si es minuscula le restamos el valor de z y sumamos a.
+				str[c] = ('z' - str[c]) + 'a';
+			else if (str[c] >= 'A' && str[c] <= 'Z') //si es minuscula le restamos el valor de Z y sumamos A.
+				str[c] = ('Z' - str[c]) + 'A';
+			write(1, &str[c], 1);
+			c++;
 		}
 	}
 	write(1, "\n", 1);
