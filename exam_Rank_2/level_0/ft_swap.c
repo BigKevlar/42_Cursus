@@ -16,7 +16,7 @@ void	ft_swap(int *a, int *b)
 {
 	int	aux;
 
-	aux = *a;
+	aux = *a; //se utiliza una variable temporal aux para almacenar una de ellas mientras de intercambian los valores.
 	*a = *b;
 	*b = aux;
 }
