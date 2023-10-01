@@ -34,19 +34,18 @@ int	main(int ac, char **av)
 {
 	if (ac == 4)
 	{
-		if (!av[2][1] && !av[3][1])
+		if (!av[2][1] && !av[3][1]) // si los argumentos son solo un caracter haz lo siguiente.
 		{
 			int		cont = 0;
-			char	*str = av[1];
 			char	word1 = av[2][0];
 			char	word2 = av[3][0];
 
 
-			while (str[cont] != '\0')
+			while (av[1][cont] != '\0')
 			{
-				if (str[cont] == word1)
-					str[cont] = word2;
-				write(1, &str[cont], 1);
+				if (av[1][cont] == word1) //si el caracter es el de tenemos que sustituir hazlo y escribelo para avanzar luego al siguiente.
+					av[1][cont] = word2;
+				write(1, &av[1][cont], 1); // Si no solo escribelo y pasa al siguiente.
 				cont++;
 			}
 		}	
