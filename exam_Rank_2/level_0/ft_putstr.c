@@ -20,7 +20,7 @@ void	ft_putstr(char *str)
 {
 	int cont = 0;
 
-	while(str[cont] != '\0')
+	while(str[cont] != '\0') //va avanzando el string y escribiendolo.
 	{
 		write(1, &str[cont], 1);
 		cont++;
