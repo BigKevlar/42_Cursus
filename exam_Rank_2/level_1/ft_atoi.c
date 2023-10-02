@@ -16,23 +16,23 @@ int	ft_atoi(const char *str);
 
 int	ft_atoi(const char *str)
 {
-	int cont = 0;
+	int c = 0;
 	int num = 0;
 	int sig = 1;
 
-	while (str[cont] == ' ' || (str[cont] >= 9 && str[cont] <= 13))
-		cont++;
-	if (str[cont] == '-')
+	while (str[c] == ' ' || (str[c] >= 9 && str[c] <= 13))
+		c++;
+	if (str[c] == '-')
 	{
 		sig = -1;
-		cont++;
+		c++;
 	}
-	else if (str[cont] == '+')
-		cont++;
-	while (str[cont] >= '0' && str[cont] <= '9')
+	else if (str[c] == '+')
+		c++;
+	while (str[c] >= '0' && str[c] <= '9')
 	{
-		num = (num * 10) + (str[cont] - '0');
-		cont++;
+		num = (num * 10) + (str[c] - '0');
+		c++;
 	}
 	return (num * sig);
 }
