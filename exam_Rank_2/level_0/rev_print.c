@@ -29,7 +29,7 @@ int	main(int ac, char **av)
 	{
 		while (av[1][cont] != '\0') //avanzamos hasta el final.
 			cont++;
-		while (cont >= 0) // imprimimos en sentido contrario.
+		while (cont >= 0) //imprimimos en sentido contrario.
 		{
 			write(1, &av[1][cont], 1);
 			cont--;
