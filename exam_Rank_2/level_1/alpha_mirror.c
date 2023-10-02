@@ -32,16 +32,16 @@ $>
 
 int	main(int ac, char **av)
 {
-	int 	c = 0; //provamos a poner el contador solo con una letra para simplificar codigo.
-	char	*str = av[1]; //provamos a meter el argumento dentro de un string para simpificar 
+	int 	c = 0; //provamos a poner el contador solo con una letra, para simplificar codigo.
+	char	*str = av[1]; //provamos a meter el argumento dentro de un string, para simpificar codigo. 
 
 	if (ac == 2)
 	{
 		while (str[c] != '\0')
 		{
-			if (str[c] >= 'a' && str[c] <= 'z') //si es minuscula le restamos el valor de z y sumamos a.
+			if (str[c] >= 'a' && str[c] <= 'z') //si es minuscula le restamos al caracter ascii z el valor y sumamos a.
 				str[c] = ('z' - str[c]) + 'a';
-			else if (str[c] >= 'A' && str[c] <= 'Z') //si es minuscula le restamos el valor de Z y sumamos A.
+			else if (str[c] >= 'A' && str[c] <= 'Z') //si es minuscula hacemos lo mismo pero con letras mayusculas.
 				str[c] = ('Z' - str[c]) + 'A';
 			write(1, &str[c], 1);
 			c++;
