@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 				av[1][cont] += 13;
 			else if ((av[1][cont] >= 'n' && av[1][cont] <= 'z') || (av[1][cont] >= 'N' && av[1][cont] <= 'Z')) //si la letra está entre las ultimas 13 letras del abecedario restale 13 posiciones, que es como dar la vuelta.
 				av[1][cont] -= 13;
-			write (1, &av[1][cont], 1); // tanto si entra en un if como si no pues escribe.
+			write (1, &av[1][cont], 1); //tanto si entra en un if como si no pues escribe.
 			cont++;
 		}
 	}
