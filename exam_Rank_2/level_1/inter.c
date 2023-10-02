@@ -26,39 +26,40 @@ $
 
 #include <unistd.h>
 
-int	checker(char *str, char c, int pos)
+int	check_doubles(char *str, char chr, int pos)
 {
-	int	cont = 0;
-	while (cont < pos)
+	int	c = 0;
+
+	while (c < pos)
 	{
-		if (str[cont] == c)
+		if (str[c] == chr)
 			return (0);
-		cont++;
+		c++;
 	}
 	return (1);
 }
 
 int	main(int ac, char **av)
 {
-	int	cont1 = 0;
-	int	cont2 = 0;
+	int	c1 = 0;
+	int	c2 = 0;
 
 	if (ac == 3)
 	{
-		while(av[1][cont1] != '\0')
+		while(av[1][c1] != '\0')
 		{
-			cont2 = 0;
-			while(av[2][cont2] != '\0')
+			c2 = 0;
+			while(av[2][c2] != '\0')
 			{
-				if (av[1][cont1] == av[2][cont2])
+				if (av[1][c1] == av[2][c2])
 				{
-					if (checker(av[1], av[1][cont1], cont1))
-						write(1, &av[1][cont1], 1);
+					if (check_doubles(av[1], av[1][c1], c1))
+						write(1, &av[1][c1], 1);
 					break;
 				}
-				cont2++;
+				c2++;
 			}
-			cont1++;
+			c1++;
 		}
 	}
 	write(1, "\n", 1);
