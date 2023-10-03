@@ -27,19 +27,19 @@ $
 
 int	main(int ac, char **av)
 {
-	int cont = 0;
+	int c = 0;
 
 	if (ac == 2)
 	{
-		while (av[1][cont] != '\0')
+		while (av[1][c] != '\0')
 		{
-			if (av[1][cont] == '_') //comenzamos el array viendo si encuentra un _ y si es asi la siguiente palabra la pasamos a mayuscula e imprimimos
+			if (av[1][c] == '_') //comenzamos el array viendo si encuentra un _ y si es asi la siguiente palabra la pasamos a mayuscula e imprimimos, asi nos aseguramos tambien que la primera se queda en minusculas,
 			{
-				cont++;
-				av[1][cont] -= 32;
+				c++; //saltamos posicion del "_".
+				av[1][c] -= 32; //cambiamos a mayusculas.
 			}
-			write(1, &av[1][cont], 1); //tanto si lo es como si no imprimimos y saltamos de posicion.
-			cont++;
+			write(1, &av[1][c], 1); //tanto si lo es como si no imprimimos y saltamos de posicion.
+			c++;
 		}
 	}
 	write(1, "\n", 1);
