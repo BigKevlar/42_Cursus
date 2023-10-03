@@ -32,25 +32,25 @@ $>
 
 int	main(int ac, char **av)
 {
-	int	str_cont = 1;
-	int	word_cont = 0;
+	int	str_c = 1;
+	int	word_c = 0;
 	int	array[255] = {0};
 
 	if (ac == 3)
 	{
-		while (str_cont < 3)
+		while (str_c <= 2) //vamos a repetir este bucle dos veces solo, porque solo tenemos dos argumentos y vamos a iterar el primero y luego el segundo...
 		{
-			word_cont = 0;
-			while (av[str_cont][word_cont])
+			word_c = 0; //... reiniciando siempre la primera letra de cada argumento.
+			while (av[str_c][word_c] != '\0')
 			{
-				if (array[(int)av[str_cont][word_cont]] == 0)
+				if (array[(int)av[str_c][word_c]] == 0) //si la posicion casteada del array es 0 significa que la letra no existe, asi que entra para escribirla y cambia su valor para que no se vuelva a imprimir.
 				{
-					array[(int)av[str_cont][word_cont]] = 1;
-					write(1, &av[str_cont][word_cont], 1);
+					write(1, &av[str_c][word_c], 1);
+					array[(int)av[str_c][word_c]] = 1;
 				}
-				word_cont++;
+				word_c++; //siguiente letra.
 			}
-			str_cont++;
+			str_c++; //siguiente argumento.
 		}
 	}
 	write(1, "\n", 1);
