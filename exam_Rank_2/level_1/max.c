@@ -18,16 +18,16 @@ If the array is empty, the function returns 0.
 
 int	max(int *tab, unsigned int len)
 {
-	int cont = 0;
-	int aux = tab[cont]; //iniciamos la variable aux con el primer nuemro del array, para ir comparando desde el principio.
+	int c = 0;
+	int aux = tab[c]; //iniciamos la variable aux con el primer nuemro del array, para ir comparando desde el principio.
 
-	if (len == 0) //si la longuitud del array es 0
+	if (len == 0) //si la longuitud del array es 0 acabamos sin devolver nada.
 		return (0);
-	while (cont < len)
+	while (c < len)
 	{
-		if (aux < tab[cont])
-			aux = tab[cont];
-		cont++;
+		if (aux < tab[c])
+			aux = tab[c];
+		c++;
 	}
 	return (aux);
 }
