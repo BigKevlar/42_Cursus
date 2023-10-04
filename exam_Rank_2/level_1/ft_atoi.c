@@ -14,7 +14,7 @@ Your function must be declared as follows:
 int	ft_atoi(const char *str);
 */
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str) //Ascii TO Integer (caracter a numero)
 {
 	int c = 0;
 	int num = 0;
