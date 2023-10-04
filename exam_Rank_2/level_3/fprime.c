@@ -39,18 +39,12 @@ $
 
 int	main(int ac, char **av)
 {
-	int num;
-	int	prime;
+	int num = 0;
+	int	prime = 2;
 	
-	if (ac != 2)
-	{
-		printf("\n");
-		return (0);
-	}
-	num = atoi(av[1]);
-	prime = 2;
 	if (ac == 2)
 	{
+		num = atoi(av[1]);
 		if (num == 1)
 			printf("1");
 		else
@@ -61,7 +55,7 @@ int	main(int ac, char **av)
 				{
 					printf("%d", prime);
 					num /= prime;
-					if (prime <= num)
+					if (num >= prime)
 						printf("*");
 				}
 				prime++;
