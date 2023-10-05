@@ -12,7 +12,7 @@ The function should be prototyped as follows:
 size_t	ft_strcspn(const char *s, const char *reject);
 */
 
-#include <string.h>
+#include <stdio.h>
 
 size_t	ft_strcspn(const char *s, const char *reject) //busca la longuitud de un segmento inicial reject en otra s (???).
 {
