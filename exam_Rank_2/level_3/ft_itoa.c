@@ -32,7 +32,7 @@ char *ft_itoa(int nbr) //Integer TO Ascii (numero a caracter)
 		tem /= 10;
 		len++;
 	}
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	str = (char *)malloc(sizeof(char) * (len + 1)); //reservamos memoria para nueva string, dandole el largo del numero de cifras + 1.
 	if (!str) 
 		return (NULL);
 	str[len] = '\0'; //ponemos el caracter nulo en la ultima posicion de de str aprovechando que len esta en esa posicion de memoria.
@@ -50,20 +50,4 @@ char *ft_itoa(int nbr) //Integer TO Ascii (numero a caracter)
 		nbr /= 10;
 	}
 	return (str);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_itoa(33));
-	printf("%s\n", ft_itoa(-33));
-	printf("%s\n", ft_itoa(12345));
-	printf("%s\n", ft_itoa(-12345));
-	printf("%s\n", ft_itoa(98765));
-	printf("%s\n", ft_itoa(-98765));
-	printf("%s\n", ft_itoa(45));
-	printf("%s\n", ft_itoa(-45));
-	printf("%s\n", ft_itoa(-2147483648));
-	printf("%s\n", ft_itoa(2147483647));
-	printf("%s\n", ft_itoa(0));
-	return (0);
 }
