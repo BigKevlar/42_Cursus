@@ -23,13 +23,14 @@ _____________
 
 unsigned char	reverse_bits(unsigned char octet)
 {
-    int             bits = 7;
+	int				bits = 7;
 	unsigned char	res = 0;
 
 	while (bits >= 0)
 	{
 		res = (res << 1) | (octet & 1);
-		octet >>= 1;
+		octet = octet >> 1;
+		bits--;
 	}
 	return (res);
 }
