@@ -37,30 +37,33 @@ $
 #include <stdlib.h>
 #include <stdio.h>
 
-int	main(int ac, char **av)
+int	is_prime(int n)
 {
-	int num = 0;
+	int num = n;
 	int	prime = 2;
 	
+	while (num >= prime)
+	{
+		while (num % prime == 0)
+		{
+			printf("%d", prime);
+			num /= prime;
+			if (num >= prime)
+				printf("*");
+		}
+		prime++;
+	}
+	return (0);
+}
+
+int	main(int ac, char **av)
+{
 	if (ac == 2)
 	{
-		num = atoi(av[1]);
 		if (num == 1)
 			printf("1");
-		else
-		{
-			while (num >= prime)
-			{
-				while (num % prime == 0)
-				{
-					printf("%d", prime);
-					num /= prime;
-					if (num >= prime)
-						printf("*");
-				}
-				prime++;
-			}
-		}
+		is_prime(atoi(av[1]));
+
 	}
 	printf("\n");
 	return (0);
