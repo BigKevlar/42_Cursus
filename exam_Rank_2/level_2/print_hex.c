@@ -30,8 +30,8 @@ int	mini_atoi(char *str)
 
 	while (str[c] != '\0')
 	{
-		num = (num * 10) + (*str - '0');
-		str++;
+		num = (num * 10) + (str[c] - '0');
+		c++;
 	}
 	return (num);
 }
