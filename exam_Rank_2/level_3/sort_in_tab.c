@@ -26,7 +26,7 @@ void	sort_int_tab(int *tab, unsigned int size)
 		if (tab[c] > tab[c + 1])
 		{
 			tem = tab[c];
-			tab[c] = tab[c+ 1];
+			tab[c] = tab[c + 1];
 			tab[c + 1] = tem;
 			c = 0;
 		}
