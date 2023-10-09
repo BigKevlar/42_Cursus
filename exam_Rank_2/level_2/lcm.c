@@ -29,7 +29,7 @@ Your function must be prototyped as follows:
   unsigned int    lcm(unsigned int a, unsigned int b);
 */
 
-unsigned	intlcm(unsigned int a, unsigned int b)
+unsigned int	lcm(unsigned int a, unsigned int b)
 {
 	unsigned int n;
 
