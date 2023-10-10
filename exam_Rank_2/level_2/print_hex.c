@@ -23,17 +23,17 @@ $
 
 #include <unistd.h>
 
-int	mini_atoi(char *str)
+int	miniatoi(char *str)
 {
 	int	c = 0;
-	int	num = 0;
+	int	n = 0;
 
 	while (str[c] != '\0')
 	{
-		num = (num * 10) + (str[c] - '0');
+		n = (n * 10) + (str[c] - '0');
 		c++;
 	}
-	return (num);
+	return (n);
 }
 
 void	print_hex(int n)
