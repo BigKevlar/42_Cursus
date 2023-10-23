@@ -14,7 +14,7 @@ size_t	ft_strspn(const char *s, const char *accept);
 
 #include <stdio.h>
 
-size_t	ft_strspn(const char *s, const char *accept) //
+size_t	ft_strspn(const char *s, const char *accept) //busca en s y cuenta los caraceres pasados en accept.
 {
 	size_t c1 = 0;
 	size_t c2 = 0;
