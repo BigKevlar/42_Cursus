@@ -67,19 +67,19 @@ void	putnbr(int num)
 
 void	tabmult(int num)
 {
-	int	c = 1;
-	int	result = 0;
+	int	n = 1;
+	int	r = 0;
 
-	while (c <= 9)
+	while (n <= 9)
 	{
-		result = c * num;
-		putnbr(c);
+		r = n * num;
+		putnbr(n);
 		write(1, " x ", 3);
 		putnbr(num);
 		write(1, " = ", 3);
-		putnbr(result);
+		putnbr(r);
 		write(1, "\n", 1);
-		c++;
+		n++;
 	}
 	return ;
 }
