@@ -30,37 +30,38 @@ $>
 
 #include <unistd.h>
 
-void	end_capitalizing(char *str)
+void	rstr_capitalizer(char *str)
 {
-	int	cont = 0;
+	int	c = 0;
 
-	while (str[cont] != '\0')
+	while (str[c] != '\0')
 	{
-		if (str[cont] >= 'A' && str[cont] <= 'Z')
-			str[cont] += 32;
-		if (str[cont + 1] == ' ' || str[cont + 1] == '\t' ||str[cont + 1] == '\0')
+		if (str[c] >= 'A' && str[c] <= 'Z')
+			str[c] += 32;
+		if (str[c + 1] == '\0' || str[c + 1] == ' ' || str[c + 1] == '\t')
 		{
-			if (str[cont] >= 'a' && str[cont] <= 'z')
-				str[cont] -= 32;
+			if (str[c] >= 'a' && str[c] <= 'z')
+				str[c] -= 32;
 		}
-		write(1, &str[cont], 1);
-		cont++;
+		write(1, &str[c], 1);
+		c++;
 	}
+	return ;
 }
 
 int	main(int ac, char **av)
 {
-	int	cont = 1;
+	int	c = 1;
 
 	if (ac < 2)
 		write(1, "\n", 1);
 	else
 	{
-		while(cont < ac)
+		while(c < ac)
 		{
-			end_capitalizing(av[cont]);
+			rstr_capitalizer(av[c]);
 			write(1, "\n", 1);
-			cont++;
+			c++;
 		}
 	}
 	return (0);
