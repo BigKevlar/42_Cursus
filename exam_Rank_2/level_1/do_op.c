@@ -29,12 +29,12 @@ $> ./do_op | cat -e
 $
 */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h> //printf.
+#include <stdlib.h> //atoi.
 
 int	main(int ac, char **av)
 {
-	int		n1 = atoi(av[1]); // debemos usar atoi para pasar los argumentos tipo char a numeros tipo int.
+	int		n1 = atoi(av[1]); //debemos usar atoi para pasar los argumentos tipo char a numeros tipo int.
 	char	sig = av[2][0];
 	int		n2 = atoi(av[3]);
 
