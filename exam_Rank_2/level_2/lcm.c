@@ -4,38 +4,38 @@ Expected files   : lcm.c
 Allowed functions:
 --------------------------------------------------------------------------------
 
-Write a function who takes two unsigned int as parameters and returns the 
-computed LCM of those parameters.
+Escribe una función que tome dos unsigned int como parámetros y devuelva el 
+LCM calculado de esos parámetros.
 
-LCM (Lowest Common Multiple) of two non-zero integers is the smallest postive
-integer divisible by the both integers.
+LCM (Mínimo Común Múltiplo) de dos números enteros distintos de cero es el menor número entero positivo divisible por ambos números enteros.
+entero divisible por ambos enteros.
 
-A LCM can be calculated in two ways:
+Un LCM se puede calcular de dos maneras:
 
-- You can calculate every multiples of each integers until you have a common
-multiple other than 0
+- Se pueden calcular cada uno de los múltiplos de cada uno de los enteros hasta obtener un
+común distinto de 0
 
-- You can use the HCF (Highest Common Factor) of these two integers and 
-calculate as follows:
+- Se puede utilizar el HCF (Highest Common Factor) de estos dos enteros y 
+calcular como sigue:
 
 	LCM(x, y) = | x * y | / HCF(x, y)
   
-  | x * y | means "Absolute value of the product of x by y"
+  | x * y | significa "Valor absoluto del producto de x por y".
 
-If at least one integer is null, LCM is equal to 0.
+Si al menos un entero es nulo, LCM es igual a 0.
 
-Your function must be prototyped as follows:
+Su función debe tener el siguiente prototipo:
 
   unsigned int    lcm(unsigned int a, unsigned int b);
 */
 
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
-	unsigned int n;
+	unsigned int n = 0;
 
 	if (a == 0 || b == 0)
 		return (0);
-	else if (a > b)
+	if (a > b)
 		n = a;
 	else if (b > a)
 		n = b;
