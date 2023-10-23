@@ -26,8 +26,8 @@ void ft_putnbr(int n) //como write no acepta escribir numeros hacemos nuestra fu
 {
 	char digit;
 
-	if (n > 10)
-		ft_putnbr(n / 10); //de esta forma, recursiva, se "almacena" su digito en memoria y se pasa al siguiente a la izquierda.
+	if (n >= 10)
+		ft_putnbr(n / 10); //de esta forma recursiva, se "almacena" su digito en memoria y se pasa al siguiente a la izquierda.
 	digit = (n % 10) + '0'; //aqui ya se combierte en tipo char.
 	write (1, &digit, 1);
 	return ;
