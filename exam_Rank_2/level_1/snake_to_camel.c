@@ -23,7 +23,6 @@ $
 */
 
 #include <unistd.h>
-#include <stdlib.h>
 
 int	main(int ac, char **av)
 {
@@ -31,12 +30,15 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
+		while (av[1][c] == '_') //si por casualidad la o las primeras posicines son _ saltalas hasta encontrar una letra.
+			c++;
 		while (av[1][c] != '\0')
 		{
 			if (av[1][c] == '_') //comenzamos el array viendo si encuentra un _ y si es asi la siguiente palabra la pasamos a mayuscula e imprimimos, asi nos aseguramos tambien que la primera se queda en minusculas,
 			{
 				c++; //saltamos posicion del "_".
-				av[1][c] -= 32; //cambiamos a mayusculas.
+				if (av[1][c] >= 'a' && av[1][c] <= 'z') //verificamos si son minusculas y...
+					av[1][c] -= 32; //... cambiamos a mayusculas.
 			}
 			write(1, &av[1][c], 1); //tanto si lo es como si no imprimimos y saltamos de posicion.
 			c++;
