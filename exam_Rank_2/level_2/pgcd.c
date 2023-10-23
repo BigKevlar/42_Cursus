@@ -26,32 +26,29 @@ $> ./pgcd | cat -e
 $
 */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h> //printf
+#include <stdlib.h> //atoi
 
 void maxcd(unsigned int n1, unsigned int n2)
 {
-	int aux = n1;
+	int tmp = n1;
 	
-	while (aux > 0)
+	while (tmp > 0)
 	{
-		if ((n1 % aux == 0) && (n2 % aux == 0))
+		if ((n1 % tmp == 0) && (n2 % tmp == 0))
 		{
-			printf("%d", aux);
+			printf("%d", tmp);
 			return ;
 		}
-		--aux;
+		tmp--;
 	}
+	return ;
 }
 
 int main(int ac, char **av)
 {
 	if (ac == 3)
-	{
-		unsigned int n1 = atoi(av[1]);
-		unsigned int n2 = atoi(av[2]);
-		maxcd(n1, n2);
-	}
+		maxcd(atoi(av[1]), atoi(av[2]));
 	printf("\n");
 	return (0);
 }
