@@ -43,10 +43,10 @@ $>
 
 int	main(void)
 {
-	int	num = 1; //comenzamos en 1, lo dice el enunciado del ejercicio.
-	int	dig; //será para un digito unicamente, si el numero es uno.
-	int	dig1; //será para el primer digito, si el numero son dos.
-	int	dig2; //será para el segundo digito, si el numero son dos.
+	int	num = 1;
+	int	dig;
+	int	dig1;
+	int	dig2;
 
 	while (num <= 100)
 	{
@@ -73,3 +73,21 @@ int	main(void)
 	}
 	return (0);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Incluimos la libreria "unistd.h" para usar la funcion "write".
+Nuestro programa no va a recibir ningun parametro, asi que ponemos "void".
+"num" representará el numero, ycomenzamos en 1 segun dice el enunciado del ejercicio.
+"dig" será para escribir un digito unicamente, si el numero es uno.
+"dig1" será para escribir el primer digito, si el numero son dos.
+"dig2" será para escribir el segundo digito, si el numero son dos.
+Mientras que el numero sea menor o igual que 100 repite el bucle.
+Si el resto de dividir "num" entre 3 y 5 es 0 escribe "fizzbuzz".
+Si el resto de dividir "num" entre 3 es 0 escribe "fizz".
+Si el resto de dividir "num" entre 5 es 0 escribe "buzz".
+Si el numero no es ni multiplo de 3 ni de 5 y tiene dos digitos, los separa para convertilos en "char" y los imprime por separado.
+Si el numero no es ni multiplo de 3 ni de 5 y tiene un digito, lo convierte en "char" y lo imprime.
+Cuando llega y procesa el numero 100 finaliza el programa.
+*/
