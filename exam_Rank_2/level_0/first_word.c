@@ -32,18 +32,30 @@ $>
 
 int main(int ac, char **av)
 {
-	int cont = 0;
+	int c = 0;
 
 	if (ac == 2)
 	{
-		while (av[1][cont] == ' ' || av[1][cont] == '\t') //saltamos los espacios o tabulaciones que pudiera haber antes de la primera palabra.
-			cont++;
-		while (av[1][cont] != '\0' && av[1][cont] != ' ' && av[1][cont] != '\t') //hasta que no termine o no encuentre ni espacios ni tabuaciones.
+		while (av[1][c] == ' ' || av[1][c] == '\t')
+			c++;
+		while (av[1][c] != ' ' && av[1][c] != '\t' && av[1][c] != '\0')
 		{
-			write (1, &av[1][cont], 1);
-			cont++;
+			write (1, &av[1][c], 1);
+			c++;
 		}
 	}
 	write(1, "\n", 1);
 	return (0);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Nuestro programa imprime la primera palabra de un string.
+Incluimos la libreria "unistd.h" para usar la funcion "write".
+El contador "c" lo usaremos para iterar entre las posiciones del argumento.
+Si son exactamente dos argumentos entra en la condicion "if", si no pásala.
+Saltamos los espacios o tabulaciones que pudieran haber antes de la primera palabra.
+Escribe mientras no sea ni espacio, ni tabulacion, ni caracter nulo.
+Si no son exactamente dos caracteres, o si finaliza de escribir, escribe un salto de linea y finaliza el programa.
+*/
