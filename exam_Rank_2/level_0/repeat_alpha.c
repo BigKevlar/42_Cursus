@@ -34,26 +34,40 @@ $>
 
 int	main(int ac, char **av)
 {
-	int		cont = 0;
-	char	word = 0;
+	int	c = 0;
+	int	word = 0;
 
 	if (ac == 2)
 	{
-		while (av[1][cont] != '\0')
+		while (av[1][c] != '\0')
 		{
-			word = 1; //inicializamos siempre el bucle con word en 1, para darle el valor numerico correspondiente al numero del abecedario.
-			if (av[1][cont] >= 'A' && av[1][cont] <= 'Z')
-				word += av[1][cont] - 'A';
-			if (av[1][cont] >= 'a' && av[1][cont] <= 'z')
-				word += av[1][cont] - 'a';
-			while (word != 0) //imprimimos la letra tantas veces como no llegue word a 0, que es su posicion en el calendario.
+			word = 1;
+			if (av[1][c] >= 'A' && av[1][c] <= 'Z')
+				word = word + (av[1][c] - 'A');
+			if (av[1][c] >= 'a' && av[1][c] <= 'z')
+				word = word + (av[1][c] - 'a');
+			while (word > 0)
 			{
-				write(1, &av[1][cont], 1);
+				write(1, &av[1][c], 1);
 				word--;
 			}
-			cont++;
+			c++;
 		}
 	}
     write (1, "\n", 1);
     return (0);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Nuestro programa imprimirá por pantalla cada letra del string tantas veces como sea su posicion en el avecedario.
+Incluimos la libreria "unistd.h" para usar la funcion "write".
+Vamos a declarar dos variables: un contador llamado "c" para iterar entre letras, y "word" simepre en 1 para er el valor numerico del abecedario.
+Si el progama recibe exactamente dos argumentos realiza el bucle, si no solo imprime un salto de linea y finaliza el rpograma.
+Mientras el argumento string no sea nulo, con "word" comenzando siempre en 1 para que minimo imprima una vez:
+resta la letra entre "A" o "a" para obtener su posicion en el abecedario.
+Luego imprime cada letra tantas veces como su posicion en el abecedario, que se a guardado en "word".
+Pasamos a la siguiente letra aumentando "c", y asi con todo el string.
+Ponemos un salto de linea y finalizamos programa.
+*/
