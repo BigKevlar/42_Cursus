@@ -33,20 +33,30 @@ $>
 
 int	main(int ac, char **av)
 {
-	int	cont = 0;
+	int	c = 0;
 
 	if (ac == 2)
 	{
-		while (av[1][cont] != '\0') //bucle hasta el final del string.
+		while (av[1][c] != '\0') //bucle hasta el final del string.
 		{
-			if ((av[1][cont] >= 'a' && av[1][cont] <= 'm') || (av[1][cont] >= 'A' && av[1][cont] <= 'M')) //si la letra está entre las primeras 13 letras del abecedario sumale 13 posiciones.
-				av[1][cont] += 13;
-			else if ((av[1][cont] >= 'n' && av[1][cont] <= 'z') || (av[1][cont] >= 'N' && av[1][cont] <= 'Z')) //si la letra está entre las ultimas 13 letras del abecedario restale 13 posiciones, que es como dar la vuelta.
-				av[1][cont] -= 13;
-			write (1, &av[1][cont], 1); //tanto si entra en un if como si no pues escribe.
-			cont++;
+			if ((av[1][c] >= 'a' && av[1][c] <= 'm') || (av[1][c] >= 'A' && av[1][c] <= 'M')) //si la letra está entre las primeras 13 letras del abecedario sumale 13 posiciones.
+				av[1][c] += 13;
+			else if ((av[1][c] >= 'n' && av[1][c] <= 'z') || (av[1][c] >= 'N' && av[1][c] <= 'Z')) //si la letra está entre las ultimas 13 letras del abecedario restale 13 posiciones, que es como dar la vuelta.
+				av[1][c] -= 13;
+			write (1, &av[1][c], 1); //tanto si entra en un if como si no pues escribe.
+			c++;
 		}
 	}
 	write(1, "\n", 1);
 	return (0);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Incluimos la libreria "unistd.h" para usar la funcion "write".
+Nuestro programa imprime un string reemplazando cada letra por la que está 13 posiciones en adelante.
+Camos a declarar un contador llamado "c" para iterar entre letras.
+Mientras sean solo dos argumentos realiza lo de dentro.
+
+*/
