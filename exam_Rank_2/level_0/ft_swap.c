@@ -14,9 +14,20 @@ void	ft_swap(int *a, int *b);
 
 void	ft_swap(int *a, int *b)
 {
-	int	aux;
+	int	tmp;
 
-	aux = *a; //se utiliza una variable temporal aux para almacenar una de ellas mientras de intercambian los valores.
+	tmp = *a;
 	*a = *b;
-	*b = aux;
+	*b = tmp;
+	return ;
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Nuestra funcion ("void, porque no devulve nada") intercambia los valores de "a" con "b" y viceversa.
+Inicamos una variable auxiliar "tmp" para guardar uno de los valores.
+Introducimos en "tmp" una copia de "a", para poner sobrescribirla.
+Copiamos "b" en "a", y en "b" metemos "tmp", que era una copia de "a".
+Finalizamos la funcion.
+*/
