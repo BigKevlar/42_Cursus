@@ -51,7 +51,7 @@ int main(int ac, char **av)
 /*
 Pseudocódigo:
 --------------------------------------------------------------------------------
-Nuestro programa imprime la primera palabra de un string.
+Nuestro programa imprimirá la primera palabra de un string.
 Incluimos la libreria "unistd.h" para usar la funcion "write".
 El contador "c" lo usaremos para iterar entre las posiciones del argumento.
 Si son exactamente dos argumentos entra en la condicion "if", si no pásala.
