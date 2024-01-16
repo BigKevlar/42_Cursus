@@ -27,20 +27,34 @@ $
 
 int	main(int ac, char **av)
 {
-	int	cont = 0;
+	int	c = 0;
 
 	if (ac == 2)
 	{
-		while (av[1][cont] != '\0') //vamos a cambiar de minusculas a mayusculas y viceversa sumando o estando 32 posiciones en ascii segun convenga e imprimiendo.
+		while (av[1][c] != '\0')
 		{
-			if (av[1][cont] >= 'a' && av[1][cont] <= 'z')
-				av[1][cont] -= 32;
-			else if (av[1][cont] >= 'A' && av[1][cont] <= 'Z')
-				av[1][cont] += 32;
-			write(1, &av[1][cont], 1); //si no, escribe simplemente y siguiente posicion.
-			cont++;
+			if (av[1][c] >= 'a' && av[1][c] <= 'z')
+				av[1][c] -= 32;
+			else if (av[1][c] >= 'A' && av[1][c] <= 'Z')
+				av[1][c] += 32;
+			write(1, &av[1][c], 1);
+			c++;
 		}
 	}
 	write(1, "\n", 1);
 	return (0);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Nuestro programa cambiara las minusculas por mayusculas y viceversa (segun tabla ASCII).
+Incluimos la libreria "unistd.h" para usar la funcion "write".
+Para ello primero creamos una variable "c" para iterar sobre todoas las letras del string.
+Luego condicionamos que deben ser dos argumentos solo.
+Ahora hacemos un bucle que recorra todo el string y vamos haciendo las condiciones:
+- Si es minuscula aumenta 32 posiciones para convertirla en su homologo en mayuscula.
+- Si es mayuscula restamos 32 posiciones para convertirla en su homologo en minuscula.
+- Al final imprimimos lo que sea que haya en la posicion, cambiada o no.
+Ponemos un salto de linea y finalizamos programa.
+*/
