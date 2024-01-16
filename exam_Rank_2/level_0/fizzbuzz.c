@@ -77,17 +77,22 @@ int	main(void)
 /*
 Pseudocódigo:
 --------------------------------------------------------------------------------
+Nuestro programa tomara los numeros del 1 al 100 y escribira:
+- "fizz" si es multiplo de 3.
+- "buzz" si es multiplo de 5.
+- "fizzbuzz" si es mutiplo de 3 y 5.
+- El numero en cuestion que toque si no es ni mutiplo de 3 ni de 5.
+Como no va a recibir ningun parametro le ponemos "void".
 Incluimos la libreria "unistd.h" para usar la funcion "write".
-Nuestro programa no va a recibir ningun parametro, asi que ponemos "void".
-"num" representará el numero, ycomenzamos en 1 segun dice el enunciado del ejercicio.
-"dig" será para escribir un digito unicamente, si el numero es uno.
-"dig1" será para escribir el primer digito, si el numero son dos.
-"dig2" será para escribir el segundo digito, si el numero son dos.
+- "num" representará el numero, ycomenzamos en 1 segun dice el enunciado del ejercicio.
+- "dig" será para escribir un digito unicamente, si el numero es uno.
+- "dig1" será para escribir el primer digito, si el numero son dos.
+- "dig2" será para escribir el segundo digito, si el numero son dos.
 Mientras que el numero sea menor o igual que 100 repite el bucle.
-Si el resto de dividir "num" entre 3 y 5 es 0 escribe "fizzbuzz".
-Si el resto de dividir "num" entre 3 es 0 escribe "fizz".
-Si el resto de dividir "num" entre 5 es 0 escribe "buzz".
-Si el numero no es ni multiplo de 3 ni de 5 y tiene dos digitos, los separa para convertilos en "char" y los imprime por separado.
-Si el numero no es ni multiplo de 3 ni de 5 y tiene un digito, lo convierte en "char" y lo imprime.
+- Si el resto de dividir "num" entre 3 y 5 es 0 escribe "fizzbuzz".
+- Si el resto de dividir "num" entre 3 es 0 escribe "fizz".
+- Si el resto de dividir "num" entre 5 es 0 escribe "buzz".
+- Si el numero no es ni multiplo de 3 ni de 5 y tiene dos digitos, los separa para convertilos en "char" y los imprime por separado.
+- Si el numero no es ni multiplo de 3 ni de 5 y tiene un digito, lo convierte en "char" y lo imprime.
 Cuando llega y procesa el numero 100 finaliza el programa.
 */
