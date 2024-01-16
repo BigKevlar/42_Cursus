@@ -23,7 +23,7 @@ $
 
 int	main(int ac, char **av)
 {
-	int		c = 0;
+	int	c = 0;
 
 	if (ac == 2)
 	{
@@ -43,8 +43,8 @@ int	main(int ac, char **av)
 /*
 Pseudocódigo:
 --------------------------------------------------------------------------------
-Incluimos la libreria "unistd.h" para usar la funcion "write".
 Nuestro programa imprime un string en sentido contrario.
+Incluimos la libreria "unistd.h" para usar la funcion "write".
 Vamos a declarar un contador llamado "c" para iterar entre letras.
 Mientras sean solo dos argumentos realiza lo de dentro.
 Hasta que el string no llegue al final avanza "c", luego retrocede una posicion para evitar imprimir el caracter nulo
