@@ -33,26 +33,42 @@ $>
 
 int	main(int ac, char **av)
 {
-	int	cont = 0;
+	int	c = 0;
 
 	if (ac == 2)
 	{
-    	while (av[1][cont] != '\0')
+    	while (av[1][c] != '\0')
 		{
-			if ((av[1][cont] >= 'a' && av[1][cont] <= 'y') || (av[1][cont] >= 'A' && av[1][cont] <= 'Y')) // si la letra es minuscula o mayuscula imprime la siguiente y avanza luego cont.
+			if ((av[1][c] >= 'a' && av[1][c] <= 'y') || (av[1][c] >= 'A' && av[1][c] <= 'Y'))
 			{	
-				av[1][cont]++;
-				write(1, &av[1][cont], 1);
+				av[1][c]++;
+				write(1, &av[1][c], 1);
 			}
-			else if (av[1][cont] == 'z') // si es exclusivamente la z escribe a y avanza cont.
+			else if (av[1][c] == 'z')
 				write(1, "a", 1);
-			else if (av[1][cont] == 'Z') // si es exclusivamente la Z escribe a y avanza cont.
+			else if (av[1][c] == 'Z')
 				write(1, "A", 1);
 			else
-				write(1, &av[1][cont], 1); // si es otro caracter simplemente imprimelo.
-			cont++;
+				write(1, &av[1][c], 1);
+			c++;
 		}
 	}
 	write(1, "\n", 1);
 	return (0);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Nuestro programa imprime un string reemplazando cada letra por la siguiente en su posicion alfabetica.
+Incluimos la libreria "unistd.h" para usar la funcion "write".
+Camos a declarar un contador llamado "c" para iterar entre letras.
+Mientras sean solo dos argumentos realiza lo de dentro.
+Vamos a ir recorriendo todo el string e imprimiendo lo que nos encontremos pero con condiciones:
+- Si la letra esta entre "a" y "y" o entre "A" y "Y": conviertela en la siguiente letra e imprimela.
+- Si es la "z" imprime la "a".
+- Si es la "Z" imprime la "A".
+- Si no es nada de lo anterior imprimelo sin modificar nada.
+- Despues de todo haz subier el contador para iterar sobre la siguiente letra.
+Ponemos un salto de linea y finalizamos programa.
+*/
