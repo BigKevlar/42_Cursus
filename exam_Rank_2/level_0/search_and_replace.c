@@ -32,23 +32,38 @@ eNcOre Un ExEmPle Pas Facile a Ecrire $
 
 int	main(int ac, char **av)
 {
-	if (ac == 4)
-	{
-		if (!av[2][1] && !av[3][1]) // si los argumentos que deben ser unicamente una letra lo son, haz lo siguiente.
-		{
-			int		cont = 0;
-			char	word1 = av[2][0];
-			char	word2 = av[3][0];
+	int	c = 0;
 
-			while (av[1][cont] != '\0')
-			{
-				if (av[1][cont] == word1) //si el caracter es el de tenemos que sustituir hazlo y escribelo para avanzar luego al siguiente.
-					av[1][cont] = word2;
-				write(1, &av[1][cont], 1); //si no solo escribelo y pasa al siguiente.
-				cont++;
-			}
+	if ((ac == 4) && (!av[2][1] && !av[3][1]))
+	{
+		while (av[1][c] != '\0')
+		{
+			if (av[1][c] == av[2][0])
+				av[1][c] = av[3][0];
+			write(1, &av[1][c], 1);
+			c++;
 		}	
 	}
 	write(1, "\n", 1);
 	return (0);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Nuestro programa cambiara una letra por otra del string que le pasaremos.
+Incluimos la libreria "unistd.h" para usar la funcion "write".
+Para ello tomará 4 argumentos:
+- 0: el nombre del programa.
+- 1: la palabra que se reemplazara.
+- 2: la letra que sustiruiremos.
+- 3: las letra por la que sustituiremos.
+Para ello primero condicionaremos que deben de ser exactamente 4 argumentos y que solo podemos
+tomar un unico caracter a reemplazar y por el que se reemplazará.
+Para ello la condicion será que el string de las plazabras no contienen segundas letras, solo la
+primera (letra en posicion 0 del string, no existe letra en la posicion 1).
+Ahora crearemos un contador "c" para iterar en las letras del string que cambiaremos sus palabras.
+Si la letra del string es la que queremos sustituir hazlo.
+Luego escribela, tanto si la ha sustituido como si no, y pasa a la siguiente. Asi hasta recorrelas todas.
+Ponemos un salto de linea y finalizamos programa.
+*/
