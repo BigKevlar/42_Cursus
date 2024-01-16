@@ -18,7 +18,7 @@ void	ft_putstr(char *str)
 {
 	int c = 0;
 
-	while(str[c] != '\0') //va avanzando el string y escribiendolo.
+	while(str[c] != '\0')
 	{
 		write(1, &str[c], 1);
 		c++;
@@ -30,7 +30,7 @@ void	ft_putstr(char *str)
 Pseudocódigo:
 --------------------------------------------------------------------------------
 Nuestra funcion toma un string y lo muestra por pantalla.
-Inicamos un contacdor "c" que iterará cada letra del string.
+Iniciamos un contador "c" que iterará cada letra del string.
 Mientras que el string no sea el caracter nulo imprime cada letra.
 Finaliza la funcion sin devolver nada.
 */
