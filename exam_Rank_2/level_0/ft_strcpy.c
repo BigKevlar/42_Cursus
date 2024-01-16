@@ -27,9 +27,9 @@ char	*ft_strcpy(char *s1, char *s2)
 /*
 Pseudocódigo:
 --------------------------------------------------------------------------------
-Nuestra funcion copia en string "s2" sobre el string "s1".
-Inicamos un contacdor "c" que iterará cada letra del string.
+Nuestra funcion copia el string "s2" sobre el string "s1".
+Iniciamos un contador "c" que iterará cada letra del string.
 Mientras que el segundo string no llegue a nulo copia cada letra en la misma posicion del en el primero.
-Por ultimo pone al final el caracter nulo.
-Funaliza la funcion devolviendo el primero con todo copiado.
+Por ultimo pone al final el caracter nulo para indicar el final.
+Finaliza la funcion devolviendo el primero con todo copiado del segundo.
 */
