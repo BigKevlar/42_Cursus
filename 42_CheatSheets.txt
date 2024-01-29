@@ -30,6 +30,17 @@ de la señal debil WiFi de las tarjetas Realtek RTL8723BE (en mi Lenovo B5400 fu
  
         echo "options rtl8723be fwlps=0" | sudo tee /etc/modprobe.d/rtl8723be.conf
 
+- Para los que tengan problemas con claves a la hora de hacer "sudo apt update". En mi caso el warning era de los "deadsnakes" (pyhton???):
+
+        W: http://ppa.launchpad.net/deadsnakes/ppa/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+
+Y para solucionarlo cambie el registro de claves de nombre para que a la hora de hacer un update de nuevo no lo reconociese y lo descargase autamaticamente de nuevo, sin errores.
+
+        sudo apt-key list (muestra las claves, cogemos lso 8 ultimos digitos del pub del que falla, que pone desconocido)
+        sudo apt-key export 6A755776 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/deadsnakes.gpg
+
+Ahora hacemos update de nuevo y solucionado.        
+
 *************************
 * EDITOR DE TEXTO "VIM" *
 *************************
