@@ -8,7 +8,8 @@ LIBFT_DIR = ./libft
 LIBFT = ./libft/libft.a
 
 # Variable: son las funciones exclusivas de nuestro programa "push_swap" para compilar su nueva libreria.
-FUNCTIONS = 
+FUNCTIONS = stack_functions_1.c /
+			
 
 # Variable: convierte todos los archivos ".c" de FUNCTIONS en ".o" (por optimizacion/velocidad).
 OBJECTS = $(FUNCTIONS:.c=.o)

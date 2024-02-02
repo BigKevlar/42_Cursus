@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/01/30 19:46:14 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/02 19:48:40 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-/* Prototipo de funcione exclusivas para push_swap. */
-t_stack	*create_stack(int value)
+/* Propotipo de funciones para iniciar y comprobar el stack. */
+t_stack	*creating_stack(int value)
 funcion (check_stack)
 funcion (sort_stack)
+/**/
 funcion (do_swap)
 funcion (do_push)
 funcion (do_rotate)
