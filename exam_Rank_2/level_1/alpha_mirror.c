@@ -32,7 +32,7 @@ $>
 
 int	main(int ac, char **av)
 {
-	int 	c = 0;
+	int		c = 0;
 	char	*str = av[1];
 
 	if (ac == 2)
