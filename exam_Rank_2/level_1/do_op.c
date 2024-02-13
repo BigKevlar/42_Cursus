@@ -34,11 +34,11 @@ $
 
 int	main(int ac, char **av)
 {
-	int		n1 = atoi(av[1]); //debemos usar atoi para pasar los argumentos tipo char a numeros tipo int.
+	int		n1 = atoi(av[1]);
 	char	sig = av[2][0];
 	int		n2 = atoi(av[3]);
 
-	if (ac == 4) //debe recoger 3 argumentos.
+	if ((ac == 4) && (!av[2][1])
 	{
 		if (sig == '+')
 			printf("%d", n1 + n2);
@@ -54,3 +54,16 @@ int	main(int ac, char **av)
 	printf("\n");
 	return (0);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Este programa realizara sumas, restas, multiplicaciones y divisiones segun los parametros que le pasemos.
+Necesitaremos incluir las librerias para printf (stdio.h) y para atoi (stdlib.h), para imprimir y 
+pasar strings/caracteres a valor numerico.
+Crearemos 3 variables para guardar nuestros dos numeros y el signo de la operacion a realizar, utilizando
+atoi para convertir ese valor del caracter a numerico y poder hacer operaciones con el.
+Si los argumentos son exactamente 4 y no existe son signos por parametros haz el bucle.
+El bucle son operaciones sencillas e impresiones con printf.
+Al teminar el bucle, o si no ha entrado en el bucle, imprimimos un salto de linea y fin del programa.
+*/
