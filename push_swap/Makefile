@@ -1,41 +1,33 @@
-# Nombre del programa.
-NAME = push_swap.a
+NAME    		= push_swap
+CFLAGS  		= -Wall -Wextra -Werror -g
+SRC				= push_swap.c
+OBJ				= ${SRC:.c=.o}
+LIBFT 			= libft/libft.a
+INC 			= -I libft/includes
+COLOUR_RED		=\033[0;31m
+COLOUR_GREEN	=\033[0;32m
+COLOUR_BLUE		=\033[0;34m
+COLOUR_END		=\033[0m
 
-# Ruta de nuestra "libft".
-LIBFT_DIR = ./libft
-
-# Programa "libft.a" compilado.
-LIBFT = ./libft/libft.a
-
-# Variable: son las funciones exclusivas de nuestro programa "push_swap" para compilar su nueva libreria.
-FUNCTIONS = stack_functions_1.c /
-			
-
-# Variable: convierte todos los archivos ".c" de FUNCTIONS en ".o" (por optimizacion/velocidad).
-OBJECTS = $(FUNCTIONS:.c=.o)
-
-# Regla ("make"): ejecuta el programa.
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	make -C $(LIBFT_DIR)
-	cp $(LIBFT) $(NAME)
-	ar rcs $(NAME) $(OBJECTS)
+$(NAME): $(LIBFT) $(OBJ)
+	@gcc $(CFLAGS) $(OBJ) $(INC) -o $(NAME) $(LIBFT)
+	@echo "$(COLOUR_GREEN)EVERYTHING COMPILED $(COLOUR_END)"
 
-$(OBJECTS): $(FUNCTIONS)
-	gcc -Wall -Werror -Wextra -c $(FUNCTIONS) 
+$(LIBFT):
+	@make -C libft
 
-# Regla ("make clean"): borra los archivos temporales ".o" de push_swap, y hace "make clean" de libft.
 clean:
-	rm -f $(OBJECTS)
-	make clean -C $(LIBFT)
-	
-# Regla ("make fclean"): elimina absolutamente todos los archivos derivados del programa.
+	@rm -rf $(OBJ)
+	@make -C libft/ clean
+	@echo "$(COLOUR_RED)CLEAN PROTOCOL: DELETING .o FILES $(COLOUR_END)"
 fclean: clean
-	rm -f $(NAME) $(LIBFT_DIR)
-	
-# Regla ("make re"): elimina todo y vuelve a compilar automaticamente el programa.
-re: fclean all
+	@rm -f $(NAME)
+	@make -C libft/ fclean
+	@echo "$(COLOUR_RED)FCLEAN PROTOCOL: DELETING .a FILES $(COLOUR_END)"
 
-# ???¿¿¿
-.PHONY: all clean fclean re bonus
+re: fclean all
+	@echo "$(COLOUR_BLUE)RECOMPILATION SUCCESSFULL $(COLOUR_END)"
+
+.PHONY: all clean fclean re

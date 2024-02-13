@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/02 19:48:41 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/13 17:07:06 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,16 @@
 
 int	main(int ac, char **av)
 {
-	t_stack	*stack_A;
-	t_stack	*stack_B;
-	int		stack_size;
-	int		c;
-
-	c = 1; /* El contador lo vamos a iniciar en 1 para que minimo recibamos 1 numero por argumentos. */
-	stack_A = NULL; /* Iniciamos el stack_A sin nada (null). */
-	stack_B = NULL; /* Iniciamos el stack_B sin nada (null). */
-	while (ac > c) /* Condicionamos que minimo tengamos 1 argumento para meterlo en el stack_A. */
-	{
-		creating_stack(av[c], &stack_A);
-		c++;
-	}
-	if (ckeck_duplicates(stack_A))
-		error_exit(&stack_A, NULL);
-	stack_size = get_stack_size(stack_A);
-	return (0);
+	(void)ac;
+	t_int *num1;
+	t_int *num2;
+	t_stack *all;
+	
+	num1 = malloc(1 * sizeof(t_int));
+	all = malloc(1 * sizeof(t_list));
+	num1->value = atoi(av[1]);
+	ft_lstadd_back(&all->a, ft_lstnew(num1));
+	num2 = all->a->content;
+	printf("%ld\n", num2->value);
 }
+
