@@ -14,7 +14,7 @@ size_t	ft_strcspn(const char *s, const char *reject);
 
 #include <stdio.h>
 
-size_t	ft_strcspn(const char *s, const char *reject) //busca en s hasta encontrar un caracter de reject.
+size_t	ft_strcspn(const char *s, const char *reject)
 {
 	size_t c1 = 0;
 	size_t c2 = 0;
@@ -32,3 +32,10 @@ size_t	ft_strcspn(const char *s, const char *reject) //busca en s hasta encontra
 	}
 	return (c1);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Nuestra funcion busca en un string (s) cualquier caracter de otro (reject), una a una.
+
+*/
