@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/09/08 17:12:25 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:25:03 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 /**********/
 /* NUEVAS */
 /**********/
-int		ft_isdigit_str(char *str);
+int		ft_isdigit_str(char *str);/* Comprobamos que se ha introducido un array de caracteres numericos. */
+int		ft_atol(const char *str); /* Lo mismo que la funcion atoi, pero para numeros largos (long). */
 
 #endif
