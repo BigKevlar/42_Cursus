@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/19 20:36:04 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/22 13:24:31 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ typedef struct s_stack
 	int				num;
 	struct s_stack	*prev;
 	struct s_stack	*next;
-} t_stack;
+}					t_stack;
 
 void	ft_args_error(void);
-int 	ft_is_number(char *numbers);
-int 	ft_is_duplicate(char *numbers);
+int		ft_is_number(char *numbers);
+int		ft_is_duplicate(char **numbers);
 char	**validation(int ac, char **av);
 
+#endif
 
 /*
 typedef struct s_stack_test
@@ -44,4 +45,3 @@ typedef struct s_int
 	
 } t_int;
 */
-#endif

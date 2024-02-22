@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/19 20:22:00 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/22 13:23:15 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	/*
-	t_stack	*a;
-	t_stack *b;
-	*/
-	char **args;
-/*
-	a = NULL;
-	b = NULL;
-	*/
+	char	**args;
+
 	args = validation(ac, av);
 	(void)args;
 	return (0);

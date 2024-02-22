@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/19 20:53:27 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/22 13:33:08 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // VERIFICA QUE EL ARRAY DE CARACTERES NUMERICOS SEA DE POSITIVOS Y NEGATIVOS.
-int	ft_is_number(char *numbers)
+int	ft_is_number(char *str_numbers)
 {
 	int	c;
 
 	c = 0;
-	if (numbers[c] == '+' || numbers[c] == '-')
+	if (str_numbers[c] == '+' || str_numbers[c] == '-')
 		c++;
-	while (numbers[c] != '\0')
+	while (str_numbers[c] != '\0')
 	{
-		if (numbers[c] <= '0' || numbers[c] >= '9')
+		if (str_numbers[c] <= '0' || str_numbers[c] >= '9')
 			return (0);
 		else
 			c++;
@@ -31,14 +31,16 @@ int	ft_is_number(char *numbers)
 }
 
 // COMPARA TODOS LOS CARACTERES NUMERICOS PARA COMPROBAR POSIBLES DUPLICADOS.
-int	ft_is_duplicate(char **numbers)
+int	ft_is_duplicate(char **str_numbers)
 {
 	int		c;
+	char	*numbers;
 
 	c = 0;
+	numbers = str_numbers[1];
 	while (numbers[c] != '\0')
 	{
-		if (ft_atol(numbers[c]) > INT_MAX || ft_atol(numbers[c]) < INT_MIN)
+		if (ft_atol(numbers + c) > INT_MAX || ft_atol(numbers + c) < INT_MIN)
 			return (0);
 		if (numbers[c + 1] == numbers[c])
 			return (0);
@@ -71,7 +73,7 @@ char	**validation(int ac, char **av)
 	}
 	if (!ft_is_number(args[c]))
 		ft_args_error();
-	if (!ft_is_duplicate(args[c]))
+	if (!ft_is_duplicate(args))
 		ft_args_error();
 	return (args);
 }
