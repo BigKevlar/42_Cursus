@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/22 13:33:08 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/02/22 14:35:21 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,24 @@ char	**validation(int ac, char **av)
 		ft_args_error();
 	return (args);
 }
-/*
-int	*args_to_int(char **args);
+
+int	*args_to_struct(char **args)
 {
-	
+	t_stack		stack;
+	int			*int_args;
+	int			len;
+	int			c;
+
+	len = 0;
+	c = 0;
+	while (args[len] != NULL)
+		len++;
+	int_args = (int *)malloc(sizeof(int) * (len + 1));
+	if (!int_args)
+	{
+		stack.int_args = (NULL);
+		stack.len = 0;
+		return (stack);
+	}
+
 }
-*/

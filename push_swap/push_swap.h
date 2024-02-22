@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/22 13:24:31 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/02/22 14:36:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@
 
 typedef struct s_stack
 {
-	int				num;
+	int				int_args;
+	int				*stack_a;
+	int				*stack_b;
+	int				size_a;
+	int				size_b;
+	int				len;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
