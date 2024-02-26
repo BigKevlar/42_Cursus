@@ -20,7 +20,8 @@ FUNCTIONS = src/ft_isalpha.c src/ft_isdigit.c src/ft_isalnum.c src/ft_isascii.c 
 			src/get_next_line.c \
 			src/get_next_line_utils.c \
 			src/ft_isdigit_str.c \
-			src/ft_atol.c
+			src/ft_atol.c \
+			src/ft_split_v2.c
 
 # (Variable) Convierte todos los archivos ".c" de FUNCTIONS en ".o", por motivos de optimizacion.
 OBJECTS = $(FUNCTIONS:.c=.o)

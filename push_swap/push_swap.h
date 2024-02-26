@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/22 14:36:36 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:25:17 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,47 @@
 # define PUSH_SWAP_H
 
 # include "libft/includes/libft.h" /* Libreria 42 jmartos- */
-# include <stdlib.h> /* malloc */
+# include <stdbool.h> /* Para imprimir los nombres de las funciones */
 # include <limits.h> /* INT_MIN y INT_MAX */
 
 typedef struct s_stack
 {
-	int				int_args;
-	int				*stack_a;
-	int				*stack_b;
-	int				size_a;
-	int				size_b;
-	int				len;
+	int				value; /* el numero */
+	int				index; /* la posicion en el stack */
+	int				push_cost;
+	bool			above_median;
+	bool			cheapest;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
 
-void	ft_args_error(void);
-int		ft_is_number(char *numbers);
-int		ft_is_duplicate(char **numbers);
+/***************/
+/*   ERRORES   */
+/***************/
+
+void	args_error(void);
+
+/********************/
+/*   VALIDACIONES   */
+/********************/
+
+int		is_number(char *numbers);
+int		is_duplicate(char **numbers);
 char	**validation(int ac, char **av);
 
+/*******************/
+/*   CREAR STACK   */
+/*******************/
+
+t_stack	create_stack(int number);
+/*******************/
+/*   CREAR NODOS   */
+/*******************/
+
+/************************/
+/*   FUNCIONES VARIAS   */
+/************************/
+
+ft_split();
+
 #endif
-
-/*
-typedef struct s_stack_test
-{
-	char				**str;
-	t_list *a;
-	t_list *b;
-} t_stack_test;
-
-typedef struct s_int
-{
-	long value;
-	
-} t_int;
-*/

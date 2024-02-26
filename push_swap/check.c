@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks.c                                           :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/22 14:35:21 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:50:30 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// VERIFICA QUE EL ARRAY DE CARACTERES NUMERICOS SEA DE POSITIVOS Y NEGATIVOS.
-int	ft_is_number(char *str_numbers)
+// Verifica que el string numerico sea unicamente numeros validos.
+int	is_number(char *str_numbers)
 {
 	int	c;
 
@@ -30,8 +30,8 @@ int	ft_is_number(char *str_numbers)
 	return (1);
 }
 
-// COMPARA TODOS LOS CARACTERES NUMERICOS PARA COMPROBAR POSIBLES DUPLICADOS.
-int	ft_is_duplicate(char **str_numbers)
+// Comprueba que no haya duplicados.
+int	is_duplicate(char **str_numbers)
 {
 	int		c;
 	char	*numbers;
@@ -50,7 +50,7 @@ int	ft_is_duplicate(char **str_numbers)
 	return (1);
 }
 
-// VALIDA LA ENTRADA DE LOS ARGUMENTOS AL MAIN.
+// Verifica la entrada de argumentos con las funciones anteriores.
 char	**validation(int ac, char **av)
 {
 	char	**args;
@@ -61,40 +61,19 @@ char	**validation(int ac, char **av)
 	if (ac == 1)
 		exit(0);
 	else if (ac == 2 && av[1][0] == '\0')
-		ft_args_error();
+		args_error();
 	else if (ac > 2)
 		args = av + 1;
 	else if (ac == 2)
 	{
 		if (av[1] == NULL)
-			ft_args_error();
+			args_error();
 		else
 			args = ft_split(av[1], ' ');
 	}
-	if (!ft_is_number(args[c]))
-		ft_args_error();
-	if (!ft_is_duplicate(args))
-		ft_args_error();
+	if (!is_number(args[c]))
+		args_error();
+	if (!is_duplicate(args))
+		args_error();
 	return (args);
-}
-
-int	*args_to_struct(char **args)
-{
-	t_stack		stack;
-	int			*int_args;
-	int			len;
-	int			c;
-
-	len = 0;
-	c = 0;
-	while (args[len] != NULL)
-		len++;
-	int_args = (int *)malloc(sizeof(int) * (len + 1));
-	if (!int_args)
-	{
-		stack.int_args = (NULL);
-		stack.len = 0;
-		return (stack);
-	}
-
 }
