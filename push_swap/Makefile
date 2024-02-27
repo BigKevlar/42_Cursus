@@ -4,7 +4,12 @@ SRC				= 	push_swap.c \
 					errors.c \
 					check.c \
 					init.c \
-					algorithms.c
+					algorithms.c \
+					util.c \
+					push.c \
+					swap.c \
+					rotate.c \
+					rev_rotate.c
 OBJ				= ${SRC:.c=.o}
 LIBFT 			= libft/libft.a
 INC 			= -I libft/includes

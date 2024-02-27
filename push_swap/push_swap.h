@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/26 16:25:17 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:36:50 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,38 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-/***************/
-/*   ERRORES   */
-/***************/
+/**********************/
+/* ERRORES (errors.c) */
+/**********************/
 
 void	args_error(void);
 
-/********************/
-/*   VALIDACIONES   */
-/********************/
+/****************************/
+/* COMPROBACIONES (check.c) */
+/****************************/
 
 int		is_number(char *numbers);
 int		is_duplicate(char **numbers);
 char	**validation(int ac, char **av);
 
-/*******************/
-/*   CREAR STACK   */
-/*******************/
+/************************/
+/* CREAR STACK (init.c) */
+/************************/
 
 t_stack	create_stack(int number);
-/*******************/
-/*   CREAR NODOS   */
-/*******************/
 
 /************************/
-/*   FUNCIONES VARIAS   */
+/* CREAR NODOS (init.c) */
 /************************/
 
-ft_split();
+/************************/
+/* ORDENAR STACK (init.c) */
+/************************/
+
+/******************************/
+/* FUNCIONES VARIAS (utils.c) */
+/******************************/
+
+
 
 #endif

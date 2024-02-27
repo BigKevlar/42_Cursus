@@ -1,3 +1,7 @@
+30:04
+
+/*************************************************/
+
 typedef struct s_stack_test
 {
 	char				**str;
@@ -5,11 +9,15 @@ typedef struct s_stack_test
 	t_list *b;
 } t_stack_test;
 
+/*************************************************/
+
 typedef struct s_int
 {
 	long value;
 	
 } t_int;
+
+/*************************************************/
 
 int	main(int ac, char **av)
 {
@@ -24,4 +32,33 @@ int	main(int ac, char **av)
 	ft_lstadd_back(&all->a, ft_lstnew(num1));
 	num2 = all->a->content;
 	printf("%ld\n", num2->value);
+}
+
+/*************************************************/
+
+char	**validation(int ac, char **av)
+{
+	char	**args;
+	int		c;
+
+	c = 0;
+	args = NULL;
+	if (ac == 1)
+		exit(0);
+	else if (ac == 2 && av[1][0] == '\0')
+		args_error();
+	else if (ac > 2)
+		args = av + 1;
+	else if (ac == 2)
+	{
+		if (av[1] == NULL)
+			args_error();
+		else
+			args = ft_split(av[1], ' ');
+	}
+	if (!is_number(args[c]))
+		args_error();
+	if (!is_duplicate(args))
+		args_error();
+	return (args);
 }
