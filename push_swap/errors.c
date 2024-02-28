@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:02:06 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/27 20:35:55 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:37:24 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,21 @@ void	args_error(void)
 	exit(0);
 }
 
-void	free_error(t_stack **stack)
+void	stack_error(t_stack **stack)
 {
-	free_stack(stack);
+	t_stack	*tmp;
+	t_stack	*now;
+
+	if (*stack == NULL)
+		exit(0);
+	now = *stack;
+	while (now != NULL)
+	{
+		tmp = now->next;
+		free(now);
+		now = tmp;
+	}
+	*stack = NULL;
 	ft_printf("%s\n", "ERROR, FALLO EN STACK!");
 	exit(0);
 }

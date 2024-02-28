@@ -3,29 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:26:14 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/02/27 20:40:05 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:46:26 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack **stack)
+int	check_sorted(t_stack *stack)
 {
-	t_stack	*tmp; //To store the next node in the stack before the current node is freed, because once a node is freed, you can't access its next pointer
-	t_stack	*current;
-
-	if (!stack) //Check for an empty stack
-		return ;
-	current = *stack;
-	while (current) //As long as a node exist in the stack
+	if (!stack)
+		return (1);
+	while (stack->next != NULL)
 	{
-		tmp = current->next; //Assign to `tmp` the pointer to the next node
-		current->nbr = 0; //Assigning the node to `0` before freeing is not strictly necessary but it can help catch potential bugs such as memory-leaks and improve debugging
-		free(current); //Free the current node, deallocating the memory occupied by that node
-		current = tmp; //Assign `tmp` as the current first node
+		if ((stack->value) > (stack->next->value))
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+void	alg_sort_3(t_stack **a);
+//
+
+void	alg_sort_all(t_stack **a, t_stack **b);
+//
+
+void	final_free(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack	*now;
+
+	if (*stack == NULL)
+		exit(0);
+	now = *stack;
+	while (now != NULL)
+	{
+		tmp = now->next;
+		free(now);
+		now = tmp;
 	}
 	*stack = NULL;
+	exit(0);
 }

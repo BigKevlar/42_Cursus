@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/27 19:36:50 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:36:10 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/includes/libft.h" /* Libreria 42 jmartos- */
+# include <stdlib.h> /* malloc y free */
 # include <stdbool.h> /* Para imprimir los nombres de las funciones */
 # include <limits.h> /* INT_MIN y INT_MAX */
 
@@ -46,7 +47,7 @@ char	**validation(int ac, char **av);
 /* CREAR STACK (init.c) */
 /************************/
 
-t_stack	create_stack(int number);
+t_stack	create_stack_a(int number);
 
 /************************/
 /* CREAR NODOS (init.c) */

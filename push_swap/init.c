@@ -3,26 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:11:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/02/27 19:59:26 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:41:19 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	create_stack_a(t_stack *a, char *av)
+void	create_stack_a(t_stack **a, char **av)
 {
-	long	number;
-	int		c;
+	int	number;
+	int	c;
 
-	c = o;
-	while(av[c] != '\0')
+	c = 0;
+	while (av[c] != '\0')
 	{
-		if(!is_number(av[1]))
-			args_error();
-		
+		if (check_number(av[1]))
+			stack_error(a);
+		number = ft_atol(av[c]);
+		if (is_duplicate(a, n))
+			stack_error(a);
+		if (number < INT_MIN || number > INT_MAX)
+			stack_error(a);
+		add_node(a, number);
+		c++;
 	}
+	return ;
+}
+
+void	add_node(t_stack **a, int number)
+{
+	t_stack	*node;
+	t_stack	*last_node;
+
+	if (!(a))
+		return ;
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		return ;
+	node->value = number;
+	node->next = NULL;
 	return ;
 }

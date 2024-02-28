@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/27 19:36:02 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:48:07 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ int	main(int ac, char **av)
 	else if (av == 2)
 		av = ft_split_v2(av[1], ' ');
 	create_stack_a(&a, av + 1);
-	if (!is_sorted(a))
+	if (check_sorted(a))
 	{
 		if (stack_len(a) == 2)
-			
+			sa(&a);
 		else if (stack_len(a) == 3)
-
+			alg_sort_3(&a);
 		else
-			sort_stack(&a, &b);
+			alg_sort_stacks(&a, &b);
 	}
+	final_free(&a);
+	return (0);
 }

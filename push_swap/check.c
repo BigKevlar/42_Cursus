@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/27 20:31:53 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/02/28 17:35:06 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Verifica que el string numerico sea unicamente numeros enteros.
-int	is_number(char *str_numbers)
+int	check_number(char *str_numbers)
 {
 	int	c;
 
@@ -30,16 +30,16 @@ int	is_number(char *str_numbers)
 	return (0);
 }
 
-// Comprueba que no haya duplicados.
-int	is_duplicate(t_stack *a, int numbers)
+// Comprueba numeros duplicados.
+int	check_duplicate(t_stack *a, int numbers)
 {
-	int		c;
+	int	c;
 
 	c = 0;
 	while (a[c] != '\0')
 	{
 		if (a->value == n)
-			return (1)
+			return (1);
 		else
 			a = a->next;
 		c++;
