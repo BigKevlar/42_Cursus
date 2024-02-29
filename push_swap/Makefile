@@ -6,6 +6,7 @@ SRC				= 	push_swap.c \
 					init.c \
 					algorithms.c \
 					util.c \
+					actions.c \
 					push.c \
 					swap.c \
 					rotate.c \

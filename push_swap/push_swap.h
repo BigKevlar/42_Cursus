@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/28 19:36:10 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:00:10 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,18 @@ t_stack	create_stack_a(int number);
 /* CREAR NODOS (init.c) */
 /************************/
 
-/************************/
+/**************************/
 /* ORDENAR STACK (init.c) */
-/************************/
+/**************************/
+
+/*********************/
+/* ACCIONES (init.c) */
+/*********************/
+
+static void	 swap(t_stack **head);
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
 
 /******************************/
 /* FUNCIONES VARIAS (utils.c) */
