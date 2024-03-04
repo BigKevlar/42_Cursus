@@ -3,26 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/28 19:48:07 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:21:09 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	main(int ac, char **av) // RADIX_SORT
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*data;
+	int		c;
 
-	a = NULL;
-	b = NULL;
+	data = NULL;
+	c = 0;
 	if ((ac == 1) || (ac == 2 && !av[1][0]))
 		args_error();
 	else if (av == 2)
 		av = ft_split_v2(av[1], ' ');
+	while(av[c] != '\0')
+		c++;
+	data->stack_a = ft_calloc(c * sizeof(long));
+}
+
+/*
 	create_stack_a(&a, av + 1);
 	if (check_sorted(a))
 	{
@@ -35,4 +41,4 @@ int	main(int ac, char **av)
 	}
 	final_free(&a);
 	return (0);
-}
+*/

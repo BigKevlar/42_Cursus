@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/29 18:00:10 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:36:21 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,11 @@
 
 typedef struct s_stack
 {
-	int				value; /* el numero */
-	int				index; /* la posicion en el stack */
-	int				push_cost;
-	bool			above_median;
-	bool			cheapest;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-}					t_stack;
+	int	*stack_a;
+	int	*stack_b;
+	int	size_a;
+	int size_b;
+}		t_stack;
 
 /**********************/
 /* ERRORES (errors.c) */
