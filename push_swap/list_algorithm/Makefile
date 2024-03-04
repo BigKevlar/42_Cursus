@@ -2,7 +2,15 @@ NAME    		= push_swap
 CFLAGS  		= -Wall -Wextra -Werror -g
 SRC				= 	push_swap.c \
 					errors.c \
-					
+					check.c \
+					init.c \
+					algorithms.c \
+					util.c \
+					actions.c \
+					push.c \
+					swap.c \
+					rotate.c \
+					rev_rotate.c
 OBJ				= ${SRC:.c=.o}
 LIBFT 			= libft/libft.a
 INC 			= -I libft/includes

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   checking.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/02/28 17:35:06 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/04 18:52:48 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,14 @@ int	check_duplicate(t_stack *a, int numbers)
 		c++;
 	}
 	return (0);
+}
+
+void	checking_args(int ac, char **av)
+{
+	if ((ac == 1) || (ac == 2 && !av[1][0]))
+		args_error();
+	else if (av == 2)
+		av = ft_split_v2(av[1], ' '); //MODIFICAR SPLIT???
+	check_number();
+	check_duplicate ();
 }
