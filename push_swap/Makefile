@@ -1,7 +1,7 @@
 NAME    		= push_swap
 CFLAGS  		= -Wall -Wextra -Werror -g
 SRC				= 	push_swap.c \
-					errors.c \
+					error.c \
 					
 OBJ				= ${SRC:.c=.o}
 LIBFT 			= libft/libft.a

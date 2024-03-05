@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/01 12:36:21 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/05 22:20:50 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,25 @@
 
 typedef struct s_stack
 {
-	int	*stack_a;
-	int	*stack_b;
+	int	*data_a;
+	int	*data_b;
 	int	size_a;
 	int size_b;
 }		t_stack;
 
-/**********************/
-/* ERRORES (errors.c) */
-/**********************/
+/********************/
+/* ERROR (error.c) */
+/********************/
 
-void	args_error(void);
+void	error_and_free(t_stack stack, char *error);
 
 /****************************/
 /* COMPROBACIONES (check.c) */
 /****************************/
 
-int		is_number(char *numbers);
-int		is_duplicate(char **numbers);
-char	**validation(int ac, char **av);
+int		check_number(char *numbers);
+int		check_duplicate(char **numbers);
+void	checking_args(int ac, char **av);
 
 /************************/
 /* CREAR STACK (init.c) */

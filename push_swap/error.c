@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:02:06 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/04 17:54:46 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:59:48 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	args_error(void)
+void	error_and_free(t_stack stack, char *error)
 {
-	ft_printf("%s\n", "ERROR, FALLO EN ARGUMENTOS!");
-	exit(0);
+	if (error)
+		ft_printf("%s\n", error);
+	if (stack != NULL)
+	{
+		if (stack->data_a != NULL)
+			free(stack->data_a);
+		if (stack->data_b != NULL)
+			free(stack->data_b);
+		free(stack);
+		stack = NULL;
+	}
+	exit (1);
 }
