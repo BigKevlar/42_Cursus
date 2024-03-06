@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/02/26 16:30:57 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:46:04 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_isdigit_str(char *str);
 // Lo mismo que la funcion atoi, pero para numeros largos (long).
 int		ft_atol(const char *str);
-// Una version de "split" para el proyecto push_swap.
+// Una version de "split" para el proyecto push_swap (aun no modificada).
 char	**ft_split_v2(char const *s, char c);
+// Cuenta las palabras de un string usando un delimitador.
+int	ft_word_counter(char const *s, char c);
 
 #endif
