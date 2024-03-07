@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algorithm_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:32:36 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/06 19:10:46 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/07 22:48:03 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three_elements(t_stacks *s)
+void	sort_three_elements(t_stack *s)
 {
 	if (s->a[2] != 2)
 	{
@@ -25,7 +25,7 @@ void	sort_three_elements(t_stacks *s)
 		swap("sa", s->a, s->a_size);
 }
 
-void	sort_four_to_five_elements(t_stacks *s)
+void	sort_four_to_five_elements(t_stack *s)
 {
 	while (s->b_size <= 1)
 	{
@@ -49,7 +49,7 @@ void	sort_four_to_five_elements(t_stacks *s)
 	push("pa", s);
 }
 
-static void	radix_sort_stack_b(t_stacks *s, int b_size, int bit_size, int j)
+static void	radix_sort_stack_b(t_stack *s, int b_size, int bit_size, int j)
 {
 	while (b_size-- && j <= bit_size && !is_array_sorted(s))
 	{
@@ -63,7 +63,7 @@ static void	radix_sort_stack_b(t_stacks *s, int b_size, int bit_size, int j)
 			push("pa", s);
 }
 
-void	radix_sort(t_stacks *s)
+void	radix_sort(t_stack *s)
 {
 	int	j;
 	int	bit_size;

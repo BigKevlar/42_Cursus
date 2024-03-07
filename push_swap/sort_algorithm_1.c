@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_algorithm.c                                   :+:      :+:    :+:   */
+/*   sort_algorithm_1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:32:36 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/06 19:01:56 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/07 23:08:06 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_sorted(t_stacks *s)
+static int	is_sorted(t_stack *s)
 {
 	int	c;
 
 	c = 0;
-	while (c < s->a_size - 1)
+	while (c < s->size_a - 1)
 	{
-		if (s->a[c] > s->a[c + 1])
+		if (s->data_a[c] > s->data_a[c + 1])
 			return (0);
 		c++;
 	}
 	return (1);
 }
 
-void	sorted_or_duplicates(t_stacks *s)
+void	sorted_or_duplicates(t_stack *s)
 {
 	int min;
 	int	c;
 
 	min = 0;
 	c = 0;
-	while (min < s->a_size)
+	while (min < s->size_a)
 	{
 		c = min + 1;
-		while (c < s->a_size)
+		while (c < s->size_a)
 		{
 			if (s->data_a[min] == s->data_a[c])
 				error_and_free (s, "ERROR");

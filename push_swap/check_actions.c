@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/06 19:26:14 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/07 23:07:16 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ckeck_args(int ac, char **av)
+void	check_args(int ac, char **av)
 {
 	int	c1; //1
 	int	c2; //1
@@ -66,7 +66,7 @@ bucle. Iteramos cada carácter de la siguiente manera:
 
 */
 
-void	init_stacks(int ac, char **av, t_stacks *s)
+void	init_stacks(int ac, char **av, t_stack *s)
 {
 	int	c;
 
@@ -91,7 +91,7 @@ void	init_stacks(int ac, char **av, t_stacks *s)
 	return ;
 }
 
-void	join_args(int ac, char **av, t_stacks *s)
+void	join_args(int ac, char **av, t_stack *s)
 {
 	char	*tmp1;
 	char	*tmp2;
@@ -125,7 +125,7 @@ void	join_args(int ac, char **av, t_stacks *s)
 	return ;
 }
 
-void	analize_numbers(t_stacks *s)
+void	analize_numbers(t_stack *s)
 {
 	int		c;
 	char	**tmp;
@@ -144,28 +144,28 @@ void	analize_numbers(t_stacks *s)
 	free(tmp);
 }
 
-void	create_index(t_stacks *s)
+void	create_index(t_stack *s)
 {
 	int		i;
 	int		j;
 	int		k;
 	int		*new_a;
 
-	new_a = malloc(s->a_size * sizeof * new_a);
+	new_a = malloc(s->size_a * sizeof * new_a);
 	if (new_a == NULL)
 		free_and_exit_with_message(s, "Error\n");
 	i = -1;
-	while (++i < s->a_size)
+	while (++i < s->size_a)
 	{
 		k = 0;
 		j = -1;
-		while (++j < s->a_size)
-			if (s->a[i] > s->a[j])
+		while (++j < s->size_a)
+			if (s->data_a[i] > s->data_a[j])
 				k++;
 		new_a[i] = k;
 	}
-	i = s->a_size;
+	i = s->size_a;
 	while (i--)
-		s->a[i] = new_a[i];
+		s->data_a[i] = new_a[i];
 	free(new_a);
 }

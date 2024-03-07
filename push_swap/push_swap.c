@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/06 19:24:15 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/07 22:54:15 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ int	main(int ac, char **av)
 	if (s == NULL)
 		exit(1);
 	check_args(ac, av);	
-	init_stacks(argc, argv, s);
-	join_args(argc, argv, s);
+	init_stacks(ac, av, s);
+	join_args(ac, av, s);
 	analize_numbers(s);
 	sorted_or_duplicates(s);
 	create_index(s);
 	//
-	if (s->a_size == 2 && s->a[0] > s->a[1])
-		swap("sa", s->a, s->a_size);
-	else if (s->a_size == 3)
+	if (s->size_a == 2 && s->data_a[0] > s->data_a[1])
+		swap("sa", s->data_a, s->size_a);
+	else if (s->size_a == 3)
 		sort_three_elements(s);
-	else if (s->a_size >= 4 && s->a_size <= 5)
+	else if (s->size_a >= 4 && s->size_a <= 5)
 		sort_four_to_five_elements(s);
 	else
 		radix_sort(s);
 	//
 	sorted_or_duplicates(s);
-	free_and_exit_with_message(s, "Error\n");
+	free_stack(s);
 	return (0);
 }
 

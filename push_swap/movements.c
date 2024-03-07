@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:05:32 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/06 19:13:47 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/07 22:48:03 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	swap(char *str, int *array, int size)
 	ft_printf("%s", str);
 }
 
-void	push(char *str, t_stacks *s)
+void	push(char *str, t_stack *s)
 {
 	int	tmp;
 
