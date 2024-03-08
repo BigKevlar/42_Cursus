@@ -6,13 +6,13 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:32:36 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/07 23:08:06 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/08 20:03:12 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_sorted(t_stack *s)
+int	is_sorted(t_stack *s)
 {
 	int	c;
 

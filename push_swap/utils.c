@@ -1,16 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_v2.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 13:00:35 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/02/26 16:35:25 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/03/08 19:48:55 by jmartos           #+#    #+#             */
+/*   Updated: 2024/03/08 19:50:07 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
+
+int	ft_atol(const char *str, t_stack *s)
+{
+	int		c;
+	long	num;
+	int		sign;
+
+	c = 0;
+	num = 0;
+	sign = 1;
+	while (str[c] == ' ' || str[c] == '\t'
+		|| str[c] == '\v' || str[c] == '\f'
+		|| str[c] == '\n' || str[c] == '\r')
+		c++;
+	if (str[c] == '+' || str[c] == '-')
+	{	
+		if (str[c] == '-')
+			sign *= -1;
+		c++;
+	}
+	while (str[c] >= '0' && str[c] <= '9' && str[c] != '\0')
+	{
+		if (num > INT_MAX || (num * sign) < INT_MIN || ft_strlen(str) > 11)
+			error_and_free(s, "Error\n");
+		if (!(str[c] >= '0' && str[c] <= '9'))
+			error_and_free(s, "Error\n");
+		num = num * 10 + ((int)str[c] - '0');
+		c++;
+	}
+	return ((long)num * sign);
+}
 
 static size_t	ft_counter_v2(const char *str, char c)
 {

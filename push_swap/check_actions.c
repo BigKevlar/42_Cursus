@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/07 23:07:16 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/08 19:56:38 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_args(int ac, char **av)
 	int	c1; //1
 	int	c2; //1
 
-	if ((ac == 1) || (ac == 2 && av[1][0] = '\0')) //2
+	if ((ac == 1) || (ac == 2 && av[1][0] == '\0')) //2
 		error_and_free (NULL, "ERROR\n");
 	c1 = 1;
 	while (ac > c1) //3
@@ -76,18 +76,18 @@ void	init_stacks(int ac, char **av, t_stack *s)
 	while (ac > 1)
 	{
 		if (ft_word_counter(av[c + 1], ' ') > 0)
-			s->size_a += ft_count_words(av[c + 1], ' ');
+			s->size_a += ft_word_counter(av[c + 1], ' ');
 		else
 			s->size_a++;
 		c++;
 		ac--;
 	}
-	s->data_a = (long *)malloc(s->size_a * sizeof(long));
+	s->data_a = (int *)malloc(s->size_a * sizeof(long));
 	if (s->data_a == NULL)
-		error_and_free (s, "ERROR\n");
-	s->data_b = (long *)malloc(s->size_b * sizeof(long));
+		error_and_free (s, "ERROR.\n");
+	s->data_b = (int *)malloc(s->size_b * sizeof(long));
 	if (s->data_b == NULL)
-		error_and_free (s, "ERROR\n");
+		error_and_free (s, "ERROR.\n");
 	return ;
 }
 
@@ -104,14 +104,14 @@ void	join_args(int ac, char **av, t_stack *s)
 	{
 		tmp1 = ft_strjoin(tmp2, av[c]); // reservamos espacio igual a tmp2 + av[c].
 		if (tmp1 == NULL)
-			error_and_free (s, "ERROR, fallo de argumentos");
+			error_and_free (s, "ERROR, fallo de argumentos.\n");
 		if (c != ac - 1)
 		{
 			tmp2 = ft_strjoin(tmp1, " ");
 			if (tmp2 == NULL)
 			{
 				free(tmp1);
-				error_and_free (s, "ERROR, fallo de argumentos");
+				error_and_free (s, "ERROR, fallo de argumentos.\n");
 			}
 			free(tmp1);
 			tmp1 = tmp2;
@@ -120,7 +120,7 @@ void	join_args(int ac, char **av, t_stack *s)
 	}
 	s->args = ft_strdup(tmp1);
 	if (s->args == NULL)
-		error_and_free (s, "ERROR");
+		error_and_free (s, "ERROR.\n");
 	free(tmp1);
 	return ;
 }
@@ -133,7 +133,7 @@ void	analize_numbers(t_stack *s)
 	c = 0;
 	tmp = ft_split(s->args, ' ');
 	if (tmp == NULL)
-		error_and_free (s, "ERROR");
+		error_and_free (s, "ERROR.\n");
 	while (tmp[c] != NULL)
 	{
 		
@@ -153,7 +153,7 @@ void	create_index(t_stack *s)
 
 	new_a = malloc(s->size_a * sizeof * new_a);
 	if (new_a == NULL)
-		free_and_exit_with_message(s, "Error\n");
+		error_and_free (s, "ERROR.\n");
 	i = -1;
 	while (++i < s->size_a)
 	{

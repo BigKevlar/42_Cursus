@@ -6,7 +6,8 @@ SRC				= 	push_swap.c \
 					check_actions.c \
 					sort_algorithm_1.c \
 					sort_algorithm_2.c \
-					movements.c
+					movements.c \
+					utils.c
 OBJ				= ${SRC:.c=.o}
 LIBFT 			= libft/libft.a
 INC 			= -I libft/includes
