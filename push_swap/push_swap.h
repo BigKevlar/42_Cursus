@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/08 20:16:59 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/09 18:33:26 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,5 @@ void		rotate(int *int_str, int size, char *direction, char *list);
 
 //
 int			ft_atol(const char *str, t_stack *s);
-char		**ft_split_v2(char const *s, char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:32:36 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/08 20:03:12 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/09 18:43:37 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void	sorted_or_duplicates(t_stack *s)
 		while (c < s->size_a)
 		{
 			if (s->data_a[min] == s->data_a[c])
-				error_and_free (s, "ERROR");
+				error_and_free (s, "ERROR en 'sorted_or_duplicates'.");
 			c++;
 		}
 		min++;
 	}
 	if (is_sorted(s))
 		free_stack (s);
-    return ;
+	return ;
 }

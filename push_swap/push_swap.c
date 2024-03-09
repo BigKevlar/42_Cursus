@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/07 22:54:15 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/09 18:48:35 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,15 @@ int	main(int ac, char **av)
 {
 	t_stack	*s;
 
-	s = NULL;
-	s = malloc(1 * sizeof(s));
+	check_args(ac, av);
+	s = malloc(sizeof(t_stack));
 	if (s == NULL)
-		exit(1);
-	check_args(ac, av);	
+		error_and_free (s, "ERROR, fallo de argumentos.");
 	init_stacks(ac, av, s);
 	join_args(ac, av, s);
 	analize_numbers(s);
 	sorted_or_duplicates(s);
 	create_index(s);
-	//
 	if (s->size_a == 2 && s->data_a[0] > s->data_a[1])
 		swap("sa", s->data_a, s->size_a);
 	else if (s->size_a == 3)
@@ -35,7 +33,6 @@ int	main(int ac, char **av)
 		sort_four_to_five_elements(s);
 	else
 		radix_sort(s);
-	//
 	sorted_or_duplicates(s);
 	free_stack(s);
 	return (0);
