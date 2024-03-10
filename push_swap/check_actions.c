@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/10 19:16:29 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/10 21:24:46 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,17 @@ void	init_stacks(int ac, char **av, t_stack *s)
 	s->size_b = 0;
 	while (ac > 1)
 	{
-		if (ft_word_counter(av[c + 1], ' ') > 0)
+		if (ft_word_counter(av[c + 1], ' '))
 			s->size_a += ft_word_counter(av[c + 1], ' ');
 		else
 			s->size_a++;
 		c++;
 		ac--;
 	}
-	s->data_a = (int *)malloc(s->size_a * sizeof(long));
+	s->data_a = (int *)malloc(s->size_a * sizeof(s->data_a));
 	if (s->data_a == NULL)
 		error_and_free (s, "ERROR en 'init_stacks'.");
-	s->data_b = (int *)malloc(s->size_b * sizeof(long));
+	s->data_b = (int *)malloc(s->size_b * sizeof(s->data_b));
 	if (s->data_b == NULL)
 		error_and_free (s, "ERROR en 'init_stacks'.");
 	return ;

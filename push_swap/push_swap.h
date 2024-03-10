@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/10 19:58:20 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/10 20:12:49 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void		analize_numbers(t_stack *s);
 void		create_index(t_stack *s);
 
 //
+void		duplicates(t_stack *s);
 int			is_sorted(t_stack *s);
-void		sorted_or_duplicates(t_stack *s);
 
 //
 void		sort_three_elements(t_stack *s);
