@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:32:36 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/09 18:43:37 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/10 20:01:40 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ int	is_sorted(t_stack *s)
 
 void	sorted_or_duplicates(t_stack *s)
 {
-	int min;
-	int	c;
+	int c1;
+	int	c2;
 
-	min = 0;
-	c = 0;
-	while (min < s->size_a)
+	c1 = 0;
+	c2 = 0;
+	while (c1 < s->size_a)
 	{
-		c = min + 1;
-		while (c < s->size_a)
+		c2 = c1 + 1;
+		while (c2 < s->size_a)
 		{
-			if (s->data_a[min] == s->data_a[c])
+			if (s->data_a[c1] == s->data_a[c2])
 				error_and_free (s, "ERROR en 'sorted_or_duplicates'.");
-			c++;
+			c2++;
 		}
-		min++;
+		c1++;
 	}
 	if (is_sorted(s))
 		free_stack (s);
