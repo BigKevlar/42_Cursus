@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/09 18:35:23 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/10 19:10:12 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,28 +73,30 @@ void	join_args(int ac, char **av, t_stack *s)
 	int		c;
 
 	c = 1;
-	while (ac > c)
+	tmp1 = ft_strdup("");
+	tmp2 = ft_strdup("");
+	while (ac > c && av[c] != NULL)
 	{
-		tmp1 = ft_strjoin(tmp2, av[c]); // reservamos espacio igual a tmp2 + av[c].
-		if (tmp1 == NULL)
+		tmp1 = ft_strjoin(tmp2, av[c]);
+		if (tmp2)
 			error_and_free (s, "ERROR en 'join_args'.");
 		if (c != ac - 1)
 		{
-			tmp2 = ft_strjoin(tmp1, " ");
+			free(tmp2);
+			tmp2 = ft_strdup(tmp1);
 			if (tmp2 == NULL)
 			{
 				free(tmp1);
 				error_and_free (s, "ERROR en 'join_args'.");
 			}
-			free(tmp1);
-			tmp1 = tmp2;
 		}
 		c++;
 	}
-	s->args = ft_strdup(tmp1);
+	s->args = ft_strdup(tmp2);
 	if (s->args == NULL)
 		error_and_free (s, "ERROR en 'join_args'.");
 	free(tmp1);
+	free(tmp2);
 }
 
 void	analize_numbers(t_stack *s)

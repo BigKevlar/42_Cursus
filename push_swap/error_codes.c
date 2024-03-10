@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:02:06 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/07 22:59:09 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/10 18:22:00 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	error_and_free(t_stack *stack, char *message)
 		if (stack->data_a != NULL)
 			free(stack->data_a);
 		if (stack->data_b != NULL)
-			free(stack->data_b);
+			free(stack->data_b);	
 		free(stack);
 		stack = NULL;
 	}
