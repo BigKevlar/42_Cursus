@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algorithm_1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:32:36 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/10 21:25:39 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/11 14:08:51 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	duplicates(t_stack *s)
 		c2 = c1 + 1;
 		while (c2 < s->size_a)
 		{
-			ft_printf("%d\n", s->data_a[c1]); // BREAK_POINT 
-			ft_printf("%d\n", s->data_a[c2]);
+			ft_printf("%d\n", s->data_a[c1]); //
+			ft_printf("%d\n", s->data_a[c2]); //
 			if (s->data_a[c1] == s->data_a[c2])
 				error_and_free (s, "ERROR en 'duplicates'.");
 			c2++;

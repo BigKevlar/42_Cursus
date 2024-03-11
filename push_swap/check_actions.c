@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/10 21:24:46 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/11 14:56:01 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,28 +74,28 @@ void	join_args(int ac, char **av, t_stack *s)
 
 	c = 1;
 	tmp1 = ft_strdup("");
-	tmp2 = ft_strdup("");
-	while (ac > c && av[c] != NULL)
+	tmp2 = NULL;
+	while (c < ac && av[c] != NULL)
 	{
-		tmp1 = ft_strjoin(tmp2, av[c]);
-		if (c != ac - 1)
-		{
+		if (tmp2 != NULL)
 			free(tmp2);
-			tmp2 = ft_strjoin(tmp1, " ");
-			if (tmp1 == NULL)
-			{
-				free(tmp1);
+		tmp2 = ft_strjoin(tmp1, av[c]);
+		if (!tmp2)
+			error_and_free (s, "ERROR en 'join_args'.");
+		free(tmp1);
+		if (c == ac - 1)
+		{
+			tmp1 = ft_strjoin(tmp2, " ");
+			if (!tmp1)
 				error_and_free (s, "ERROR en 'join_args'.");
-			}
-			free(tmp1);
-			tmp1 = tmp2;
+			else
+				tmp1 = tmp2;
 		}
 		c++;
 	}
-	s->args = ft_strdup(tmp2);
-	if (s->args == NULL)
+	s->args = ft_strdup(tmp1);
+	if (!s->args)
 		error_and_free (s, "ERROR en 'join_args'.");
-	free(tmp1);
 	free(tmp2);
 }
 
