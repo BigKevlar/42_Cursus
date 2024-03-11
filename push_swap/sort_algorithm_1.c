@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algorithm_1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:32:36 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/11 15:54:45 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/11 18:56:29 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 void	duplicates(t_stack *s)
 {
 	int c1;
@@ -34,7 +34,7 @@ void	duplicates(t_stack *s)
 	}
 	return ;
 }
-
+*/
 void	duplicates(t_stack *s)
 {
 	int	c;
@@ -42,9 +42,11 @@ void	duplicates(t_stack *s)
 
 	c = 0;
 	tmp = (int *)ft_calloc(s->size_a, sizeof(int));
-	while(s)
+	if (!tmp)
+		error_and_free (s, "ERROR en 'duplicates'.");
+	while(c < s->size_a)
 	{
-		if (tmp[c] = s->data_a[c])
+		if (tmp[c] == s->data_a[c])
 			error_and_free (s, "ERROR en 'duplicates'.");
 		else
 			c++;

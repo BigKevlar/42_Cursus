@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   check_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/11 15:33:26 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/12 00:49:56 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Esta funcion revisa los argumentos pasados por parametros.
 void	check_args(int ac, char **av)
 {
 	int	c1;
 	int	c2;
 
-	if ((ac == 1) || (ac == 2 && av[1][0] == '\0'))
+	if ((ac == 1) || (ac == 2 && av[1] == '\0')) //split???
 		error_and_free (NULL, "ERROR en 'check_args'.");
 	c1 = 1;
-	while (ac > c1)
+	while (c1 < ac)
 	{
 		c2 = 0;
 		if ((av[c1][0] == ' ') || av[c1][0] == '\0')

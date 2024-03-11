@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/11 15:54:06 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/12 00:49:58 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	main(int ac, char **av)
 {
 	t_stack	*s;
 
-	check_args(ac, av);
-	s = malloc(sizeof(t_stack));
-	if (s == NULL)
+	check_args(ac, av); //OK
+	s = ft_calloc(1, sizeof(t_stack)); //OK
+	if (!s)
 		error_and_free (s, "ERROR, fallo de argumentos.");
 	init_stacks(ac, av, s);
 	join_args(ac, av, s);
