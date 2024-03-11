@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/11 14:56:01 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:33:26 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	join_args(int ac, char **av, t_stack *s)
 		tmp2 = ft_strjoin(tmp1, av[c]);
 		if (!tmp2)
 			error_and_free (s, "ERROR en 'join_args'.");
-		free(tmp1);
 		if (c == ac - 1)
 		{
 			tmp1 = ft_strjoin(tmp2, " ");
