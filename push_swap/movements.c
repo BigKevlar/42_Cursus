@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:05:32 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/08 20:13:57 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/14 18:41:04 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	swap(char *str, int *int_str, int size)
 	tmp = int_str[0];
 	int_str[0] = int_str[1];
 	int_str[1] = tmp;
-	ft_printf("%s", str);
+	ft_printf("%s\n", str);
 }
 
 void	push(char *str, t_stack *s)
