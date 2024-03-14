@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/12 00:49:58 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:49:06 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(int ac, char **av)
 	s = ft_calloc(1, sizeof(t_stack)); //OK
 	if (!s)
 		error_and_free (s, "ERROR, fallo de argumentos.");
-	init_stacks(ac, av, s);
-	join_args(ac, av, s);
+	init_stacks(ac, av, s); //OK
+	join_args(ac, av, s); //OK
 	analize_numbers(s);
 	duplicates(s);
 	if (!is_sorted(s))

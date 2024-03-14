@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/12 00:49:56 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/14 18:02:01 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	check_args(int ac, char **av)
 	int	c1;
 	int	c2;
 
-	if ((ac == 1) || (ac == 2 && av[1] == '\0')) //split???
+	if ((ac == 1) || (ac == 2 && av[1] == NULL))
 		error_and_free (NULL, "ERROR en 'check_args'.");
 	c1 = 1;
 	while (c1 < ac)
@@ -58,10 +58,10 @@ void	init_stacks(int ac, char **av, t_stack *s)
 		c++;
 		ac--;
 	}
-	s->data_a = (int *)malloc(s->size_a * sizeof(s->data_a));
+	s->data_a = (int *)ft_calloc(s->size_a, sizeof(s->data_a));
 	if (s->data_a == NULL)
 		error_and_free (s, "ERROR en 'init_stacks'.");
-	s->data_b = (int *)malloc(s->size_b * sizeof(s->data_b));
+	s->data_b = (int *)ft_calloc(s->size_b, sizeof(s->data_b));
 	if (s->data_b == NULL)
 		error_and_free (s, "ERROR en 'init_stacks'.");
 	return ;
@@ -74,29 +74,26 @@ void	join_args(int ac, char **av, t_stack *s)
 	int		c;
 
 	c = 1;
-	tmp1 = ft_strdup("");
-	tmp2 = NULL;
+	tmp2 = ft_strdup("");
 	while (c < ac && av[c] != NULL)
 	{
-		if (tmp2 != NULL)
+		tmp1 = ft_strjoin(tmp2, av[c]);
+		if (tmp1 == NULL)
 			free(tmp2);
-		tmp2 = ft_strjoin(tmp1, av[c]);
-		if (!tmp2)
-			error_and_free (s, "ERROR en 'join_args'.");
-		if (c == ac - 1)
+		tmp2 = tmp1;
+		if (c < ac - 1)
 		{
 			tmp1 = ft_strjoin(tmp2, " ");
-			if (!tmp1)
+			if (tmp1 == NULL)
 				error_and_free (s, "ERROR en 'join_args'.");
-			else
-				tmp1 = tmp2;
+			tmp2 = tmp1;
 		}
 		c++;
 	}
-	s->args = ft_strdup(tmp1);
-	if (!s->args)
-		error_and_free (s, "ERROR en 'join_args'.");
+	s->args = ft_strdup(tmp2);
 	free(tmp2);
+	if (s->args == NULL)
+		error_and_free (s, "ERROR en 'join_args'.");
 }
 
 void	analize_numbers(t_stack *s)
@@ -110,8 +107,14 @@ void	analize_numbers(t_stack *s)
 		error_and_free (s, "ERROR en 'analize_numbers'.");
 	while (tmp[c] != NULL && tmp[c][0] != '\0')
 	{
-		s->data_a[c] = ft_atol(tmp[c + 1], s);
-		free(tmp[c - 1]);
+		s->data_a[c] = ft_atol(tmp[c], s);
+		c++;
+	}
+	c = 0;
+	while (tmp[c] != NULL)
+	{
+		free(tmp[c]);
+		c++;
 	}
 	free(tmp);
 }
