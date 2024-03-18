@@ -1,8 +1,7 @@
 NAME    		= push_swap
 CFLAGS  		= -Wall -Wextra -Werror -g
 SRC				= 	push_swap.c \
-					error_codes.c \
-					free_codes.c \
+					liberation.c \
 					check_actions.c \
 					sort_algorithm_1.c \
 					sort_algorithm_2.c \
