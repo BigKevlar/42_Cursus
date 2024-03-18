@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/14 18:02:01 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:35:34 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Esta funcion revisa los argumentos pasados por parametros.
+// Chequea el de numero de argumentos y la sintaxis de los mismos.
 void	check_args(int ac, char **av)
 {
 	int	c1;
@@ -23,16 +23,16 @@ void	check_args(int ac, char **av)
 	c1 = 1;
 	while (c1 < ac)
 	{
-		c2 = 0;
 		if ((av[c1][0] == ' ') || av[c1][0] == '\0')
 			error_and_free (NULL, "ERROR en 'check_args'.");
+		c2 = 0;
 		while (av[c1][c2] != '\0')
 		{
-			if ((!(ft_isdigit(av[c1][c2])) && (av[c1][c2] != ' ')
+			if ((!(ft_isdigit(av[c1][c2]))
 			&& (av[c1][c2] != '-' && av[c1][c2] != '+' && av[c1][c2] != ' '))
 			|| (av[c1][c2] == '-' && av[c1][c2 + 1] == '\0')
-			|| (av[c1][c2] == '+' && av[c1][c2 + 1] == '\0')
 			|| (av[c1][c2] == '-' && av[c1][c2 + 1] == ' ')
+			|| (av[c1][c2] == '+' && av[c1][c2 + 1] == '\0')
 			|| (av[c1][c2] == '+' && av[c1][c2 + 1] == ' '))
 				error_and_free (NULL, "ERROR en 'check_args'.");
 			c2++;
@@ -42,6 +42,7 @@ void	check_args(int ac, char **av)
 	return ;
 }
 
+// cuanthccjhcjchjgchgcchgch
 void	init_stacks(int ac, char **av, t_stack *s)
 {
 	int	c;
@@ -61,7 +62,7 @@ void	init_stacks(int ac, char **av, t_stack *s)
 	s->data_a = (int *)ft_calloc(s->size_a, sizeof(s->data_a));
 	if (s->data_a == NULL)
 		error_and_free (s, "ERROR en 'init_stacks'.");
-	s->data_b = (int *)ft_calloc(s->size_b, sizeof(s->data_b));
+	s->data_b = (int *)ft_calloc(s->size_a, sizeof(s->data_b));
 	if (s->data_b == NULL)
 		error_and_free (s, "ERROR en 'init_stacks'.");
 	return ;
