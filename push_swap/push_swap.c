@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/18 12:01:37 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/20 00:47:13 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,25 @@ int	main(int ac, char **av)
 {
 	t_stack	*s;
 
-	check_args(ac, av);
+	parse_args(ac, av);
 	s = ft_calloc(1, sizeof(t_stack));
 	if (!s)
-		error_and_free (s, "ERROR, fallo de argumentos.");
+		error_and_free (s, "ERROR, argumentos incorrectos.");
 	init_stacks(ac, av, s);
 	join_args(ac, av, s);
-	analize_numbers(s);
+	join_data(s);
 	duplicates(s);
-	if (!is_sorted(s))
-	{
-		create_index(s);
-		if (s->size_a == 2 && s->data_a[0] > s->data_a[1])
-			swap("sa", s->data_a, s->size_a);
-		else if (s->size_a == 3)
-			sort_three_elements(s);
-		else if (s->size_a >= 4 && s->size_a <= 5)
-			sort_four_to_five_elements(s);
-		else
-			radix_sort(s);
-	}
+	create_index(s);
+	if (is_sorted(s))
+		free_stack(s);
+	else if (s->size_a == 2 && s->data_a[0] > s->data_a[1])
+		swap("sa", s->data_a, s->size_a);
+	else if (s->size_a == 3)
+		sort_three_elements(s);
+	else if (s->size_a >= 4 && s->size_a <= 5)
+		sort_four_to_five_elements(s);
+	else
+		radix_sort(s);
 	free_stack(s);
 	return (0);
 }

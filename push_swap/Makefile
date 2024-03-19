@@ -3,8 +3,7 @@ CFLAGS  		= -Wall -Wextra -Werror -g
 SRC				= 	push_swap.c \
 					liberation.c \
 					check_actions.c \
-					sort_algorithm_1.c \
-					sort_algorithm_2.c \
+					sort_algorithm.c \
 					movements.c \
 					utils.c
 OBJ				= ${SRC:.c=.o}

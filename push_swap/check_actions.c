@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   check_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/18 14:35:34 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/19 20:27:47 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Chequea el de numero de argumentos y la sintaxis de los mismos.
-void	check_args(int ac, char **av)
+void	parse_args(int ac, char **av)
 {
 	int	c1;
 	int	c2;
 
 	if ((ac == 1) || (ac == 2 && av[1] == NULL))
-		error_and_free (NULL, "ERROR en 'check_args'.");
+		error_and_free (NULL, "ERROR en 'parse_args'.");
 	c1 = 1;
 	while (c1 < ac)
 	{
 		if ((av[c1][0] == ' ') || av[c1][0] == '\0')
-			error_and_free (NULL, "ERROR en 'check_args'.");
+			error_and_free (NULL, "ERROR en 'parse_args'.");
 		c2 = 0;
 		while (av[c1][c2] != '\0')
 		{
@@ -34,7 +34,7 @@ void	check_args(int ac, char **av)
 			|| (av[c1][c2] == '-' && av[c1][c2 + 1] == ' ')
 			|| (av[c1][c2] == '+' && av[c1][c2 + 1] == '\0')
 			|| (av[c1][c2] == '+' && av[c1][c2 + 1] == ' '))
-				error_and_free (NULL, "ERROR en 'check_args'.");
+				error_and_free (NULL, "ERROR en 'parse_args'.");
 			c2++;
 		}
 		c1++;
@@ -42,20 +42,19 @@ void	check_args(int ac, char **av)
 	return ;
 }
 
-// cuanthccjhcjchjgchgcchgch
+// Inicializa los stacks (data_a y data_b) contando los argumentos.
 void	init_stacks(int ac, char **av, t_stack *s)
 {
 	int	c;
 
 	c = 0;
 	s->size_a = 0;
-	s->size_b = 0;
 	while (ac > 1)
 	{
 		if (ft_word_counter(av[c + 1], ' '))
 			s->size_a += ft_word_counter(av[c + 1], ' ');
 		else
-			s->size_a++;
+			s->size_a += 1;
 		c++;
 		ac--;
 	}
@@ -68,11 +67,12 @@ void	init_stacks(int ac, char **av, t_stack *s)
 	return ;
 }
 
+// Inserta los argumentos en la lista de la estructura.
 void	join_args(int ac, char **av, t_stack *s)
 {
+	int		c;
 	char	*tmp1;
 	char	*tmp2;
-	int		c;
 
 	c = 1;
 	tmp2 = ft_strdup("");
@@ -80,7 +80,7 @@ void	join_args(int ac, char **av, t_stack *s)
 	{
 		tmp1 = ft_strjoin(tmp2, av[c]);
 		if (tmp1 == NULL)
-			free(tmp2);
+			error_and_free (s, "ERROR en 'join_args'.");
 		tmp2 = tmp1;
 		if (c < ac - 1)
 		{
@@ -92,12 +92,13 @@ void	join_args(int ac, char **av, t_stack *s)
 		c++;
 	}
 	s->args = ft_strdup(tmp2);
-	free(tmp2);
 	if (s->args == NULL)
 		error_and_free (s, "ERROR en 'join_args'.");
+	return ;
 }
 
-void	analize_numbers(t_stack *s)
+// Pasamos los argumentos a long (int) y los metemos en el stack a.
+void	join_data(t_stack *s)
 {
 	int		c;
 	char	**tmp;
@@ -105,43 +106,34 @@ void	analize_numbers(t_stack *s)
 	c = 0;
 	tmp = ft_split(s->args, ' ');
 	if (tmp == NULL)
-		error_and_free (s, "ERROR en 'analize_numbers'.");
-	while (tmp[c] != NULL && tmp[c][0] != '\0')
+		error_and_free (s, "ERROR en 'join_data'.");
+	while (tmp[c] != NULL)
 	{
 		s->data_a[c] = ft_atol(tmp[c], s);
 		c++;
 	}
-	c = 0;
-	while (tmp[c] != NULL)
-	{
-		free(tmp[c]);
-		c++;
-	}
 	free(tmp);
+	return ;
 }
 
-void	create_index(t_stack *s)
+// Una funcion simple para verificar que no hay numeros duplicados.
+void	duplicates(t_stack *s)
 {
-	int		i;
-	int		j;
-	int		k;
-	int		*new_a;
+	int	c1;
+	int	c2;
 
-	new_a = malloc(s->size_a * sizeof(int));
-	if (new_a == NULL)
-		error_and_free (s, "ERROR en 'create_index'.");
-	i = -1;
-	while (++i < s->size_a)
+	c1 = 0;
+	c2 = 0;
+	while (c1 < s->size_a)
 	{
-		k = 0;
-		j = -1;
-		while (++j < s->size_a)
-			if (s->data_a[i] > s->data_a[j])
-				k++;
-		new_a[i] = k;
+		c2 = c1 + 1;
+		while (c2 < s->size_a)
+		{
+			if (s->data_a[c1] == s->data_a[c2])
+				error_and_free (s, "ERROR en 'duplicates'.");
+			c2++;
+		}
+		c1++;
 	}
-	i = s->size_a;
-	while (i--)
-		s->data_a[i] = new_a[i];
-	free(new_a);
+	return ;
 }
