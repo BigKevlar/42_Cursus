@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/19 18:06:50 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/20 18:58:32 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ typedef struct s_stack
 }			t_stack;
 
 /****************/
-/* LIBERATION.C */ 
+/* LIBERATION.C */
 /****************/
 
 void		error_and_free(t_stack *s, char *error);
 void		free_stack(t_stack *s);
 
 /*******************/
-/* CHECK_ACTIONS.C */ 
+/* CHECK_ACTIONS.C */
 /*******************/
 
 void		parse_args(int ac, char **av);
@@ -43,18 +43,27 @@ void		join_args(int ac, char **av, t_stack *s);
 void		join_data(t_stack *s);
 void		duplicates(t_stack *s);
 
-//
+/********************/
+/* SORT_ALGORITHM.C */
+/********************/
+
 int			is_sorted(t_stack *s);
 void		sort_three_elements(t_stack *s);
 void		sort_four_to_five_elements(t_stack *s);
 void		radix_sort(t_stack *s);
 
-//
-void		swap(char *str, int *int_str, int size);
-void		push(char *str, t_stack *s);
-void		rotate(int *int_str, int size, char *direction, char *list);
+/***************/
+/* MOVEMENTS.C */
+/***************/
 
-//
+void		swap(char *msg, int *data, int size);
+void		push(char *msg, t_stack *s);
+void		rotate(char *direction, char *msg, int *data, int size);
+
+/***********/
+/* UTILS.C */
+/***********/
+
 void		create_index(t_stack *s);
 int			ft_atol(char *str, t_stack *s);
 

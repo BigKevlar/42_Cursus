@@ -6,13 +6,13 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 19:48:55 by jmartos           #+#    #+#             */
-/*   Updated: 2024/03/20 00:00:06 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/20 12:05:39 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Crea un "indice de ordenacion temporal" para cada valor del stack.
+// Crea un "indice de ordenacion" para valorar el orden del stack.
 void	create_index(t_stack *s)
 {
 	int		c1;

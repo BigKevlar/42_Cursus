@@ -3,43 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:05:32 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/14 18:41:04 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/20 22:01:19 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(char *str, int *int_str, int size)
+// Intercambia los dos primeros elementos del stack ("sa" o "sb").
+void	swap(char *msg, int *data, int size)
 {
 	int	tmp;
 
 	if (size <= 0)
 		return ;
-	tmp = int_str[0];
-	int_str[0] = int_str[1];
-	int_str[1] = tmp;
-	ft_printf("%s\n", str);
+	ft_printf("%s\n", msg);
+	tmp = data[0];
+	data[0] = data[1];
+	data[1] = tmp;
 }
 
-void	push(char *str, t_stack *s)
+// Si recibe "pa" empuja el stack_a hacia abajo y cuela el primero de b.
+// Si recibe "pb" empuja el stack_b hacia abajo y cuela el primero de a.
+void	push(char *msg, t_stack *s)
 {
 	int	tmp;
 
-	if (ft_strncmp(str, "pa", 3) == 0)
+	if (ft_strncmp(msg, "pa", 3) == 0)
 	{
 		if (s->size_b <= 0)
 			return ;
 		tmp = s->data_b[0];
 		ft_memmove(s->data_a + 1, s->data_a, sizeof(int) * s->size_a);
-		s->data_a[0] = tmp;
-		s->size_b--;
-		ft_memmove(s->data_b, s->data_b + 1, sizeof(int) * s->size_b);
 		s->size_a++;
+		s->data_a[0] = tmp;
+		ft_memmove(s->data_b, s->data_b + 1, sizeof(int) * s->size_b);
+		s->size_b--;
 	}
-	else if (ft_strncmp(str, "pb", 3) == 0)
+	else if (ft_strncmp(msg, "pb", 3) == 0)
 	{
 		if (s->size_a <= 0)
 			return ;
@@ -50,28 +53,32 @@ void	push(char *str, t_stack *s)
 		ft_memmove(s->data_a, s->data_a + 1, sizeof(int) * s->size_a);
 		s->size_b++;
 	}
-	ft_putendl_fd(str, 1);
+	ft_printf("%s\n", msg);
 }
 
-void	rotate(int *int_str, int size, char *direction, char *list)
+// "r" = direction "up" (y en data y size recibe "a" o "b"):
+//		desplaza hacia arriba el stack, y el primer elemento pasa al final.
+// "rr" = direction "down" (y en data y size recibe "a" o "b"):
+//		desplaza hacia abajo el stack, y el ultimo elemento pasa al principio.
+void	rotate(char *direction, char *msg, int *data, int size)
 {
 	int	tmp;
 
-	if (size < 0)
+	if (size <= 0)
 		return ;
-	if (ft_strncmp(direction, "up", 5) == 0)
+	if (ft_strncmp(direction, "up", 2) == 0)
 	{
-		tmp = int_str[0];
-		ft_memmove(int_str, int_str + 1, sizeof(int) * (size - 1));
-		int_str[size - 1] = tmp;
-		write(1, "r", 1);
+		tmp = data[0];
+		ft_memmove(data, data + 1, sizeof(int) * (size - 1));
+		data[size - 1] = tmp;
+		ft_printf("%s", "r");
 	}
-	else if (ft_strncmp(direction, "down", 5) == 0)
+	else if (ft_strncmp(direction, "down", 4) == 0)
 	{
-		tmp = int_str[size - 1];
-		ft_memmove(int_str + 1, int_str, sizeof(int) * (size - 1));
-		int_str[0] = tmp;
-		write(1, "rr", 2);
+		tmp = data[size - 1];
+		ft_memmove(data + 1, data, sizeof(int) * (size - 1));
+		data[0] = tmp;
+		ft_printf("%s", "rr");
 	}
-	ft_putendl_fd(list, 1);
+	ft_printf("%s\n", msg);
 }

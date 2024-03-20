@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:32:36 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/19 20:00:25 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/20 18:57:50 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	sort_three_elements(t_stack *s)
 	if (s->data_a[2] != 2)
 	{
 		if (s->data_a[0] == 2)
-			rotate(s->data_a, s->size_a, "up", "a");
+			rotate("up", "a", s->data_a, s->size_a);
 		else
-			rotate(s->data_a, s->size_a, "down", "a");
+			rotate("down", "a", s->data_a, s->size_a);
 	}
 	if (s->data_a[0] > s->data_a[1])
 		swap("sa", s->data_a, s->size_a);
@@ -48,16 +48,16 @@ void	sort_four_to_five_elements(t_stack *s)
 		if (s->data_a[0] == 0 || s->data_a[0] == 1)
 			push("pb", s);
 		else
-			rotate(s->data_a, s->size_a, "up", "a");
+			rotate("up", "a", s->data_a, s->size_a);
 	}
 	if (s->data_b[0] == 0)
 		swap("sb", s->data_b, s->size_b);
 	if (s->data_a[2] != 4)
 	{
 		if (s->data_a[0] == 4)
-			rotate(s->data_a, s->size_a, "up", "a");
+			rotate("up", "a", s->data_a, s->size_a);
 		else
-			rotate(s->data_a, s->size_a, "down", "a");
+			rotate("down", "a", s->data_a, s->size_a);
 	}
 	if (s->data_a[0] > s->data_a[1])
 		swap("sa", s->data_a, s->size_a);
@@ -70,7 +70,7 @@ static void	radix_sort_stack_b(t_stack *s, int size_b, int size_bit, int x)
 	while (size_b-- && x <= size_bit && !is_sorted(s))
 	{
 		if (((s->data_b[0] >> x) & 1) == 0)
-			rotate(s->data_b, s->size_b, "up", "b");
+			rotate("up", "b", s->data_b, s->size_b);
 		else
 			push("pa", s);
 	}
@@ -98,7 +98,7 @@ void	radix_sort(t_stack *s)
 			if (((s->data_a[0] >> x) & 1) == 0)
 				push("pb", s);
 			else
-				rotate(s->data_a, s->size_a, "up", "a");
+				rotate("up", "a", s->data_a, s->size_a);
 		}
 		radix_sort_stack_b(s, s->size_b, size_bit, x + 1);
 	}
