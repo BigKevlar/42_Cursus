@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/21 22:42:21 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 23:06:55 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,14 @@ void	join_args(int ac, char **av, t_stack *s)
 	char	*tmp1;
 	char	*tmp2;
 
-	c = 1;
+	c = 0;
 	tmp2 = ft_strdup("");
-	while (c < ac && av[c] != NULL)
+	while (++c < ac && av[c] != NULL)
 	{
 		tmp1 = ft_strjoin(tmp2, av[c]);
 		free(tmp2);
 		if (tmp1 == NULL)
-		{
-			free(tmp1);
 			error_and_free (s, "ERROR en 'join_args'.");
-		}
 		tmp2 = tmp1;
 		if (c < ac - 1)
 		{
@@ -94,12 +91,10 @@ void	join_args(int ac, char **av, t_stack *s)
 			free(tmp2);
 			tmp2 = tmp1;
 		}
-		c++;
 	}
 	s->args = tmp2;
 	if (s->args == NULL)
 		error_and_free (s, "ERROR en 'join_args'.");
-	return ;
 }
 
 // Pasamos los argumentos a long (int) y los metemos en el stack a.
@@ -118,6 +113,7 @@ void	join_data(t_stack *s)
 	while (tmp[c] != NULL)
 	{
 		s->data_a[c] = ft_atol(tmp[c], s);
+		free(tmp[c]);
 		c++;
 	}
 	free(tmp);
