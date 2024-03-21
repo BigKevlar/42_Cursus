@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 19:48:55 by jmartos           #+#    #+#             */
-/*   Updated: 2024/03/20 12:05:39 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:57:35 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	create_index(t_stack *s)
 
 	tmp = (int *)ft_calloc(s->size_a, sizeof(int));
 	if (tmp == NULL)
-		error_and_free (s, "ERROR en 'create_index'.");
+		error_and_free (s, "Error.");
 	c1 = 0;
 	while (c1 < s->size_a)
 	{
@@ -63,7 +63,7 @@ int	ft_atol(char *str, t_stack *s)
 	{
 		num = num * 10 + (str[c] - '0');
 		if (num > INT_MAX || (num * sign) < INT_MIN)
-			error_and_free(s, "Error en 'ft_atol'.");
+			error_and_free(s, "Error");
 		c++;
 	}
 	return ((int)num * sign);
