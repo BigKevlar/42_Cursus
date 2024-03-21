@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/21 18:21:00 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 19:57:47 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	parse_args(int ac, char **av)
 	int	c2;
 
 	if ((ac == 1) || (ac == 2 && av[1] == NULL))
-		error_and_free (NULL, "ERROR en 'parse_args'.");
+		free_stack (NULL);
 	c1 = 1;
 	while (c1 < ac)
 	{
 		if ((av[c1][0] == ' ') || av[c1][0] == '\0')
-			error_and_free (NULL, "ERROR en 'parse_args'.");
+			free_stack (NULL);
 		c2 = 0;
 		while (av[c1][c2] != '\0')
 		{
@@ -34,7 +34,7 @@ void	parse_args(int ac, char **av)
 			|| (av[c1][c2] == '-' && av[c1][c2 + 1] == ' ')
 			|| (av[c1][c2] == '+' && av[c1][c2 + 1] == '\0')
 			|| (av[c1][c2] == '+' && av[c1][c2 + 1] == ' '))
-				error_and_free (NULL, "ERROR en 'parse_args'.");
+				error_and_free (NULL, "Error");
 			c2++;
 		}
 		c1++;
@@ -130,7 +130,7 @@ void	duplicates(t_stack *s)
 		while (c2 < s->size_a)
 		{
 			if (s->data_a[c1] == s->data_a[c2])
-				error_and_free (s, "ERROR en 'duplicates'.");
+				error_and_free (s, "Error");
 			c2++;
 		}
 		c1++;
