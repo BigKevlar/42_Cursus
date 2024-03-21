@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:32:16 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/20 18:58:32 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/21 12:29:31 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,17 @@ void		join_data(t_stack *s);
 void		duplicates(t_stack *s);
 
 /********************/
-/* SORT_ALGORITHM.C */
+/* SORT_ACTIONS.C */
 /********************/
 
 int			is_sorted(t_stack *s);
-void		sort_three_elements(t_stack *s);
-void		sort_four_to_five_elements(t_stack *s);
+void		sort_3_args(t_stack *s);
+void		sort_4_or_5_args(t_stack *s);
+
+/********************/
+/* RADIX_SORT.C */
+/********************/
+
 void		radix_sort(t_stack *s);
 
 /***************/

@@ -3,7 +3,8 @@ CFLAGS  		= -Wall -Wextra -Werror -g
 SRC				= 	push_swap.c \
 					liberation.c \
 					check_actions.c \
-					sort_algorithm.c \
+					sort_actions.c \
+					radix_sort.c \
 					movements.c \
 					utils.c
 OBJ				= ${SRC:.c=.o}
@@ -26,11 +27,11 @@ $(LIBFT):
 clean:
 	@rm -rf $(OBJ)
 	@make -C libft/ clean
-	@echo "$(COLOUR_RED)CLEAN PROTOCOL: DELETING .o FILES $(COLOUR_END)"
+	@echo "$(COLOUR_RED)CLEAN PROTOCOL: DELETING .o FILES... $(COLOUR_END)"
 fclean: clean
 	@rm -f $(NAME)
 	@make -C libft/ fclean
-	@echo "$(COLOUR_RED)FCLEAN PROTOCOL: DELETING .a FILES $(COLOUR_END)"
+	@echo "$(COLOUR_RED)FCLEAN PROTOCOL: DELETING .a FILES... $(COLOUR_END)"
 
 re: fclean all
 	@echo "$(COLOUR_BLUE)RECOMPILATION SUCCESSFULL $(COLOUR_END)"
