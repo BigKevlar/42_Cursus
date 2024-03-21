@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:31:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/21 12:29:45 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:58:07 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	parse_args(ac, av);
 	s = ft_calloc(1, sizeof(t_stack));
 	if (!s)
-		error_and_free (s, "ERROR, argumentos incorrectos.");
+		error_and_free (s, "Error");
 	init_stacks(ac, av, s);
 	join_args(ac, av, s);
 	join_data(s);
