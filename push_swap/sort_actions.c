@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_actions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:32:36 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/21 13:58:25 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:20:40 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,17 @@ void	sort_4_or_5_args(t_stack *s)
 		else
 			rotate("up", "a", s->data_a, s->size_a);
 	}
+	if (s->data_b[0] == 0)
+		swap("sb", s->data_b, s->size_b);
 	if (s->data_a[2] != 4)
-		rotate("up", "a", s->data_a, s->size_a);
+	{
+		if (s->data_a[0] == 4)
+			rotate("up", "a", s->data_a, s->size_a);
+		else
+			rotate("down", "a", s->data_a, s->size_a);
+	}
 	if (s->data_a[0] > s->data_a[1])
 		swap("sa", s->data_a, s->size_a);
-	push("pa", s);
-	push("pa", s);
+	while (s->size_b > 0)
+		push("pa", s);
 }
