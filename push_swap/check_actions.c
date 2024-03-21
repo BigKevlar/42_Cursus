@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:23:20 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/21 20:15:33 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 22:42:21 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,24 @@ void	join_args(int ac, char **av, t_stack *s)
 	while (c < ac && av[c] != NULL)
 	{
 		tmp1 = ft_strjoin(tmp2, av[c]);
+		free(tmp2);
 		if (tmp1 == NULL)
+		{
+			free(tmp1);
 			error_and_free (s, "ERROR en 'join_args'.");
+		}
 		tmp2 = tmp1;
 		if (c < ac - 1)
 		{
 			tmp1 = ft_strjoin(tmp2, " ");
 			if (tmp1 == NULL)
 				error_and_free (s, "ERROR en 'join_args'.");
+			free(tmp2);
 			tmp2 = tmp1;
 		}
 		c++;
 	}
-	s->args = ft_strdup(tmp2);
+	s->args = tmp2;
 	if (s->args == NULL)
 		error_and_free (s, "ERROR en 'join_args'.");
 	return ;
@@ -106,7 +111,10 @@ void	join_data(t_stack *s)
 	c = 0;
 	tmp = ft_split(s->args, ' ');
 	if (tmp == NULL)
+	{
+		free(tmp);
 		error_and_free (s, "ERROR en 'join_data'.");
+	}
 	while (tmp[c] != NULL)
 	{
 		s->data_a[c] = ft_atol(tmp[c], s);
