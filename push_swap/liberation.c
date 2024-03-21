@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   liberation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:02:06 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/20 12:23:41 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/21 20:27:55 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 // Escribe un error, libera los punteros del stack y el mismo, y finaliza.
 void	error_and_free(t_stack *s, char *error)
 {
-	ft_printf("%s\n", error);
+	(void)error;
+	ft_printf("%s\n", "\033[0m\033[1;31mError\033[0m");
 	if (s != NULL)
 	{
 		if (s->args != NULL)
