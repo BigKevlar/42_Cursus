@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 13:01:14 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/03 13:53:30 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:27:07 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Envía el numero "n" al descriptor "fd", seguido de un salto de linea.#*/
 void	ft_putnbr_fd(int n, int fd)

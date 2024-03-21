@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 14:53:23 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/01 14:22:58 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:28:20 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Busca la cadena "set" en "s1", y vuelve a devolver "s1" pero recortada.#*/
 char	*ft_strtrim(char const *s1, char const *set)

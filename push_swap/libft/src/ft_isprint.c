@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:00:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/31 14:15:49 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:25:34 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /* Libreria 42 "jmartos-". */
+#include "libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Comprueba si "x" es un caracter imprimible de la tabla ASCII.#*/
 int	ft_isprint(int x)

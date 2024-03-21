@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/27 17:26:22 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:22:47 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 /* Libreria custom42 "jmartos-". */
-# include	"libft.h"
+# include "libft.h"
 /*
 Esta libreria ofrece macros y funciones utilizadas cuando no se sabe ni la
 cantidad ni los tipos de argumento que se van a recibir por parametros,
@@ -26,7 +26,7 @@ representandose mediante "..." en los argumentos, y se y usa así:
 "va_copy" =>
 "va_end(args)" => se usa para cerrar la variable (libera memoria?).
 */
-# include    <stdarg.h>
+# include <stdarg.h>
 /*
 Esta libreria contiene, entre otras cosas, un tipado para variables
 llamado "uintptr_t", que lo usaremos cuando se necesite tratar una
@@ -34,7 +34,7 @@ dirección de memoria como un valor entero sin signo o cuando necesitemos
 guardar direcciones de memoria en variables.
 "uintptr_t" => tipado para direcciones de memoria (entre otros).
 */
-# include    <stdint.h>
+# include <stdint.h>
 
 /* Vamos a incluir los prototipos de nuestras funciones. */
 int	ft_printf(const char *input, ...);

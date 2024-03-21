@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:11:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/01 13:59:23 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:28:25 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Toma la cadena "s", una posicion de inicio "start" y una longitud "len",
 y devuelve una nueva cadena que contiene una extraccion de "s" a partir

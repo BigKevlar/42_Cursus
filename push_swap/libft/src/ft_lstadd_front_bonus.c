@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:06:43 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/29 15:41:40 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:25:42 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Añade el nodo "new" al principio de la lista "lst". Con "**lst" nos
 referimos a un puntero que apunta al puntero del primer nodo de la lista,

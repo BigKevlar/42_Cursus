@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:19:57 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/31 12:07:33 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:28:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Busca la cadena "neddle" (aguja) en la cadena "haystack" (pajar) durante
 un maximo de "len" posiciones. Se va avanzando con dos bucles/contadores.#*/

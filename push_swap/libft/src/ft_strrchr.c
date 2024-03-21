@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 14:36:37 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/31 15:07:18 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:28:12 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /* Libreria 42 "jmartos-". */
+#include "libft.h" /* Libreria 42 "jmartos-". */
 
 /* Busca en la cadena "s" el ultimo caractero "c". */
 char	*ft_strrchr(const char *s, int c)

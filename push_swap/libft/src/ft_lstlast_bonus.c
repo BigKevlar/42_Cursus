@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:57:43 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/29 15:41:36 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:25:54 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Localiza el puntero al último nodo de la lista.#*/
 t_list	*ft_lstlast(t_list *lst)

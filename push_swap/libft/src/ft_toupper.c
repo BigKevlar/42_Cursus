@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:16:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/31 15:03:35 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:28:31 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /* Libreria 42 "jmartos-". */
+#include "libft.h" /* Libreria 42 "jmartos-". */
 
 /* Convierte un caracer alfabetico de minuscula a mayuscula. */
 int	ft_toupper(int c)

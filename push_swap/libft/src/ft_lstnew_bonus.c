@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:12:48 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/29 15:41:34 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:25:58 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Se crea un nuevo nodo "node" utilizando malloc. La variable miembro
 "content" se inicializa con el contenido del parámetro "content",

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:48:12 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/31 14:58:07 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:27:33 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /* Libreria 42 "jmartos-". */
+#include "libft.h" /* Libreria 42 "jmartos-". */
 
 /* Copia la cadena "src" al final de "dst" asegurando que el tamaño "size"
 no se desborde. */

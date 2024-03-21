@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:45:48 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/31 14:25:49 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:26:18 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /* Libreria 42 "jmartos-". */
+#include "libft.h" /* Libreria 42 "jmartos-". */
 
 /* Copia en "b" el caracter "c" en sus primeras "len" posiciones. */
 void	*ft_memset(void *b, int c, size_t len)

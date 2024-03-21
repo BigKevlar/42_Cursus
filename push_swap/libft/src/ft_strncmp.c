@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 17:25:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/05/31 12:01:31 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:28:05 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Compara los primeros "n" caracteres de "s1" y "s2", va restando
 sus valores (en ASCII) hasta que, o termina una de las dos cadenas

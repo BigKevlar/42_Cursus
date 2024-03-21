@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:14:45 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/01 18:05:13 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:28:02 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Ejecuta una funcion "f" dada a cada caracter de una cadena de caracteres y
 devuelve una nueva cadena con los resultados de esa funcion.#*/

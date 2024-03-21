@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:01:10 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/29 15:41:35 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:25:56 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Itera (avanza) en la lista "lst" y aplica la función "f" al contenido de
 cada nodo. Crea una lista resultante de la aplicación correcta y sucesiva

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/27 16:55:25 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:26:21 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
+#include "ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /*
 Antes de la funcion principal vamos a hacer una subfuncion que nos

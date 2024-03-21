@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/08 19:47:40 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/03/21 18:23:19 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@
 # include "get_next_line.h"
 
 // Operar con caracteres.
-# include	<ctype.h>
+# include <ctype.h>
 
 // Manipular strings.
-# include	<string.h>
+# include <string.h>
 
 // Gestion de memoria para cadenas/arrays.
-# include	<stdlib.h>
+# include <stdlib.h>
 
 // Para el "printf".
-# include	<stdio.h>
+# include <stdio.h>
 
 // Para el "write".
-# include	<unistd.h>
+# include <unistd.h>
 
 // Para el "size_t".
-# include	<stddef.h>
+# include <stddef.h>
 
 // INT_MIN y INT_MAX.
 # include <limits.h>

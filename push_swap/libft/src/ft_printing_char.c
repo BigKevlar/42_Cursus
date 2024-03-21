@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printing_char.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:09:09 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/07/28 16:05:14 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:26:23 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
+#include "ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /* Imprime un solo caracter o simbolo (%c, %%). */
 int	ft_printing_char(int c)

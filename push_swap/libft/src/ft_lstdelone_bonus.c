@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:08:44 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/06/29 15:41:38 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:25:49 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
 
 /*#Toma como parámetro un nodo "lst" y libera la memoria del contenido
 utilizando la función "del" dada como parámetro, además de liberar el nodo.
