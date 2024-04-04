@@ -36,7 +36,7 @@ $(NAME): $(OBJECTS)
 	@ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.c
-	@gcc $(FLAGS) -I includes -o $@ -c $<
+	@gcc $(FLAGS) -I include/ -o $@ -c $<
 
 clean:
 	@rm -f $(OBJECTS)
