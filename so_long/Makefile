@@ -4,7 +4,8 @@ CFLAGS			= -Wall -Wextra -Werror -g
 
 INC				= -I include -I libft/include -I MLX42/include/MLX42
 
-SRC				= ${wildcard src/*.c}
+SRC				=	src/so_long.c \
+					src/utils.c
 
 OBJS 			= ${SRC:.c=.o}
 
@@ -21,7 +22,7 @@ END				=\033[0m
 
 ${NAME}: ${LIBFT} ${MLX42} ${OBJS}
 	@echo "${GREEN}${BOLD} GAME SUCCESSFULLY COMPILED ${END}"
-	@gcc $(CFLAGS) $(OBJS) $(MLX42) $(LIBFT) -Iinclude -lglfw -L "/Users/jmartos-/.brew/opt/glfw/lib/" -o $(NAME)
+	@gcc $(CFLAGS) $(OBJS) $(MLX42) $(LIBFT) -Iinclude -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
 	@echo "${BLUE}${BOLD} WELCOME TO "SO_LONG" 42_MALAGA PROYECT FROM JMARTOS- ${END}"
 
 ${LIBFT}:
@@ -34,7 +35,7 @@ ${MLX42}:
 	@make -C MLX42/ --silent
 	@echo "${GREEN}${BOLD} MINILIBX_42 COMPILED ${END}"
 
-${OBJS}: ${SRC}
+%.o: %.c
 	@gcc ${CFLAGS} ${INC} -c $< -o src/$(@F)
 
 all: ${NAME}

@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/04 13:52:00 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/05 00:07:07 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../libft/include/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
 
-// Variables globales: tamaño de nuestra ventana de juego.
+// Variables estaticas: tamaño de nuestra ventana de juego.
 # define X 1024
 # define Y 768
 
@@ -75,6 +75,7 @@ typedef struct s_game
 	mlx_t		*mlx;
 }				t_game;
 
-void			open_map(t_game *info);
+char	*get_ext(char *map);
+void	check_ext(char **av);
 
 #endif

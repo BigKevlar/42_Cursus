@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 13:51:56 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/04 16:08:08 by jmartos          ###   ########.fr       */
+/*   Created: 2024/04/04 19:49:35 by jmartos           #+#    #+#             */
+/*   Updated: 2024/04/04 19:55:43 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,4 @@ void	check_ext(char **av)
 	ext = get_ext(av[1]);
 	if (ext == NULL || ft_strncmp(ext, ".ber", 4) != 0)
 		ft_putstr_fd("Error with arguments\n", 2);
-}
-
-void	parse_args(ac, av)
-{
-	
 }
