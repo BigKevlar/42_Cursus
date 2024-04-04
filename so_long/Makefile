@@ -1,39 +1,57 @@
 NAME			= so_long
+
 CFLAGS			= -Wall -Wextra -Werror -g
-SRC				= so_long.c
-OBJS			= ${SRC:.c=.o}
-LIBFT_DIR		= ./libft
+
+INC				= -I include -I libft/include -I MLX42/include/MLX42
+
+SRC				= ${wildcard src/*.c}
+
+OBJS 			= ${SRC:.c=.o}
+
 LIBFT			= ./libft/libft.a
-MLX42_DIR		= ./MLX42
-MLX42			= ./MLX42/./MLX42.a
-C_YELLOW		=\033[0;33m
-C_RED			=\033[0;31m
-C_GREEN			=\033[0;32m
-C_BLUE			=\033[0;34m
-C_END			=\033[0m
 
-$(NAME): $(OBJS)
-	@echo "$(C_YELLOW)WELCOME TO "SO_LONG" PROYECT FROM JMARTOS- $(C_END)"
-	@echo "$(C_YELLOW)CLONING MINILIBX_42 FROM CODAM-CODING-COLLEGE $(C_END)"
-	@git clone https://github.com/codam-coding-college/MLX42.git MLX42
-	@cd MLX42
+MLX42			= ./MLX42/libmlx42.a
 
-	@echo "$(C_GREEN)EVERYTHING COMPILED $(C_END)"
+BOLD			=\033[1m
+RED				=\033[31;1m
+GREEN			=\033[32;1m
+YELLOW			=\033[33;1m
+BLUE			=\033[34;1m
+END				=\033[0m
 
-all: $(NAME)
+${NAME}: ${LIBFT} ${MLX42} ${OBJS}
+	@echo "${GREEN}${BOLD} GAME SUCCESSFULLY COMPILED ${END}"
+	@gcc $(CFLAGS) $(OBJS) $(MLX42) $(LIBFT) -Iinclude -lglfw -L "/Users/jmartos-/.brew/opt/glfw/lib/" -o $(NAME)
+	@echo "${BLUE}${BOLD} WELCOME TO "SO_LONG" 42_MALAGA PROYECT FROM JMARTOS- ${END}"
+
+${LIBFT}:
+	@echo "${YELLOW}${BOLD} BUILDING LIBFT FROM JMARTOS-, PLEASE BE PATIENT... ${END}"
+	@make -C libft/ --silent
+	@echo "${GREEN}${BOLD} LIBFT COMPILED ${END}"
+
+${MLX42}:
+	@echo "${YELLOW}${BOLD} BUILDING MINILIBX FROM CODAM-CODING-COLLEGE, PLEASE BE PATIENT... ${END}"
+	@make -C MLX42/ --silent
+	@echo "${GREEN}${BOLD} MINILIBX_42 COMPILED ${END}"
+
+${OBJS}: ${SRC}
+	@gcc ${CFLAGS} ${INC} -c $< -o src/$(@F)
+
+all: ${NAME}
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf ${OBJS}
 	@make -C libft/ clean
-	@echo "$(C_RED)CLEAN PROTOCOL: DELETING .o FILES... $(C_END)"
+	@make -C MLX42/ clean
+	@echo "${RED}${BOLD} CLEAN PROTOCOL: DELETING .o FILES... ${END}"
 
 fclean: clean
-	@rm -f $(NAME)
-	@rm -rf MLX42
+	@rm -f ${NAME}
 	@make -C libft/ fclean
-	@echo "$(C_RED)FCLEAN PROTOCOL: DELETING .a FILES... $(C_END)"
+	@make -C MLX42/ fclean
+	@echo "${RED}${BOLD} FCLEAN PROTOCOL: DELETING .a FILES... ${END}"
 
 re: fclean all
-	@echo "$(C_BLUE)RE PROTOCOL: RECOMPILATION SUCCESSFULL $(C_END)"
+	@echo "${GREEN}${BOLD} RE PROTOCOL: RECOMPILATION SUCCESSFULL ${END}"
 
 .PHONY: all clean fclean re
