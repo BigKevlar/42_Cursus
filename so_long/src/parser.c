@@ -6,22 +6,32 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 13:51:56 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/04 14:40:08 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/04 16:08:08 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// Parsea los argumentos.
-void	parse_args(int ac, char **av)
+// 
+char	*get_ext(char *map)
 {
-	int	c;
+	char	*ext;
 
-	if ((ac != 2))
-		exit (1);
-	else
-	{
-		
-	}
-	return ;
+	ext = ft_strrchr(map, '.');
+	return (ext);
+}
+
+//
+void	check_ext(char **av)
+{
+	char	*ext;
+
+	ext = get_ext(av[1]);
+	if (ext == NULL || ft_strncmp(ext, ".ber", 4) != 0)
+		ft_putstr_fd("Error with arguments\n", 2);
+}
+
+void	parse_args(ac, av)
+{
+	
 }
