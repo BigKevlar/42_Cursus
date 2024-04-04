@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/04 13:25:09 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/04 13:52:00 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@
 # define WHITE		"\033[37;1m"
 # define END		"\033[0m"
 
-// Esta estructura contendra el codigo base del juego.
+// Esta estructura contendra el "codigo" del juego.
 typedef struct s_map
 {
-	char		**map_data;
+	char		**map;
 	char		buffer;
-	int			map_x;
-	int			map_y;
+	int			x;
+	int			y;
 	int			linebreaks;
 	int			player;
 	int			coins;
 	int			exit;
 }				t_map;
 
-// Esta estructura contendra todos los decorados del juego.
+// Esta estructura contendra el "decorado" del juego.
 typedef struct s_image
 {
 	mlx_image_t	*wall;
@@ -74,5 +74,7 @@ typedef struct s_game
 	int			coin_cont;
 	mlx_t		*mlx;
 }				t_game;
+
+void			open_map(t_game *info);
 
 #endif

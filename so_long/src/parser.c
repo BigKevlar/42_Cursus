@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/29 18:31:51 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/04 13:52:01 by jmartos          ###   ########.fr       */
+/*   Created: 2024/04/04 13:51:56 by jmartos           #+#    #+#             */
+/*   Updated: 2024/04/04 14:40:08 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	main(int ac, char **av)
+// Parsea los argumentos.
+void	parse_args(int ac, char **av)
 {
-	int		fd;
-	t_game	game;
+	int	c;
 
-	parse_args(ac, av);
+	if ((ac != 2))
+		exit (1);
+	else
+	{
+		
+	}
+	return ;
 }
-
-/*
-int	main(void)
-{
-	void	*mlx_connection;
-
-	mlx_connection = mlx_init(X, Y, "jmartos", true);
-	mlx_loop(mlx_connection);
-	return (0);
-}
-*/
