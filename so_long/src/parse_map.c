@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/05 19:29:54 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/05 19:59:04 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	get_map(t_game *game)
 
 	c = 0;
 	fd = open("maps/test_good_map.ber", O_RDONLY);
-	game->map = ft_calloc(1, sizeof(char **));
 	line = get_next_line(fd);
 	while (line != NULL)
 	{

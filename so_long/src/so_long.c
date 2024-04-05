@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 18:31:51 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/05 19:16:20 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/05 19:54:21 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(void)
 
 	i = 0;
 	game = ft_calloc(1, sizeof(t_game));
+	game->map = ft_calloc(1, sizeof(char **));
 	get_map(game);
 	while (i < game->columns)
 	{
