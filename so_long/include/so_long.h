@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/05 00:07:07 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/05 18:28:14 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,49 +33,16 @@
 # define WHITE		"\033[37;1m"
 # define END		"\033[0m"
 
-// Esta estructura contendra el "codigo" del juego.
-typedef struct s_map
-{
-	char		**map;
-	char		buffer;
-	int			x;
-	int			y;
-	int			linebreaks;
-	int			player;
-	int			coins;
-	int			exit;
-}				t_map;
-
-// Esta estructura contendra el "decorado" del juego.
-typedef struct s_image
-{
-	mlx_image_t	*wall;
-	mlx_image_t	*floor;
-	mlx_image_t	*player_up;
-	mlx_image_t	*player_down;
-	mlx_image_t	*player_right;
-	mlx_image_t	*player_left;
-	mlx_image_t	*coin;
-	mlx_image_t	*exit;
-	mlx_image_t	*exit_open;
-}				t_image;
-
-// Estructura del juego en si mismo.
 typedef struct s_game
 {
-	t_map		map_info;
-	t_image		map_texture;
-	int			index;
-	int			moves;
-	int			x_p;
-	int			y_p;
-	int			x;
-	int			y;
-	int			coin_cont;
-	mlx_t		*mlx;
+	char		**map;
+	int			rows;
+	int			columns;
 }				t_game;
 
-char	*get_ext(char *map);
+// PARSE_SINTAX.C
+void	get_map(t_game *game);
 void	check_ext(char **av);
+//void	parse_args(int ac, char **av);
 
 #endif

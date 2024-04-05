@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   parse_sintax.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:49:35 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/04 19:55:43 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/05 18:28:05 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// 
+//
 char	*get_ext(char *map)
 {
 	char	*ext;
@@ -30,3 +30,10 @@ void	check_ext(char **av)
 	if (ext == NULL || ft_strncmp(ext, ".ber", 4) != 0)
 		ft_putstr_fd("Error with arguments\n", 2);
 }
+
+/*
+void	parse_args(int ac, char **av)
+{
+	
+}
+*/
