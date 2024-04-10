@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/05 18:28:14 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/09 17:41:12 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ typedef struct s_game
 }				t_game;
 
 // PARSE_SINTAX.C
-void	get_map(t_game *game);
-void	check_ext(char **av);
-//void	parse_args(int ac, char **av);
+void	get_map(char *map, t_game *game);
+int		check_walls(t_game *game);
+void	check_ext(char *av);
 
 #endif
