@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:49:35 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/08 12:36:18 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/11 23:56:51 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	check_ext(char *av)
 
 	ext = get_ext(av);
 	if (ext == NULL || ft_strncmp(ext, ".ber", 4) != 0)
-		ft_putstr_fd("Error with arguments\n", 2);
+		ft_putstr_fd("ERROR CON ARGUMENTOS\n", 2);
 }

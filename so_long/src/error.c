@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 13:42:13 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/11 16:04:48 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/11 23:58:03 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ void	free_error(char *msg, t_game *game)
 {
 	ft_printf("%s\n", msg);
 	if (game != NULL)
-	{
-		ft_printf("%s\n", "breakpoint_error");
 		ft_charppfree(game->map);
-	}
 	free(game);
 }

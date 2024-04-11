@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/11 16:06:50 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/11 23:56:12 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,15 @@ t_game	*get_map(char *map)
 	if (fd == -1)
 		free_error("ERROR AL ABRIR MAPA", game);
 	line = get_next_line(fd);
-	if (line == NULL)
-		free_error("ERROR AL INSERTAR LINEA", game);
 	c = 0;
 	game->map = ft_calloc(7 + 1, sizeof(char *));
 	while (line != NULL)
 	{
 		ft_printf("%s", line);
 		game->map[c] = line;
-		if (game->map[c] == NULL)
-			free_error("ERROR ALOJANDO MEMORIA", game);
-		//free(line);
 		line = get_next_line(fd);
 		c++;
 	}
-	//free(line);
 	game->columns = c;
 	close(fd);
 	return (game);
