@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/11 14:02:57 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/11 15:50:35 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_game
 
 void	leaks(void);
 void	free_error(char *msg, t_game *game);
-void	get_map(char *map, t_game *game);
+t_game	*get_map(char *map);
 int		check_walls(t_game *game);
 void	check_ext(char *av);
 

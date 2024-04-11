@@ -6,19 +6,21 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/11 14:50:14 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/11 16:06:50 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-//
-void	get_map(char *map, t_game *game)
+// str_join + split
+t_game	*get_map(char *map)
 {
 	int		fd;
 	char	*line;
 	int		c;
+	t_game	*game;
 
+	game = ft_calloc(1, sizeof(t_game));
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 		free_error("ERROR AL ABRIR MAPA", game);
@@ -26,20 +28,21 @@ void	get_map(char *map, t_game *game)
 	if (line == NULL)
 		free_error("ERROR AL INSERTAR LINEA", game);
 	c = 0;
+	game->map = ft_calloc(7 + 1, sizeof(char *));
 	while (line != NULL)
 	{
 		ft_printf("%s", line);
-		game->map = ft_calloc(1, sizeof(char **));
-		game->map[c] = ft_strdup(line);
+		game->map[c] = line;
 		if (game->map[c] == NULL)
 			free_error("ERROR ALOJANDO MEMORIA", game);
-		free(line);
+		//free(line);
 		line = get_next_line(fd);
 		c++;
 	}
-	free(line);
+	//free(line);
 	game->columns = c;
 	close(fd);
+	return (game);
 }
 
 /*
