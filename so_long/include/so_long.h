@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/09 17:41:12 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/11 14:02:57 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ typedef struct s_game
 	int			columns;
 }				t_game;
 
-// PARSE_SINTAX.C
+void	leaks(void);
+void	free_error(char *msg, t_game *game);
 void	get_map(char *map, t_game *game);
 int		check_walls(t_game *game);
 void	check_ext(char *av);

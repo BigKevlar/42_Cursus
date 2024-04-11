@@ -5,8 +5,9 @@ CFLAGS			= -Wall -Wextra -Werror -g
 INC				= -I include -I libft/include -I MLX42/include/MLX42
 
 SRC				=	src/so_long.c \
+					src/error.c \
 					src/parse_sintax.c \
-					src/parse_map.c \
+					src/parse_map.c
 
 OBJS 			= ${SRC:.c=.o}
 

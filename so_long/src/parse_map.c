@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/10 19:46:26 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/11 14:50:14 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,20 @@ void	get_map(char *map, t_game *game)
 	int		c;
 
 	fd = open(map, O_RDONLY);
+	if (fd == -1)
+		free_error("ERROR AL ABRIR MAPA", game);
 	line = get_next_line(fd);
-	c = 0; 
+	if (line == NULL)
+		free_error("ERROR AL INSERTAR LINEA", game);
+	c = 0;
 	while (line != NULL)
 	{
+		ft_printf("%s", line);
+		game->map = ft_calloc(1, sizeof(char **));
 		game->map[c] = ft_strdup(line);
+		if (game->map[c] == NULL)
+			free_error("ERROR ALOJANDO MEMORIA", game);
+		free(line);
 		line = get_next_line(fd);
 		c++;
 	}
@@ -43,8 +52,8 @@ int	check_walls(t_game *game)
 	while (game->map[c1])
 		c1++;
 	game->rows = c1;
-	c1 = -1;
-	while (game->map[++c1])
+	c1 = 0;
+	while (game->map[c1])
 	{
 		c2 = 0;
 		if (c1 == 0 || c1 == game->rows - 1)
@@ -58,6 +67,7 @@ int	check_walls(t_game *game)
 		else if (game->map[c1][0] != '1'
 		||game->map[c1][game->columns - 1] != '1')
 			return (0);
+		c1++;
 	}
 	return (1);
 }
