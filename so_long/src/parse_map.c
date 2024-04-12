@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/11 23:56:12 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/12 18:46:40 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_game	*get_map(char *map)
 	game->map = ft_calloc(7 + 1, sizeof(char *));
 	while (line != NULL)
 	{
-		ft_printf("%s", line);
 		game->map[c] = line;
 		line = get_next_line(fd);
 		c++;
