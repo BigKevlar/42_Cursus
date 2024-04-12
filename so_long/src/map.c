@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/12 18:46:40 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/12 19:39:13 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// str_join + split
+// str_join + split ???
 t_game	*get_map(char *map)
 {
 	int		fd;
@@ -33,7 +33,8 @@ t_game	*get_map(char *map)
 		line = get_next_line(fd);
 		c++;
 	}
-	game->columns = c;
+	game->rows = c;
+	game->columns = ft_strlen(game->map[0]);
 	close(fd);
 	return (game);
 }
