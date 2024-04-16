@@ -7,7 +7,8 @@ INC				= -I include -I libft/include -I MLX42/include/MLX42
 SRC				=	src/so_long.c \
 					src/error.c \
 					src/sintax.c \
-					src/map.c
+					src/map.c \
+					src/game.c
 
 OBJS 			= ${SRC:.c=.o}
 

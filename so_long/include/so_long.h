@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/12 19:19:40 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/16 13:46:36 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define X 1024
 # define Y 768
 
-// Variables globales: colores.
+// Variables estaticas: colores.
 # define BOLD		"\033[1m"
 # define BLACK		"\033[30;1m"
 # define RED		"\033[31;1m"
@@ -35,14 +35,38 @@
 
 typedef struct s_game
 {
-	char		**map;
-	int			rows;
-	int			columns;
-}				t_game;
+	mlx_t			*mlx;
+	char			**map;
+	int				rows;
+	int				columns;
+	int				player;
+	int				coin;
+	int				exit;
+	mlx_image_t		*image_floor;
+	mlx_image_t		*image_wall;
+	mlx_image_t		*image_player_up;
+	mlx_image_t		*image_player_down;
+	mlx_image_t		*image_player_right;
+	mlx_image_t		*image_player_left;
+	mlx_image_t		*image_coin;
+	mlx_image_t		*image_exit_close;
+	mlx_image_t		*image_exit_open;
+	mlx_image_t		*image_background;
+	mlx_texture_t	*texture_floor;
+	mlx_texture_t	*texture_wall;
+	mlx_texture_t	*texture_player;
+	mlx_texture_t	*texture_coin;
+	mlx_texture_t	*texture_exit;
+	mlx_texture_t	*texture_background;
+}					t_game;
 
 void	free_error(char *msg, t_game *game);
+void	make_struct(t_game *game);
 t_game	*get_map(char *map);
+void	parse_map(t_game *game);
 void	parse_ext(char *av, t_game *game);
 void	parse_args(int ac, char **av);
+void	check_walls(t_game *game);
+int32_t	init_game(t_game *game);
 
 #endif

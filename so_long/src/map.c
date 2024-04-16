@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/12 19:39:13 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/16 19:11:01 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,39 +33,46 @@ t_game	*get_map(char *map)
 		line = get_next_line(fd);
 		c++;
 	}
-	game->rows = c;
-	game->columns = ft_strlen(game->map[0]);
 	close(fd);
 	return (game);
 }
 
-/*
-int	check_walls(t_game *game)
+//
+void	parse_map(t_game *game)
+{
+	int	c;
+
+	game->columns = ft_strlen(game->map[0]) - 1;
+	c = 0;
+	while (game->map[c] != NULL)
+		c++;
+	game->rows = c;
+	if (game->rows == game->columns)
+		free_error("ERROR, EL MAPA NO ES UN RECTANGULO", game);
+}
+
+//
+void	check_walls(t_game *game)
 {
 	int	c1;
 	int	c2;
 
 	c1 = 0;
-	while (game->map[c1])
-		c1++;
-	game->rows = c1;
-	c1 = 0;
-	while (game->map[c1])
+	while (game->map[c1] != NULL)
 	{
 		c2 = 0;
 		if (c1 == 0 || c1 == game->rows - 1)
 		{
-			while (c2 < game->columns)
+			while (game->map[c1][c2] != '\0')
 			{
-				if (game->map[c1][c2++] != '1')
-					return (0);
+				if (game->map[c1][c2] != '1')
+					free_error("ERROR EN MUROS SUP./INF.", game);
+				c2++;
 			}
 		}
 		else if (game->map[c1][0] != '1'
-		||game->map[c1][game->columns - 1] != '1')
-			return (0);
+			|| game->map[c1][game->columns - 1] != '1')
+			free_error("ERROR EN MUROS DER./IZQ.", game);
 		c1++;
 	}
-	return (1);
 }
-*/

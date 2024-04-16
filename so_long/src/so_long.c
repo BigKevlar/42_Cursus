@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 18:31:51 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/12 19:26:40 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/16 19:44:44 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,21 @@
 int	main(int ac, char **av)
 {
 	t_game	*game;
-	int		c;
+	//int		c;
 
-	c = 0;
-	parse_args(ac, av);
+	//c = 0;
 	game = get_map(av[1]);
+	make_struct(game);
+	parse_map(game);
+	//ft_printf("ROWS: %i\n", game->rows);
+	//ft_printf("COLUMNS: %i\n", game->columns);
+	//while (game->map[c])
+		//ft_printf("%s", game->map[c++]);
+	//ft_printf("\n");
+	parse_args(ac, av);
 	parse_ext(av[1], game);
-	
-	while (game->map[c] != NULL)
-		ft_printf("%s", game->map[c++]);
-	ft_printf("\nROWS: %i", game->rows);
-	ft_printf("\nCOLUMNS: %i", game->columns);
+	check_walls(game);
+	init_game(game);
 	free_error("", game);
 	return (0);
 }
