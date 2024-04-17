@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/16 13:46:36 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/17 15:33:14 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,40 @@ typedef struct s_game
 	int				exit;
 	mlx_image_t		*image_floor;
 	mlx_image_t		*image_wall;
-	mlx_image_t		*image_player_up;
-	mlx_image_t		*image_player_down;
-	mlx_image_t		*image_player_right;
-	mlx_image_t		*image_player_left;
+	mlx_image_t		*image_player;
 	mlx_image_t		*image_coin;
-	mlx_image_t		*image_exit_close;
-	mlx_image_t		*image_exit_open;
-	mlx_image_t		*image_background;
+	mlx_image_t		*image_exit_1;
+	mlx_image_t		*image_exit_2;
 	mlx_texture_t	*texture_floor;
 	mlx_texture_t	*texture_wall;
 	mlx_texture_t	*texture_player;
 	mlx_texture_t	*texture_coin;
-	mlx_texture_t	*texture_exit;
-	mlx_texture_t	*texture_background;
+	mlx_texture_t	*texture_exit_1;
+	mlx_texture_t	*texture_exit_2;
+	int				px;
+	int				py;
+	int				cx;
+	int				cy;	
+	int				ex;
+	int				ey;
 }					t_game;
 
+// ERROR.C
 void	free_error(char *msg, t_game *game);
-void	make_struct(t_game *game);
-t_game	*get_map(char *map);
-void	parse_map(t_game *game);
+// SINTAX.C
 void	parse_ext(char *av, t_game *game);
 void	parse_args(int ac, char **av);
+// MAP.C
+t_game	*get_map(char *map);
+void	parse_map(t_game *game);
 void	check_walls(t_game *game);
+// GAME.C
 int32_t	init_game(t_game *game);
+// IMAGES.C
+void	loading_gui(t_game *game);
+void	print_map(t_game *game, char **map);
+void	print_objects(t_game *game);
+// DRAW.C
+void	gui(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/16 19:11:01 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/17 15:22:18 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	check_walls(t_game *game)
 		c2 = 0;
 		if (c1 == 0 || c1 == game->rows - 1)
 		{
-			while (game->map[c1][c2] != '\0')
+			while (c2 < game->columns)
 			{
 				if (game->map[c1][c2] != '1')
 					free_error("ERROR EN MUROS SUP./INF.", game);
@@ -76,3 +76,4 @@ void	check_walls(t_game *game)
 		c1++;
 	}
 }
+

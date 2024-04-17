@@ -8,7 +8,9 @@ SRC				=	src/so_long.c \
 					src/error.c \
 					src/sintax.c \
 					src/map.c \
-					src/game.c
+					src/game.c \
+					src/images.c \
+					src/draw.c
 
 OBJS 			= ${SRC:.c=.o}
 
