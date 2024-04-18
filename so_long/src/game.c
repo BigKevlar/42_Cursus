@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 19:13:48 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/17 15:24:30 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/17 16:49:46 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int32_t	init_game(t_game *game)
 	gui(game);
 	//movements(game);
 	mlx_loop(game->mlx);
-	mlx_terminate(game->mlx);
+	//mlx_terminate(game->mlx);
 	return (EXIT_SUCCESS);
 }

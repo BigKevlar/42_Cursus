@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/17 15:33:14 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/17 23:03:22 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ void	check_walls(t_game *game);
 int32_t	init_game(t_game *game);
 // IMAGES.C
 void	loading_gui(t_game *game);
-void	print_map(t_game *game, char **map);
-void	print_objects(t_game *game);
 // DRAW.C
 void	gui(t_game *game);
 
