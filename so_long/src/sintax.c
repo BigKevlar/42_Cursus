@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sintax.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:49:35 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/16 20:57:53 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/18 17:53:39 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,4 @@ void	parse_args(int ac, char **av)
 	if ((ac == 1) || (ac == 2 && av[1] == NULL))
 		free_error("ERROR CON ARGUMENTOS VACIOS", NULL);
 }
+

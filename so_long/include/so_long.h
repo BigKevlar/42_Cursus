@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/18 16:15:15 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/04/18 19:11:35 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../libft/include/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
 
-// Variables estaticas: tamaño de nuestra ventana de juego.
+// Variables estaticas: tamaño de nuestros sprites.
 # define X 64
 # define Y 64
 
@@ -39,9 +39,9 @@ typedef struct s_game
 	char			**map;
 	int				rows;
 	int				columns;
-	int				player;
-	int				coin;
-	int				exit;
+	char				player;
+	char				coin;
+	char				exit;
 	mlx_image_t		*image_floor;
 	mlx_image_t		*image_wall;
 	mlx_image_t		*image_player;
@@ -54,13 +54,22 @@ typedef struct s_game
 	mlx_texture_t	*texture_coin;
 	mlx_texture_t	*texture_exit_1;
 	mlx_texture_t	*texture_exit_2;
+	int				c_players;
+	int				c_coins;
+	int				c_exits;
 	int				px;
 	int				py;
 	int				cx;
-	int				cy;	
+	int				cy;
 	int				ex;
 	int				ey;
 }					t_game;
+
+typedef struct s_point
+{
+	int				x;
+	int				y;
+}					t_point;
 
 // ERROR.C
 void	free_error(char *msg, t_game *game);
@@ -68,6 +77,7 @@ void	free_error(char *msg, t_game *game);
 void	parse_ext(char *av, t_game *game);
 void	parse_args(int ac, char **av);
 // MAP.C
+void	cont_objects(t_game *game, char *line);
 t_game	*get_map(char *map);
 void	parse_map(t_game *game);
 void	check_walls(t_game *game);

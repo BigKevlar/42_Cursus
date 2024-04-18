@@ -3,16 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/17 15:22:18 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/18 18:44:24 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// str_join + split ???
+//
+void	cont_objects(t_game *game, char *line)
+{
+	int		c;
+
+	c = 0;
+	while (line[c])
+	{
+		if (line[c] == 'P')
+			game->c_players++;
+		if (line[c] == 'C')
+			game->c_coins++;
+		if (line[c] == 'E')
+			game->c_exits++;
+		c++;
+	}
+}
+
+// 
 t_game	*get_map(char *map)
 {
 	int		fd;
@@ -29,10 +47,17 @@ t_game	*get_map(char *map)
 	game->map = ft_calloc(7 + 1, sizeof(char *));
 	while (line != NULL)
 	{
+		cont_objects(game, line);
 		game->map[c] = line;
 		line = get_next_line(fd);
 		c++;
 	}
+	if (game->c_players < 1 || game->c_players > 1)
+		free_error("ERROR, NO HAY JUGADORES O HAY DEMASIADOS", game);
+	if (game->c_coins < 1)
+		free_error("ERROR, NO HAY MONEDAS", game);
+	if (game->c_exits < 1 || game->c_exits > 1)
+		free_error("ERROR, NO HAY SALIDA O HAY DEMASIADAS", game);
 	close(fd);
 	return (game);
 }
