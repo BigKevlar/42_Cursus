@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 23:46:20 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/17 23:05:32 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:24:01 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static void	imgs2map_1(t_game *game, char **map, int c1, int c2)
 {
 	if (map[c1][c2] == '1')
 	{
-		mlx_image_to_window(game->mlx, game->image_wall, c1 * X, c2 * Y);
+		mlx_image_to_window(game->mlx, game->image_wall, c2 * X, c1 * Y);
 		if ((mlx_image_to_window(game->mlx, game->image_wall, \
-		c1 * X, c2 * Y)) < 0)
+		c2 * X, c1 * Y)) < 0)
 			free_error("ERROR AL CARGAR IMAGEN DE MURO", game);
 	}
 	else if (map[c1][c2] == '0' || map[c1][c2] == 'C'
 	|| map[c1][c2] == 'P' || map[c1][c2] == 'E')
 	{
-		mlx_image_to_window(game->mlx, game->image_floor, c1 * X, c2 * Y);
+		mlx_image_to_window(game->mlx, game->image_floor, c2 * X, c1 * Y);
 		if ((mlx_image_to_window(game->mlx, game->image_floor, \
-		c1 * X, c2 * Y)) < 0)
+		c2 * X, c1 * Y)) < 0)
 			free_error("ERROR AL CARGAR IMAGEN DE SUELO", game);
 	}
 }
@@ -37,23 +37,23 @@ static void	imgs2map_2(t_game *game, char **map, int c1, int c2)
 {
 	if (map[c1][c2] == 'P')
 	{
-		mlx_image_to_window(game->mlx, game->image_player, c1 * X, c2 * Y);
+		mlx_image_to_window(game->mlx, game->image_player, c2 * X, c1 * Y);
 		if ((mlx_image_to_window(game->mlx, game->image_player, \
-		c1 * X, c2 * Y)) < 0)
+		c2 * X, c1 * Y)) < 0)
 			free_error("ERROR AL CARGAR IMAGEN DE PLAYER", game);
 	}
 	else if (map[c1][c2] == 'C')
 	{
-		mlx_image_to_window(game->mlx, game->image_coin, c1 * X, c2 * Y);
+		mlx_image_to_window(game->mlx, game->image_coin, c2 * X, c1 * Y);
 		if ((mlx_image_to_window(game->mlx, game->image_coin, \
-		c1 * X, c2 * Y)) < 0)
+		c2 * X, c1 * Y)) < 0)
 			free_error("ERROR AL CARGAR IMAGEN DE COIN", game);
 	}
 	if (map[c1][c2] == 'E')
 	{
-		mlx_image_to_window(game->mlx, game->image_exit_1, c1 * X, c2 * Y);
+		mlx_image_to_window(game->mlx, game->image_exit_1, c2 * X, c1 * Y);
 		if ((mlx_image_to_window(game->mlx, game->image_exit_1, \
-		c1 * X, c2 * Y)) < 0)
+		c2 * X, c1 * Y)) < 0)
 			free_error("ERROR AL CARGAR IMAGEN DE EXIT", game);
 	}
 }

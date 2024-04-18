@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/17 23:03:22 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:15:15 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 
 // Variables estaticas: tamaño de nuestra ventana de juego.
-# define X 1024
-# define Y 768
+# define X 64
+# define Y 64
 
 // Variables estaticas: colores.
 # define BOLD		"\033[1m"
