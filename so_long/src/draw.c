@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 23:46:20 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/21 02:50:29 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/22 00:28:55 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	imgs2map_2(t_game *game, char **map, int c1, int c2)
 }
 
 //
-static void	print_map(t_game *game, char **map)
+void	print_map(t_game *game, char **map)
 {
 	int	c1;
 	int	c2;
@@ -84,5 +84,5 @@ void	gui(t_game *game)
 	loading_gui(game);
 	print_map(game, game->map);
 	player_position(game);
-	flood_fill(game, game->x, game->y);
+	flood_fill(game, game->pos_x, game->pos_y);
 }

@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 18:31:51 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/20 22:06:25 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/21 23:56:26 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	main(int ac, char **av)
 	parse_ext(av[1], game);
 	check_walls(game);
 	init_game(game);
-	free_error("", game);
+	free_game(game);
 	return (0);
 }

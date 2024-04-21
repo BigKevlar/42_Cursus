@@ -6,14 +6,14 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 13:42:13 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/20 22:12:02 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/21 22:10:07 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 //
-static void	ft_charppfree(char **str)
+void	ft_charppfree(char **str)
 {
 	int	i;
 
@@ -40,12 +40,12 @@ void	free_error(char *msg, t_game *game)
 }
 
 //
-void	map_error(t_game *game)
+void	objects_error(t_game *game)
 {
-	if (game->c_players < 1 || game->c_players > 1)
+	if (game->num_players < 1 || game->num_players > 1)
 		free_error("ERROR, NO HAY JUGADORES O HAY DEMASIADOS", game);
-	if (game->c_coins < 1)
+	if (game->num_coins < 1)
 		free_error("ERROR, NO HAY MONEDAS", game);
-	if (game->c_exits < 1 || game->c_exits > 1)
+	if (game->num_exits < 1 || game->num_exits > 1)
 		free_error("ERROR, NO HAY SALIDA O HAY DEMASIADAS", game);
 }

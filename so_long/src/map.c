@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/21 01:36:27 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/21 21:59:30 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	cont_objects(t_game *game, char *line)
 	while (line[c])
 	{
 		if (line[c] == 'P')
-			game->c_players++;
+			game->num_players++;
 		if (line[c] == 'C')
-			game->c_coins++;
+			game->num_coins++;
 		if (line[c] == 'E')
-			game->c_exits++;
+			game->num_exits++;
 		c++;
 	}
 }
@@ -54,7 +54,7 @@ t_game	*get_map(char *map)
 		line = get_next_line(fd);
 		c++;
 	}
-	map_error(game);
+	objects_error(game);
 	close(fd);
 	return (game);
 }

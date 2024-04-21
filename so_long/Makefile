@@ -6,13 +6,15 @@ INC				= -I include -I libft/include -I MLX42/include/MLX42
 
 SRC				=	src/so_long.c \
 					src/error.c \
+					src/free.c \
 					src/sintax.c \
 					src/map.c \
 					src/game.c \
 					src/images.c \
 					src/draw.c \
 					src/flood_fill.c \
-					src/movements.c
+					src/movements.c \
+					src/movements_utils.c
 
 OBJS 			= ${SRC:.c=.o}
 
