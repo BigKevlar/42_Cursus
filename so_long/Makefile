@@ -10,7 +10,9 @@ SRC				=	src/so_long.c \
 					src/map.c \
 					src/game.c \
 					src/images.c \
-					src/draw.c
+					src/draw.c \
+					src/flood_fill.c \
+					src/movements.c
 
 OBJS 			= ${SRC:.c=.o}
 

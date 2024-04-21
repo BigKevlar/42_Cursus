@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/18 18:44:24 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/04/21 01:36:27 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,32 +38,29 @@ t_game	*get_map(char *map)
 	int		c;
 	t_game	*game;
 
+	c = 0;
 	game = ft_calloc(1, sizeof(t_game));
+	game->map = ft_calloc(7 + 1, sizeof(char *));
+	game->map_copy = ft_calloc(7 + 1, sizeof(char *));
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 		free_error("ERROR AL ABRIR MAPA", game);
 	line = get_next_line(fd);
-	c = 0;
-	game->map = ft_calloc(7 + 1, sizeof(char *));
 	while (line != NULL)
 	{
 		cont_objects(game, line);
 		game->map[c] = line;
+		game->map_copy[c] = line;
 		line = get_next_line(fd);
 		c++;
 	}
-	if (game->c_players < 1 || game->c_players > 1)
-		free_error("ERROR, NO HAY JUGADORES O HAY DEMASIADOS", game);
-	if (game->c_coins < 1)
-		free_error("ERROR, NO HAY MONEDAS", game);
-	if (game->c_exits < 1 || game->c_exits > 1)
-		free_error("ERROR, NO HAY SALIDA O HAY DEMASIADAS", game);
+	map_error(game);
 	close(fd);
 	return (game);
 }
 
 //
-void	parse_map(t_game *game)
+void	check_form(t_game *game)
 {
 	int	c;
 
@@ -101,4 +98,3 @@ void	check_walls(t_game *game)
 		c1++;
 	}
 }
-

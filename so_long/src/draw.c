@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 23:46:20 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/18 16:24:01 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/04/21 02:50:29 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,6 @@ void	gui(t_game *game)
 {
 	loading_gui(game);
 	print_map(game, game->map);
+	player_position(game);
+	flood_fill(game, game->x, game->y);
 }

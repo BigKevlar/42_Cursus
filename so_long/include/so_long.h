@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/18 19:11:35 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/04/21 01:50:09 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,17 @@ typedef struct s_game
 {
 	mlx_t			*mlx;
 	char			**map;
+	char			**map_copy;
 	int				rows;
 	int				columns;
-	char				player;
-	char				coin;
-	char				exit;
+	char			player;
+	int				x;
+	int				y;
+	char			coin;
+	char			exit;
+	int				c_players;
+	int				c_coins;
+	int				c_exits;
 	mlx_image_t		*image_floor;
 	mlx_image_t		*image_wall;
 	mlx_image_t		*image_player;
@@ -54,32 +60,17 @@ typedef struct s_game
 	mlx_texture_t	*texture_coin;
 	mlx_texture_t	*texture_exit_1;
 	mlx_texture_t	*texture_exit_2;
-	int				c_players;
-	int				c_coins;
-	int				c_exits;
-	int				px;
-	int				py;
-	int				cx;
-	int				cy;
-	int				ex;
-	int				ey;
 }					t_game;
-
-typedef struct s_point
-{
-	int				x;
-	int				y;
-}					t_point;
 
 // ERROR.C
 void	free_error(char *msg, t_game *game);
+void	map_error(t_game *game);
 // SINTAX.C
 void	parse_ext(char *av, t_game *game);
-void	parse_args(int ac, char **av);
 // MAP.C
 void	cont_objects(t_game *game, char *line);
 t_game	*get_map(char *map);
-void	parse_map(t_game *game);
+void	check_form(t_game *game);
 void	check_walls(t_game *game);
 // GAME.C
 int32_t	init_game(t_game *game);
@@ -87,5 +78,8 @@ int32_t	init_game(t_game *game);
 void	loading_gui(t_game *game);
 // DRAW.C
 void	gui(t_game *game);
+// FLOOD_FILL.C
+void	player_position(t_game *game);
+void	flood_fill(t_game *game, int x, int y);
 
 #endif

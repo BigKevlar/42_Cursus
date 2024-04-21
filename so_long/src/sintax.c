@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sintax.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:49:35 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/18 17:53:39 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/04/19 17:53:49 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,3 @@ void	parse_ext(char *av, t_game *game)
 	if (ext == NULL || ft_strncmp(ext, ".ber", 4) != 0)
 		free_error("ERROR CON EXTENSION", game);
 }
-
-//
-void	parse_args(int ac, char **av)
-{
-	if ((ac == 1) || (ac == 2 && av[1] == NULL))
-		free_error("ERROR CON ARGUMENTOS VACIOS", NULL);
-}
-
