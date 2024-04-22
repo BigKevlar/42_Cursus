@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 00:08:34 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 17:46:41 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/22 19:24:37 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void	player_position(t_game *game)
 //
 void	flood_fill(t_game *game, int x, int y)
 {
-	if (x < 0 || y < 0 || x >= game->columns || y >= game->rows
-		|| game->map[x][y] == '1' || game->map_copy[x][y] == 'X')
+	if (x < 0 || y < 0 || x >= game->rows || y >= game->columns
+		|| game->map_copy[x][y] == '1' || game->map_copy[x][y] == 'X')
 		return ;
-	if (game->map[x][y] == 'C')
+	if (game->map_copy[x][y] == 'C')
 		game->acc_coins++;
-	if (game->map[x][y] == 'E')
+	if (game->map_copy[x][y] == 'E')
 		game->acc_exits++;
 	game->map_copy[x][y] = 'X';
 	flood_fill(game, x - 1, y);

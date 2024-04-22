@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 19:13:48 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 15:01:42 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/22 19:31:48 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int32_t	init_game(t_game *game)
 	if (!game->mlx)
 		free_error("ERROR AL INICIAR JUEGO", game);
 	gui(game);
-	ft_printf("X del player: %i\n", game->pos_x);
-	ft_printf("Y del player: %i\n", game->pos_y);
+	//ft_printf("X del player: %i\n", game->pos_x);
+	//ft_printf("Y del player: %i\n", game->pos_y);
 	mlx_key_hook(game->mlx, (mlx_keyfunc)movement, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
