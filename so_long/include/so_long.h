@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 14:20:35 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/22 16:36:09 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct s_game
 	int				num_exits;
 	int				coins_counter;
 	int				moves_counter;
+	int				acc_coins;
+	int				acc_exits;
 	mlx_image_t		*image_floor;
 	mlx_image_t		*image_wall;
 	mlx_image_t		*image_player;
