@@ -6,16 +6,29 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/21 21:59:30 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/22 15:47:27 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 //
+static void	copy_map(t_game *game)
+{
+	int	c;
+
+	c = 0;
+	while (game->map[c] != NULL)
+	{
+		game->map_copy[c] = ft_strdup(game->map[c]);
+		c++;
+	}
+}
+
+//
 void	cont_objects(t_game *game, char *line)
 {
-	int		c;
+	int	c;
 
 	c = 0;
 	while (line[c])
@@ -30,7 +43,7 @@ void	cont_objects(t_game *game, char *line)
 	}
 }
 
-// 
+//
 t_game	*get_map(char *map)
 {
 	int		fd;
@@ -54,6 +67,7 @@ t_game	*get_map(char *map)
 		line = get_next_line(fd);
 		c++;
 	}
+	copy_map(game);
 	objects_error(game);
 	close(fd);
 	return (game);
@@ -92,8 +106,8 @@ void	check_walls(t_game *game)
 				c2++;
 			}
 		}
-		else if (game->map[c1][0] != '1'
-			|| game->map[c1][game->columns - 1] != '1')
+		else if (game->map[c1][0] != '1' || game->map[c1][game->columns
+			- 1] != '1')
 			free_error("ERROR EN MUROS DER./IZQ.", game);
 		c1++;
 	}

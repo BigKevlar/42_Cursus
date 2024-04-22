@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 13:42:13 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/21 22:10:07 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/22 16:02:50 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ void	free_error(char *msg, t_game *game)
 {
 	ft_printf("%s\n", msg);
 	if (game != NULL)
+	{
 		ft_charppfree(game->map);
+		ft_charppfree(game->map_copy);
+	}
 	free(game);
 	exit (1);
 }
