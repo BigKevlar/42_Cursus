@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 00:43:40 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/22 14:20:35 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct s_game
 }					t_game;
 
 // FREE.C
-void	free_game(t_game *game);
+void	win_game(t_game *game);
 // ERROR.C
 void	ft_charppfree(char **str);
 void	free_error(char *msg, t_game *game);

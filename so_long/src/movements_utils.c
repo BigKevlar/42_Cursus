@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 23:44:35 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 00:25:29 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/22 15:13:41 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	action(t_game *game, int new_x, int new_y)
 {
+	ft_printf("new_X del player: %i\n", new_x);
+	ft_printf("new_Y del player: %i\n", new_y);
 	if (game->map[new_x][new_y] != '1')
 	{
 		if (game->map[new_x][new_y] == 'C')
@@ -21,7 +23,7 @@ void	action(t_game *game, int new_x, int new_y)
 		else if (game->map[new_x][new_y] == 'E')
 		{
 			if (game->coins_counter == game->num_coins)
-				free_game(game);
+				win_game(game);
 			else if (game->map[new_x][new_y] == 'E'
 			&& game->coins_counter != game->num_coins)
 				return ;
