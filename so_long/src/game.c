@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 19:13:48 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/23 13:57:21 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 20:34:29 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,16 @@ int	get_columns(char *map)
 		line = get_next_line(fd);
 		columns++;
 	}
-	free(line);
 	close(fd);
 	return (columns);
 }
 
 //
-static void	make_struct(t_game *game)
+void	make_struct(t_game *game)
 {
 	game->mlx = NULL;
+	game->map = NULL;
+	game->map_copy = NULL;
 	game->player = 'P';
 	game->coin = 'C';
 	game->exit = 'E';
@@ -45,18 +46,11 @@ static void	make_struct(t_game *game)
 	game->image_coin = NULL;
 	game->image_exit_1 = NULL;
 	game->image_exit_2 = NULL;
-	game->texture_floor = NULL;
-	game->texture_wall = NULL;
-	game->texture_player = NULL;
-	game->texture_coin = NULL;
-	game->texture_exit_1 = NULL;
-	game->texture_exit_2 = NULL;
 }
 
 //
 int32_t	init_game(t_game *game)
 {
-	make_struct(game);
 	game->mlx = mlx_init(64 * game->columns, 64 * game->rows, "so_long", false);
 	if (!game->mlx)
 		free_error("ERROR AL INICIAR JUEGO", game);

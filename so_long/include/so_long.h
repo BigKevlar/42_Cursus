@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/23 13:57:50 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 19:33:01 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,6 @@ typedef struct s_game
 	mlx_image_t		*image_coin;
 	mlx_image_t		*image_exit_1;
 	mlx_image_t		*image_exit_2;
-	mlx_texture_t	*texture_floor;
-	mlx_texture_t	*texture_wall;
-	mlx_texture_t	*texture_player;
-	mlx_texture_t	*texture_coin;
-	mlx_texture_t	*texture_exit_1;
-	mlx_texture_t	*texture_exit_2;
 }					t_game;
 
 // FREE.C
@@ -84,6 +78,7 @@ t_game	*get_map(char *map);
 void	check_form(t_game *game);
 void	check_walls(t_game *game);
 // GAME.C
+void	make_struct(t_game *game);
 int		get_columns(char *map);
 int32_t	init_game(t_game *game);
 // IMAGES.C

@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 13:42:13 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 16:02:50 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 20:23:10 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	ft_charppfree(char **str)
 			free(str[i]);
 			i++;
 		}
+		free(str);
 	}
-	free(str);
 }
 
 // Libera reservas de memoria del juego y cierre del mismo en caso de error.
