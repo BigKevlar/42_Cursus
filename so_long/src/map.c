@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:50:28 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 16:28:39 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 13:55:09 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ t_game	*get_map(char *map)
 
 	c = 0;
 	game = ft_calloc(1, sizeof(t_game));
-	game->map = ft_calloc(7 + 1, sizeof(char *));
-	game->map_copy = ft_calloc(7 + 1, sizeof(char *));
+	game->map = ft_calloc(get_columns(map) + 1, sizeof(char *));
+	game->map_copy = ft_calloc(get_columns(map) + 1, sizeof(char *));
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 		free_error("ERROR AL ABRIR MAPA", game);

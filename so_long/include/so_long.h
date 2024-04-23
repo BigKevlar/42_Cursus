@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:18:47 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 16:36:09 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 13:57:50 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,11 @@ t_game	*get_map(char *map);
 void	check_form(t_game *game);
 void	check_walls(t_game *game);
 // GAME.C
+int		get_columns(char *map);
 int32_t	init_game(t_game *game);
 // IMAGES.C
 void	loading_gui(t_game *game);
+void	erasing_gui(t_game *game);
 // DRAW.C
 void	print_map(t_game *game, char **map);
 void	gui(t_game *game);

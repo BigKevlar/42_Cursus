@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 23:46:20 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/23 12:29:44 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 14:10:20 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,7 @@ void	gui(t_game *game)
 	loading_gui(game);
 	print_map(game, game->map);
 	player_position(game);
-	//ft_printf("pos_x: %i\n", game->pos_x);
-	//ft_printf("pos_y: %i\n", game->pos_y);
-	//print_map_console(game->map_copy);
 	flood_fill(game, game->pos_x, game->pos_y);
-	//print_map_console(game->map_copy);
-	//ft_printf("acc_coins: %i\n", game->acc_coins);
-	//ft_printf("acc_exits: %i\n", game->acc_exits);
-	//ft_printf("num_coins: %i\n", game->num_coins);
-	//ft_printf("num_exits: %i\n", game->num_exits);
 	if (game->acc_coins != game->num_coins
 		|| game->acc_exits != game->num_exits)
 		free_error("ERROR DE ACCESIBILIDAD DE MONEDAS Y/O SALIDAS.", game);

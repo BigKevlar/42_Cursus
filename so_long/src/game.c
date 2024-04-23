@@ -6,11 +6,31 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 19:13:48 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/23 12:32:18 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 13:57:21 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+int	get_columns(char *map)
+{
+	int		fd;
+	int		columns;
+	char	*line;
+
+	columns = 1;
+	fd = open(map, O_RDONLY);
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		free(line);
+		line = get_next_line(fd);
+		columns++;
+	}
+	free(line);
+	close(fd);
+	return (columns);
+}
 
 //
 static void	make_struct(t_game *game)
@@ -41,12 +61,9 @@ int32_t	init_game(t_game *game)
 	if (!game->mlx)
 		free_error("ERROR AL INICIAR JUEGO", game);
 	gui(game);
-	//ft_printf("X del player: %i\n", game->pos_x);
-	//ft_printf("Y del player: %i\n", game->pos_y);
 	ft_printf("Pasos: %d -- ", game->moves_counter);
 	ft_printf("Coins: %d\n", game->coins_counter);
 	mlx_key_hook(game->mlx, (mlx_keyfunc)movement, game);
 	mlx_loop(game->mlx);
-	mlx_terminate(game->mlx);
 	return (EXIT_SUCCESS);
 }
