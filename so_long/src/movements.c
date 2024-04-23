@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 22:56:37 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/23 20:44:25 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 21:06:09 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,5 @@ void	movement(mlx_key_data_t paramkey, t_game *game)
 	else if (paramkey.key == MLX_KEY_D)
 		right(game);
 	else if (paramkey.key == MLX_KEY_ESCAPE)
-	{
-		erasing_gui(game);
-		mlx_terminate(game->mlx);
-		ft_charppfree(game->map);
-		ft_charppfree(game->map_copy);
-		free(game);
-		exit (1);
-	}
+		close_game(game);
 }

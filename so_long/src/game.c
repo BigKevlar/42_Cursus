@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 19:13:48 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/23 20:34:29 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 21:04:30 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int32_t	init_game(t_game *game)
 	ft_printf("Pasos: %d -- ", game->moves_counter);
 	ft_printf("Coins: %d\n", game->coins_counter);
 	mlx_key_hook(game->mlx, (mlx_keyfunc)movement, game);
+	mlx_close_hook(game->mlx, (mlx_closefunc)close_game, game);
 	mlx_loop(game->mlx);
 	return (EXIT_SUCCESS);
 }
