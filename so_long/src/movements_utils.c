@@ -6,7 +6,7 @@
 /*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 23:44:35 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 15:13:41 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/04/23 12:32:49 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	action(t_game *game, int new_x, int new_y)
 {
-	ft_printf("new_X del player: %i\n", new_x);
-	ft_printf("new_Y del player: %i\n", new_y);
+	//ft_printf("new_X del player: %i\n", new_x);
+	//ft_printf("new_Y del player: %i\n", new_y);
 	if (game->map[new_x][new_y] != '1')
 	{
 		if (game->map[new_x][new_y] == 'C')
@@ -32,8 +32,8 @@ void	action(t_game *game, int new_x, int new_y)
 		game->map[new_x][new_y] = 'P';
 		game->pos_x = new_x;
 		game->pos_y = new_y;
-		print_map(game, game->map);
 		game->moves_counter++;
+		print_map(game, game->map);
 		ft_printf("Pasos: %d -- ", game->moves_counter);
 		ft_printf("Coins: %d\n", game->coins_counter);
 	}

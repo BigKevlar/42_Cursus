@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 23:46:20 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 19:45:56 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/04/23 12:29:44 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,5 @@ void	gui(t_game *game)
 	//ft_printf("num_exits: %i\n", game->num_exits);
 	if (game->acc_coins != game->num_coins
 		|| game->acc_exits != game->num_exits)
-		free_error("ERROR EN FLOOD_FILL.", game);
+		free_error("ERROR DE ACCESIBILIDAD DE MONEDAS Y/O SALIDAS.", game);
 }

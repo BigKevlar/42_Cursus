@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 19:13:48 by jmartos           #+#    #+#             */
-/*   Updated: 2024/04/22 19:31:48 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/04/23 12:32:18 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int32_t	init_game(t_game *game)
 	gui(game);
 	//ft_printf("X del player: %i\n", game->pos_x);
 	//ft_printf("Y del player: %i\n", game->pos_y);
+	ft_printf("Pasos: %d -- ", game->moves_counter);
+	ft_printf("Coins: %d\n", game->coins_counter);
 	mlx_key_hook(game->mlx, (mlx_keyfunc)movement, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
