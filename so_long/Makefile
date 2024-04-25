@@ -1,3 +1,7 @@
+# leaks --atExit -- ./so_long maps/subject_map.ber
+# export MallocStackLogging=1
+# unset MallocStackLogging
+
 NAME			= so_long
 
 CFLAGS			= -Wall -Wextra -Werror -g
