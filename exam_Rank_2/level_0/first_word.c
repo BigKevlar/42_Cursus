@@ -49,13 +49,17 @@ int main(int ac, char **av)
 }
 
 /*
+--------------------------------------------------------------------------------
 Pseudocódigo:
 --------------------------------------------------------------------------------
-Nuestro programa imprimirá la primera palabra de un string.
-Incluimos la libreria "unistd.h" para usar la funcion "write".
-El contador "c" lo usaremos para iterar entre las posiciones del argumento.
-Si son exactamente dos argumentos entra en la condicion "if", si no pásala.
-Saltamos los espacios o tabulaciones que pudieran haber antes de la primera palabra.
-Escribe mientras no sea ni espacio, ni tabulacion, ni caracter nulo.
-Si no son exactamente dos caracteres, o si finaliza de escribir, escribe un salto de linea y finaliza el programa.
+	Empezamos el programa con el numero de argumentos y los punteros de los mismos.
+	Incluimos la libreria "unistd.h" para usar la funcion "write".
+	Nuestro programa imprimirá la primera palabra de un string.
+	El contador "c" lo usaremos para iterar entre las posiciones del argumento.
+	Si son exactamente dos argumentos entra en la condicion "if", si no pásala.
+	Saltamos los espacios o tabulaciones que pudieran haber antes de la primera palabra.
+	Escribe mientras no sea ni espacio, ni tabulacion, ni caracter nulo.
+	Si no son exactamente dos caracteres, o si finaliza de escribir, escribe un salto de linea.
+	Finalizamos el programa.
+--------------------------------------------------------------------------------
 */

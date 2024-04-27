@@ -52,19 +52,23 @@ int	main(int ac, char **av)
 }
 
 /*
+--------------------------------------------------------------------------------
 Pseudocódigo:
 --------------------------------------------------------------------------------
-Nuestro programa imprime un string reemplazando cada letra por la que está 13 posiciones en adelante.
-Incluimos la libreria "unistd.h" para usar la funcion "write".
-Camos a declarar un contador llamado "c" para iterar entre letras.
-Mientras sean solo dos argumentos realiza lo de dentro.
-Vamos a ir recorriendo todo el string e imprimiendo lo que nos encontremos pero con dos condiciones:
-si la letra encontrada esta entre la 13 primeras ("a" y "m"), da igual si son mayusculas o minusculas, aumenta 13 posiciones,
-y si la letra esta entre las 13 ultimas ("n" y "z") resta 13 posiciones.
-Luego imprime
-Ejemplo:
-si la letra es la "i" aumentara 13 posiciones hasta la "u", si es una "t" imprimira una "g" porque resta 13 posiciones,
-que es lo mismo que si llegasemos a la "z" y diesemos la vuelta al abecedario.
-Luego imprime. Si no es una lletra no entraria en ninguna condicion e imprimiria directamente.
-Ponemos un salto de linea y finalizamos programa.
+	Empezamos el programa con el numero de argumentos y los punteros de los mismos.
+	Incluimos la libreria "unistd.h" para usar la funcion "write".
+	Nuestro programa imprime un string reemplazando cada letra por la que está 13 posiciones en adelante.
+	Vamos a declarar un contador llamado "c" para iterar entre letras.
+	Mientras sean solo dos argumentos realiza lo de dentro.
+	Vamos a ir recorriendo todo el string e imprimiendo lo que nos encontremos pero con dos condiciones:
+	- Si la letra encontrada esta entre la 13 primeras ("a" y "m" ò "A" y "M") aumenta 13 posiciones.
+	- Si la letra esta entre las 13 ultimas ("n" y "z" ò "N" y "Z") resta 13 posiciones.
+	Tanto si cambia o no de posiciones imprime el contenido de la posicion del string.
+	Ejemplo:
+	Si la letra es la "i" aumentara 13 posiciones hasta la "u", si es una "t" imprimira una "g" porque resta 13 posiciones,
+	que es lo mismo que si llegasemos a la "z" y diesemos la vuelta al abecedario. Luego imprime.
+	Si no es una letra no entraria en ninguna condicion e imprimiria directamente.
+	Imprimimos un salto de linea.
+	Finalizamos el programa.
+--------------------------------------------------------------------------------
 */

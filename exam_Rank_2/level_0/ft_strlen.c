@@ -21,10 +21,12 @@ int	ft_strlen(char *str)
 }
 
 /*
+--------------------------------------------------------------------------------
 Pseudocódigo:
 --------------------------------------------------------------------------------
 Nuestra funcion calcula la longuitud de un string..
 Iniciamos un contador "c" que iterará cada letra del string.
-Mientras que string no llegue a nulo aumenta el contador, que tambien sirve para ir iterando en las letras.
-Finaliza la funcion devolviendo "c", que ha contado todas las posiciones del string.
+Mientras que el string no llegue a nulo aumenta el contador.
+Finaliza la funcion devolviendo el contador, que contiene la longuitud del string.
+--------------------------------------------------------------------------------
 */

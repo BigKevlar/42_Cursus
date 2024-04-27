@@ -23,11 +23,13 @@ void	ft_swap(int *a, int *b)
 }
 
 /*
+--------------------------------------------------------------------------------
 Pseudocódigo:
 --------------------------------------------------------------------------------
-Nuestra funcion ("void", porque no devulve nada) intercambia los valores de "a" con "b" y viceversa.
-Inicamos una variable auxiliar "tmp" para guardar uno de los valores para no perderlo.
-Introducimos en "tmp" una copia de "a".
-Copiamos "b" en "a", y en "b" metemos "tmp", que era la copia de "a".
-Finalizamos la funcion.
+	Nuestra funcion intercambia los valores de dos numeros.
+	Inicamos una variable auxiliar "tmp" para guardar uno de los valores y no perderlo.
+	Introducimos en "tmp" una copia de "a".
+	Copiamos "b" en "a", y en "b" metemos "tmp", que era la copia de "a".
+	Finalizamos la funcion.
+--------------------------------------------------------------------------------
 */

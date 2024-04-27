@@ -41,13 +41,17 @@ int	main(int ac, char **av)
 }
 
 /*
+--------------------------------------------------------------------------------
 Pseudocódigo:
 --------------------------------------------------------------------------------
-Nuestro programa imprime un string en sentido contrario.
-Incluimos la libreria "unistd.h" para usar la funcion "write".
-Vamos a declarar un contador llamado "c" para iterar entre letras.
-Mientras sean solo dos argumentos realiza lo de dentro.
-Hasta que el string no llegue al final avanza "c", luego retrocede una posicion para evitar imprimir el caracter nulo
-Mientras "c" sea mayor o igual que cero escribe cada letra y resta uno a "c" hasta llegar al principio.
-Ponemos un salto de linea y finalizamos programa.
+	Empezamos el programa con el numero de argumentos y los punteros de los mismos.
+	Incluimos la libreria "unistd.h" para usar la funcion "write".
+	Nuestro programa imprime un string en sentido contrario.
+	Vamos a declarar un contador llamado "c" para iterar entre letras.
+	Mientras sean solo dos argumentos realiza lo de dentro.
+	Hasta que el string no llegue al final avanza "c", luego retrocede una posicion para evitar imprimir el caracter nulo
+	Mientras "c" sea mayor o igual que cero escribe cada letra y resta uno a "c" hasta llegar al principio.
+	Ponemos un salto de linea y finalizamos programa.
+	Finalizamos el programa.
+--------------------------------------------------------------------------------
 */

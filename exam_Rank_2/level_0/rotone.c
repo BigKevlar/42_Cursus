@@ -58,17 +58,21 @@ int	main(int ac, char **av)
 }
 
 /*
+--------------------------------------------------------------------------------
 Pseudocódigo:
 --------------------------------------------------------------------------------
-Nuestro programa imprime un string reemplazando cada letra por la siguiente en su posicion alfabetica.
-Incluimos la libreria "unistd.h" para usar la funcion "write".
-Camos a declarar un contador llamado "c" para iterar entre letras.
-Mientras sean solo dos argumentos realiza lo de dentro.
-Vamos a ir recorriendo todo el string e imprimiendo lo que nos encontremos pero con condiciones:
-- Si la letra esta entre "a" y "y" o entre "A" y "Y": conviertela en la siguiente letra e imprimela.
-- Si es la "z" imprime la "a".
-- Si es la "Z" imprime la "A".
-- Si no es nada de lo anterior imprimelo sin modificar nada.
-- Despues de todo haz subier el contador para iterar sobre la siguiente letra.
-Ponemos un salto de linea y finalizamos programa.
+	Empezamos el programa con el numero de argumentos y los punteros de los mismos.
+	Incluimos la libreria "unistd.h" para usar la funcion "write".
+	Nuestro programa imprime un string reemplazando cada letra por la siguiente en su posicion alfabetica.
+	Vamos a declarar un contador llamado "c" para iterar entre letras.
+	Mientras sean solo dos argumentos realiza lo de dentro.
+	Vamos a ir recorriendo todo el string e imprimiendo lo que nos encontremos pero con condiciones:
+	- Si la letra esta entre "a" y "y" o entre "A" y "Y": conviertela en la siguiente letra e imprimela.
+	- Si es la "z" imprime la "a".
+	- Si es la "Z" imprime la "A".
+	- Si no es nada de lo anterior imprimelo sin modificar nada.
+	- Despues de todo haz subier el contador para iterar sobre la siguiente letra.
+	Imprimimos un salto de linea.
+	Finalizamos el programa.
+--------------------------------------------------------------------------------
 */
