@@ -64,6 +64,12 @@ Y luego:
 
         bash -c "$(curl https://grademe.fr)"
 
+Cheatmenu:
+
+        remove_grade_time
+        force_success
+        new_ex
+
 **************
 * NORMINETTE *
 **************
