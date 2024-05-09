@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 	char	sig = av[2][0];
 	int		n2 = atoi(av[3]);
 
-	if ((ac == 4) && (!av[2][1])
+	if (ac == 4 && !av[2][1])
 	{
 		if (sig == '+')
 			printf("%d", n1 + n2);

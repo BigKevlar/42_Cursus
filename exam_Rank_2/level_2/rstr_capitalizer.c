@@ -46,7 +46,7 @@ void	rstr_capitalizer(char *str)
 		write(1, &str[c], 1);
 		c++;
 	}
-	return ;
+	write(1, "\n", 1);
 }
 
 int	main(int ac, char **av)
@@ -57,10 +57,9 @@ int	main(int ac, char **av)
 		write(1, "\n", 1);
 	else
 	{
-		while(c < ac)
+		while (c < ac)
 		{
 			rstr_capitalizer(av[c]);
-			write(1, "\n", 1);
 			c++;
 		}
 	}

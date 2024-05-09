@@ -16,30 +16,57 @@ char    **ft_split(char *str);
 */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-char	**ft_split(char *str)
+char **ft_split(char *str)
 {
-	int c1 = 0;
-	int c2 = 0;
-	int c3 = 0;
-	char **split = (char **)malloc(sizeof(char *) * 256);
-	
+	int c = 0;
+	int word = 0;
+	int pos = 0;
+	char **split;
+
+	split = (char **)malloc(sizeof(char *) * 256);
 	if (!split)
 		return (NULL);
-	while (str[c1] <= 32) //aqui eliminamos los tabs, lineas, espacios y demas cosas que hubieran en el principio.
-		c1++;
-	while (str[c1] != '\0')
+	while (str[c] == ' ' || str[c] == '\t' || str[c] == '\n')
+		c++;
+	while (str[c] != '\0')
 	{
-		c2 = 0;
-		if (!(split[c3] = (char *)malloc(sizeof(char) * 4096)))
+		pos = 0;
+		split[word] = (char *)malloc(sizeof(char) * 256);
+		if (!split[word])
 			return (NULL);
-		while (!(str[c1] <= 32))
-			split[c3][c2++] = str[c1++];
-		while (str[c1] == ' ' || str[c1] == '\t' || str[c1] == '\n')
-			c1++;
-		split[c3][c2] = '\0';
-		c3++;
+		while (str[c] != ' ' && str[c] != '\t' && str[c] != '\n')
+			split[word][pos++] = str[c++];
+		while (str[c] == ' ' || str[c] == '\t' || str[c] == '\n')
+			c++;
+		split[word][pos] = '\0';
+		word++;
 	}
-	split[c3] = NULL;
+	split[word] = NULL;
 	return (split);
 }
+
+/*
+int main(void)
+{
+	char	str[] = "   Esto es una cadena de entrada   con palabras separadas por espacios   y tabulaciones  \t   y saltos de línea   \n   y caracteres de control   \t   \n   que será procesada por la función ft_split   ";
+	char	**result;
+	int		c = 0;
+
+	result = ft_split(str);
+	while (result[c] != NULL)
+	{
+		printf("%s\n", result[c]);
+		c++;
+	}
+	c = 0;
+	while (result[c] != NULL)
+	{
+		free(result[c]);
+		c++;
+	}
+	free(result);
+	return (0);
+}
+*/

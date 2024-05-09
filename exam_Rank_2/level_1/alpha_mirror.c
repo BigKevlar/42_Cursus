@@ -33,17 +33,16 @@ $>
 int	main(int ac, char **av)
 {
 	int		c = 0;
-	char	*str = av[1];
 
 	if (ac == 2)
 	{
-		while (str[c] != '\0')
+		while (av[1][c] != '\0')
 		{
-			if (str[c] >= 'A' && str[c] <= 'Z')
-				str[c] = ('Z' - str[c]) + 'A';
-			else if (str[c] >= 'a' && str[c] <= 'z')
-				str[c] = ('z' - str[c]) + 'a';
-			write(1, &str[c], 1);
+			if (av[1][c] >= 'A' && av[1][c] <= 'Z')
+				av[1][c] = ('Z' - av[1][c]) + 'A';
+			else if (av[1][c] >= 'a' && av[1][c] <= 'z')
+				av[1][c] = ('z' - av[1][c]) + 'a';
+			write(1, &av[1][c], 1);
 			c++;
 		}
 	}

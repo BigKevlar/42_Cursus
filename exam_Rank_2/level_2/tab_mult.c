@@ -54,32 +54,31 @@ int	miniatoi(char *str)
 	return (n);
 }
 
-void	putnbr(int num)
+void	print_num(int n)
 {
-	char c = 0;
+	char digit;
 
-	if (num >= 10)
-		putnbr(num / 10);
-	c = (num % 10) + '0';
-	write(1, &c, 1);
-	return ;
+	if (n >= 10)
+		print_num(n / 10);
+	digit = (n % 10) + '0';
+	write (1, &digit, 1);
 }
 
-void	tabmult(int num)
+void	tabmult(int n)
 {
-	int	n = 1;
-	int	r = 0;
+	int	num = 1;
+	int	res;
 
-	while (n <= 9)
+	while (num <= 9)
 	{
-		r = n * num;
-		putnbr(n);
+		res = num * n;
+		print_num(num);
 		write(1, " x ", 3);
-		putnbr(num);
+		print_num(n);
 		write(1, " = ", 3);
-		putnbr(r);
+		print_num(res);
 		write(1, "\n", 1);
-		n++;
+		num++;
 	}
 	return ;
 }

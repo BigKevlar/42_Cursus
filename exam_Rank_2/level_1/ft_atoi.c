@@ -27,7 +27,7 @@ int	ft_atoi(const char *str) //Ascii TO Integer (caracter a numero)
 		sig = -1;
 		c++;
 	}
-	else if (str[c] == '+')
+	if (str[c] == '+')
 		c++;
 	while (str[c] >= '0' && str[c] <= '9')
 	{

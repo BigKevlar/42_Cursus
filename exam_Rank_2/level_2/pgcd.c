@@ -26,23 +26,22 @@ $> ./pgcd | cat -e
 $
 */
 
-#include <stdio.h> //printf
-#include <stdlib.h> //atoi
+#include <stdio.h>
+#include <stdlib.h>
 
 void maxcd(unsigned int n1, unsigned int n2)
 {
-	int tmp = n1;
-	
-	while (tmp > 0)
+	if (n1 > 0 && n2 > 0)
 	{
-		if ((n1 % tmp == 0) && (n2 % tmp == 0))
+		while (n1 != n2)
 		{
-			printf("%d", tmp);
-			return ;
+			if (n1 > n2)
+				n1 -= n2;
+			if (n2 > n1)
+				n2 -= n1;
 		}
-		tmp--;
+		printf("%d", n1);
 	}
-	return ;
 }
 
 int main(int ac, char **av)

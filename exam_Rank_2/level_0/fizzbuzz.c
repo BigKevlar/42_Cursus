@@ -58,13 +58,13 @@ int	main(void)
 			write(1, "buzz", 4);
 		else if (num < 10)
 		{
-			dig = '0' + num;
+			dig = num + '0';
 			write(1, &dig, 1);
 		}
 		else if (num >= 10)
 		{
-			dig1 = '0' + (num / 10);
-			dig2 = '0' + (num % 10);
+			dig1 = (num / 10) + '0';
+			dig2 = (num % 10) + '0';
 			write (1, &dig1, 1);
 			write (1, &dig2, 1);
 		}

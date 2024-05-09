@@ -41,25 +41,25 @@ $>
 
 int	main(int ac, char **av)
 {
-	int	cont = 0;
+	int	c = 0;
 	int mutex = 0;
 
 	if (ac == 2)
 	{
-		while (av[1][cont] == ' ' || av[1][cont] == '\t')
-			cont++;
-		while (av[1][cont] != '\0')
+		while (av[1][c] == ' ' || av[1][c] == '\t')
+			c++;
+		while (av[1][c] != '\0')
 		{
-			if (av[1][cont] == ' ' || av[1][cont] == '\t')
+			if (av[1][c] == ' ' || av[1][c] == '\t')
 				mutex = 1;
 			else
 			{
 				if (mutex == 1)
 					write(1, " ", 1);
 				mutex = 0;
-				write(1, &av[1][cont], 1);
+				write(1, &av[1][c], 1);
 			}
-			cont++;
+			c++;
 		}
 	}
 	write(1, "\n", 1);

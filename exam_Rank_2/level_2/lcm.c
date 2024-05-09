@@ -37,9 +37,9 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 		return (0);
 	if (a > b)
 		n = a;
-	else if (b > a)
+	if (b > a)
 		n = b;
-	while ((n % a == 0) && (n % b == 0))
+	while (n % a == 0 && n % b == 0)
 		n++;
 	return (n);
 }

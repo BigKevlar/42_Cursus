@@ -39,37 +39,36 @@ $>
 
 int main(int ac, char **av)
 {
-	int cont = 0;
-	int word = 0;
-
+	int c = 0;
+	int first = 0;
 
 	if (ac >= 2)
 	{
-		cont = 0;
-		while (av[1][cont] == ' ' || av[1][cont] == '\t') //recorremos el string saltando espacios o tabulaciones al comienzo.
-			cont++;
-		word = cont; //guardamos en word la posicion del comienzo de la primera palabra.
-		while (av[1][cont] != '\0') //avanzamos hasta el final.
+		c = 0;
+		while (av[1][c] == ' ' || av[1][c] == '\t')
+			c++;
+		first = c;
+		while (av[1][c] != '\0')
 		{
-			while (av[1][cont] != '\0' && (av[1][cont] != ' ' && av[1][cont] != '\t')) // find the next word.
-				cont++;
-			while (av[1][cont] != '\0' && (av[1][cont] == ' ' || av[1][cont] == '\t')) // find the next word.
-				cont++;
-			while (av[1][cont] != '\0' && (av[1][cont] != ' ' && av[1][cont] != '\t') && (av[1][cont -1] == ' ' || av[1][cont - 1] == '\t')) // print the word till it reaches last.
+			while (av[1][c] != '\0' && (av[1][c] != ' ' && av[1][c] != '\t'))
+				c++;
+			while (av[1][c] != '\0' && (av[1][c] == ' ' || av[1][c] == '\t')) 
+				c++;
+			while (av[1][c] != '\0' && (av[1][c] != ' ' && av[1][c] != '\t') && (av[1][c -1] == ' ' || av[1][c - 1] == '\t'))
 			{
-				while (av[1][cont] != '\0' && (av[1][cont] != ' ' && av[1][cont] != '\t'))
+				while (av[1][c] != '\0' && (av[1][c] != ' ' && av[1][c] != '\t'))
 				{
-					write (1, &av[1][cont], 1);
-					cont++;
+					write (1, &av[1][c], 1);
+					c++;
 				}
 				write (1, " ", 1);
-				cont++;
+				c++;
 			}
 		}
-		while (av[1][word] != '\0' && (av[1][word] != ' ' && av[1][word] != '\t')) // print the first word now.
+		while (av[1][first] != '\0' && (av[1][first] != ' ' && av[1][first] != '\t'))
 		{
-			write (1, &av[1][word], 1);
-			word++;
+			write (1, &av[1][first], 1);
+			first++;
 		}
 	}
 	write(1, "\n", 1);

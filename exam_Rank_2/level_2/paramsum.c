@@ -22,21 +22,20 @@ $>
 
 #include <unistd.h>
 
-void ft_putnbr(int n) //como write no acepta escribir numeros hacemos nuestra funcion para escribir numeros.
+void print_num(int n)
 {
 	char digit;
 
 	if (n >= 10)
-		ft_putnbr(n / 10); //de esta forma recursiva, se "almacena" su digito en memoria y se pasa al siguiente a la izquierda.
-	digit = (n % 10) + '0'; //aqui ya se combierte en tipo char.
+		print_num(n / 10);
+	digit = (n % 10) + '0';
 	write (1, &digit, 1);
-	return ;
 }
 
 int main(int ac, char **av)
 {
-	(void) av; //silenciar error de "parametro no utilizado" casteandolo a void.
-	ft_putnbr(ac - 1);
+	(void)av;
+	print_num(ac - 1);
 	write(1, "\n", 1);
 	return (0);
 }

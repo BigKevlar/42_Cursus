@@ -34,36 +34,34 @@ $> ./fprime 42 21 | cat -e
 $
 */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int	is_prime(int n)
+void	is_prime(int n)
 {
-	int num = n;
 	int	prime = 2;
-	
-	while (num >= prime)
+
+	while (n >= prime)
 	{
-		while (num % prime == 0)
+		while (n % prime == 0)
 		{
 			printf("%d", prime);
-			num /= prime;
-			if (num >= prime)
+			n /= prime;
+			if (n >= prime)
 				printf("*");
 		}
 		prime++;
 	}
-	return (0);
 }
 
 int	main(int ac, char **av)
 {
-	if (ac == 2)
+	if (ac == 2 && atoi(av[1]))
 	{
-		if (num == 1)
+		if (atoi(av[1]) == 1)
 			printf("1");
-		is_prime(atoi(av[1]));
-
+		else
+			is_prime(atoi(av[1]));
 	}
 	printf("\n");
 	return (0);

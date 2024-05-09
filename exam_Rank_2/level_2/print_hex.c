@@ -43,13 +43,12 @@ void	print_hex(int n)
 	if (n >= 16)
 		print_hex(n / 16);
 	write(1, &hex[n % 16], 1);
-	return ;
 }
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	if (argc == 2)
-		print_hex(mini_atoi(argv[1]));
+	if (ac == 2)
+		print_hex(miniatoi(av[1]));
 	write(1, "\n", 1);
 	return (0);
 }
