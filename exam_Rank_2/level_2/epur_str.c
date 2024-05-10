@@ -42,7 +42,7 @@ $>
 int	main(int ac, char **av)
 {
 	int	c = 0;
-	int mutex = 0;
+	int	mutex = 0;
 
 	if (ac == 2)
 	{

@@ -44,7 +44,7 @@ int	main(int ac, char **av)
 		}
 		if (av[1][c1] == '\0')
 			write(1, "1", 1);
-		else if (av[2][c2] == '\0')
+		if (av[2][c2] == '\0')
 			write(1, "0", 1);
 	}
 	write(1, "\n", 1);

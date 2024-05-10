@@ -31,15 +31,15 @@ Su función debe tener el siguiente prototipo:
 
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
-	unsigned int n = 0;
+	unsigned int num = 0;
 
 	if (a == 0 || b == 0)
 		return (0);
 	if (a > b)
-		n = a;
+		num = a;
 	if (b > a)
-		n = b;
-	while (n % a == 0 && n % b == 0)
-		n++;
-	return (n);
+		num = b;
+	while (num % a == 0 && num % b == 0)
+		num++;
+	return (num);
 }

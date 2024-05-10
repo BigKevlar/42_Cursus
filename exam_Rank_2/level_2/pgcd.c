@@ -29,18 +29,18 @@ $
 #include <stdio.h>
 #include <stdlib.h>
 
-void maxcd(unsigned int n1, unsigned int n2)
+void maxcd(unsigned int a, unsigned int b)
 {
-	if (n1 > 0 && n2 > 0)
+	if (a > 0 && b > 0)
 	{
-		while (n1 != n2)
+		while (a != b)
 		{
-			if (n1 > n2)
-				n1 -= n2;
-			if (n2 > n1)
-				n2 -= n1;
+			if (a > b)
+				a -= b;
+			if (b > a)
+				b -= a;
 		}
-		printf("%d", n1);
+		printf("%d", a);
 	}
 }
 

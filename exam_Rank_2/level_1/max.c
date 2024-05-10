@@ -18,9 +18,9 @@ If the array is empty, the function returns 0.
 
 int	max(int *tab, unsigned int len)
 {
-	int aux = tab[0]; //iniciamos la variable aux con el primer nuemro del array, para ir comparando desde el principio.
+	int aux = tab[0];
 
-	if (len == 0) //si la longuitud del array es 0 acabamos sin devolver nada.
+	if (len == 0)
 		return (0);
 	while (len > 0)
 	{

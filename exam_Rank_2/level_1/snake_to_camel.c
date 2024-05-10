@@ -30,11 +30,11 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		while (av[1][c] == '_') //si por casualidad la o las primeras posicines son _ saltalas hasta encontrar una letra.
+		while (av[1][c] == '_')
 			c++;
 		while (av[1][c] != '\0')
 		{
-			if (av[1][c] == '_') //comenzamos el array viendo si encuentra un _ y si es asi la siguiente palabra la pasamos a mayuscula e imprimimos, asi nos aseguramos tambien que la primera se queda en minusculas,
+			if (av[1][c] == '_')
 			{
 				c++; //saltamos posicion del "_".
 				if (av[1][c] >= 'a' && av[1][c] <= 'z') //verificamos si son minusculas y...

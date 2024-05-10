@@ -16,8 +16,8 @@ Your function must be declared as follows:
 char    *ft_strdup(char *src);
 */
 
-#include <stdib.h> //para el malloc.
-#include <stdio.h> //para el sizeof.
+#include <stdlib.h>
+#include <stdio.h>
 
 char	*ft_strdup(char *src)
 {
@@ -26,7 +26,7 @@ char	*ft_strdup(char *src)
 
 	while (src[c] != '\0')
 		c++;
-	str = malloc(sizeof(char) * (c + 1)) //c + 1 por el caracter nulo.
+	str = malloc(sizeof(char) * (c + 1));
 	if (!str)
 		return (NULL);
 	c = 0;
