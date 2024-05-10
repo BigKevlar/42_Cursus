@@ -1,3 +1,6 @@
+// GRADEME
+// bash -c "$(curl https://grademe.fr)"
+
 // MINI_ATOI
 int miniatoi(char *str)
 {
