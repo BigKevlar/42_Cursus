@@ -35,7 +35,7 @@ $>
 int	main(int ac, char **av)
 {
 	int	c = 0;
-	int	repeat;
+	int	repeat = 1;
 
 	if (ac == 2)
 	{
@@ -43,9 +43,9 @@ int	main(int ac, char **av)
 		{
 			repeat = 1;
 			if (av[1][c] >= 'A' && av[1][c] <= 'Z')
-				repeat = repeat + (av[1][c] - 'A');
+				repeat += (av[1][c] - 'A');
 			else if (av[1][c] >= 'a' && av[1][c] <= 'z')
-				repeat = repeat + (av[1][c] - 'a');
+				repeat += (av[1][c] - 'a');
 			while (repeat > 0)
 			{
 				write(1, &av[1][c], 1);
@@ -57,7 +57,7 @@ int	main(int ac, char **av)
 	write (1, "\n", 1);
 	return (0);
 }
-
+ 
 /*
 --------------------------------------------------------------------------------
 Pseudocódigo:

@@ -37,17 +37,17 @@ $
 #include <stdio.h>
 #include <stdlib.h>
 
-void	is_prime(int n)
+void	is_prime(int num)
 {
 	int	prime = 2;
 
-	while (n >= prime)
+	while (num >= prime)
 	{
-		while (n % prime == 0)
+		while (num % prime == 0)
 		{
 			printf("%d", prime);
-			n /= prime;
-			if (n >= prime)
+			num /= prime;
+			if (num >= prime)
 				printf("*");
 		}
 		prime++;

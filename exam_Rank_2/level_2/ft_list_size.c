@@ -25,14 +25,14 @@ typedef struct    s_list
 
 int	ft_list_size(t_list *begin_list)
 {
-	int c = 0;
+	int size = 0;
 
 	if (begin_list == 0)
 		return (0);
 	while (begin_list)
 	{
 		begin_list = begin_list->next;
-		c++;
+		size++;
 	}
-	return (c);
+	return (size);
 }
