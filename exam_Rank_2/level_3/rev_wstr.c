@@ -49,8 +49,7 @@ int main(int ac, char **av)
 			end = len;
 			while (av[1][len] && av[1][len] != ' ' && av[1][len] != '\t')
 				len--;
-			len++;
-			start = len;
+			start = len + 1;
 			while (start <= end)
 			{
 				write(1, &av[1][start], 1);
