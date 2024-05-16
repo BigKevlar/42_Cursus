@@ -41,11 +41,9 @@ int main(int ac, char **av)
 {
 	int c = 0;
 	int first = 0;
-	int mutex = 0;
 
 	if (ac >= 2)
 	{
-		c = 0;
 		while (av[1][c] == ' ' || av[1][c] == '\t')
 			c++;
 		first = c;
@@ -55,21 +53,17 @@ int main(int ac, char **av)
 				c++;
 			while (av[1][c] != '\0' && (av[1][c] == ' ' || av[1][c] == '\t')) 
 				c++;
-			while (av[1][c] != '\0')
+			while (av[1][c] != '\0' && (av[1][c] != ' ' && av[1][c] != '\t') && (av[1][c - 1] == ' ' || av[1][c - 1] == '\t'))
 			{
-				if (av[1][c] == ' ' || av[1][c] == '\t')
-					mutex = 1;
-				else
+				while (av[1][c] != '\0' && (av[1][c] != ' ' && av[1][c] != '\t'))
 				{
-					if (mutex == 1)
-						write(1, " ", 1);
-					mutex = 0;
-					write(1, &av[1][c], 1);
+					write (1, &av[1][c], 1);
+					c++;
 				}
+				write (1, " ", 1);
 				c++;
 			}
 		}
-		write(1, " ", 1);
 		while (av[1][first] != '\0' && (av[1][first] != ' ' && av[1][first] != '\t'))
 		{
 			write (1, &av[1][first], 1);

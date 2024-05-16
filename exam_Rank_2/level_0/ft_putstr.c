@@ -23,7 +23,6 @@ void	ft_putstr(char *str)
 		write(1, &str[c], 1);
 		c++;
 	}
-	return ;
 }
 
 /*

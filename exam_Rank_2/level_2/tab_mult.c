@@ -44,23 +44,23 @@ $>
 int	miniatoi(char *str)
 {
 	int	c = 0;
-	int	n = 0;
+	int	num = 0;
 
 	while (str[c] != '\0')
 	{
-		n = (n * 10) + (str[c] - '0');
+		num = (num * 10) + (str[c] - '0');
 		c++;
 	}
-	return (n);
+	return (num);
 }
 
-void	print_num(int n)
+void	print_num(int num)
 {
 	char digit;
 
-	if (n >= 10)
-		print_num(n / 10);
-	digit = (n % 10) + '0';
+	if (num >= 10)
+		print_num(num / 10);
+	digit = (num % 10) + '0';
 	write (1, &digit, 1);
 }
 

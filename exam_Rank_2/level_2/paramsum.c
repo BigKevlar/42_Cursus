@@ -22,13 +22,13 @@ $>
 
 #include <unistd.h>
 
-void print_num(int n)
+void print_num(int num)
 {
 	char digit;
 
-	if (n >= 10)
-		print_num(n / 10);
-	digit = (n % 10) + '0';
+	if (num >= 10)
+		print_num(num / 10);
+	digit = (num % 10) + '0';
 	write (1, &digit, 1);
 }
 

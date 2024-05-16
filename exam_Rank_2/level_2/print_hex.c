@@ -26,23 +26,23 @@ $
 int	miniatoi(char *str)
 {
 	int	c = 0;
-	int	n = 0;
+	int	num = 0;
 
 	while (str[c] != '\0')
 	{
-		n = (n * 10) + (str[c] - '0');
+		num = (num * 10) + (str[c] - '0');
 		c++;
 	}
-	return (n);
+	return (num);
 }
 
-void	print_hex(int n)
+void	print_hex(int num)
 {
 	char	hex[16] = "0123456789abcdef";
 	
-	if (n >= 16)
-		print_hex(n / 16);
-	write(1, &hex[n % 16], 1);
+	if (num >= 16)
+		print_hex(num / 16);
+	write(1, &hex[num % 16], 1);
 }
 
 int	main(int ac, char **av)

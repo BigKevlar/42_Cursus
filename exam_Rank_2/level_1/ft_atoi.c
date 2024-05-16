@@ -14,13 +14,13 @@ Your function must be declared as follows:
 int	ft_atoi(const char *str);
 */
 
-int	ft_atoi(const char *str) //Ascii TO Integer (caracter a numero)
+int	ft_atoi(const char *str)
 {
 	int c = 0;
 	int num = 0;
 	int sig = 1;
 
-	while (str[c] == ' ' || (str[c] >= '\t' && str[c] <= '\r'))
+	while (str[c] == ' ' || str[c] >= '\t')
 		c++;
 	if (str[c] == '-')
 	{
@@ -40,5 +40,5 @@ int	ft_atoi(const char *str) //Ascii TO Integer (caracter a numero)
 /*
 Pseudocódigo:
 --------------------------------------------------------------------------------
-
+Ascii TO Integer (caracter a numero)
 */

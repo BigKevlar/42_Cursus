@@ -22,7 +22,6 @@ char *ft_strrev(char *str)
 	int end = 0;
 	char tmp;
 
-	end = 0;
 	while (str[end] != '\0')
 		end++;
 	while (start < end)

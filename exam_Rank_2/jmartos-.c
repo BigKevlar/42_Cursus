@@ -25,3 +25,13 @@ void print_num(char num)
     digit = (num % 10) + '0';
     write(1, &digit, 1);
 }
+
+// TRUCO PARA SABER INT_MAX E INT_MIN
+#include <stdio.h>
+#include <limits.h>
+
+int main(void)
+{
+    printf("Este es el INT_MAX: %i\n", INT_MAX);
+    printf("Este es el INT_MIN: %i\n", INT_MIN);
+}

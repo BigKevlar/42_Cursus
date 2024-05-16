@@ -36,7 +36,8 @@ void	sort_int_tab(int *tab, unsigned int size)
 			c++;
 	}
 }
- 
+
+/*
 int main(void)
 {
 	int len = 7; 
@@ -54,3 +55,4 @@ int main(void)
 	printf("\n");
 	return (0);
 }
+*/

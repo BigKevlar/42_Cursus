@@ -17,7 +17,7 @@ int	is_power_of_2(unsigned int n)
 {
 	if (n == 0) //si el numero es 0 devuelve 0,
 		return (0);
-	while (n > 1) //el bucle divide entre dos el numero si su resto da cero, hasta que n == 1, que demostraria que el ultimo numero fue 2, por lo que es potencia de 2.
+	while (n >= 2) //el bucle divide entre dos el numero si su resto da cero, hasta que n == 1, que demostraria que el ultimo numero fue 2, por lo que es potencia de 2.
 	{
 		if (n % 2 == 0) //si el numero tiene de resto 0 es que es potencia de 2, asi que pasa al siguiente numero que es siempre la mitad de el mismo.
 			n /= 2;
