@@ -1,19 +1,3 @@
-/*
-Assignment name  : ft_atoi
-Expected files   : ft_atoi.c
-Allowed functions: None
---------------------------------------------------------------------------------
-
-Write a function that converts the string argument str to an integer (type int)
-and returns it.
-
-It works much like the standard atoi(const char *str) function, see the man.
-
-Your function must be declared as follows:
-
-int	ft_atoi(const char *str);
-*/
-
 int	ft_atoi(const char *str)
 {
 	int c = 0;
@@ -38,7 +22,19 @@ int	ft_atoi(const char *str)
 }
 
 /*
+--------------------------------------------------------------------------------
 Pseudocódigo:
 --------------------------------------------------------------------------------
-Ascii TO Integer (caracter a numero)
+	ASCII TO INTEGER (letra a numero).
+	Nuestra funcion recibe un string tipo char * y lo cambia a tipo int.
+	Iniciamos 3 variaables_
+	- Un contador "c" que iterará cada letra del string.
+	- Un numero "num" que sera el que almacenara la conversion.
+	- un numero "sig" que usaremos para pasar a negativo el numero en caso de serlo.
+	Vamos a comprobar si el string tiene espacios para saltarlos, si el primer
+	caracter es un simbolo negatico para saltarlo y cambiar el valor de sig, si
+	es un simbolo opsitivo para saltarlo, y por utimo  ir cambiando uno a uno
+	los caracteres a numeros.
+	Finalizamos la funcion. 
+--------------------------------------------------------------------------------
 */

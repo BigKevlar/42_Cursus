@@ -1,20 +1,6 @@
-/*
-Assignment name	: ft_strspn
-Expected files	: ft_strspn.c
-Allowed functions: None
----------------------------------------------------------------
-
-Reproduce exactly the behavior of the strspn function 
-(man strspn).
-
-The function should be prototyped as follows:
-
-size_t	ft_strspn(const char *s, const char *accept);
-*/
-
 #include <stdio.h>
 
-size_t	ft_strspn(const char *s, const char *accept) //busca en s y cuenta los caraceres pasados en accept.
+size_t	ft_strspn(const char *s, const char *accept)
 {
 	size_t c1 = 0;
 	size_t c2 = 0;
@@ -32,3 +18,9 @@ size_t	ft_strspn(const char *s, const char *accept) //busca en s y cuenta los ca
 	}
 	return (c1);
 }
+
+/*
+Pseudocódigo:
+--------------------------------------------------------------------------------
+Nuestra funcion busca en un string (s) y cuenta los caracteres pasados (accept), uno a uno.
+*/
