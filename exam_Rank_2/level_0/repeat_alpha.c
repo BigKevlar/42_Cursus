@@ -11,9 +11,9 @@ int	main(int ac, char **av)
 		{
 			repeat = 1;
 			if (av[1][c] >= 'A' && av[1][c] <= 'Z')
-				repeat += (av[1][c] - 'A');
+				repeat += av[1][c] - 'A';
 			else if (av[1][c] >= 'a' && av[1][c] <= 'z')
-				repeat += (av[1][c] - 'a');
+				repeat += av[1][c] - 'a';
 			while (repeat > 0)
 			{
 				write(1, &av[1][c], 1);
