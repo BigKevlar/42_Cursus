@@ -1,4 +1,4 @@
-// GRADEME
+// GRADEM
 // bash -c "$(curl https://grademe.fr)"
 
 // MINI_ATOI
