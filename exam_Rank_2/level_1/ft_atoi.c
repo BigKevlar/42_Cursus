@@ -4,7 +4,7 @@ int	ft_atoi(const char *str)
 	int num = 0;
 	int sig = 1;
 
-	while (str[c] == ' ' || str[c] >= '\t')
+	while (str[c] == ' ' || str[c] == '\t')
 		c++;
 	if (str[c] == '-')
 	{

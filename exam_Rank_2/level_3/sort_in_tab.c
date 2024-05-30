@@ -1,21 +1,3 @@
-/*
-Nombre de la tarea : sort_int_tab
-Ficheros esperados : sort_int_tab.c
-Funciones permitidas:
---------------------------------------------------------------------------------
-
-Escriba la siguiente función:
-
-void sort_int_tab(int *tab, unsigned int size);
-
-Debe ordenar (in-place) el array int 'tab', que contiene exactamente 'size'
-en orden ascendente.
-
-Los dobles deben preservarse.
-
-La entrada es siempre coherente.
-*/
-
 #include <stdio.h>
 
 void	sort_int_tab(int *tab, unsigned int size)
