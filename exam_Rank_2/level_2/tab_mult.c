@@ -23,29 +23,29 @@ void	print_num(int num)
 	write (1, &digit, 1);
 }
 
-void	tabmult(int n)
+int	main(int ac, char **av)
 {
-	int	num = 1;
+	int	num;
+	int	tab;
 	int	res;
 
+	if (ac < 2)
+	{
+		write(1, "\n", 1);
+		return (0);
+	}
+	num = 1;
+	tab = miniatoi(av[1]);
 	while (num <= 9)
 	{
-		res = num * n;
+		res = num * tab;
 		print_num(num);
 		write(1, " x ", 3);
-		print_num(n);
+		print_num(tab);
 		write(1, " = ", 3);
 		print_num(res);
 		write(1, "\n", 1);
 		num++;
 	}
-	return ;
-}
-
-int	main(int ac, char **av)
-{
-	if (ac == 2)
-		tabmult(miniatoi(av[1]));
-	write(1, "\n", 1);
 	return (0);
 }

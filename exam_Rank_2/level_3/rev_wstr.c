@@ -2,9 +2,9 @@
 
 int main(int ac, char **av)
 {
+	int len = 0;
 	int start = 0;
 	int end = 0;
-	int len = 0;
 
 	if (ac == 2)
 	{
