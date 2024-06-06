@@ -12,11 +12,24 @@
 
 #include "philo.h"
 
+/*
+	El main es un TL;DR del progama???
+	Input:	./philo
+			numeros_de_filosofos
+			tiempo_para_morir
+			tiempo_en_comer
+			tiempo_de_dormir
+			limite_de_comidas (opcional)
+*/
+
 int	main(int ac, char **av)
 {
-	if (ac != 5 || ac != 6)
+	t_table	table;
+	
+	if (ac == 5 || ac == 6)
 	{
-		printf("ARGUMENTS ERROR!")
-		return (0)
+
 	}
+	else
+		error_and_exit("INPUT ERROR");
 }

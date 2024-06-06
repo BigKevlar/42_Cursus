@@ -12,6 +12,13 @@
 
 #include "philo.h"
 
+// FUNCIÓN DE ERROR
+void	error_and_exit(char *msg)
+{
+	printf(RED"%s\n"END, error);
+	exit(EXIT_FAILURE);
+}
+
 //
 long long	get_time(void)
 {
