@@ -12,15 +12,18 @@ int	main(int ac, char **av)
 		while (av[1][c] != '\0')
 		{
 			if (av[1][c] == ' ' || av[1][c] == '\t')
+			{
 				mutex = 1;
+				c++;
+			}
 			else
 			{
 				if (mutex == 1)
 					write(1, " ", 1);
 				mutex = 0;
 				write(1, &av[1][c], 1);
+				c++;
 			}
-			c++;
 		}
 	}
 	write(1, "\n", 1);
