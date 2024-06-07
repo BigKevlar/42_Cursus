@@ -12,6 +12,7 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 	{
 		if (lcm % a == 0 && lcm % b == 0)
 			return (lcm);
-		lcm++;
+		else
+			lcm++;
 	}
 }
