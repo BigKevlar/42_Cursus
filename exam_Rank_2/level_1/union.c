@@ -38,19 +38,19 @@ int	main(int ac, char **av)
 
 	if (ac == 3)
 	{
-		while (c1 <= 2) //vamos a repetir este bucle dos veces solo, porque solo tenemos dos argumentos y vamos a iterar el primero y luego el segundo...
+		while (c1 <= 2)
 		{
-			c2 = 0; //... reiniciando siempre la primera letra de cada argumento.
+			c2 = 0;
 			while (av[c1][c2] != '\0')
 			{
-				if (united[(int)av[c1][c2]] == 0) //si la posicion casteada de united es 0 significa que la letra no existe, asi que entra para escribirla y cambia su valor para que no se vuelva a imprimir.
+				if (united[(int)av[c1][c2]] == 0)
 				{
 					write(1, &av[c1][c2], 1);
 					united[(int)av[c1][c2]] = 1;
 				}
-				c2++; //siguiente letra.
+				c2++;
 			}
-			c1++; //siguiente argumento.
+			c1++;
 		}
 	}
 	write(1, "\n", 1);
