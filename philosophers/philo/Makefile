@@ -1,3 +1,5 @@
+# 35:08
+
 # leaks --atExit -- ./philo ******
 # export MallocStackLogging=1
 # unset MallocStackLogging
@@ -22,7 +24,7 @@ END				=\033[0m
 ${NAME}: ${OBJS}
 	@echo "${YELLOW}${BOLD} "PHILOSOPHERS" 42_MALAGA, PROYECT FROM JMARTOS- ${END}"
 	@gcc $(CFLAGS) -o $(NAME) $(OBJS)
-	@echo "${YELLOW}${BOLD} PHILOSOPHERS EAT GAME START NOW!!! ${END}"
+	@echo "${YELLOW}${BOLD} PHILOSOPHERS CAN "EAT-SLEEP-THINK" NOW!!! ${END}"
 
 ${OBJS}: 
 	@echo "${BLUE}${BOLD} COMPILATING FUNCTIONS, PLEASE BE PATIENT... ${END}"
