@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_2.c                                          :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 18:50:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/04/29 18:50:27 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/06/11 19:56:39 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/06/11 22:22:06 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// FUNCIÓN DE ERROR
+// FUNCIÓN DE ERROR.
 void	error_and_exit(char *msg)
 {
-	printf(RED"%s\n"END, error);
+	printf(R"%s\n"RES, error);
 	exit(EXIT_FAILURE);
-}
-
-//
-long long	get_time(void)
-{
-	struct timeval	time;
-
-	gettimeofday(&time, NULL);
-	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
