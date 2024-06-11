@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/11 23:49:54 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/11 23:56:28 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 	
 	if (ac == 5 || ac == 6)
 	{
-		
+		parse_input(&table, av);
 	}
 	else
 		error_and_exit("ERROR");
