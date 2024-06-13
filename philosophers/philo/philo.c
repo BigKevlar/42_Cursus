@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/11 23:56:28 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/13 22:23:57 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@
 
 int	main(int ac, char **av)
 {
-	t_table	table;
+	t_table	*table;
 	
 	if (ac == 5 || ac == 6)
 	{
 		parse_input(&table, av);
+		table_init(&table);
 	}
 	else
-		error_and_exit("ERROR");
+		error_and_exit("ERROR IN PARAMETERS");
 }
 
 /*

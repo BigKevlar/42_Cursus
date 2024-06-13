@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:15:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/11 23:49:54 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/13 19:25:01 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int	atol(char *str)
 int	check_int(long num)
 {
 	if (num > INT_MAX || num < INT_MIN)
-		return (1)
+		return (1);
 	return (0);
 }

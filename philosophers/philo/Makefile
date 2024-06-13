@@ -1,4 +1,4 @@
-# 35:08
+# 57:14
 
 # leaks --atExit -- ./philo ******
 # export MallocStackLogging=1

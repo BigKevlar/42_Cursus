@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:22:27 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/11 23:49:55 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/13 18:38:51 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void    parse_input(t_table *table, char **av)
 		|| table->time_2_sleep < 6e4)
 		error_and_exit("ERROR, the timestamps will be higher tanh 60ms.");
 	if (av[5])
-		table->meals_limits = atol(av[5]);
+		table->meals_limit = atol(av[5]);
 	else
-		table->meals_limits = -1; 
+		table->meals_limit = -1; 
 }
