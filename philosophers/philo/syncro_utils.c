@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_functions.c                                   :+:      :+:    :+:   */
+/*   syncro_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 18:50:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/11 19:58:31 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/06/14 20:36:46 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/06/14 22:51:19 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-//
-long long	get_time(void)
+// spinlock??? bucle para sincronizar el comienzo de los philos???
+void	waiting_threads(t_table *table)
 {
-	struct timeval	time;
-
-	gettimeofday(&time, NULL);
-	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+	while (!get_bool(&t_table->table_mutex, &t_table->threads_ready))
+		;
 }

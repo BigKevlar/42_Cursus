@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/13 22:23:57 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/06/14 22:51:14 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /*
-	El main es un TL;DR del progama???
-	Input:	./philo
+	Input:	./philo 5 800 200 200 [5]
+				nombre_del_programa
 				numeros_de_filosofos
 				tiempo_para_morir
 				tiempo_en_comer
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 	{
 		parse_input(&table, av);
 		table_init(&table);
+		eat_games
 	}
 	else
 		error_and_exit("ERROR IN PARAMETERS");

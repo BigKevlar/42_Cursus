@@ -3,43 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 18:15:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/13 19:25:01 by jmartos          ###   ########.fr       */
+/*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/06/14 22:51:19 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	atol(char *str)
-{
-	int		c;
-	long	num;
-	int		sig;
+/*
+	man gettimeofday (sys/time.h) para ver la estruccutra del tiempo.
 
-	c = 0;
-	num = 0;
-	sig = 1;
-	while (str[c] == ' ' || (str[c] >= '\t' && str[c] <= '\r'))
-		c++;
-	if (str[c] == '+' || str[c] == '-')
-	{
-		if (str[c] == '-')
-			sig = -1;
-		c++;
-	}
-	while (str[c] >= '0' && str[c] <= '9' && str[c] != '\0')
-	{
-		num = num * 10 + (str[c] - '0');
-		c++;
-	}
-	return ((int)num * sig);
+	SECONDS - 
+	MILISECONDS - 
+	MICROSECONDS - 
+*/
+
+long	get_time(t_time	time_code)
+{
+	struct timeval	timevalue;
+
+	if (gettimeofday(timevalue, NULL))
+		error_exit("ERROR IN GETTIMEOFDAY!");
+	if (SECOND == time_code)
+		return (timevalue->tv_sec + (timevalue->tv_usec / 1e6));
+	else if (MILISECONDS == time_code)
+		return ((timevalue->tv_sec * 1e3) + (timevalue->tv_usec * 1e3));
+	else if (MICROSECONDS == time_code)
+		return ((timevalue->tv_sec * 1e6) + timevalue->tv_usec);
+	else
+		error_exit("ERROR! GET_TIME WRONG INPUT.");
+	return (2203);
 }
 
-int	check_int(long num)
+void	custom_usleep(long time, t_table *table)
 {
-	if (num > INT_MAX || num < INT_MIN)
-		return (1);
-	return (0);
+	long	start;
+	long	elapsed;
+	long	remaining;
+
+	start = get_time(MICROSECONDS);
+	while (get_time(MICROSECONDS) - start < time)
+	{
+		if (simmulation_finish(table))
+			break ;
+		elapsed = get_time(MICROSECONDS) - start;
+		remaining = time - elapsed;
+		if (remaining > 1e3)
+			usleep(time / 2);
+		else
+		{
+			// splinlock
+			while (get_time(MICROSECONDS) - start < time)
+				;
+		}
+	}
+}
+
+void	write_status(t_status status, t_philo *philo)
+{
+	
 }

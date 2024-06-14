@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/13 22:22:47 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/06/14 22:51:16 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,11 @@ void	table_init(t_table *table)
 
 	pos = -1;
 	table->end_program = false;
+	table->threads_ready = false;
 	table->philos = malloc(sizeof(t_philo) * table->chairs);
 	table->forks = malloc(sizeof(t_fork) * table->chairs);
+	mutex_handle(t_table-> table_mutex, INIT);
+	mutex_handle(t_table-> write_mutex, INIT);
 	while (pos < table->chairs)
 	{
 		mutex_handle(&table->forks[pos].fork, INIT); // luego hare el pseudocodigo.

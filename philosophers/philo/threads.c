@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:07:32 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/13 20:57:26 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/06/14 22:51:17 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 		DETACH
 */
 
-static void	check_threads_error(int status, t_opcode opcode)
+static void	check_thread_error(int status, t_opcode opcode)
 {
 	if (0 == status)
 		return ;
@@ -39,14 +39,14 @@ static void	check_threads_error(int status, t_opcode opcode)
 		error_exit("ERROR! NO THREADS COULD BE FOUND");	
 }
 
-void	threads_handle(pthread *thread, void *funct, void *data, t_opcode opcode)
+void	thread_handle(pthread *thread, void *funct, void *data, t_opcode opcode)
 {
 	if (CREATE == opcode)
-		check_threads_error(pthread_create(thread, NULL, funct, data), opcode);
+		check_thread_error(pthread_create(thread, NULL, funct, data), opcode);
 	else if (JOIN == opcode)
-		check_threads_error(pthread_join(*thread, NULL), opcode);
+		check_thread_error(pthread_join(*thread, NULL), opcode);
 	else if (DETACH == opcode)
-		check_threads_error(pthread_detach(*thread, opcode));
+		check_thread_error(pthread_detach(*thread, opcode));
 	else
 		error_exit("ERROR! OPCODE THREAD HANDLE WRONG (USE 'CREATE', 'JOIN' OR 'DETACH').");		
 }
