@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:07:32 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/17 15:19:05 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 17:35:19 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	check_thread_error(int status, t_opcode opcode)
 		error_exit("ERROR! CANT CREATE NEW THREAD");
 	else if	(EINVAL == status && CREATE == opcode)
 		error_exit("ERROR! INVALID ATTR");
-	else if	(EINVAL == status && (JOIN == opcode || DETACH == OPCODE))
+	else if	(EINVAL == status && (JOIN == opcode || DETACH == opcode))
 		error_exit("ERROR! THE THREAD IN NOT JOINABLE");
 	else if (EDEADLK == status)
 		error_exit("ERROR! DEADLOCK DETECTED");
@@ -46,7 +46,7 @@ void	thread_handle(pthread_t *thread, void *funct, void *data, t_opcode opcode)
 	else if (JOIN == opcode)
 		check_thread_error(pthread_join(*thread, NULL), opcode);
 	else if (DETACH == opcode)
-		check_thread_error(pthread_detach(*thread, opcode));
+		check_thread_error(pthread_detach(*thread), opcode);
 	else
 		error_exit("ERROR! OPCODE THREAD HANDLE WRONG (USE 'CREATE', 'JOIN' OR 'DETACH').");		
 }

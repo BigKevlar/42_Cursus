@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syncro_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:36:46 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/14 22:51:19 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 16:28:06 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 // spinlock??? bucle para sincronizar el comienzo de los philos???
 void	waiting_threads(t_table *table)
 {
-	while (!get_bool(&t_table->table_mutex, &t_table->threads_ready))
+	while (!get_bool(&table->table_mutex, &table->threads_ready))
 		;
 }

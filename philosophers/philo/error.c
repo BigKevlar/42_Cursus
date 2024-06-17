@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:56:39 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/13 20:58:48 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/06/17 15:51:29 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 // FUNCIÓN DE ERROR.
 void	error_exit(char *msg)
 {
-	printf(R"%s\n"RES, msg);
+	printf(RED"%s\n"RES, msg);
 	exit(EXIT_FAILURE);
 }

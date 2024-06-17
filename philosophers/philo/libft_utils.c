@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:15:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/14 20:57:06 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 16:27:35 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	atol(char *str)
+int	ft_atol(char *str)
 {
 	int		c;
 	long	num;
@@ -37,7 +37,7 @@ int	atol(char *str)
 	return ((int)num * sig);
 }
 
-int	check_int(long num)
+int	ft_check_int(long num)
 {
 	if (num > INT_MAX || num < INT_MIN)
 		return (1);

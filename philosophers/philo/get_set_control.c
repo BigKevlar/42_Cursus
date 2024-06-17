@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:55:12 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 15:18:16 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 17:28:23 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ bool	get_bool(pthread_mutex_t *mutex, bool *value)
 	bool	new;
 
 	mutex_handle(mutex, LOCK);
-	*new = value;
+	new = *value;
 	mutex_handle(mutex, UNLOCK);
+	return (new);
 }
 
 void	set_long(pthread_mutex_t *mutex, long *new, long value)
@@ -46,8 +47,9 @@ long	get_long(pthread_mutex_t *mutex, long *value)
 	long	new;
 
 	mutex_handle(mutex, LOCK);
-	*new = value;
+	new = *value;
 	mutex_handle(mutex, UNLOCK);
+	return (new);
 }
 
 bool	simmulation_finish(t_table *table)

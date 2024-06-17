@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 15:22:39 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 17:45:35 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@
 # include <limits.h>	// INT_MIN y INT_MAX
 
 # define RES	"\033[0m"
-# define R		"\033[31;1m"
-# define G		"\033[32;1m"
-# define Y		"\033[33;1m"
-# define B		"\033[34;1m"
+# define RED	"\033[31;1m"
 
 /* Las opcode (operation codes) las usaremos para los mutex y thread functions. */
 
@@ -80,15 +77,15 @@ typedef struct	s_fork
 
 typedef struct	s_philo
 {
-	int					id;
-	long long			meals_counter;
-	long long			meals_time;
+	long unsigned int	id;
+	pthread_t			thread;
+	long				meals_counter;
+	long				meals_time;
 	bool				meals_full;
 	t_fork				*L_fork;
 	t_fork				*R_fork;
 	t_table				*table;
-	pthread_mutex_t		thread;
-	pthread_mutex_t				philo_mutex; // lo usaremos para escribir en pantalla
+	pthread_mutex_t		philo_mutex; // lo usaremos para escribir en pantalla
 }				t_philo;
 
 /*
@@ -137,7 +134,7 @@ void		mutex_handle(pthread_mutex_t *mutex, t_opcode opcode);
 /*************/
 /* THREADS.C */
 /*************/
-void		threads_handle(pthread_t *thread, void *funct, void *data, t_opcode opcode);
+void		thread_handle(pthread_t *thread, void *funct, void *data, t_opcode opcode);
 /***********/
 /* TABLE.C */
 /***********/
@@ -161,5 +158,10 @@ void		waiting_threads(t_table *table);
 long		get_time(t_time	time_code);
 void		custom_usleep(long time, t_table *table);
 void		write_status(t_status status, t_philo *philo);
+/*****************/
+/* LIBFT_UTILS.C */
+/*****************/
+int			ft_atol(char *str);
+int			ft_check_int(long num);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/17 14:47:44 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 16:27:08 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	forks_init(t_philo *philo, t_fork *fork, int pos)
 {
 	int	philo_num;
 	
-	philo_num = philo->table.chair;
+	philo_num = philo->table->chairs;
 	if(philo->id % 2 == 0)
 	{
 		philo->R_fork = &fork[pos];
@@ -67,12 +67,12 @@ void	table_init(t_table *table)
 	table->threads_ready = false;
 	table->philos = malloc(sizeof(t_philo) * table->chairs);
 	table->forks = malloc(sizeof(t_fork) * table->chairs);
-	mutex_handle(t_table-> table_mutex, INIT);
-	mutex_handle(t_table-> write_mutex, INIT);
+	mutex_handle(&table-> table_mutex, INIT);
+	mutex_handle(&table-> write_mutex, INIT);
 	while (pos < table->chairs)
 	{
 		mutex_handle(&table->forks[pos].fork, INIT); // luego hare el pseudocodigo.
-		table->forks[pos].fork_id = pos; // de aquie tambien lo hare luego 
+		table->forks[pos].id = pos; // de aquie tambien lo hare luego 
 		pos++;
 	}
 	philo_init(table);

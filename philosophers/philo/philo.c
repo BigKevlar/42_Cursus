@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 15:24:03 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 15:41:55 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 int	main(int ac, char **av)
 {
-	t_table	*table;
+	t_table	table;
 	
 	if (ac == 5 || ac == 6)
 	{
@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 		table_start(&table);
 	}
 	else
-		error_and_exit("ERROR IN PARAMETERS");
+		error_exit("ERROR IN PARAMETERS");
 }
 
 /*

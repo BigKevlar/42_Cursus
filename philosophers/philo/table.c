@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:50:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 15:23:42 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 17:47:14 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,21 @@
 static void	eat(t_philo *philo)
 {
 	// 1º
-	mutex_handle(&philo->L_FORK, LOCK);
+	mutex_handle(&philo->L_fork->fork, LOCK);
 	write_status(TAKE_L_FORK, philo);
-	mutex_handle(&philo->R_FORK, LOCK);
+	mutex_handle(&philo->R_fork->fork, LOCK);
 	write_status(TAKE_R_FORK, philo);
 	// 2º
-	set_long(&philo->philo_mutex, philo->meals_time, get_time(MILISECONDS));
-	philo->meals++;
+	set_long(&philo->philo_mutex, &philo->meals_time, get_time(MILISECOND));
+	philo->meals_counter++;
 	write_status(EAT, philo);
-	custom_usleep(philo->table.time2eat, philo->table);
-	if (philo->table.meals_limit > 0 
-		&& philo->meals_counter == philo->table.meals_limit)
-		set_bool(&ohilo->philo_mutex &philo->meals_full, true);
+	custom_usleep(philo->table->time2eat, philo->table);
+	if (philo->table->meals_limit > 0 
+		&& philo->meals_counter == philo->table->meals_limit)
+		set_bool(&philo->philo_mutex, &philo->meals_full, true);
 	// 3º
-	mutex_handle(&philo->L_FORK, UNLOCK);
-	mutex_handle(&philo->R_FORK, UNLOCK);
+	mutex_handle(&philo->L_fork->fork, UNLOCK);
+	mutex_handle(&philo->R_fork->fork, UNLOCK);
 
 }
 
@@ -69,7 +69,7 @@ static void	think(t_philo *philo)
 
 void	*dinner_start(void *data)
 {
-	t_philo	philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)data;
 
@@ -77,7 +77,7 @@ void	*dinner_start(void *data)
 	waiting_threads(philo->table);
 
 	// poner tiempo de ultima comida???
-	TODO
+	// TODO
 
 	while (!simmulation_finish(philo->table))
 	{
@@ -90,13 +90,14 @@ void	*dinner_start(void *data)
 			eat(philo);
 
 			//3º sleep (escribir status y poner "usleep")
-			write_status(SLEEPING, philo);
-			custom_usleep(philo->table.time2sleep, philo->table);
+			write_status(SLEEP, philo);
+			custom_usleep(philo->table->time2sleep, philo->table);
 			
 			//4º think
 			think(philo);
 		}
 	}
+	return (NULL);
 }
 
 void	table_start(t_table *table)
@@ -104,26 +105,26 @@ void	table_start(t_table *table)
 	int pos;
 
 	pos = -1;
-	if (0 == table->meals_full)
+	if (0 == table->meals_limit)
 		return ;
 	else if (1 == table->chairs)
-		// TODO
+			thread_handle(&table->philos[0].thread, NULL, &table->philos[0], CREATE); // lone_philo!!!!!!!!!
 	else
 	{
 		while (pos < table->chairs)
 		{
-			threads_handle(&table->philos[pos].id, dinner_start, &table->philos[pos], CREATE);
 			pos++;
+			thread_handle(&table->philos[pos].id, dinner_start, &table->philos[pos], CREATE);
 		}	
 	}
 
 	// comenzamos la simulacion
-	table->start_program = get_time(MILISECONDS);
+	table->start_program = get_time(MILISECOND);
 
 
 
 	// en este punto los hilos ya estan listos!
-	set_bool(&t_table->table_mutex, &t_table->threads_ready, true);
+	set_bool(&table->table_mutex, &table->threads_ready, true);
 
 
 	// esperamos a todos los philosofos
