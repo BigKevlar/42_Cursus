@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:07:32 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/14 22:51:17 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:19:05 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	check_thread_error(int status, t_opcode opcode)
 		error_exit("ERROR! NO THREADS COULD BE FOUND");	
 }
 
-void	thread_handle(pthread *thread, void *funct, void *data, t_opcode opcode)
+void	thread_handle(pthread_t *thread, void *funct, void *data, t_opcode opcode)
 {
 	if (CREATE == opcode)
 		check_thread_error(pthread_create(thread, NULL, funct, data), opcode);

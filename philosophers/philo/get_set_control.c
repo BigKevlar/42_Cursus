@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_set_control.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:55:12 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/14 22:51:18 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:18:16 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 	haciendo uso de booleanos.
 */
 
-void	set_bool(t_mtx *mutex, bool *new, bool value)
+void	set_bool(pthread_mutex_t *mutex, bool *new, bool value)
 {
 	mutex_handle(mutex, LOCK);
 	*new = value;
 	mutex_handle(mutex, UNLOCK);
 }
 
-bool	get_bool(t_mtx *mutex, bool *value)
+bool	get_bool(pthread_mutex_t *mutex, bool *value)
 {
 	bool	new;
 
@@ -34,14 +34,14 @@ bool	get_bool(t_mtx *mutex, bool *value)
 	mutex_handle(mutex, UNLOCK);
 }
 
-void	set_long(t_mtx *mutex, long *new, long value)
+void	set_long(pthread_mutex_t *mutex, long *new, long value)
 {
 	mutex_handle(mutex, LOCK);
 	*new = value;
 	mutex_handle(mutex, UNLOCK);
 }
 
-long	get_long(t_mtx *mutex, long *value)
+long	get_long(pthread_mutex_t *mutex, long *value)
 {
 	long	new;
 

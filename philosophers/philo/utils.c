@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/14 22:51:19 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:13:42 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 	SECONDS - 
 	MILISECONDS - 
 	MICROSECONDS - 
+*/
+
+/*
+	PODRIAMOS HACER UNA FUNCION PARA "DBUGEAR" LA ESCRITURA DE LOS STATUS???
 */
 
 long	get_time(t_time	time_code)
@@ -63,5 +67,26 @@ void	custom_usleep(long time, t_table *table)
 
 void	write_status(t_status status, t_philo *philo)
 {
-	
+	long	elapsed;
+
+	elapsed = get_time(MILISECONDS) - philo->table.start_programm;
+	if (philo->meals_full)
+		return ;
+		
+	// LOCK!!!
+	mutex_handle(&philo->table.write_mutex, LOCK);
+	if ((TAKE_L_FORK == status || TAKE_R_FORK == status) 
+		&& !simmulation_finish(philo->table))
+		printf("%-6ld" %d has taken a fork\n, elapsed, philo->id);
+	else if (EAT == status && !simmulation_finish(philo->table))
+		printf("%-6ld" %d is eating\n, elapsed, philo->id);
+	else if (SLEEP == status && !simmulation_finish(philo->table))
+		printf("%-6ld" %d is sleeping\n, elapsed, philo->id);
+	else if (THINK == status && !simmulation_finish(philo->table))
+		printf("%-6ld" %d is thinking\n, elapsed, philo->id);
+	else if (DIE == status)
+		printf("%-6ld" %d is dead\n, elapsed, philo->id);
+
+	// UNLOCK!!!
+	mutex_handle(&philo->table.write_mutex, LOCK);
 }

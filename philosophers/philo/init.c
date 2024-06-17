@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/14 22:51:16 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:47:44 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static void	philo_init(t_table *table)
 		philo->meals_time = 
 		philo->meals_full = false;
 		philo->table = table;
+		mutex_handle(&philo->philo_mutex, INIT);
 		forks_init(philo, table->forks, pos);
 		pos++;
 	}

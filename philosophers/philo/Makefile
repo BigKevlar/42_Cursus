@@ -1,4 +1,4 @@
-# 01:23:34
+# 01:33:40
 
 # leaks --atExit -- ./philo ******
 # export MallocStackLogging=1
@@ -10,7 +10,16 @@ CFLAGS			= -Wall -Wextra -Werror -g
 
 INC				= philo.h
 
-SRC				= 
+SRC				=	philo.c \
+					error.c \
+					parse.c \
+					init.c \
+					syncro_utils.c \
+					utils.c \
+					table.c \
+					mutex.c \
+					threads.c \
+					get_set_controls.c
 
 OBJS 			= ${SRC:.c=.o}
 
@@ -27,7 +36,7 @@ ${NAME}: ${OBJS}
 	@echo "${YELLOW}${BOLD} PHILOSOPHERS CAN "EAT-SLEEP-THINK" NOW!!! ${END}"
 
 ${OBJS}: 
-	@echo "${BLUE}${BOLD} COMPILATING FUNCTIONS, PLEASE BE PATIENT... ${END}"
+	@echo "${YELLOW}${BOLD} COMPILATING FUNCTIONS, PLEASE BE PATIENT... ${END}"
 	@gcc ${CFLAGS} -c ${INC} src/$(@F)
 	@echo "${GREEN}${BOLD} PROGRAM SUCCESSFULLY COMPILED ${END}"
 
@@ -38,9 +47,7 @@ clean:
 	@echo "${RED}${BOLD} CLEAN PROTOCOL: DELETING .o FILES... ${END}"
 
 fclean: clean
-	@rm -f ${NAME}
-	@make -C libft/ fclean
-	@make -C MLX42/ fclean
+	@rm -rf ${NAME}
 	@echo "${RED}${BOLD} FCLEAN PROTOCOL: DELETING .a FILES... ${END}"
 
 re: fclean all

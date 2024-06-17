@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:22:27 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/13 18:38:51 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/06/17 15:20:17 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 	que significa 10^3 o 1e3.
 */
 
-void    parse_input(t_table *table, char **av)
+void	parse_input(t_table *table, char **av)
 {
 	table->num_philos = atol(av[1]);
 	table->time_2_die = atol(av[2]) * 1e3;

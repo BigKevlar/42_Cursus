@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/14 22:51:13 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:22:39 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,17 @@ typedef enum	e_time
 
 typedef enum	e_status
 {
-	EAT;
+	EAT,
 	SLEEP,
 	THINK,
-	TAKE_L_FORK; // para debuging
-	TAKE_R_FORK; // para debuging
-	DIE;
+	TAKE_L_FORK, // para debuging
+	TAKE_R_FORK, // para debuging
+	DIE,
 }				t_status;
+
+/* Decaramos la t_table al principio para que no de problemas de "unknow type" al hacer make. */
+typedef struct s_table	t_table;
+typedef struct s_philo	t_philo;
 
 /* Los fork (tenedores) tenedores son mutex (semaforo) para este proyecto. */
 
@@ -80,10 +84,11 @@ typedef struct	s_philo
 	long long			meals_counter;
 	long long			meals_time;
 	bool				meals_full;
-	t_fork				L_fork;
-	t_fork				R_fork;
-	t_table				table;
+	t_fork				*L_fork;
+	t_fork				*R_fork;
+	t_table				*table;
 	pthread_mutex_t		thread;
+	pthread_mutex_t				philo_mutex; // lo usaremos para escribir en pantalla
 }				t_philo;
 
 /*
@@ -100,17 +105,17 @@ La estructura de parametros recibida para el programa sera la siguiente:
 typedef struct	s_table
 {
 	long		chairs;
-	long		time_2_die;
-	long		time_2_eat;
-	long		time_2_sleep;
+	long		time2die;
+	long		time2eat;
+	long		time2sleep;
 	long		meals_limit;
 	long		start_program;
 	bool		end_program; // valor booleano para cuando los philos esten llenos o uno muera.
 	bool		threads_ready; // sincroniza los philos
-	t_mtx		table_mutex; // ???
-	t_mtx		write_mutex;
-	t_philo		philos;
-	t_fork		forks;
+	pthread_mutex_t		table_mutex; // ???
+	pthread_mutex_t		write_mutex;
+	t_philo		*philos;
+	t_fork		*forks;
 }				t_table;
 
 /***********/
@@ -120,7 +125,7 @@ void		error_exit(char *msg);
 /***********/
 /* PARSE.C */
 /***********/
-void    	parse_input(t_table *table, char **av)
+void    	parse_input(t_table *table, char **av);
 /**********/
 /* INIT.C */
 /**********/
@@ -128,11 +133,11 @@ void		table_init(t_table *table);
 /***********/
 /* MUTEX.C */
 /***********/
-void		mutex_handle(t_mtx *mutex, t_opcode opcode);
+void		mutex_handle(pthread_mutex_t *mutex, t_opcode opcode);
 /*************/
 /* THREADS.C */
 /*************/
-void		threads_handle(pthread *thread, void *funct, void *data, t_opcode opcode);
+void		threads_handle(pthread_t *thread, void *funct, void *data, t_opcode opcode);
 /***********/
 /* TABLE.C */
 /***********/
@@ -141,24 +146,20 @@ void		table_start(t_table *table);
 /*********************/
 /* GET_SET_CONTROL.C */
 /*********************/
-void		set_bool(t_mtx *mutex, bool *new, bool value);
-bool		get_bool(t_mtx *mutex, bool *value);
-void		set_long(t_mtx *mutex, long *new, long value);
-long		get_long(t_mtx *mutex, long *value);
+void		set_bool(pthread_mutex_t *mutex, bool *new, bool value);
+bool		get_bool(pthread_mutex_t *mutex, bool *value);
+void		set_long(pthread_mutex_t *mutex, long *new, long value);
+long		get_long(pthread_mutex_t *mutex, long *value);
 bool		simmulation_finish(t_table *table);
 /******************/
 /* SYNCRO_UTILS.C */
 /******************/
 void		waiting_threads(t_table *table);
-/*****************/
-/* LIBFT_UTILS.C */
-/*****************/
-int			atol(char *str);
-int			check_int(long num);
 /***********/
 /* UTILS.C */
 /***********/
 long		get_time(t_time	time_code);
 void		custom_usleep(long time, t_table *table);
+void		write_status(t_status status, t_philo *philo);
 
 #endif
