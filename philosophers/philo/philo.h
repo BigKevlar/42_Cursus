@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 17:45:35 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 19:54:26 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ typedef struct	s_philo
 	long unsigned int	id;
 	pthread_t			thread;
 	long				meals_counter;
-	long				meals_time;
-	bool				meals_full;
+	long				last_meal;
+	bool				full;
 	t_fork				*L_fork;
 	t_fork				*R_fork;
 	t_table				*table;
@@ -109,6 +109,7 @@ typedef struct	s_table
 	long		start_program;
 	bool		end_program; // valor booleano para cuando los philos esten llenos o uno muera.
 	bool		threads_ready; // sincroniza los philos
+	long		threads_running;
 	pthread_mutex_t		table_mutex; // ???
 	pthread_mutex_t		write_mutex;
 	t_philo		*philos;
@@ -158,6 +159,7 @@ void		waiting_threads(t_table *table);
 long		get_time(t_time	time_code);
 void		custom_usleep(long time, t_table *table);
 void		write_status(t_status status, t_philo *philo);
+void		*safe_malloc(size_t bytes);
 /*****************/
 /* LIBFT_UTILS.C */
 /*****************/

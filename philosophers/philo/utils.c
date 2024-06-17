@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 17:46:12 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 19:54:52 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	write_status(t_status status, t_philo *philo)
 	long	elapsed;
 
 	elapsed = get_time(MILISECOND) - philo->table->start_program;
-	if (philo->meals_full)
+	if (philo->full)
 		return ;
 		
 	// LOCK!!!
@@ -89,4 +89,14 @@ void	write_status(t_status status, t_philo *philo)
 
 	// UNLOCK!!!
 	mutex_handle(&philo->table->write_mutex, LOCK);
+}
+
+void	*safe_malloc(size_t bytes)
+{
+	void	*ret;
+
+	ret = malloc(bytes);
+	if (NULL == ret)
+		error_exit("Error with the malloc");
+	return (ret);
 }

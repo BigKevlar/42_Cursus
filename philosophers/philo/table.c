@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:50:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 17:47:14 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 19:56:18 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 	1- se cogen los tenedores y escribimos que se cogen
 	2- comer:	escribimos status de comer
 				modificamos meals_counter
-				modificamos meals_timer
-				modificamos meals_full (si toca)
+				modificamos last_meal
+				modificamos full (si toca)
 	3- soltamos los tenedores	
 */
 
@@ -49,13 +49,13 @@ static void	eat(t_philo *philo)
 	mutex_handle(&philo->R_fork->fork, LOCK);
 	write_status(TAKE_R_FORK, philo);
 	// 2º
-	set_long(&philo->philo_mutex, &philo->meals_time, get_time(MILISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
 	philo->meals_counter++;
 	write_status(EAT, philo);
 	custom_usleep(philo->table->time2eat, philo->table);
 	if (philo->table->meals_limit > 0 
 		&& philo->meals_counter == philo->table->meals_limit)
-		set_bool(&philo->philo_mutex, &philo->meals_full, true);
+		set_bool(&philo->philo_mutex, &philo->full, true);
 	// 3º
 	mutex_handle(&philo->L_fork->fork, UNLOCK);
 	mutex_handle(&philo->R_fork->fork, UNLOCK);
@@ -82,7 +82,7 @@ void	*dinner_start(void *data)
 	while (!simmulation_finish(philo->table))
 	{
 		// 1º estoy lleno?
-		if(philo->meals_full)
+		if(philo->full)
 			break ;
 		else
 		{

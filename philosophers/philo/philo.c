@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 15:41:55 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 20:07:17 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,18 @@ int	main(int ac, char **av)
 	if (ac == 5 || ac == 6)
 	{
 		parse_input(&table, av);
+		// printf("%ld\n", table.chairs);
+		// printf("%ld\n", table.time2die);
+		// printf("%ld\n", table.time2eat);
+		// printf("%ld\n", table.time2sleep);
+		// printf("%ld\n", table.meals_limit);
 		table_init(&table);
 		table_start(&table);
+		// clean_table(&table);
 	}
 	else
 		error_exit("ERROR IN PARAMETERS");
+	return (0);
 }
 
 /*

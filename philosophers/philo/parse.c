@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:22:27 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 16:13:43 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/17 20:08:07 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	parse_input(t_table *table, char **av)
 	table->time2die = ft_atol(av[2]) * 1e3;
 	table->time2eat = ft_atol(av[3]) * 1e3;
 	table->time2sleep = ft_atol(av[4]) * 1e3;
-
 	if (ft_check_int(table->chairs) 
 		|| ft_check_int(table->time2die) 
 		|| ft_check_int(table->time2eat) 
