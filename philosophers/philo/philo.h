@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 19:54:26 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/18 11:04:28 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ void		thread_handle(pthread_t *thread, void *funct, void *data, t_opcode opcode)
 /***********/
 void		*dinner_start(void *data);
 void		table_start(t_table *table);
+void		clean_table(t_table *table);
 /*********************/
 /* GET_SET_CONTROL.C */
 /*********************/

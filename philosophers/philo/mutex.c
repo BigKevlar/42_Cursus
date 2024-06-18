@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mutex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:07:32 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/17 17:32:40 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/18 11:22:33 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,28 @@ static void	check_mutex_error(int status, t_opcode opcode)
 
 void	mutex_handle(pthread_mutex_t *mutex, t_opcode opcode)
 {
+	int	status;
+	
 	if (LOCK == opcode)
-		check_mutex_error(pthread_mutex_lock(mutex), opcode);
+	{
+		status = pthread_mutex_lock(mutex);
+		check_mutex_error(status, opcode);
+	}
 	else if (UNLOCK == opcode)
-		check_mutex_error(pthread_mutex_unlock(mutex), opcode);
+	{
+		status = pthread_mutex_unlock(mutex);
+		check_mutex_error(status, opcode);
+	}
 	else if (INIT == opcode)
-		check_mutex_error(pthread_mutex_init(mutex, NULL), opcode);
+	{
+		status = pthread_mutex_init(mutex, NULL);
+		check_mutex_error(status, opcode);
+	}
 	else if (DESTROY == opcode)
-		check_mutex_error(pthread_mutex_destroy(mutex), opcode);
+	{
+		status = pthread_mutex_destroy(mutex);
+		check_mutex_error(status, opcode);
+	}
 	else
 		error_exit("ERROR! OPCODE MUTEX HANDLE WRONG (USE 'LOCK', 'UNLOCK', 'INIT' OR 'DESTROY').");		
 }

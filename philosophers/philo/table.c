@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   table.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:50:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 19:56:18 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/18 11:11:48 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,4 +139,22 @@ void	table_start(t_table *table)
 
 
 
+}
+
+void	clean_table(t_table *table)
+{
+	t_philo	*philo;
+	int		pos;
+
+	pos = 0;
+	while (pos < table->chairs)
+	{
+		philo = table->philos + pos;
+		mutex_handle(&philo->philo_mutex, DESTROY);
+		pos++;
+	}
+	mutex_handle(&table->write_mutex, DESTROY);
+	mutex_handle(&table->table_mutex, DESTROY);
+	free(table->forks);
+	free(table->philos);
 }

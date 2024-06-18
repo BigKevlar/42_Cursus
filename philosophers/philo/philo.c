@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 20:07:17 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/18 11:16:01 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 		// printf("%ld\n", table.meals_limit);
 		table_init(&table);
 		table_start(&table);
-		// clean_table(&table);
+		clean_table(&table);
 	}
 	else
 		error_exit("ERROR IN PARAMETERS");

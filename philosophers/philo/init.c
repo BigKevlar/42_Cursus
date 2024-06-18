@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/17 19:53:20 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/18 10:56:17 by jmartos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@ static void	forks_init(t_philo *philo, t_fork *fork, int pos)
 	int	philo_num;
 	
 	philo_num = philo->table->chairs;
-	philo->L_fork = &fork[(pos + 1) % philo_num];
-	philo->R_fork = &fork[pos];
 	if(philo->id % 2 == 0)
 	{
 		philo->L_fork = &fork[pos];
 		philo->R_fork = &fork[(pos + 1) % philo_num];
+	}
+	else
+	{
+		philo->L_fork = &fork[(pos + 1) % philo_num];
+		philo->R_fork = &fork[pos];
 	}
 }
 
