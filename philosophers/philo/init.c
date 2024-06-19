@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/18 10:56:17 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/06/19 21:20:51 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static void	forks_init(t_philo *philo, t_fork *fork, int pos)
 		philo->L_fork = &fork[(pos + 1) % philo_num];
 		philo->R_fork = &fork[pos];
 	}
+	printf("Philo %ld: L_fork = %d, R_fork = %d\n", philo->id, philo->L_fork->id, philo->R_fork->id);
 }
 
 static void	philo_init(t_table *table)
@@ -47,7 +48,7 @@ static void	philo_init(t_table *table)
 	while (pos < table->chairs)
 	{
 		philo = &table->philos[pos]; // hacer psudocodigo
-		philo->id = pos;
+		philo->id = pos + 1;
 		philo->meals_counter = 0;
 		philo->full = false;
 		philo->table = table;
