@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 19:54:52 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/19 21:57:36 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	write_status(t_status status, t_philo *philo)
 		printf("%-6ld"" %ld is dead\n", elapsed, philo->id);
 
 	// UNLOCK!!!
-	mutex_handle(&philo->table->write_mutex, LOCK);
+	mutex_handle(&philo->table->write_mutex, UNLOCK);
 }
 
 void	*safe_malloc(size_t bytes)

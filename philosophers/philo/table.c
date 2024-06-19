@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   table.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:50:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/18 11:11:48 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/06/19 22:01:25 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void	*dinner_start(void *data)
 	waiting_threads(philo->table);
 
 	// poner tiempo de ultima comida???
-	// TODO
 
 	while (!simmulation_finish(philo->table))
 	{
@@ -104,7 +103,7 @@ void	table_start(t_table *table)
 {
 	int pos;
 
-	pos = -1;
+	pos = 0;
 	if (0 == table->meals_limit)
 		return ;
 	else if (1 == table->chairs)
@@ -113,8 +112,8 @@ void	table_start(t_table *table)
 	{
 		while (pos < table->chairs)
 		{
-			pos++;
 			thread_handle(&table->philos[pos].id, dinner_start, &table->philos[pos], CREATE);
+			pos++;
 		}	
 	}
 
@@ -128,7 +127,7 @@ void	table_start(t_table *table)
 
 
 	// esperamos a todos los philosofos
-	pos = -1;
+	pos = 0;
 	while (pos < table->chairs)
 	{
 		thread_handle(&table->philos[pos].id, NULL, NULL, JOIN);
