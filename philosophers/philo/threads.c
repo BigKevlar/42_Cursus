@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:07:32 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/18 11:18:08 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/06/19 22:50:08 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 		CREATE
 		JOIN
 		DETACH
+		LOCK
+		UNLOCK
 */
 
 static void check_thread_error(int status, t_opcode opcode)
@@ -60,4 +62,31 @@ void thread_handle(pthread_t *thread, void *funct, void *data, t_opcode opcode)
 	}
 	else
 		error_exit("ERROR! OPCODE THREAD HANDLE WRONG (USE 'CREATE', 'JOIN' OR 'DETACH').");
+}
+
+// spinlock??? bucle para sincronizar el comienzo de los philos???
+void	waiting_threads(t_table *table)
+{
+	while (!get_bool(&table->table_mutex, &table->threads_ready))
+		;
+}
+
+// aqui vamos a ir contando los hilos que estan corriendo.
+void	threads_counter(pthread_mutex_t *mutex, long *cont)
+{
+	mutex_handle(mutex, LOCK);
+	(*cont)++;
+	mutex_handle(mutex, UNLOCK);
+}
+ 
+bool	threads_ready(pthread_mutex_t *mutex, long *threads_ready, long *philos)
+{
+	bool value;
+	
+	value = false;
+	mutex_handle(mutex, LOCK);
+	if (*threads_ready == philos)
+		value = true;
+	mutex_handle(mutex, UNLOCK);
+	return (value);
 }

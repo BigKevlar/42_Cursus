@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:55:12 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/17 17:28:23 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/19 22:56:38 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ long	get_long(pthread_mutex_t *mutex, long *value)
 	return (new);
 }
 
-bool	simmulation_finish(t_table *table)
+bool	table_finish(t_table *table)
 {
 	return(get_bool(&table->table_mutex, &table->end_program));
 }

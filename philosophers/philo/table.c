@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:50:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/19 22:01:25 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/19 22:52:00 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,10 @@ void	*dinner_start(void *data)
 	//spinlock
 	waiting_threads(philo->table);
 
+	//esperamos a que los hilos corran con +1 a un contador hasta que "true."
+	//asi nos aseguramos que el supervisor sabe que todos los hilos estan OK.
+	threads_counter(&philo->table->table_mutex, &philo->table->threads_running);
+
 	// poner tiempo de ultima comida???
 
 	while (!simmulation_finish(philo->table))
@@ -116,6 +120,9 @@ void	table_start(t_table *table)
 			pos++;
 		}	
 	}
+
+	// ponemos en marcha el "supervisor"
+	thread_handle(&table->supervisor, supervisor, table, CREATE);
 
 	// comenzamos la simulacion
 	table->start_program = get_time(MILISECOND);

@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/19 21:57:36 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/19 22:17:25 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@
 /*
 	PODRIAMOS HACER UNA FUNCION PARA "DBUGEAR" LA ESCRITURA DE LOS STATUS???
 */
+
+void	*safe_malloc(size_t bytes)
+{
+	void	*ret;
+
+	ret = malloc(bytes);
+	if (NULL == ret)
+		error_exit("Error with the malloc");
+	return (ret);
+}
 
 long	get_time(t_time	time_code)
 {
@@ -89,14 +99,4 @@ void	write_status(t_status status, t_philo *philo)
 
 	// UNLOCK!!!
 	mutex_handle(&philo->table->write_mutex, UNLOCK);
-}
-
-void	*safe_malloc(size_t bytes)
-{
-	void	*ret;
-
-	ret = malloc(bytes);
-	if (NULL == ret)
-		error_exit("Error with the malloc");
-	return (ret);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos <jmartos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/18 11:04:28 by jmartos          ###   ########.fr       */
+/*   Updated: 2024/06/19 22:57:07 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,19 +101,20 @@ La estructura de parametros recibida para el programa sera la siguiente:
 
 typedef struct	s_table
 {
-	long		chairs;
-	long		time2die;
-	long		time2eat;
-	long		time2sleep;
-	long		meals_limit;
-	long		start_program;
-	bool		end_program; // valor booleano para cuando los philos esten llenos o uno muera.
-	bool		threads_ready; // sincroniza los philos
-	long		threads_running;
+	long				chairs;
+	long				time2die;
+	long				time2eat;
+	long				time2sleep;
+	long				meals_limit;
+	long				start_program;
+	bool				end_program; // valor booleano para cuando los philos esten llenos o uno muera.
+	long				threads_running; //  hilos corriendo.
+	bool				threads_ready; // cuando es true avisa al supervisor.
 	pthread_mutex_t		table_mutex; // ???
 	pthread_mutex_t		write_mutex;
-	t_philo		*philos;
-	t_fork		*forks;
+	pthread_t			supervisor;
+	t_philo				*philos;
+	t_fork				*forks;
 }				t_table;
 
 /***********/
@@ -136,6 +137,9 @@ void		mutex_handle(pthread_mutex_t *mutex, t_opcode opcode);
 /* THREADS.C */
 /*************/
 void		thread_handle(pthread_t *thread, void *funct, void *data, t_opcode opcode);
+void		waiting_threads(t_table *table);
+void		threads_counter(pthread_mutex_t *mutex, long *cont);
+bool		threads_ready(pthread_mutex_t *mutex, long *threads_ready, long *philos);
 /***********/
 /* TABLE.C */
 /***********/
@@ -149,11 +153,7 @@ void		set_bool(pthread_mutex_t *mutex, bool *new, bool value);
 bool		get_bool(pthread_mutex_t *mutex, bool *value);
 void		set_long(pthread_mutex_t *mutex, long *new, long value);
 long		get_long(pthread_mutex_t *mutex, long *value);
-bool		simmulation_finish(t_table *table);
-/******************/
-/* SYNCRO_UTILS.C */
-/******************/
-void		waiting_threads(t_table *table);
+bool		table_finish(t_table *table);
 /***********/
 /* UTILS.C */
 /***********/

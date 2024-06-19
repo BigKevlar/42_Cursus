@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/19 21:20:51 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/19 22:14:20 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	forks_init(t_philo *philo, t_fork *fork, int pos)
 		philo->L_fork = &fork[(pos + 1) % philo_num];
 		philo->R_fork = &fork[pos];
 	}
-	printf("Philo %ld: L_fork = %d, R_fork = %d\n", philo->id, philo->L_fork->id, philo->R_fork->id);
+	// printf("Philo %ld: L_fork = %d - R_fork = %d\n", philo->id, philo->L_fork->id, philo->R_fork->id);
 }
 
 static void	philo_init(t_table *table)
