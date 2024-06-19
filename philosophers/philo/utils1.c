@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/19 22:17:25 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/20 01:33:03 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@
 
 void	*safe_malloc(size_t bytes)
 {
-	void	*ret;
+	void	*value;
 
-	ret = malloc(bytes);
-	if (NULL == ret)
+	value = malloc(bytes);
+	if (NULL == value)
 		error_exit("Error with the malloc");
-	return (ret);
+	return (value);
 }
 
 long	get_time(t_time	time_code)
@@ -48,7 +48,7 @@ long	get_time(t_time	time_code)
 		return ((timevalue.tv_sec * 1e6) + timevalue.tv_usec);
 	else
 		error_exit("ERROR! GET_TIME WRONG INPUT.");
-	return (2203);
+	return (0);
 }
 
 void	custom_usleep(long time, t_table *table)
@@ -60,12 +60,12 @@ void	custom_usleep(long time, t_table *table)
 	start = get_time(MICROSECOND);
 	while (get_time(MICROSECOND) - start < time)
 	{
-		if (simmulation_finish(table))
+		if (table_finish(table))
 			break ;
 		elapsed = get_time(MICROSECOND) - start;
 		remaining = time - elapsed;
 		if (remaining > 1e3)
-			usleep(time / 2);
+			usleep(remaining / 2);
 		else
 		{
 			// splinlock
@@ -85,17 +85,16 @@ void	write_status(t_status status, t_philo *philo)
 		
 	// LOCK!!!
 	mutex_handle(&philo->table->write_mutex, LOCK);
-	if ((TAKE_L_FORK == status || TAKE_R_FORK == status) 
-		&& !simmulation_finish(philo->table))
-		printf("%-6ld"" %ld has taken a fork\n", elapsed, philo->id);
-	else if (EAT == status && !simmulation_finish(philo->table))
-		printf("%-6ld"" %ld is eating\n", elapsed, philo->id);
-	else if (SLEEP == status && !simmulation_finish(philo->table))
-		printf("%-6ld"" %ld is sleeping\n", elapsed, philo->id);
-	else if (THINK == status && !simmulation_finish(philo->table))
-		printf("%-6ld"" %ld is thinking\n", elapsed, philo->id);
+	if ((TAKE_L_FORK == status || TAKE_R_FORK == status) && !table_finish(philo->table))
+		printf("%-6ld %ld has taken a fork\n", elapsed, philo->id);
+	else if (EAT == status && !table_finish(philo->table))
+		printf("%-6ld %ld is eating\n", elapsed, philo->id);
+	else if (SLEEP == status && !table_finish(philo->table))
+		printf("%-6ld %ld is sleeping\n", elapsed, philo->id);
+	else if (THINK == status && !table_finish(philo->table))
+		printf("%-6ld %ld is thinking\n", elapsed, philo->id);
 	else if (DIE == status)
-		printf("%-6ld"" %ld is dead\n", elapsed, philo->id);
+		printf("%-6ld %ld is dead\n", elapsed, philo->id);
 
 	// UNLOCK!!!
 	mutex_handle(&philo->table->write_mutex, UNLOCK);

@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:07:32 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/19 22:50:08 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/19 23:44:10 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ bool	threads_ready(pthread_mutex_t *mutex, long *threads_ready, long *philos)
 	
 	value = false;
 	mutex_handle(mutex, LOCK);
-	if (*threads_ready == philos)
+	if (threads_ready == philos)
 		value = true;
 	mutex_handle(mutex, UNLOCK);
 	return (value);

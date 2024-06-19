@@ -1,4 +1,5 @@
-# 01:36:00
+# 01:49:00
+# 01:53:45
 
 # leaks --atExit -- ./philo ******
 # export MallocStackLogging=1
@@ -15,12 +16,13 @@ SRC				=	philo.c \
 					parse.c \
 					init.c \
 					libft_utils.c \
-					syncro_utils.c \
-					utils.c \
+					utils1.c \
+					utils2.c \
 					table.c \
 					mutex.c \
 					threads.c \
-					get_set_control.c
+					get_set_control.c \
+					supervisor.c
 
 OBJ 			= ${SRC:.c=.o}
 

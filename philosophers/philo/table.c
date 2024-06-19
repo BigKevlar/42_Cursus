@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:50:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/19 22:52:00 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/20 01:20:03 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,17 @@ void	*dinner_start(void *data)
 	//spinlock
 	waiting_threads(philo->table);
 
+	// otra vez, gracias youtube!
+	// para obtener el tiempo de la ultima comida.
+	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
+
 	//esperamos a que los hilos corran con +1 a un contador hasta que "true."
 	//asi nos aseguramos que el supervisor sabe que todos los hilos estan OK.
 	threads_counter(&philo->table->table_mutex, &philo->table->threads_running);
 
 	// poner tiempo de ultima comida???
 
-	while (!simmulation_finish(philo->table))
+	while (!table_finish(philo->table))
 	{
 		// 1º estoy lleno?
 		if(philo->full)
@@ -111,7 +115,7 @@ void	table_start(t_table *table)
 	if (0 == table->meals_limit)
 		return ;
 	else if (1 == table->chairs)
-			thread_handle(&table->philos[0].thread, NULL, &table->philos[0], CREATE); // lone_philo!!!!!!!!!
+			thread_handle(&table->philos[0].thread, only1philo, &table->philos[0], CREATE);
 	else
 	{
 		while (pos < table->chairs)
@@ -141,10 +145,10 @@ void	table_start(t_table *table)
 		pos++;
 	}
 
-// a partir de esta llinea todos los philos estan FULL!!!
+	// a partir de esta llinea todos los philos estan FULL!!!
+	set_bool(&table->table_mutex, &table->end_program, true);
 
-
-
+	thread_handle(&table->supervisor, NULL, NULL, JOIN);
 }
 
 void	clean_table(t_table *table)

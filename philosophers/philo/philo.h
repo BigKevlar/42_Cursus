@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/19 22:57:07 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/20 01:23:58 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,17 +154,26 @@ bool		get_bool(pthread_mutex_t *mutex, bool *value);
 void		set_long(pthread_mutex_t *mutex, long *new, long value);
 long		get_long(pthread_mutex_t *mutex, long *value);
 bool		table_finish(t_table *table);
-/***********/
-/* UTILS.C */
-/***********/
+/************/
+/* UTILS1.C */
+/************/
+void		*safe_malloc(size_t bytes);
 long		get_time(t_time	time_code);
 void		custom_usleep(long time, t_table *table);
 void		write_status(t_status status, t_philo *philo);
-void		*safe_malloc(size_t bytes);
+/************/
+/* UTILS2.C */
+/************/
+void		*only1philo(void *data);
+void		table_clean(t_table	*table);
 /*****************/
 /* LIBFT_UTILS.C */
 /*****************/
 int			ft_atol(char *str);
 int			ft_check_int(long num);
+/****************/
+/* SUPERVISOR.C */
+/****************/
+void		supervisor(void *data);
 
 #endif
