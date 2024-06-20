@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/20 01:33:03 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/20 17:42:22 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,52 +34,33 @@ void	*safe_malloc(size_t bytes)
 	return (value);
 }
 
-long	get_time(t_time	time_code)
+size_t	get_time(void)
 {
-	struct timeval	timevalue;
+	static struct timeval	start;
+	struct timeval			tv;
 
-	if (gettimeofday(&timevalue, NULL))
-		error_exit("ERROR IN GETTIMEOFDAY!");
-	if (SECOND == time_code)
-		return (timevalue.tv_sec + (timevalue.tv_usec / 1e6));
-	else if (MILISECOND == time_code)
-		return ((timevalue.tv_sec * 1e3) + (timevalue.tv_usec * 1e3));
-	else if (MICROSECOND == time_code)
-		return ((timevalue.tv_sec * 1e6) + timevalue.tv_usec);
-	else
-		error_exit("ERROR! GET_TIME WRONG INPUT.");
-	return (0);
+	gettimeofday(&tv, NULL);
+	if (!start.tv_sec && !start.tv_usec)
+		start = tv;
+	return (((tv.tv_sec - start.tv_sec) * 1000) + ((tv.tv_usec - start.tv_usec)
+			/ 1000));
 }
 
-void	custom_usleep(long time, t_table *table)
-{
-	long	start;
-	long	elapsed;
-	long	remaining;
 
-	start = get_time(MICROSECOND);
-	while (get_time(MICROSECOND) - start < time)
-	{
-		if (table_finish(table))
-			break ;
-		elapsed = get_time(MICROSECOND) - start;
-		remaining = time - elapsed;
-		if (remaining > 1e3)
-			usleep(remaining / 2);
-		else
-		{
-			// splinlock
-			while (get_time(MICROSECOND) - start < time)
-				;
-		}
-	}
+void	custom_usleep(long ms, t_table *table)
+{
+	size_t	end;
+
+	end = get_time() + ms;
+	while (get_time() < end && !table_finish(table))
+		usleep(50);
 }
 
 void	write_status(t_status status, t_philo *philo)
 {
 	long	elapsed;
 
-	elapsed = get_time(MILISECOND) - philo->table->start_program;
+	elapsed = get_time() - philo->table->start_program;
 	if (philo->full)
 		return ;
 		

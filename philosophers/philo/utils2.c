@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 01:21:15 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/20 01:29:37 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/20 17:39:36 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*only1philo(void *data)
 	
 	philo = (t_philo *)data;
 	waiting_threads(philo->table);
-	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal, get_time());
 	threads_counter(&philo->table->table_mutex, &philo->table->threads_running);
 	write_status(TAKE_L_FORK, philo);
 	while (!table_finish(philo->table))

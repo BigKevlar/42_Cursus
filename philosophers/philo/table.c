@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:50:01 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/20 01:20:03 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/20 17:37:21 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	eat(t_philo *philo)
 	mutex_handle(&philo->R_fork->fork, LOCK);
 	write_status(TAKE_R_FORK, philo);
 	// 2º
-	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal, get_time());
 	philo->meals_counter++;
 	write_status(EAT, philo);
 	custom_usleep(philo->table->time2eat, philo->table);
@@ -78,7 +78,7 @@ void	*dinner_start(void *data)
 
 	// otra vez, gracias youtube!
 	// para obtener el tiempo de la ultima comida.
-	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal, get_time());
 
 	//esperamos a que los hilos corran con +1 a un contador hasta que "true."
 	//asi nos aseguramos que el supervisor sabe que todos los hilos estan OK.
@@ -129,7 +129,7 @@ void	table_start(t_table *table)
 	thread_handle(&table->supervisor, supervisor, table, CREATE);
 
 	// comenzamos la simulacion
-	table->start_program = get_time(MILISECOND);
+	table->start_program = get_time();
 
 
 

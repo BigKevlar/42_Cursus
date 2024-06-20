@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 22:18:42 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/20 01:04:20 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/20 17:38:57 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static bool	philo_die(t_philo *philo)
 	long	time_meals;
 	long	time_die;
 	
-	time_meals = get_time(MILISECOND) - get_long(&philo->philo_mutex, &philo->last_meal);
+	time_meals = get_time() - get_long(&philo->philo_mutex, &philo->last_meal);
 	time_die = philo->table->time2die / 1e3; // gracais youtube!!!!!!!!!!!
 	if (get_bool(&philo->philo_mutex, &philo->full))
 		return (false);

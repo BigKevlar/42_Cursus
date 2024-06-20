@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/20 01:23:58 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/20 17:25:04 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ bool		table_finish(t_table *table);
 /* UTILS1.C */
 /************/
 void		*safe_malloc(size_t bytes);
-long		get_time(t_time	time_code);
+size_t		get_time(void);
 void		custom_usleep(long time, t_table *table);
 void		write_status(t_status status, t_philo *philo);
 /************/
