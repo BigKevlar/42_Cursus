@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/19 22:14:20 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 00:15:56 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,62 +21,69 @@
 		- Los tenedores cambian segun si el filosofo tiene id par o impar.
 */
 
-static void	forks_init(t_philo *philo, t_fork *fork, int pos)
+int	table_init(int ac, char **av, t_table *table)
 {
-	int	philo_num;
-	
-	philo_num = philo->table->chairs;
-	if(philo->id % 2 == 0)
-	{
-		philo->L_fork = &fork[pos];
-		philo->R_fork = &fork[(pos + 1) % philo_num];
-	}
+	table->philo_count = ft_atol(av[1]);
+	table->time2die = ft_atol(av[2]);
+	table->time2eat = ft_atol(av[3]);
+	table->time2sleep = ft_atol(av[4]);
+	if (ac == 6)
+		table->meals_limit = ft_atol(av[5]);
 	else
+		table->meals_limit = -1;
+	table->finish_program = 0;
+	if (table->philo_count < 1 || table->meals_limit == 0)
 	{
-		philo->L_fork = &fork[(pos + 1) % philo_num];
-		philo->R_fork = &fork[pos];
+		printf(RED"ERROR!\n"RES);
+		return (1);
 	}
-	// printf("Philo %ld: L_fork = %d - R_fork = %d\n", philo->id, philo->L_fork->id, philo->R_fork->id);
+	return (0);
 }
 
-static void	philo_init(t_table *table)
-{
-	int 	pos;
-	t_philo	*philo;
-	
-	pos = 0;
-	while (pos < table->chairs)
-	{
-		philo = &table->philos[pos]; // hacer psudocodigo
-		philo->id = pos + 1;
-		philo->meals_counter = 0;
-		philo->full = false;
-		philo->table = table;
-		mutex_handle(&philo->philo_mutex, INIT);
-		forks_init(philo, table->forks, pos);
-		pos++;
-	}
-}
-
-void	table_init(t_table *table)
+int	philo_init(t_table *table)
 {
 	int	pos;
 
 	pos = 0;
-	table->end_program = false;
-	table->threads_ready = false;
-	table->threads_running = 0;
-	table->philos = safe_malloc(sizeof(t_philo) * table->chairs);
-	table->forks = safe_malloc(sizeof(t_fork) * table->chairs);
-	if (!table->philos || !table->forks)
-		error_exit("ERROR! MALLOC DONT ALLOCATE MEMORY!");
-	mutex_handle(&table-> table_mutex, INIT);
-	mutex_handle(&table-> write_mutex, INIT);
-	while (pos < table->chairs)
+	table->philos = ft_calloc(sizeof(t_philo), table->philo_count);
+	while (pos < table->philo_count)
 	{
-		mutex_handle(&table->forks[pos].fork, INIT); // luego hare el pseudocodigo.
-		table->forks[pos].id = pos; // de aquie tambien lo hare luego
+		table->philos[pos].id = pos + 1;
+		table->philos[pos].meals_counter = 0;
+		table->philos[pos].last_meal = 0;
+		if (pos % 2 == 0)
+		{
+			table->philos[pos].R_fork = (pos + 1) % table->philo_count;
+			table->philos[pos].L_fork = pos;
+		}
+		else
+		{
+			table->philos[pos].R_fork = pos;
+			table->philos[pos].L_fork = (pos + 1) % table->philo_count;
+		}
+		table->philos[pos].table = table;
 		pos++;
 	}
-	philo_init(table);
+	table->philos[table->philo_count - 1].L_fork = table->philo_count - 1;
+	table->philos[table->philo_count - 1].R_fork = 0;
+	return (0); // las dos ultimas lineas son las asinaciones si es un philo.
+}
+
+int	fork_init(t_table *table)
+{
+	int	pos;
+
+	pos = 0;
+	table->forks = ft_calloc(sizeof(pthread_mutex_t), table->philo_count);
+	while (pos < table->philo_count)
+	{
+		if (pthread_mutex_init(&table->forks[pos], NULL) != 0)
+			return (1);
+		pos++;
+	}
+	if (pthread_mutex_init(&table->write_mutex, NULL) != 0)
+		return (1);
+	if (pthread_mutex_init(&table->eating, NULL) != 0)
+		return (1);
+	return (0);
 }

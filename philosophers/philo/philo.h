@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/20 17:25:04 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 00:04:01 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,154 +26,83 @@
 
 # define RES	"\033[0m"
 # define RED	"\033[31;1m"
-
-/* Las opcode (operation codes) las usaremos para los mutex y thread functions. */
-
-typedef enum	e_opcode
-{
-	LOCK,
-	UNLOCK,
-	INIT,
-	DESTROY,
-	CREATE,
-	JOIN,
-	DETACH,
-}				t_opcode;
-
-/* Codigos para get_time. */
-
-typedef enum	e_time
-{
-	SECOND,
-	MILISECOND,
-	MICROSECOND,
-}				t_time;
-
-/* Estados de los philosofos. */
-
-typedef enum	e_status
-{
-	EAT,
-	SLEEP,
-	THINK,
-	TAKE_L_FORK, // para debuging
-	TAKE_R_FORK, // para debuging
-	DIE,
-}				t_status;
+# define GREEN	"\033[32;1m"
+# define YELLOW	"\033[33;1m"
+# define BLUE	"\033[34;1m"
+# define PURPLE "\033[35;1m"
 
 /* Decaramos la t_table al principio para que no de problemas de "unknow type" al hacer make. */
 typedef struct s_table	t_table;
 typedef struct s_philo	t_philo;
-
-/* Los fork (tenedores) tenedores son mutex (semaforo) para este proyecto. */
-
-typedef struct	s_fork
-{
-	int					id;
-	pthread_mutex_t		fork;
-}				t_fork;
 
 /* Cada philo (filosofo) es un thread (hilo). */
 
 typedef struct	s_philo
 {
 	long unsigned int	id;
-	pthread_t			thread;
 	long				meals_counter;
 	long				last_meal;
-	bool				full;
-	t_fork				*L_fork;
-	t_fork				*R_fork;
+	int					is_full;
+	int					is_dead;
+	int					R_fork;
+	int					L_fork;
 	t_table				*table;
-	pthread_mutex_t		philo_mutex; // lo usaremos para escribir en pantalla
 }				t_philo;
 
-/*
-La estructura de parametros recibida para el programa sera la siguiente:
-	./philo
-		numeros_de_filosofos
-		tiempo_para_morir
-		tiempo_en_comer
-		tiempo_de_dormir
-		[limite_de_comidas] (opcional)
-*/
 /* La mesa sera la estructura principal del proyecto. */
 
 typedef struct	s_table
 {
-	long				chairs;
+	long				philo_count;
 	long				time2die;
 	long				time2eat;
 	long				time2sleep;
 	long				meals_limit;
-	long				start_program;
-	bool				end_program; // valor booleano para cuando los philos esten llenos o uno muera.
-	long				threads_running; //  hilos corriendo.
-	bool				threads_ready; // cuando es true avisa al supervisor.
-	pthread_mutex_t		table_mutex; // ???
+	int					finish_program;
 	pthread_mutex_t		write_mutex;
-	pthread_t			supervisor;
+	pthread_mutex_t		eating;
+	pthread_mutex_t		*forks;
 	t_philo				*philos;
-	t_fork				*forks;
+	pthread_t			supervisor;
 }				t_table;
 
-/***********/
-/* ERROR.C */
-/***********/
-void		error_exit(char *msg);
-/***********/
-/* PARSE.C */
-/***********/
-void    	parse_input(t_table *table, char **av);
-/**********/
-/* INIT.C */
-/**********/
-void		table_init(t_table *table);
-/***********/
-/* MUTEX.C */
-/***********/
-void		mutex_handle(pthread_mutex_t *mutex, t_opcode opcode);
-/*************/
-/* THREADS.C */
-/*************/
-void		thread_handle(pthread_t *thread, void *funct, void *data, t_opcode opcode);
-void		waiting_threads(t_table *table);
-void		threads_counter(pthread_mutex_t *mutex, long *cont);
-bool		threads_ready(pthread_mutex_t *mutex, long *threads_ready, long *philos);
-/***********/
-/* TABLE.C */
-/***********/
-void		*dinner_start(void *data);
-void		table_start(t_table *table);
-void		clean_table(t_table *table);
-/*********************/
-/* GET_SET_CONTROL.C */
-/*********************/
-void		set_bool(pthread_mutex_t *mutex, bool *new, bool value);
-bool		get_bool(pthread_mutex_t *mutex, bool *value);
-void		set_long(pthread_mutex_t *mutex, long *new, long value);
-long		get_long(pthread_mutex_t *mutex, long *value);
-bool		table_finish(t_table *table);
-/************/
-/* UTILS1.C */
-/************/
-void		*safe_malloc(size_t bytes);
-size_t		get_time(void);
-void		custom_usleep(long time, t_table *table);
-void		write_status(t_status status, t_philo *philo);
-/************/
-/* UTILS2.C */
-/************/
-void		*only1philo(void *data);
-void		table_clean(t_table	*table);
-/*****************/
-/* LIBFT_UTILS.C */
-/*****************/
-int			ft_atol(char *str);
-int			ft_check_int(long num);
-/****************/
-/* SUPERVISOR.C */
-/****************/
-void		supervisor(void *data);
+// PARSE.C
+int		check_int(char **av);
+int		check_args(char **av);
+// ERROR.C
+void	error_exit(char *msg);
+// INIT.C
+int		table_init(int ac, char **av, t_table *table);
+int		philo_init(t_table *table);
+int		fork_init(t_table *table);
+// UTILS_LIBTF.C
+int		ft_atol(char *str);
+void	*ft_calloc(size_t count, size_t size);
+// UTILS_DEAD.C
+int		ft_diying(t_philo *philo);
+void	is_dead(t_table *table, int *diying, int *pos);
+void 	dead(int die, int finish, int c, t_table *table);
+void	check_death(void *tmp_table);
+// UTILS_DINNER.C
+void	forks_unlock(t_philo *philo);
+void	*dinner(void *tmp_philo);
+// UTILS_GETTERS.C
+long	get_last_meal(t_philo *philo);
+int		get_meal_counter(t_philo *philo);
+int		get_dead(t_philo *philo);
+int		get_out(t_table *table);
+// UTILS_SETTERS.C
+void	set_last_meal(t_philo *philo);
+void	set_meal_counter(t_philo *philo);
+void	set_dead(t_philo *philo);
+void	set_out(t_table *table);
+// UTILS_TIME.C
+void	*safe_malloc(size_t bytes);
+long	get_time(void);
+void	custom_usleep(long ms, t_table *table);
+// UTILS_TABLE.C
+void	only_one_philo(t_philo *philo);
+int		start_game(t_table *table);
+void	table_clean(t_table *table);
 
 #endif

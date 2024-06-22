@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
+/*   utils_time.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/20 17:42:22 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 00:42:58 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	*safe_malloc(size_t bytes)
 	return (value);
 }
 
-size_t	get_time(void)
+long	get_time(void)
 {
 	static struct timeval	start;
 	struct timeval			tv;
@@ -49,13 +49,13 @@ size_t	get_time(void)
 
 void	custom_usleep(long ms, t_table *table)
 {
-	size_t	end;
+	long	end;
 
 	end = get_time() + ms;
-	while (get_time() < end && !table_finish(table))
-		usleep(50);
+	while (get_time() < end && !table->finish_program)
+		usleep(42);
 }
-
+/*
 void	write_status(t_status status, t_philo *philo)
 {
 	long	elapsed;
@@ -67,16 +67,17 @@ void	write_status(t_status status, t_philo *philo)
 	// LOCK!!!
 	mutex_handle(&philo->table->write_mutex, LOCK);
 	if ((TAKE_L_FORK == status || TAKE_R_FORK == status) && !table_finish(philo->table))
-		printf("%-6ld %ld has taken a fork\n", elapsed, philo->id);
+		printf(PURPLE"%-6ld %ld has taken a fork\n"RES, elapsed, philo->id);
 	else if (EAT == status && !table_finish(philo->table))
-		printf("%-6ld %ld is eating\n", elapsed, philo->id);
+		printf(GREEN"%-6ld %ld is eating\n"RES, elapsed, philo->id);
 	else if (SLEEP == status && !table_finish(philo->table))
-		printf("%-6ld %ld is sleeping\n", elapsed, philo->id);
+		printf(BLUE"%-6ld %ld is sleeping\n"RES, elapsed, philo->id);
 	else if (THINK == status && !table_finish(philo->table))
-		printf("%-6ld %ld is thinking\n", elapsed, philo->id);
+		printf(YELLOW"%-6ld %ld is thinking\n"RES, elapsed, philo->id);
 	else if (DIE == status)
-		printf("%-6ld %ld is dead\n", elapsed, philo->id);
+		printf(RED"%-6ld %ld is dead\n"RES, elapsed, philo->id);
 
 	// UNLOCK!!!
 	mutex_handle(&philo->table->write_mutex, UNLOCK);
 }
+*/

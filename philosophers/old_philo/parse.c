@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:22:27 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/23 00:14:44 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/20 18:06:46 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,53 +27,19 @@
 	que significa 10^3 o 1e3.
 */
 
-static int	ft_check_int(long num)
+void	parse_input(t_table *table, char **av)
 {
-	if (num > LONG_MAX || num < LONG_MIN)
-		return (1);
-	return (0);
-}
-
-int	check_int(char **av)
-{
-	if (ft_check_int(ft_atol(av[1])) 
-	|| ft_check_int(ft_atol(av[2]))
-	|| ft_check_int(ft_atol(av[3]))
-	|| ft_check_int(ft_atol(av[4])))
-	{
-		error_exit(RED"ERROR WITH THE SIZE OF INT_MAX / INT_MIN!"RES);
-		return (1);
-	}
+	table->chairs = ft_atol(av[1]);
+	table->time2die = ft_atol(av[2]);
+	table->time2eat = ft_atol(av[3]);
+	table->time2sleep = ft_atol(av[4]);
+	if (ft_check_int(table->chairs) 
+		|| ft_check_int(table->time2die) 
+		|| ft_check_int(table->time2eat) 
+		|| ft_check_int(table->time2sleep))
+		error_exit("ERROR, it doesnt respect the INT_MAX or INT_MIN.");
 	if (av[5])
-	{
-		if (ft_check_int(ft_atol(av[5])))
-		{
-			error_exit(RED"ERROR WITH THE SIZE OF INT_MAX / INT_MIN!"RES);
-			return (1);
-		}
-	}	
-	return (0);
-}
-
-int	check_args(char **av)
-{
-	int	c1;
-	int	c2;
-
-	c1 = 1;
-	while (av[c1])
-	{
-		c2 = 0;
-		while (av[c1][c2])
-		{
-			if (av[c1][c2] < '0' || av[c1][c2] > '9')
-			{
-				printf(RED"ERROR IN ARGUMENTS!"RES);
-				return (1);
-			}
-			c2++;
-		}
-		c1++;
-	}
-	return (0);
+		table->meals_limit = ft_atol(av[5]);
+	else
+		table->meals_limit = -1; 
 }

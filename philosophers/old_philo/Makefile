@@ -12,16 +12,17 @@ CFLAGS			= -Wall -Wextra -Werror -g
 INC				= philo.h
 
 SRC				=	main.c \
-					parse.c \
 					error.c \
+					parse.c \
 					init.c \
-					utils_libft.c \
-					utils_dead.c \
-					utils_dinner.c \
-					utils_getters.c \
-					utils_setters.c \
-					utils_time.c \
-					utils_table.c \
+					libft_utils.c \
+					utils1.c \
+					utils2.c \
+					table.c \
+					mutex.c \
+					threads.c \
+					get_set_control.c \
+					supervisor.c
 
 OBJ 			= ${SRC:.c=.o}
 
