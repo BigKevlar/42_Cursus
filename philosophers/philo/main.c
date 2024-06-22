@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/23 00:14:23 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 00:58:01 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int ac, char **av)
 			return (0);
 		table_clean(table);
 	}
-	error_exit("ERROR IN PARAMETERS");
+	the_end(table);
 	return (0);
 }
 

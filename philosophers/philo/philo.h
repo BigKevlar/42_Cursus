@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/23 00:04:01 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 00:57:43 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int		check_int(char **av);
 int		check_args(char **av);
 // ERROR.C
 void	error_exit(char *msg);
+void	the_end(t_table *table);
 // INIT.C
 int		table_init(int ac, char **av, t_table *table);
 int		philo_init(t_table *table);
