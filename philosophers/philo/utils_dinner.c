@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:37:21 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/23 20:44:51 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 23:46:56 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	*dinner(void *tmp_philo)
 		philo_eat(philo);
 		philo_sleep(philo);
 		philo_think(philo);
-		printf("meals_counter: %ld\n", philo->meals_counter);
+		//printf("meals_counter: %ld\n", philo->meals_counter);
 	}
 	forks_unlock(philo);
 	return (NULL);
