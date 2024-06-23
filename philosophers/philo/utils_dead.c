@@ -46,15 +46,16 @@ void check_death(void *tmp_table)
 	t_table *table;
 
 	table = (t_table *)tmp_table;
-	while (table->philos->is_dead == 0)
+	while (get_dead(table->philos) == 0)
 	{
-		dead(&table->philos->is_dead, &table->philos->is_dead, &table->philos->pos, table);
-		printf("is_dead = %d\n", table->philos->is_dead);
+		dead(&table->is_dead, &table->is_dead, &table->philos->pos, table);
+		printf("is_dead = %d\n", table->is_dead);
 		printf("philo_count = %ld\n", table->philo_count);
-		if (table->philos->is_dead == table->philo_count)
+		if (get_dead(table->philos))
 			break;
 		custom_usleep(5, table);
 	}
 	printf("get_time = %ld - get_last_meal = %ld\n", get_time(), get_last_meal(table->philos));
 	set_out(table);
+    exit(1);
 }

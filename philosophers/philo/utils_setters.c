@@ -29,7 +29,7 @@ void	set_meal_counter(t_philo *philo)
 void	set_dead(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->table->write_mutex);
-	philo->is_dead = 1;
+	philo->table->is_dead = 1;
 	pthread_mutex_unlock(&philo->table->write_mutex);
 }
 

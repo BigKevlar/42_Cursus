@@ -46,6 +46,8 @@ int	philo_init(t_table *table)
 
 	pos = 0;
 	table->philos = ft_calloc(sizeof(t_philo), table->philo_count);
+    table->is_dead = 0;
+    table->philos->is_full = 0;
 	while (pos < table->philo_count)
 	{
 		table->philos[pos].id = pos + 1;

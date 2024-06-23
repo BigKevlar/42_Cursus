@@ -51,7 +51,6 @@ typedef struct	s_philo
 	int					R_fork;
 	int					L_fork;
 	int					is_full;
-	int					is_dead;
 	int					pos;
 	t_table				*table;
 }				t_philo;
@@ -70,6 +69,7 @@ typedef struct	s_table
 	pthread_mutex_t		eating;
 	pthread_mutex_t		*forks;
 	t_philo				*philos;
+    int					is_dead;
 	pthread_t			supervisor;
 }				t_table;
 

@@ -37,7 +37,7 @@ int	get_dead(t_philo *philo)
 	int	is_dead;
 
 	pthread_mutex_lock(&philo->table->write_mutex);
-	is_dead = philo->is_dead;
+	is_dead = philo->table->is_dead;
 	pthread_mutex_unlock(&philo->table->write_mutex);
 	return (is_dead);
 }
