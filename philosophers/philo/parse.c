@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:22:27 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/23 00:14:44 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 20:16:07 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 	que significa 10^3 o 1e3.
 */
 
-static int	ft_check_int(long num)
+static int	check_long_max_min(long num)
 {
 	if (num > LONG_MAX || num < LONG_MIN)
 		return (1);
@@ -36,19 +36,19 @@ static int	ft_check_int(long num)
 
 int	check_int(char **av)
 {
-	if (ft_check_int(ft_atol(av[1])) 
-	|| ft_check_int(ft_atol(av[2]))
-	|| ft_check_int(ft_atol(av[3]))
-	|| ft_check_int(ft_atol(av[4])))
+	if (check_long_max_min(ft_atol(av[1])) 
+	|| check_long_max_min(ft_atol(av[2]))
+	|| check_long_max_min(ft_atol(av[3]))
+	|| check_long_max_min(ft_atol(av[4])))
 	{
-		error_exit(RED"ERROR WITH THE SIZE OF INT_MAX / INT_MIN!"RES);
+		printf(RED"ERROR! (check_int)\n"END);
 		return (1);
 	}
 	if (av[5])
 	{
-		if (ft_check_int(ft_atol(av[5])))
+		if (check_long_max_min(ft_atol(av[5])))
 		{
-			error_exit(RED"ERROR WITH THE SIZE OF INT_MAX / INT_MIN!"RES);
+			printf(RED"ERROR! (check_int)\n"END);
 			return (1);
 		}
 	}	
@@ -68,7 +68,7 @@ int	check_args(char **av)
 		{
 			if (av[c1][c2] < '0' || av[c1][c2] > '9')
 			{
-				printf(RED"ERROR IN ARGUMENTS!"RES);
+				printf(RED"ERROR! (ckeck_args)\n"END);
 				return (1);
 			}
 			c2++;

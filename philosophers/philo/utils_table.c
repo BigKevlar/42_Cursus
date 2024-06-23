@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 01:21:15 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/23 00:47:11 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 20:19:22 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 void	only_one_philo(t_philo *philo)
 {
-	printf(BLUE "[%lu ms] philo nº%d has taken a fork.\n"RES, get_time(), 1);
+	printf(CYAN"[%lu ms] philo nº%d has taken a fork.\n"END, get_time(), 1);
 	custom_usleep(philo->table->time2die, philo->table);
-	printf(RED "[%lu ms] philo nº%d his dead!\n"RES, get_time(), 1);
+	printf(RED"[%lu ms] philo nº%d his dead!\n"END, get_time(), 1);
 }
 
 int	start_game(t_table *table)
@@ -35,14 +35,14 @@ int	start_game(t_table *table)
 	{
 		if (pthread_create(&tid[pos], NULL, (void *)dinner, (void *)&table->philos[pos]))
 		{
-			printf("ERROR");
+			printf(RED"ERROR! (start_game)\n"END);
 			return (1);
 		}
 		pos++;
 	}
 	if (pthread_create(&tid[pos], NULL, (void *)check_death, (void *)table))
 	{
-			printf("ERROR");
+			printf(RED"ERROR! (start_game)\n"END);
 			return (1);
 	}
 	pos = 0;
@@ -54,18 +54,22 @@ int	start_game(t_table *table)
 	return (0);
 }
 
-void	table_clean(t_table *table)
+void	the_end(t_table *table)
 {
-	int		pos;     
+	int	pos;
 
 	pos = 0;
-	pthread_mutex_destroy(&table->write_mutex);	
-	pthread_mutex_destroy(&table->eating);	
+	
 	while (pos < table->philo_count)
 	{
+		forks_unlock(&table->philos[pos]);
 		pthread_mutex_destroy(&table->forks[pos]);
 		pos++;
 	}
-	free(table->philos);
-	free(table->forks);
+	pthread_mutex_destroy(&table->write_mutex);
+	pthread_mutex_destroy(&table->eating);	
+	if (table->forks)
+		free(table->forks);
+	if (table->philos)
+		free(table->philos);
 }

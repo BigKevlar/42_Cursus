@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/23 00:57:43 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 22:21:51 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,18 @@
 # include <sys/time.h>	// getttimeofday
 # include <limits.h>	// INT_MIN y INT_MAX
 
-# define RES	"\033[0m"
+# define END	"\033[0m"
+# define BOLD	"\033[1m"
+# define BLACK	"\033[30;1m"
 # define RED	"\033[31;1m"
 # define GREEN	"\033[32;1m"
 # define YELLOW	"\033[33;1m"
 # define BLUE	"\033[34;1m"
 # define PURPLE "\033[35;1m"
+# define CYAN	"\033[36;1m"
+# define WHITE	"\033[37;1m"
+# define ORANGE	"\033[38;5;208m"
+# define PINK	"\033[38;5;205m"
 
 /* Decaramos la t_table al principio para que no de problemas de "unknow type" al hacer make. */
 typedef struct s_table	t_table;
@@ -42,10 +48,11 @@ typedef struct	s_philo
 	long unsigned int	id;
 	long				meals_counter;
 	long				last_meal;
-	int					is_full;
-	int					is_dead;
 	int					R_fork;
 	int					L_fork;
+	int					is_full;
+	int					is_dead;
+	int					pos;
 	t_table				*table;
 }				t_philo;
 
@@ -69,9 +76,6 @@ typedef struct	s_table
 // PARSE.C
 int		check_int(char **av);
 int		check_args(char **av);
-// ERROR.C
-void	error_exit(char *msg);
-void	the_end(t_table *table);
 // INIT.C
 int		table_init(int ac, char **av, t_table *table);
 int		philo_init(t_table *table);
@@ -80,9 +84,9 @@ int		fork_init(t_table *table);
 int		ft_atol(char *str);
 void	*ft_calloc(size_t count, size_t size);
 // UTILS_DEAD.C
-int		ft_diying(t_philo *philo);
-void	is_dead(t_table *table, int *diying, int *pos);
-void 	dead(int die, int finish, int c, t_table *table);
+int		ft_diying_1(t_philo *philo);
+void	ft_diying_2(t_table *table, int *is_full, int *pos);
+void 	dead(int *is_dead, int *is_full, int *pos, t_table *table);
 void	check_death(void *tmp_table);
 // UTILS_DINNER.C
 void	forks_unlock(t_philo *philo);
@@ -98,12 +102,11 @@ void	set_meal_counter(t_philo *philo);
 void	set_dead(t_philo *philo);
 void	set_out(t_table *table);
 // UTILS_TIME.C
-void	*safe_malloc(size_t bytes);
 long	get_time(void);
-void	custom_usleep(long ms, t_table *table);
+void	custom_usleep(long time, t_table *table);
 // UTILS_TABLE.C
 void	only_one_philo(t_philo *philo);
 int		start_game(t_table *table);
-void	table_clean(t_table *table);
+void	the_end(t_table *table);
 
 #endif

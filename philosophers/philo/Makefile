@@ -13,7 +13,6 @@ INC				= philo.h
 
 SRC				=	main.c \
 					parse.c \
-					error.c \
 					init.c \
 					utils_libft.c \
 					utils_dead.c \
@@ -29,12 +28,11 @@ BOLD			=\033[1m
 RED				=\033[31;1m
 GREEN			=\033[32;1m
 YELLOW			=\033[33;1m
-BLUE			=\033[34;1m
 END				=\033[0m
 
 ${NAME}: ${OBJ}
 	@gcc $(CFLAGS) -o $(NAME) $(OBJ)
-	@echo "${YELLOW}${BOLD} PHILOSOPHERS, PROYECT FROM JMARTOS- IN 42_MÁLAGA, CAN "EAT-SLEEP-THINK" NOW!!! ${END}"
+	@echo "${GREEN}${BOLD} PHILOSOPHERS, PROYECT FROM JMARTOS- IN 42_MÁLAGA, CAN "EAT-SLEEP-THINK" NOW!!! ${END}"
 
 ${OBJ}: ${SRC}
 	@echo "${YELLOW}${BOLD} COMPILATING FUNCTIONS, PLEASE BE PATIENT... ${END}"
@@ -45,13 +43,13 @@ all: ${NAME}
 
 clean:
 	@rm -rf ${OBJ}
-	@echo "${YELLOW}${BOLD} CLEAN PROTOCOL: DELETING FUNCTIONS FILES... ${END}"
+	@echo "${RED}${BOLD} CLEAN PROTOCOL: DELETING FUNCTIONS FILES... ${END}"
 
 fclean: clean
 	@rm -rf ${NAME}
-	@echo "${YELLOW}${BOLD} FCLEAN PROTOCOL: DELETING PROGRAM FILES... ${END}"
+	@echo "${RED}${BOLD} FCLEAN PROTOCOL: DELETING PROGRAM FILES... ${END}"
 
 re: fclean all
-	@echo "${YELLOW}${BOLD} RE PROTOCOL: RECOMPILATION SUCCESSFULL ${END}"
+	@echo "${GREEN}${BOLD} (RE PROTOCOL: RECOMPILATION SUCCESSFULL) ${END}"
 
 .PHONY: all clean fclean re

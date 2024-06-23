@@ -6,63 +6,55 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 21:35:59 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/23 00:32:09 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 22:29:41 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_diying(t_philo *philo)
+int ft_diying_1(t_philo *philo)
 {
 	if (get_time() - get_last_meal(philo) > (long)philo->table->time2die)
 	{
 		set_dead(philo);
-		printf(RED"[%lu ms] philo nº%ld is dead.\n"RES, get_time(), philo->id);
+		printf(RED"[%ld ms] philo nº%ld is dead.\n"END, get_time(), philo->id);
 		return (1);
 	}
 	return (0);
 }
 
-void	is_dead(t_table *table, int *diying, int *pos)
+void ft_diying_2(t_table *table, int *is_full, int *pos)
 {
-	if (ft_diying(&table->philos[*pos]))
-		*diying = 1;
+	if (ft_diying_1(&table->philos[*pos]))
+		*is_full = 1;
 }
 
-void dead(int die, int finish, int c, t_table *table)
+void dead(int *is_dead, int *is_full, int *pos, t_table *table)
 {
-	while (die < table->philo_count)
+	while (*is_dead < table->philo_count)
 	{
-		is_dead(table, &die, &c);
-		if (die)
+		ft_diying_2(table, is_dead, pos);
+		if (*is_dead)
 			break;
-		if (get_meal_counter(&table->philos[c]) >= table->meals_limit
-			&& table->meals_limit != -1)
-			finish++;
-		die++;
+		if (get_meal_counter(&table->philos[*pos]) >= table->meals_limit && table->meals_limit != -1)
+			(*is_full)++;
 	}
 }
 
-void	check_death(void *tmp_table)
+void check_death(void *tmp_table)
 {
-	t_table	*table;
-	long	c;
-	long 	finish;
-	long	die;
+	t_table *table;
 
 	table = (t_table *)tmp_table;
-	c = 0;
-	finish = 0;
-	die = 0;
-	while (!die)
+	while (table->philos->is_dead == 0)
 	{
-		die = 0;
-		// TODO
-		dead(die, finish, c, tmp_table);
-		// TODO
-		if (finish == table->philo_count)
-			break ;
+		dead(&table->philos->is_dead, &table->philos->is_dead, &table->philos->pos, table);
+		printf("is_dead = %d\n", table->philos->is_dead);
+		printf("philo_count = %ld\n", table->philo_count);
+		if (table->philos->is_dead == table->philo_count)
+			break;
 		custom_usleep(5, table);
 	}
+	printf("get_time = %ld - get_last_meal = %ld\n", get_time(), get_last_meal(table->philos));
 	set_out(table);
 }

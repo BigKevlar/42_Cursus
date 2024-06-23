@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:37:21 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/23 00:41:33 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 20:44:51 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ void	forks_unlock(t_philo *philo)
 
 static void	philo_eat(t_philo *philo)
 {
-	if (pthread_mutex_lock(&philo->table->forks[philo->L_fork]) != 0)
+	if (pthread_mutex_lock(&philo->table->forks[philo->L_fork]) != 0) // 
 		return ;
 	if (pthread_mutex_lock(&philo->table->forks[philo->R_fork]) != 0)
 		return ;
-	printf(BLUE"[%lu ms] philo nº%ld has taken a fork.\n"RES, get_time(), philo->id);
-	printf(BLUE"[%lu ms] philo nº%ld has taken a fork.\n"RES, get_time(), philo->id);
+	printf(CYAN"[%lu ms] philo nº%ld has taken a fork.\n"END, get_time(), philo->id);
+	printf(CYAN"[%lu ms] philo nº%ld has taken a fork.\n"END, get_time(), philo->id);
 	if (pthread_mutex_lock(&philo->table->eating) != 0)
 		return ;
-	printf(GREEN"[%lu ms] philo nº%ld is eating.\n"RES, get_time(), philo->id);
+	printf(GREEN"[%lu ms] philo nº%ld is eating.\n"END, get_time(), philo->id);
 	if (pthread_mutex_unlock(&philo->table->eating) != 0)
 		return ;
 	set_last_meal(philo);
@@ -44,13 +44,13 @@ static void	philo_eat(t_philo *philo)
 
 static void	philo_sleep(t_philo *philo)
 {
-	printf(YELLOW"[%lu ms] philo nº%ld is sleeping.\n"RES, get_time(), philo->id);
+	printf(BOLD ORANGE"[%lu ms] philo nº%ld is sleeping.\n"END, get_time(), philo->id);
 	custom_usleep(philo->table->time2sleep, philo->table);
 }
 
 static void	philo_think(t_philo *philo)
 {
-	printf(PURPLE"[%lu ms] philo nº%ld is thinking.\n"RES, get_time(), philo->id);
+	printf(PURPLE"[%lu ms] philo nº%ld is thinking.\n"END, get_time(), philo->id);
 }
 
 void	*dinner(void *tmp_philo)
@@ -59,14 +59,15 @@ void	*dinner(void *tmp_philo)
 
 	philo = (t_philo *)tmp_philo;
 	if (philo->id % 2 == 0)
-		usleep(100);
+		usleep(142);
 	else
-		usleep(50);
-	while (!get_dead(philo) && !get_out(philo->table))
+		usleep(42);
+	while (!(get_dead(philo) || get_out(philo->table)))
 	{
 		philo_eat(philo);
 		philo_sleep(philo);
 		philo_think(philo);
+		printf("meals_counter: %ld\n", philo->meals_counter);
 	}
 	forks_unlock(philo);
 	return (NULL);

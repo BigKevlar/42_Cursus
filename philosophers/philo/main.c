@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/23 00:58:01 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 20:22:32 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	main(int ac, char **av)
 		}
 		if (start_game(table) == 1)
 			return (0);
-		table_clean(table);
 	}
 	the_end(table);
+	printf(BOLD PINK"THE END!\n"END);
 	return (0);
 }
 

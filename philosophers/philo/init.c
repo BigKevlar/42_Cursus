@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/23 00:15:56 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/23 21:10:39 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	table_init(int ac, char **av, t_table *table)
 	table->finish_program = 0;
 	if (table->philo_count < 1 || table->meals_limit == 0)
 	{
-		printf(RED"ERROR!\n"RES);
+		printf(RED"ERROR! (table_init)\n"END);
 		return (1);
 	}
 	return (0);
@@ -66,7 +66,7 @@ int	philo_init(t_table *table)
 	}
 	table->philos[table->philo_count - 1].L_fork = table->philo_count - 1;
 	table->philos[table->philo_count - 1].R_fork = 0;
-	return (0); // las dos ultimas lineas son las asinaciones si es un philo.
+	return (0);
 }
 
 int	fork_init(t_table *table)
