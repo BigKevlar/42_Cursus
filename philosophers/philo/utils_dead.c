@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 21:35:59 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/24 23:46:56 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/25 00:18:25 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,15 @@ void dead_or_full(int *is_dead, int *all_full, int *pos, t_table *table)
 	while (*is_dead < table->philo_count)
 	{
 		ft_diying_2(table, is_dead, pos);
-		if (*is_dead)
-			break;
-		if (get_meal_counter(&table->philos[*pos]) >= table->meals_limit && table->meals_limit != -1)
-			(*all_full)++;
+		if (get_meal_counter(&table->philos[*pos]) >= table->meals_limit)
+			(all_full)++;
+		if (is_dead)
+			break;	
 	}
 }
 
+// monitorea continuamente si agun filosofo ha muerto o si han comido todos
+// (en cuyo caso finalizaria con la ultima comida limite del ultmo philo)
 void check_dead(void *tmp_table)
 {
 	t_table *table;
@@ -58,5 +60,6 @@ void check_dead(void *tmp_table)
 			break;
 		custom_usleep(5, table);
 	}
+	printf("all_full = %d\n", (table->all_full));
 	set_out(table);
 }
