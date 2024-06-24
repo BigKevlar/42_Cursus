@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/24 21:34:20 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 23:48:26 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ typedef struct	s_philo
 	long				last_meal;
 	int					R_fork;
 	int					L_fork;
-	int					is_full;
-	int					pos;
 	t_table				*table;
 }				t_philo;
 
@@ -69,13 +67,13 @@ typedef struct	s_table
 	long				time2eat;
 	long				time2sleep;
 	long				meals_limit;
-	int					finish_program;
 	pthread_mutex_t		write_mutex;
 	pthread_mutex_t		eating;
 	pthread_mutex_t		*forks;
 	t_philo				*philos;
-    int					is_dead;
-	int					all_full;
+	int					out;			//bool
+    int					is_dead;		//bool
+	int					all_full;		//bool
 }				t_table;
 
 // PARSE.C
@@ -90,9 +88,9 @@ int		ft_atol(char *str);
 void	*ft_calloc(size_t count, size_t size);
 // UTILS_DEAD.C
 int		ft_diying_1(t_philo *philo);
-void	ft_diying_2(t_table *table, int *is_full, int *pos);
-void 	dead(int *is_dead, int *is_full, int *pos, t_table *table);
-void	check_death(void *tmp_table);
+void	ft_diying_2(t_table *table, int *is_dead, int *pos);
+void 	dead_or_full(int *is_dead, int *all_full, int *pos, t_table *table);
+void	check_dead(void *tmp_table);
 // UTILS_DINNER.C
 void	forks_unlock(t_philo *philo);
 void	*dinner(void *tmp_philo);

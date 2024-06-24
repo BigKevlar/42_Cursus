@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_setters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:54:58 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/24 21:43:34 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 22:24:00 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	set_dead(t_philo *philo)
 void	set_out(t_table *table)
 {
 	pthread_mutex_lock(&table->write_mutex);
-	table->finish_program = 1;
+	table->out = 1;
 	pthread_mutex_unlock(&table->write_mutex);
 }

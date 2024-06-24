@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_dinner.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:37:21 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/24 21:57:45 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 23:09:58 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void	*dinner(void *tmp_philo)
 	t_philo	*philo;
 
 	philo = (t_philo *)tmp_philo;
-	if (philo->id % 2 == 0)
+	if (philo->id % 2 == 0) // que los philos pares esperen un poco antes ue lso impares.
 		usleep(500);
-	while (!(get_dead(philo) || get_out(philo->table) || philo->meals_counter >= philo->table->meals_limit))
+	while (!get_dead(philo) && !get_out(philo->table) && (philo->table->meals_limit == -1 || philo->meals_counter < philo->table->meals_limit))
 	{
 		philo_eat(philo);
 		philo_sleep(philo);
 		philo_think(philo);
 	}
-	forks_unlock(philo);
+	forks_unlock(philo); // cuando los fios terminan, forzamos a desboquear los tenedores.
 	return (NULL);
 }

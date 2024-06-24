@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_getters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:54:58 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/24 21:43:44 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 23:04:57 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,22 @@ int	get_meal_counter(t_philo *philo)
 
 int	get_dead(t_philo *philo)
 {
-	int	is_dead;
+	int	dead;
 
 	pthread_mutex_lock(&philo->table->write_mutex);
-	is_dead = 0;
+	dead = 0;
 	if (philo->table->is_dead || philo->table->all_full == philo->table->philo_count)
-		is_dead = 1;
+		dead = 1;
 	pthread_mutex_unlock(&philo->table->write_mutex);
-	return (is_dead);
+	return (dead);
 }
 
 int	get_out(t_table *table)
 {
-	int	finish_program;
+	int	out;
 
 	pthread_mutex_lock(&table->write_mutex);
-	finish_program = table->finish_program;
+	out = table->out;
 	pthread_mutex_unlock(&table->write_mutex);
-	return (finish_program);
+	return (out);
 }

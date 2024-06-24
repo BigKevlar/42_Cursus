@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/24 21:34:47 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 23:49:37 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	table_init(int ac, char **av, t_table *table)
 		table->meals_limit = ft_atol(av[5]);
 	else
 		table->meals_limit = -1;
-	table->finish_program = 0;
+	table->out = 0;
 	if (table->philo_count < 1 || table->meals_limit == 0)
 	{
 		printf(RED"ERROR! (table_init)\n"END);
@@ -48,7 +48,6 @@ int	philo_init(t_table *table)
 	pos = 0;
 	table->philos = ft_calloc(sizeof(t_philo), table->philo_count);
     table->is_dead = 0;
-    table->philos->is_full = 0;
 	while (pos < table->philo_count)
 	{
 		table->philos[pos].id = pos + 1;

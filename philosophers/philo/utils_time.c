@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_time.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/24 19:44:09 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 22:24:39 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@
 long	get_time(void)
 {
 	static struct timeval	start;
-	struct timeval			tv;
+	struct timeval			time;
 
-	gettimeofday(&tv, NULL);
+	gettimeofday(&time, NULL);
 	if (!start.tv_sec && !start.tv_usec)
-		start = tv;
-	return (((tv.tv_sec - start.tv_sec) * 1000) + 
-		((tv.tv_usec - start.tv_usec) / 1000));
+		start = time;
+	return (((time.tv_sec - start.tv_sec) * 1000) + 
+		((time.tv_usec - start.tv_usec) / 1000));
 }
 
 
@@ -42,7 +42,7 @@ void	custom_usleep(long time, t_table *table)
 	long	end;
 
 	end = get_time() + time;
-	while (get_time() < end && !table->finish_program)
+	while (get_time() < end && !table->out)
 		usleep(500);
 	// COMPROBACION
 }

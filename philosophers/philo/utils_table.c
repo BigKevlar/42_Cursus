@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_table.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 01:21:15 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/24 19:01:12 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 22:55:03 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void	only_one_philo(t_philo *philo)
 {
-	printf(CYAN"[%lu ms] philo nº%d has taken a fork.\n"END, get_time(), 1);
+	printf("[%lu ms] philo nº%d has taken a fork.\n", get_time(), 1);
 	custom_usleep(philo->table->time2die, philo->table);
 	printf(RED"[%lu ms] philo nº%d his dead!\n"END, get_time(), 1);
 }
@@ -27,28 +27,28 @@ void	only_one_philo(t_philo *philo)
 int	start_game(t_table *table)
 {
 	int			pos;
-	pthread_t	*tid;
+	pthread_t	*philo;
 
-	tid = ft_calloc(sizeof(pthread_t), table->philo_count + 1);
+	philo = ft_calloc(sizeof(pthread_t), table->philo_count + 1);
 	pos = 0;
 	while (pos < table->philo_count)
 	{
-		if (pthread_create(&tid[pos], NULL, (void *)dinner, (void *)&table->philos[pos]))
+		if (pthread_create(&philo[pos], NULL, (void *)dinner, (void *)&table->philos[pos])) // crea hilo para cada philo.
 		{
 			printf(RED"ERROR! (start_game)\n"END);
 			return (1);
 		}
 		pos++;
 	}
-	if (pthread_create(&tid[pos], NULL, (void *)check_death, (void *)table))
+	if (pthread_create(&philo[pos], NULL, (void *)check_dead, (void *)table)) // crea hilo para monitorear las muertes.
 	{
 			printf(RED"ERROR! (start_game)\n"END);
 			return (1);
 	}
 	pos = 0;
-	while (pos < table->philo_count + 1)
+	while (pos < table->philo_count + 1) // espera a que todos los hilos esten llistos
 	{
-		pthread_join(tid[pos], NULL); // para la ejecucion de cada uno de los hilos.
+		pthread_join(philo[pos], NULL);
 		pos++;
 	}
 	return (0);
