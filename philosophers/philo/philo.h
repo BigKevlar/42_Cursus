@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/24 20:34:39 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 21:34:20 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct	s_table
 	pthread_mutex_t		*forks;
 	t_philo				*philos;
     int					is_dead;
+	int					all_full;
 }				t_table;
 
 // PARSE.C

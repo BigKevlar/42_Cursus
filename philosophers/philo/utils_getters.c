@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_getters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:54:58 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/23 01:49:59 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/24 21:43:44 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int	get_dead(t_philo *philo)
 	int	is_dead;
 
 	pthread_mutex_lock(&philo->table->write_mutex);
-	is_dead = philo->table->is_dead;
+	is_dead = 0;
+	if (philo->table->is_dead || philo->table->all_full == philo->table->philo_count)
+		is_dead = 1;
 	pthread_mutex_unlock(&philo->table->write_mutex);
 	return (is_dead);
 }

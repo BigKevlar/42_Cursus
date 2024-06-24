@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_setters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:54:58 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/22 22:20:32 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/24 21:43:34 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	set_meal_counter(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->table->write_mutex);
 	philo->meals_counter++;
+	if(philo->meals_counter == philo->table->meals_limit)
+		philo->table->all_full++;
 	pthread_mutex_unlock(&philo->table->write_mutex);
 }
 

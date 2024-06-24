@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/24 19:09:58 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 21:34:47 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	table_init(int ac, char **av, t_table *table)
 		printf(RED"ERROR! (table_init)\n"END);
 		return (1);
 	}
+	table->all_full = 0;
 	return (0);
 }
 
