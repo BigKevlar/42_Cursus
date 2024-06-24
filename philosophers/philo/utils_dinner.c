@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:37:21 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/25 00:22:43 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/25 01:20:53 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,16 @@ void	*dinner(void *tmp_philo)
 		usleep(500);
 	while (!get_dead(philo) && !get_out(philo->table) && (philo->table->meals_limit == -1 || philo->meals_counter < philo->table->meals_limit))
 	{
+		// verificamos si algun filosofo esta muerto.
+        if (get_time() - get_last_meal(philo) > (long) philo->table->time2die)
+		{
+            set_dead(philo);
+            printf(RED"[%ld ms] philo nº%ld is dead.\n"END, get_time(), philo->id);
+            break;
+		}
 		philo_eat(philo);
 		philo_sleep(philo);
-		philo_think(philo);
+		philo_think(philo);	
 	}
 	forks_unlock(philo); // cuando los fios terminan, forzamos a desboquear los tenedores.
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 21:35:59 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/25 00:18:25 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/25 01:02:25 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void dead_or_full(int *is_dead, int *all_full, int *pos, t_table *table)
 
 // monitorea continuamente si agun filosofo ha muerto o si han comido todos
 // (en cuyo caso finalizaria con la ultima comida limite del ultmo philo)
-void check_dead(void *tmp_table)
+void *check_dead(void *tmp_table)
 {
 	t_table *table;
 	int 	pos;
@@ -60,6 +60,9 @@ void check_dead(void *tmp_table)
 			break;
 		custom_usleep(5, table);
 	}
+	printf("is_dead = %d\n", (table->is_dead));
 	printf("all_full = %d\n", (table->all_full));
 	set_out(table);
+	//if (table->out == 1 || table->all_full == table->meals_limit)
+	return (NULL);
 }
