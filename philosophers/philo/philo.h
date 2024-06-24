@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/23 22:21:51 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/24 20:34:39 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@
 # define WHITE	"\033[37;1m"
 # define ORANGE	"\033[38;5;208m"
 # define PINK	"\033[38;5;205m"
+
+# define FORK	"has taking a fork"
+# define EAT	"is eating"
+# define SLEEP	"is sleeping"
+# define THINK	"is thinking"
 
 /* Decaramos la t_table al principio para que no de problemas de "unknow type" al hacer make. */
 typedef struct s_table	t_table;
@@ -70,7 +75,6 @@ typedef struct	s_table
 	pthread_mutex_t		*forks;
 	t_philo				*philos;
     int					is_dead;
-	pthread_t			supervisor;
 }				t_table;
 
 // PARSE.C
@@ -108,5 +112,8 @@ void	custom_usleep(long time, t_table *table);
 void	only_one_philo(t_philo *philo);
 int		start_game(t_table *table);
 void	the_end(t_table *table);
+int		security(t_philo *philo);
+// UTILS_TABLE.C
+int		check_write(t_philo *philo, char *action);
 
 #endif

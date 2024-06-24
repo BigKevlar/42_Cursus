@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/23 21:10:39 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/24 19:09:58 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,21 +53,13 @@ int	philo_init(t_table *table)
 		table->philos[pos].id = pos + 1;
 		table->philos[pos].meals_counter = 0;
 		table->philos[pos].last_meal = 0;
-		if (pos % 2 == 0)
-		{
-			table->philos[pos].R_fork = (pos + 1) % table->philo_count;
-			table->philos[pos].L_fork = pos;
-		}
-		else
-		{
-			table->philos[pos].R_fork = pos;
-			table->philos[pos].L_fork = (pos + 1) % table->philo_count;
-		}
+		table->philos[pos].R_fork = pos;
+		table->philos[pos].L_fork = (pos + 1) % table->philo_count;
 		table->philos[pos].table = table;
 		pos++;
 	}
-	table->philos[table->philo_count - 1].L_fork = table->philo_count - 1;
-	table->philos[table->philo_count - 1].R_fork = 0;
+	table->philos[table->philo_count - 1].R_fork = table->philo_count - 1;
+	table->philos[table->philo_count - 1].L_fork = 0;
 	return (0);
 }
 

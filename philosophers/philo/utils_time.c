@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_time.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:55:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/23 20:20:34 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/24 19:44:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	custom_usleep(long time, t_table *table)
 
 	end = get_time() + time;
 	while (get_time() < end && !table->finish_program)
-		usleep(42);
+		usleep(500);
+	// COMPROBACION
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/23 20:22:32 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/24 19:44:46 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int ac, char **av)
 			return (0);
 	}
 	the_end(table);
+	printf(PINK"FIN\n"END);
 	return (0);
 }
 

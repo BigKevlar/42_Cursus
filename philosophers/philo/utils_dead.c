@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_dead.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 21:35:59 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/23 23:46:21 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/24 20:47:41 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int ft_diying_1(t_philo *philo)
 	{
 		set_dead(philo);
 		printf(RED"[%ld ms] philo nº%ld is dead.\n"END, get_time(), philo->id);
-		return (1);
+		exit (1);
 	}
 	return (0);
 }
@@ -49,13 +49,9 @@ void check_death(void *tmp_table)
 	while (get_dead(table->philos) == 0)
 	{
 		dead(&table->is_dead, &table->is_dead, &table->philos->pos, table);
-		//printf("is_dead = %d\n", table->is_dead);
-		//printf("philo_count = %ld\n", table->philo_count);
 		if (get_dead(table->philos))
 			break;
 		custom_usleep(5, table);
 	}
-	//printf("get_time = %ld - get_last_meal = %ld\n", get_time(), get_last_meal(table->philos));
 	set_out(table);
-    exit(1);
 }

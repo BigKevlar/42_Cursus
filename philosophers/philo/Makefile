@@ -21,6 +21,7 @@ SRC				=	main.c \
 					utils_setters.c \
 					utils_time.c \
 					utils_table.c \
+					utils_write.c
 
 OBJ 			= ${SRC:.c=.o}
 
