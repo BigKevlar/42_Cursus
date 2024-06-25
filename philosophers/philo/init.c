@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/25 19:07:38 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/26 00:25:51 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	table_init(int ac, char **av, t_table *table)
 	else
 		table->meals_limit = -1;
 	table->out = 0;
-	if (table->philo_count < 1 || table->meals_limit == 0)
+	if (table->philo_count < 1 || table->meals_limit < -1)
 	{
 		printf(RED"ERROR! (table_init)\n"END);
 		return (1);
