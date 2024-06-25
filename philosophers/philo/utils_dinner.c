@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:37:21 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/25 17:17:20 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/25 22:22:20 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	forks_unlock(t_philo *philo)
 {
-	pthread_mutex_unlock(&philo->table->forks[philo->L_fork]);
 	pthread_mutex_unlock(&philo->table->forks[philo->R_fork]);
+	pthread_mutex_unlock(&philo->table->forks[philo->L_fork]);
 }
 
 static int	philo_eat(t_philo *philo)
 {
-	if (pthread_mutex_lock(&philo->table->forks[philo->L_fork]) != 0)
+	if (pthread_mutex_lock(&philo->table->forks[philo->R_fork]) != 0)
 		return (1);
-	if (check_write(philo, FORK) || pthread_mutex_lock(&philo->table->forks[philo->R_fork]) != 0)
+	if (check_write(philo, FORK) || pthread_mutex_lock(&philo->table->forks[philo->L_fork]) != 0)
 			return (1);
 	if (check_write(philo, FORK) || pthread_mutex_lock(&philo->table->eating) != 0)
 			return (1);
@@ -32,9 +32,9 @@ static int	philo_eat(t_philo *philo)
 	set_meal_counter(philo);
 	printf("philo nº%ld meals_counter = %ld ******\n", philo->id, philo->meals_counter);
 	custom_usleep(philo->table->time2eat, philo->table);
-	if (pthread_mutex_unlock(&philo->table->forks[philo->L_fork]) != 0)
-		return (1);
 	if (pthread_mutex_unlock(&philo->table->forks[philo->R_fork]) != 0)
+		return (1);
+	if (pthread_mutex_unlock(&philo->table->forks[philo->L_fork]) != 0)
 		return (1);
 	return (0);
 }

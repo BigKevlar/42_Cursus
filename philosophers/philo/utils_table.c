@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 01:21:15 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/25 19:10:25 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/25 22:15:26 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,11 @@ int	start_game(t_table *table)
 			return (1);
 	}
 	pos = 0;
-	while (pos++ < table->philo_count + 1) // espera a que todos los hilos esten llistos
+	while (pos < table->philo_count + 1) // espera a que todos los hilos esten llistos
+	{
 		pthread_join(philo[pos], NULL);
+		pos++;
+	}
 	return (0);
 }
 
