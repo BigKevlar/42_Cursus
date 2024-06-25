@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 01:21:15 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/25 01:18:07 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/25 19:10:25 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ void	only_one_philo(t_philo *philo)
 	custom_usleep(philo->table->time2die, philo->table);
 	printf(RED"[%lu ms] philo nº%d his dead!\n"END, get_time(), 1);
 }
-
+/*
+	Funcion principal. Creamos pos para iterar con los philos y una estructura
+	tipo hilo llamado philo. Hacemos un bucle con pthread_create a los hilos
+	con llamada a la funcion dinner (utils_dinner). Luego hacemos un hilo de
+	nuevo, con llamada a check_dead (utils_dead) para monitorear las muertes.
+	Luego con pthread_join esperamos a que todos los hilos esten listos.
+*/
 int	start_game(t_table *table)
 {
 	int			pos;
@@ -46,11 +52,8 @@ int	start_game(t_table *table)
 			return (1);
 	}
 	pos = 0;
-	while (pos < table->philo_count + 1) // espera a que todos los hilos esten llistos
-	{
+	while (pos++ < table->philo_count + 1) // espera a que todos los hilos esten llistos
 		pthread_join(philo[pos], NULL);
-		pos++;
-	}
 	return (0);
 }
 

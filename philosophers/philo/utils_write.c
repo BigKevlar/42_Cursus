@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_write.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 20:06:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/24 21:48:40 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:29:43 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_write(t_philo *philo, char *action)
 {
-	if (philo->meals_counter != philo->table->meals_limit)
+	if (philo->meals_counter < philo->table->meals_limit && !philo->table->is_dead)
 	{
 		printf("[%lu ms] philo nº%ld %s.\n", get_time(), philo->id, action);
 		return (0);

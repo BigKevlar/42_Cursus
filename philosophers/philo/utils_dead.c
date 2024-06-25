@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 21:35:59 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/25 01:02:25 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/25 17:15:51 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void *check_dead(void *tmp_table)
 	printf("is_dead = %d\n", (table->is_dead));
 	printf("all_full = %d\n", (table->all_full));
 	set_out(table);
+	// ??????
 	//if (table->out == 1 || table->all_full == table->meals_limit)
 	return (NULL);
 }

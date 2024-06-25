@@ -1,9 +1,17 @@
-# 01:49:00
-# 01:53:45
-
 # leaks --atExit -- ./philo ******
 # export MallocStackLogging=1
 # unset MallocStackLogging
+#
+# PONER ESTA FUNCION ANTES DE LA FUNCION MAIN...
+#
+#	void leaks()
+#	{
+# 		system("leaks -q philo");
+# 	}
+#
+# ... Y ESTA LLAMADA EN LA PRIMERA LINEA DEL MAIN.
+#
+# 	atexit(leaks);
 
 NAME			= philo
 
