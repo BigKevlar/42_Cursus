@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:54:58 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/25 00:04:01 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/26 01:14:48 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	get_dead(t_philo *philo)
 
 	pthread_mutex_lock(&philo->table->write_mutex);
 	dead = 0;
-	if (philo->table->is_dead || philo->table->all_full == philo->table->philo_count)
+	if (philo->table->is_dead
+		|| philo->table->all_full == philo->table->philo_count)
 		dead = 1;
 	pthread_mutex_unlock(&philo->table->write_mutex);
 	return (dead);

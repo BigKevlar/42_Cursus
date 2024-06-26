@@ -6,14 +6,13 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 21:35:59 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/25 17:15:51 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/26 01:05:01 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// a muerto algun filosofo???
-int ft_diying_1(t_philo *philo)
+int	ft_diying_1(t_philo *philo)
 {
 	if (get_time() - get_last_meal(philo) > (long)philo->table->time2die)
 	{
@@ -24,15 +23,13 @@ int ft_diying_1(t_philo *philo)
 	return (0);
 }
 
-// si esta muerto marcamos el parametro de is_dead como 1.
-void ft_diying_2(t_table *table, int *is_dead, int *pos)
+void	ft_diying_2(t_table *table, int *is_dead, int *pos)
 {
 	if (ft_diying_1(&table->philos[*pos]))
 		*is_dead = 1;
 }
 
-// verificamos si algun fiosofo a muerto o estan todos llenos.
-void dead_or_full(int *is_dead, int *all_full, int *pos, t_table *table)
+void	dead_or_full(int *is_dead, int *all_full, int *pos, t_table *table)
 {
 	while (*is_dead < table->philo_count)
 	{
@@ -40,16 +37,14 @@ void dead_or_full(int *is_dead, int *all_full, int *pos, t_table *table)
 		if (get_meal_counter(&table->philos[*pos]) >= table->meals_limit)
 			(all_full)++;
 		if (is_dead)
-			break;	
+			break ;
 	}
 }
 
-// monitorea continuamente si agun filosofo ha muerto o si han comido todos
-// (en cuyo caso finalizaria con la ultima comida limite del ultmo philo)
-void *check_dead(void *tmp_table)
+void	*check_dead(void *tmp_table)
 {
-	t_table *table;
-	int 	pos;
+	t_table	*table;
+	int		pos;
 
 	table = (t_table *)tmp_table;
 	while (get_dead(table->philos) == 0)
@@ -57,13 +52,9 @@ void *check_dead(void *tmp_table)
 		pos = 0;
 		dead_or_full(&table->is_dead, &table->all_full, &pos, table);
 		if (get_dead(table->philos))
-			break;
+			break ;
 		custom_usleep(5, table);
 	}
-	printf("is_dead = %d\n", (table->is_dead));
-	printf("all_full = %d\n", (table->all_full));
 	set_out(table);
-	// ??????
-	//if (table->out == 1 || table->all_full == table->meals_limit)
 	return (NULL);
 }

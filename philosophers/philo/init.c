@@ -6,20 +6,11 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/26 00:25:51 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/26 01:02:44 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-/*
-	Para tener en cuenta las posiciones de los filosofos y de los tenedores:
-		
-		- Los filosofos tienen diferentes posiciones (chairs = 1, 2, 3, ...)
-		y direrentes id (philo 0, philo, 1, philo 2, ...).
-			
-		- Los tenedores cambian segun si el filosofo tiene id par o impar.
-*/
 
 int	table_init(int ac, char **av, t_table *table)
 {
@@ -34,7 +25,7 @@ int	table_init(int ac, char **av, t_table *table)
 	table->out = 0;
 	if (table->philo_count < 1 || table->meals_limit < -1)
 	{
-		printf(RED"ERROR! (table_init)\n"END);
+		printf(RED "ERROR! (table_init)\n" END);
 		return (1);
 	}
 	table->all_full = 0;
@@ -47,19 +38,19 @@ int	philo_init(t_table *table)
 
 	pos = 0;
 	table->philos = ft_calloc(sizeof(t_philo), table->philo_count);
-    table->is_dead = 0;
+	table->is_dead = 0;
 	while (pos < table->philo_count)
 	{
 		table->philos[pos].id = pos + 1;
 		table->philos[pos].meals_counter = 0;
 		table->philos[pos].last_meal = 0;
-		table->philos[pos].R_fork = pos;
-		table->philos[pos].L_fork = (pos + 1) % table->philo_count;
+		table->philos[pos].r_fork = pos;
+		table->philos[pos].l_fork = (pos + 1) % table->philo_count;
 		table->philos[pos].table = table;
 		pos++;
 	}
-	table->philos[table->philo_count - 1].R_fork = table->philo_count - 1;
-	table->philos[table->philo_count - 1].L_fork = 0;
+	table->philos[table->philo_count - 1].r_fork = table->philo_count - 1;
+	table->philos[table->philo_count - 1].l_fork = 0;
 	return (0);
 }
 

@@ -12,6 +12,8 @@
 # ... Y ESTA LLAMADA EN LA PRIMERA LINEA DEL MAIN.
 #
 # 	atexit(leaks);
+#
+#	valgrind --leak-check=full ./philo 1 800 200 200 6
 
 NAME			= philo
 

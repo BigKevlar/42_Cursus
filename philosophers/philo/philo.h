@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:15:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/25 18:47:24 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/26 01:01:48 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,18 @@ typedef struct s_table	t_table;
 typedef struct s_philo	t_philo;
 
 /* Cada philo es un thread/hilo (ver el t_table). */
-typedef struct	s_philo
+typedef struct s_philo
 {
 	long unsigned int	id;
 	long				meals_counter;
 	long				last_meal;
-	int					R_fork;
-	int					L_fork;
+	int					r_fork;
+	int					l_fork;
 	t_table				*table;
 }				t_philo;
 
 /* La mesa sera la estructura principal del proyecto. */
-typedef struct	s_table
+typedef struct s_table
 {
 	long				philo_count;
 	long				time2die;
@@ -90,7 +90,7 @@ void	*ft_calloc(size_t count, size_t size);
 /* UTILS_DEAD.C */
 int		ft_diying_1(t_philo *philo);
 void	ft_diying_2(t_table *table, int *is_dead, int *pos);
-void 	dead_or_full(int *is_dead, int *all_full, int *pos, t_table *table);
+void	dead_or_full(int *is_dead, int *all_full, int *pos, t_table *table);
 void	*check_dead(void *tmp_table);
 /* UTILS_DINNER.C */
 void	forks_unlock(t_philo *philo);

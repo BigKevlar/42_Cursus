@@ -6,7 +6,7 @@
 /*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 20:54:58 by kevlar            #+#    #+#             */
-/*   Updated: 2024/06/24 22:24:00 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/26 01:15:45 by kevlar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	set_meal_counter(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->table->write_mutex);
 	philo->meals_counter++;
-	if(philo->meals_counter == philo->table->meals_limit)
+	if (philo->meals_counter == philo->table->meals_limit)
 		philo->table->all_full++;
 	pthread_mutex_unlock(&philo->table->write_mutex);
 }
