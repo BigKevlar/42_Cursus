@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:04:07 by jmartos           #+#    #+#             */
-/*   Updated: 2024/06/26 01:02:44 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/26 19:29:54 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int	table_init(int ac, char **av, t_table *table)
 	table->time2die = ft_atol(av[2]);
 	table->time2eat = ft_atol(av[3]);
 	table->time2sleep = ft_atol(av[4]);
+	if (table->time2eat < 1 || table->time2sleep < 1)
+	{
+		printf(RED "ERROR! (table_init)\n" END);
+		return (2);
+	}
 	if (ac == 6)
 		table->meals_limit = ft_atol(av[5]);
 	else

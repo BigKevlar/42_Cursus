@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:16:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/06/26 01:51:28 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/06/26 19:31:29 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int	main(int ac, char **av)
 			return (free(table), 0);
 		if (check_int(av))
 			return (free(table), 0);
+		if (table_init(ac, av, table) == 2)
+		{
+			free(table);
+			return (0);
+		}
 		if (table_init(ac, av, table) || philo_init(table) || fork_init(table))
 		{
 			the_end(table);
