@@ -1,7 +1,0 @@
-{
-	"files.associations": {
-		"string.h": "c",
-		"ostream": "c",
-		"semaphore.h": "c"
-	}
-}
