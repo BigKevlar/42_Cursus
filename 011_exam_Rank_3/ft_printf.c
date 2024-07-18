@@ -29,50 +29,58 @@
 #include <unistd.h> // write, malloc, free
 #include <stdarg.h> // va_list, va_start, va_arg, va_copy, va_end
 
-void	put_str(char *string, int *lenght)
+void	put_string(char *str, int *len)
 {
-	if (!string)
-		string = "(null)";
-	while (*string)
-		*lenght += write(1, string++, 1);
+	if (!str)
+		str = "(null)";
+	while (*str)
+	{
+		write(1, str++, 1);
+		(*len++);
+	}
 }
 
-void	put_digit(long long int number, int base, int *lenght)
+void	put_digit(long long int num, int base, int *len)
 {
 	char	*hex = "0123456789abcdef";
 
-	if (number < 0)
+	if (num < 0)
 	{
-		number *= -1;
-		*lenght += write(1, "-", 1);
+		num *= -1;
+		write(1, "-", 1);
+		(*len)++;
 	}
-	if (number >= base)
-		put_digit((number / base), base, lenght);
-	*lenght += write(1, &hex[number % base], 1);
+	if (num >= base)
+		put_digit((num / base), base, len);
+	write(1, &hex[num % base], 1);
+	(*len)++;
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list		pointer;
-	int			lenght;
+	int			len;
 
 	va_start(pointer, format);
-	lenght = 0;
+	len = 0;
 	while (*format)
 	{
 		if (*format == '%' && *(format + 1))
 		{
 			format++;
 			if (*format == 's')
-				put_str(va_arg(pointer, char *), &lenght);
+				put_str(va_arg(pointer, char *), &len);
 			else if (*format == 'd')
-				put_digit((long long int)va_arg(pointer, int), 10, &lenght);
+				put_digit((long long int)va_arg(pointer, int), 10, &len);
 			else if (*format == 'x')
-				put_digit((long long int)va_arg(pointer, unsigned int), 16, &lenght);
+				put_digit((long long int)va_arg(pointer, unsigned int), 16, &len);
 		}
 		else
-			lenght += write(1, format, 1);
+		{
+			write(1, format, 1);
+			len++;
+		}
 		format++;
 	}
-	return (va_end(pointer), lenght);
+	return (va_end(pointer), len);
 }
