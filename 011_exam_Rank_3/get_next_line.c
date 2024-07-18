@@ -26,6 +26,8 @@
 #define BUFFER_SIZE 42
 #include <unistd.h> // read
 #include <stdlib.h> // malloc, free
+#include <fcntl.h>
+#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
@@ -52,9 +54,6 @@ char	*get_next_line(int fd)
 	line[pos] = '\0';
 	return (line);
 }
-
-#include <fcntl.h>
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
