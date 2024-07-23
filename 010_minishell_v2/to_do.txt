@@ -90,4 +90,5 @@ revisar  ls >
 cambiar $_ detro de env
 cambiar $SHLV y $OLDPWD
 >file ls
+export HELLO="beautiful world"
 

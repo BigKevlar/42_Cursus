@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:46:21 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/07/22 19:35:45 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:40:53 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,25 @@ char	*process_char(char *prompt, int *pos)
 	char	*aux;
 	char	*word;
 
-	aux_pos = ft_strlen(prompt) - *pos;
-	aux = ft_calloc(aux_pos + 2, sizeof(char));
-	aux_pos = 0;
+	aux_pos = *pos;
 	while (prompt[*pos] && prompt[*pos] != ' ' && prompt[*pos] != '|'
 		&& prompt[*pos] != '<' && prompt[*pos] != '>')
 	{
-		aux[aux_pos++] = prompt[*pos];
-		(*pos)++;
+		if (prompt[++(*pos)] == '=')
+		{
+			aux = ft_substr(prompt, aux_pos, *pos - aux_pos + 1);
+			(*pos)++;
+			if (prompt[*pos] == '\"')
+				word = process_dq(prompt, pos);
+			else if (prompt[*pos] == '\'')
+				word = process_sq(prompt, pos);
+			else
+				word = process_char(prompt, pos);
+			word = ft_strjoin(aux, word);
+			free(aux);
+			return (word);
+		}
 	}
-	word = ft_strdup(aux);
-	free(aux);
+	word = ft_substr(prompt, aux_pos, *pos - aux_pos);
 	return (word);
 }

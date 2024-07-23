@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rguerrer <rguerrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 12:51:36 by rguerrer          #+#    #+#             */
-/*   Updated: 2024/07/22 22:37:49 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:22:59 by rguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct s_shell
 	pid_t	pid;
 	int		exit;
 	int		exec_signal;
+	char	*oldpwd;
 }			t_shell;
 
 int			main(int argc, char **argv, char **envp);
@@ -120,11 +121,13 @@ char		*process_red2(char *prompt, int *pos);
 int			strlen_end_word(char *prompt, int pos);
 char		*process_char(char *prompt, int *pos);
 t_var		**init_envp(char **envp);
-char		*get_var(t_var **list_var, char *key);
 char		*key_x_value(t_var **env_list, char *str, t_shell *shell);
 void		expand_env_var(t_shell *shell, char **envp);
+char		*get_var(t_var **list_var, char *key);
 char		*find_varname(char *str, int pos);
 void		remove_dquotes(char *str);
+char		*insert_str(char *main, char *piece, size_t pos);
+char		*delete_str(char *main, size_t start, size_t finish);
 void		handler(int signal);
 void		if_signal(void);
 void		ft_cd(char **full_cmd, t_shell *shell);
@@ -140,9 +143,10 @@ void		ft_env_error(int bad_env, char *env);
 int			is_bad_env(char *env);
 void		ft_new_env(char *name_var, char *value_var, t_shell *shell);
 /* executor */
-int			execute_ins(t_shell *shell, char **cmd);
+int			execute_bin(t_shell *shell, char **cmd);
 void		exec_choose(t_shell *shell, char **cmd);
 void		execute(t_shell *shell);
+void		reset_fds(t_shell *shell);
 /*redirection*/
 void		apply_redirections(char **prompt, t_shell *shell);
 void		apply_outfile(char **name, t_shell *shell, int i);
@@ -153,5 +157,6 @@ void		reset_redirections(t_shell *shell);
 void		setup_redirections(t_shell *shell);
 /*clean*/
 void		ft_close_resets(t_shell *shell);
+void		reset_env(t_shell *shell);
 
 #endif

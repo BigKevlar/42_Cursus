@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_ins.c                                         :+:      :+:    :+:   */
+/*   exec_bin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rguerrer <rguerrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:43:22 by rguerrer          #+#    #+#             */
-/*   Updated: 2024/07/22 20:45:27 by rguerrer         ###   ########.fr       */
+/*   Updated: 2024/07/23 10:26:48 by rguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	exc(char *path, char **cmd, t_shell *shell)
 	return (shell->g_status);
 }
 
-int	execute_ins(t_shell *shell, char **cmd)
+int	execute_bin(t_shell *shell, char **cmd)
 {
 	int		i;
 	char	**bin;

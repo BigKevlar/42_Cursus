@@ -6,7 +6,7 @@
 /*   By: rguerrer <rguerrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 11:37:06 by rguerrer          #+#    #+#             */
-/*   Updated: 2024/07/22 21:24:33 by rguerrer         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:16:19 by rguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	exec_choose(t_shell *shell, char **cmd)
 	if (cmd && is_builtin(cmd[0]) == 1)
 		execute_builtin(shell, cmd);
 	else if (cmd)
-		shell->g_status = execute_ins(shell, cmd);
+		shell->g_status = execute_bin(shell, cmd);
 	if (shell->pin > 0)
 		close(shell->pin);
 	if (shell->pout > 0)
@@ -105,5 +105,6 @@ void	execute(t_shell *shell)
 			i++;
 		j = i;
 	}
+	reset_env(shell);
 	reset_redirections(shell);
 }

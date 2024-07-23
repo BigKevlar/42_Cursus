@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rguerrer <rguerrer@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: rguerrer <rguerrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 17:49:15 by rguerrer          #+#    #+#             */
-/*   Updated: 2024/07/22 11:28:27 by rguerrer         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:20:42 by rguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,17 @@ void	ft_close_resets(t_shell *shell)
 	reset_std(shell);
 	close_fds(shell);
 	reset_fds(shell);
+}
+
+void	reset_env(t_shell *shell)
+{
+	int	i;
+
+	i = 0;
+	while (shell->env[i])
+	{
+		if (shell->oldpwd != NULL && ft_strncmp(shell->env[i], "OLDPWD=", 7) == 0)
+			shell->env[i] = ft_strjoin("OLDPWD=", shell->oldpwd);
+		i++;
+	}
 }

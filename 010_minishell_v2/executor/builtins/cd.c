@@ -3,16 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rguerrer <rguerrer@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: rguerrer <rguerrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:05:28 by rguerrer          #+#    #+#             */
-/*   Updated: 2024/07/22 11:06:11 by rguerrer         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:20:57 by rguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
 /* Esta funcion cambia el directorio actual de trabajo. */
+
+void	update_pwd(t_shell *shell)
+{
+	char	cwd[PATH_MAX];
+	int	i;
+
+	i = 0;
+	if (getcwd(cwd, PATH_MAX) == NULL)
+	{
+		ft_putstr_fd("pwd: error retrieving current directory: ", STDERR_FILENO);
+		ft_putstr_fd(strerror(errno), STDERR_FILENO);
+		ft_putchar_fd('\n', STDERR_FILENO);
+		shell->g_status = 1;
+		return ;
+	}
+	while (shell->env[i] != NULL)
+	{
+		if (ft_strncmp(shell->env[i], "PWD=", 4) == 0)
+		{
+			shell->env[i] = ft_strjoin("PWD=", cwd);
+			if (shell->env[i] == NULL)
+			{
+				shell->g_status = 1;
+				return;
+			}
+			break ;
+		}
+		i++;
+	}
+}
 
 char	*ft_getenv(char *name, char **env)
 {
@@ -58,6 +88,7 @@ void	ft_cd_oldpwd(t_shell *shell)
 	}
 	ft_putstr_fd(oldpwd, STDOUT_FILENO);
 	ft_putchar_fd('\n', STDOUT_FILENO);
+	free(oldpwd);
 }
 
 void	ft_cd_home(t_shell *shell)
@@ -74,6 +105,7 @@ void	ft_cd_home(t_shell *shell)
 		ft_putchar_fd('\n', STDERR_FILENO);
 		shell->g_status = 1;
 	}
+	free(home);
 }
 
 void	ft_cd(char **full_cmd, t_shell *shell)
@@ -84,6 +116,7 @@ void	ft_cd(char **full_cmd, t_shell *shell)
 		shell->g_status = 1;
 		return ;
 	}
+	shell->oldpwd = ft_getenv("PWD", shell->env);
 	if (full_cmd[1] == NULL)
 		ft_cd_home(shell);
 	else if (full_cmd[1][0] == '~')
@@ -97,4 +130,11 @@ void	ft_cd(char **full_cmd, t_shell *shell)
 		ft_putchar_fd('\n', STDERR_FILENO);
 		shell->g_status = 1;
 	}
+	if (shell->g_status == 1)
+	{
+		free(shell->oldpwd);
+		shell->oldpwd = NULL;
+	}
+	else
+		update_pwd(shell);
 }

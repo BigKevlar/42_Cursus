@@ -6,29 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 19:30:25 by kevlar            #+#    #+#             */
-/*   Updated: 2024/07/22 21:09:20 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/07/23 11:30:38 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
-
-/*
-	Busca en la lista de variables de entorno (list_var) un key (key) y
-	devuelve su valor. So no lo encuentra no devuelve nada.
-*/
-char	*get_var(t_var **list_var, char *key)
-{
-	int	i;
-
-	i = 0;
-	while (list_var[i])
-	{
-		if (ft_strcmp(list_var[i]->key, key) == 0)
-			return (ft_strdup(list_var[i]->value));
-		i++;
-	}
-	return (ft_strdup(""));
-}
 
 /*
 	Sobreescribimos el key por la variable de entonrno despues de un $.
@@ -93,15 +75,16 @@ void	expand_env_var(t_shell *shell, char **envp)
 				{
 					if (shell->full_cmd[i][j + 1] == '?')
 					{
-						shell->full_cmd[i] = ft_delete_str(shell->full_cmd[i], j, j + 1);
-						shell->full_cmd[i] = ft_insert_str(shell->full_cmd[i], status, j);
+						shell->full_cmd[i] = delete_str(shell->full_cmd[i], j, j + 1);
+						shell->full_cmd[i] = insert_str(shell->full_cmd[i], status, j);
+						printf("shell %s\n", shell->full_cmd[i]);
 						j++;
 					}
 					else
 					{
 						key = find_varname(shell->full_cmd[i], j + 1);
-						shell->full_cmd[i] = ft_delete_str(shell->full_cmd[i], j, j + ft_strlen(key));
-						shell->full_cmd[i] = ft_insert_str(shell->full_cmd[i], get_var(list_var, key), j);
+						shell->full_cmd[i] = delete_str(shell->full_cmd[i], j, j + ft_strlen(key));
+						shell->full_cmd[i] = insert_str(shell->full_cmd[i], get_var(list_var, key), j);
 						free(key);
 					}
 				}
