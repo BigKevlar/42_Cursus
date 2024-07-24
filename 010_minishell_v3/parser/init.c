@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 21:40:30 by kevlar            #+#    #+#             */
-/*   Updated: 2024/07/23 10:34:38 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:58:19 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,9 @@ void	init_prompt(t_shell *shell)
 	delete_end_spaces(shell->prompt);
 	if (!check_cmd(shell))
 	{
-		ft_printf(RED "ERROR! (init_prompt)" NC);
-		exit(EXIT_FAILURE);
+		ft_printf("zsh: parse error\n");
+		shell->g_status = 2;
+		shell->prompt = NULL;
 	}
 	shell->full_cmd = parse_input(shell->prompt);
 	expand_env_var(shell, shell->env);

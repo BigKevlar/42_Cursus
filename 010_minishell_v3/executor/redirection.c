@@ -6,7 +6,7 @@
 /*   By: rguerrer <rguerrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 20:50:24 by rguerrer          #+#    #+#             */
-/*   Updated: 2024/07/22 20:55:11 by rguerrer         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:10:17 by rguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,13 @@
 void	handle_output_redirection(char **prompt, t_shell *shell, int i)
 {
 	int	j;
-	int	is_command_before;
 
-	is_command_before = 0;
-	if (i == 0 || prompt[i - 1] == NULL)
-		is_command_before = 1;
 	apply_outfile(prompt, shell, i);
-	if (is_command_before == 1)
-	{
-		prompt[i] = ft_strdup("cat");
-		i++;
-	}
 	j = i;
-	while (prompt[j] != NULL)
-	{
-		prompt[j] = prompt[j + 1];
-		j++;
-	}
+	if (prompt[j] != NULL)
+		prompt[j] = prompt[j + 2];
+	if (prompt[j] == NULL)
+		shell->exec_signal = 1;
 }
 
 void	handle_input_redirection(char **prompt, t_shell *shell, int i)

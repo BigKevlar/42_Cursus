@@ -90,5 +90,7 @@ revisar  ls >
 cambiar $_ detro de env
 cambiar $SHLV y $OLDPWD
 >file ls
-export HELLO="beautiful world"
+echo ?kdlsf
+echo - "" "  " hello
 
+echo hola mu"ndo Mala"ga ti'err'a de bue<nas per<sonas como el '$USER' super$USER"$USER"

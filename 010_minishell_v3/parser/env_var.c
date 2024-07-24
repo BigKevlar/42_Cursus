@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 19:30:25 by kevlar            #+#    #+#             */
-/*   Updated: 2024/07/23 13:11:28 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:48:49 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ char	*key_x_value(t_var **list_var, char *str, t_shell *shell)
 	char	*temp;
 
 	res = ft_strdup("");
-	while ((dollar = ft_strchr(str, '$')))
+	dollar = ft_strchr(str, '$');
+	while (dollar != NULL)
 	{
 		temp = ft_strndup(str, dollar - str);
 		res = ft_strjoin(res, temp);
@@ -59,6 +60,7 @@ char	*key_x_value(t_var **list_var, char *str, t_shell *shell)
 			str = dollar + 2;
 		else
 			str = dollar + 1;
+		dollar = ft_strchr(str, '$');
 	}
 	temp = ft_strdup(str);
 	res = ft_strjoin(res, temp);

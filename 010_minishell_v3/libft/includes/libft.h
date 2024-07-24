@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:51:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/07/22 00:13:11 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:38:35 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ int		ft_substrlen(char *str, int start, char chr);
 int		ft_strd_len(char **str);
 // (minishell) Libera un array bidimensional con seguridad.
 void	ft_strd_free(char **str);
+// (minishell)
+char	**ft_strd_new(char *str);
 // (minishell)Añadimos un string a la ultima posicion del array bidimensional.
 char	**ft_strd_add(char **str, char *add);
 // (minishell) Borramos el ultimo array de un array bidimensional.

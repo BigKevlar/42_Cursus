@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rguerrer <rguerrer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 18:59:05 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/07/23 12:23:17 by rguerrer         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:48:59 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,6 @@ int	strlen_end_word(char *prompt, int pos)
 		pos++;
 	}
 	return (w_len);
-}
-
-/*
-	Separamos por los caracteres que estamos validando, teniendo en cuenta
-	los espacios y las comillas que pudieran haber al principio.
-*/
-char	**ft_strd_new(char *str)
-{
-	char	**new;
-
-	new = ft_calloc(sizeof(char *), 2);
-	new[0] = ft_strdup(str);
-	return (new);
 }
 
 /*
@@ -92,7 +79,6 @@ char	**super_split(char *prompt)
 				else
 					new = ft_strd_add(new, aux);
 			}
-			printf("split = %s\n", aux);
 			free(aux);
 		}
 	}

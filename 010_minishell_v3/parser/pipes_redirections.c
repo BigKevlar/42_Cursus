@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 21:34:18 by kevlar            #+#    #+#             */
-/*   Updated: 2024/07/22 22:16:10 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:59:46 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,45 +93,3 @@ int	check_last_pipe_red(char *prompt)
 		return (0);
 	return (1);
 }
-
-/*
-	Validamos la posicion correcta de los pipes y las redirecciones.
-
-int	validating_pipes_reds(char *prompt)
-{
-	int			pos;
-	int			quote_state;
-	t_pipe_red	value;
-
-	pos = 0;
-	quote_state = NO_QUOTE;
-	init_pipe_red(&value);
-	while (prompt[pos])
-	{
-		quote_state = check_quotes(prompt[pos], quote_state);
-		if (quote_state == NO_QUOTE)
-		{
-			if (prompt[pos] == '|')
-			{
-				if (value.pipe == 1 || !check_first_pipe(prompt))
-					return (0);
-				else
-					set_pipe_red(&value, 1);
-			}
-			else if (prompt[pos] == '<' || prompt[pos] == '>')
-			{
-				if (value.red == 1 || !check_mixes(prompt, &pos))
-					return (0);
-				else
-					set_pipe_red(&value, 2);
-			}
-			else if (prompt[pos] != ' ' && prompt[pos] != '\t'
-				&& prompt[pos] != '|' && prompt[pos] != '<'
-				&& prompt[pos] != '>')
-				set_pipe_red(&value, 3);
-		}
-		pos++;
-	}
-	return (check_last_pipe_red(prompt));
-}
-*/
