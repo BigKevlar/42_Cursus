@@ -1,0 +1,92 @@
+Esta es la guia en la que nos estamos basando para el proyecto:
+
+    https://github.com/madebypixel02/minishell
+
+Realmente lo que vamos a crear en este proyecto es un "interprete" de comandos que
+se comunicara con el kernel y nos permitira ejecutar los comandos de diversos tipos.
+
+OBJETIVOS:
+
+    - Análisis de la línea de comandos:
+        en esta parte, se debe dividir la línea de comandos en distintos tokens (palabras)
+        teniendo en cuenta las distintos espacios y caracteres especiales.
+
+    - Ejecución de comandos:
+        una vez analizada la línea de comandos, se debe determinar el comando a ejecutar
+        y sus argumentos. Luego, se debe utilizar la función execve() para ejecutar
+        el comando en el sistema o ejecutar tu función propia si es un builtin.
+
+    - Gestión de errores:
+        es importante gestionar los errores que puedan surgir durante
+        el proceso de análisis y ejecución de la línea de comandos.
+
+    - Gestión de redirecciones:
+        se deben implementar las redirecciones de entrada y salida (>, <, >>, <<)
+        para poder redirigir la entrada y salida de los comandos a archivos.
+
+    - Gestión de pipes:
+        se deben implementar los pipes para poder encadenar varios comandos y enviar
+        la salida de un comando como entrada del siguiente.
+
+En un principio nos vamos a repartir las tareas de la siguiente manera:
+    
+    - jmartos-: lexer, expander, parser
+    - rguerrer: executor
+
+TO_DO (jmartos-):
+
+    1º- Creo "command.c" para crear las funciones que nos permitiran comprobar que los
+        argumentos se han recibido correctamente:
+
+            - 
+
+    ¿?º- He creado una funcion en el libft para copiar matrices bidireccionales (ft_matrixdup.c).
+
+
+
+
+
+
+
+***************************** JMARTOS- Y RGUERRER ******************************
+INDICE DE "MINISHELL"
+
+    - MANEJAR ERRORES DE USUARIO
+    - SIGNAL
+
+    LEXER:
+    - SEPARAR EL STRING ENTRE ESPACIOS Y COMILLAS (SIMPLES Y DOBLES)
+    - SEPARAR ENTRE SIGNOS <, |, >.... SOLO SI ESTAS FUERA DE COMILLAS
+
+    EXPANDER:
+    - ¿?
+
+    PARSER:
+    - CAMBIAR LA STRING DE UNA FORMA QUE PUEDA UTILIZAR EL EXECUTOR.
+    - SEPARAR EL ARGUMENTO PASADO POR PARAMETROS EN LA ENTRADA ESTANDAR Y
+    GUARDARLA EN LASTRUCTURA DE FORMA ADECUADA PARA PODER SER USADA/INTERPRETADA.
+
+    EXECUTOR:
+    - IMPLEMENTAR IGUAL QUE EL PIPEX (AÑADIR HEREDOC)
+    - BUILTINS
+*********************************************************************************
+
+2- codigo de salido ($?) -> jmartos (OK)
+3- heredoc revisar -> rguerrer (OK)
+4- echo '$PWD' -> jmartos (OK)
+6- corregir tab (OK)
+8- revisar ctrl-c
+9- verificar export con espacios (OK)
+11- cat | cat | ls verificar
+revisar redirecciones
+...
+12- VALGRIND
+
+3-Revisar env args; env dsf=dsfds
+
+cambiar $_ detro de env
+echo - "" "  " hello
+/bin/echo """""""'"$USER"'"""""""
+""
+
+echo hola mu"ndo Mala"ga ti'err'a de bue<nas per<sonas como el '$USER' super$USER"$USER"'$US"ER'
