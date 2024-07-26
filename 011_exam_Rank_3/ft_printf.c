@@ -26,24 +26,27 @@
     out: Hexadecimal for 42 is 2a$
 */
 
+#include <stdio.h>
 #include <unistd.h> // write, malloc, free
 #include <stdarg.h> // va_list, va_start, va_arg, va_copy, va_end
 
-void	put_string(char *str, int *len)
+void	put_str(char *str, int *len)
 {
 	if (!str)
 		str = "(null)";
 	while (*str)
 	{
-		write(1, str++, 1);
+		write(1, str, 1);
+		str++;
 		(*len++);
 	}
 }
 
-void	put_digit(long long int num, int base, int *len)
+void	put_num(long long int num, int base, int *len)
 {
-	char	*hex = "0123456789abcdef";
+	char	*hex;
 
+	hex = "0123456789abcdef";
 	if (num < 0)
 	{
 		num *= -1;
@@ -51,7 +54,7 @@ void	put_digit(long long int num, int base, int *len)
 		(*len)++;
 	}
 	if (num >= base)
-		put_digit((num / base), base, len);
+		put_num((num / base), base, len);
 	write(1, &hex[num % base], 1);
 	(*len)++;
 }
@@ -69,11 +72,11 @@ int	ft_printf(const char *format, ...)
 		{
 			format++;
 			if (*format == 's')
-				put_str(va_arg(pointer, char *), &len);
+				put_str((char *)va_arg(pointer, char *), &len);
 			else if (*format == 'd')
-				put_digit((long long int)va_arg(pointer, int), 10, &len);
+				put_num((long long int)va_arg(pointer, int), 10, &len);
 			else if (*format == 'x')
-				put_digit((long long int)va_arg(pointer, unsigned int), 16, &len);
+				put_num((long long int)va_arg(pointer, unsigned int), 16, &len);
 		}
 		else
 		{
@@ -83,4 +86,14 @@ int	ft_printf(const char *format, ...)
 		format++;
 	}
 	return (va_end(pointer), len);
+}
+
+int	main(void)
+{
+	printf("ORIGINAL: %s\n", "toto");
+	ft_printf("EXAM: %s\n", "toto");
+	printf("ORIGINAL: Magic %s is %d\n", "number", 42);
+	ft_printf("EXAM: Magic %s is %d\n", "number", 42);
+	printf("ORIGINAL: Hexadecimal for %d is %x\n", 42, 42);
+	ft_printf("ORIGINAL: Hexadecimal for %d is %x\n", 42, 42);
 }
