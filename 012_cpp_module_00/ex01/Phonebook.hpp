@@ -5,11 +5,11 @@
 
 class Phonebook
 {
-    private: // Atributos
+    private:
         Contact _contacts[8];
-    public: // Metodos (para acceder a los atributos)
-        Phonebook(); // Constructor
-        ~Phonebook(); // Destructor
+    public:
+        Phonebook();
+        ~Phonebook();
         void    add();
         void    search();
         void    exit();
