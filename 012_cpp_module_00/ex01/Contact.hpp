@@ -6,16 +6,17 @@
 
 class Contact
 {
-    private:
+    private:  // Atributos
         std::string _first_name;
         std::string _last_name;
         std::string _nickname;
         std::string _phone_number;
         std::string _darkest_secret;
-    public:
-        //Contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret);
-        Contact();
-        ~Contact();
+    public: // Metodos (para acceder a los atributos)
+        Contact(); // Constructor
+        ~Contact(); // Destructor
+        void    set_data();
+        void    get_data();
 };
 
 #endif
