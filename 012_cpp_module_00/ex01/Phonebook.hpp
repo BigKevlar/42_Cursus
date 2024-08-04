@@ -5,10 +5,14 @@
 
 class Phonebook
 {
+    /* ATRIBUTOS */
     private:
         Contact _contacts[8];
+    /* METODOS */
     public:
+        /* CONSTRUCTOR ESTANDAR */ 
         Phonebook();
+        /* DESTRUCTOR ESTANDAR */
         ~Phonebook();
         void    add();
         void    search();
