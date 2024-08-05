@@ -39,9 +39,12 @@ void    Phonebook::add()
     {
         std::cout << "Enter the first name: ";
         if (std::getline(std::cin, str) && str != "")
-            this->_contact[this->_index % 8].set_first_name(str);
+            this->_contact[this->_index].set_first_name(str);
         else
+        {
             std::cout << "Error, please try again..." << std::endl;
+            str = "";
+        }
     }
 
     /* Insertamos el apellido del mismo modo que antes. */    
@@ -50,9 +53,12 @@ void    Phonebook::add()
     {
         std::cout << "Enter the last name: ";
         if (std::getline(std::cin, str) && str != "")
-            this->_contact[this->_index % 8].set_last_name(str);
+            this->_contact[this->_index].set_last_name(str);
         else
+        {
             std::cout << "Error, please try again..." << std::endl;
+            str = "";
+        }
     }
 
     /* Ahora insertamos el nick. */
@@ -61,9 +67,12 @@ void    Phonebook::add()
     {
         std::cout << "Enter the nick name: ";
         if (std::getline(std::cin, str) && str != "")
-            this->_contact[this->_index % 8].set_nick_name(str);
+            this->_contact[this->_index].set_nick_name(str);
         else
+        {
             std::cout << "Error, please try again..." << std::endl;
+            str = "";
+        }
     }
 
     /* Ahora el numero de telefono. */
@@ -72,7 +81,7 @@ void    Phonebook::add()
     {
         std::cout << "Enter the phone number: ";
         if (std::getline(std::cin, str) && str != "" && ft_isdigit(str))
-            this->_contact[this->_index % 8].set_phone_number(str);
+            this->_contact[this->_index].set_phone_number(str);
         else
         {
             std::cout << "Error, please try again..." << std::endl;
@@ -86,19 +95,22 @@ void    Phonebook::add()
     {
         std::cout << "Enter the ejem ejem: ";
         if (std::getline(std::cin, str) && str != "")
-            this->_contact[this->_index % 8].set_phone_number(str);
+            this->_contact[this->_index].set_darkest_secret(str);
         else
+        {
             std::cout << "Error, please try again..." << std::endl;
+            str = "";
+        }
     }
 
     /* Por ultimo aumentamos el contador de index. */
+    this->_index++;
     if (this->_index == 8)
     {
         std::cout << "You write the last contact. Next one will overwrite the olders in order" << std::endl;
         this->_index = 0;
     }
-    else
-        this->_index++;
+    std::cout << this->_index << std::endl;
 }
 
 /* Buscamos un contacto usando su index (si existe). */
@@ -118,7 +130,7 @@ void    Phonebook::search()
         {
             if (str.size() == 1 && str[0] >= '1' && str[0] <= '8' && this->_contact[str[0] - 1 - '0'].get_first_name().size())
             {
-                this->print(_contact[this->_index]);
+                this->_contact[std::atoi(str.c_str()) - 1].print();
                 break ;
             }
         }
@@ -127,21 +139,11 @@ void    Phonebook::search()
     }
 }
 
-void    Phonebook::print(Contact contact)
+void    Contact::print()
 {
-    if (!contact.get_first_name().size())
-	{
-		std::cout << "Failed to get info for this contact" << std::endl;
-		return ;
-	}
-	std::cout << "First Name: " << contact.get_first_name() << std::endl;
-	std::cout << "Last Name: " << contact.get_last_name() << std::endl;
-	std::cout << "Nickname: " << contact.get_nick_name() << std::endl;
-	std::cout << "Phone Number: " << contact.get_phone_number() << std::endl;
-	std::cout << "Darkest Secret: " << contact.get_darkest_secret() << std::endl;
-}
-
-Contact    Phonebook::get_contact(int index)
-{
-    return (this->_contact[this->_index % 8]);
+	std::cout << "First Name: " << this->get_first_name() << std::endl;
+	std::cout << "Last Name: " << this->get_last_name() << std::endl;
+	std::cout << "Nickname: " << this->get_nick_name() << std::endl;
+	std::cout << "Phone Number: " << this->get_phone_number() << std::endl;
+	std::cout << "Darkest Secret: " << this->get_darkest_secret() << std::endl;
 }
