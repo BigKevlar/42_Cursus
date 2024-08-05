@@ -3,6 +3,7 @@
 
 # include <string>
 # include <iostream>
+# include <iomanip> // "std::setw()" y "std::right"
 
 class Contact
 {
@@ -31,7 +32,7 @@ class Contact
         void    set_nick_name(std::string str);
         void    set_phone_number(std::string str);
         void    set_darkest_secret(std::string str);
-        void    print();
+        void    print(int index);
 };
 
 #endif

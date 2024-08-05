@@ -48,3 +48,30 @@ void    Contact::set_phone_number(std::string str){
 void    Contact::set_darkest_secret(std::string str){
     this->_darkest_secret = str;
 }
+
+void    Contact::print(int index)
+{
+    std::cout << std::setw(10) << std::right << "index" << "|";    
+    if (_first_name.length() < 10)
+        std::cout << std::setw(10) << std::right << _first_name << "|";
+    else
+        std::cout << std::setw(10) << std::right << _first_name.substr(0, 9) << "." << "|";
+    if (_last_name.length() < 10)
+        std::cout << std::setw(10) << std::right << _last_name << "|";
+    else
+        std::cout << std::setw(10) << std::right << _last_name.substr(0, 9) << "." << "|";
+    if (_nick_name.length() < 10)
+        std::cout << std::setw(10) << std::right << _nick_name << "|";
+    else
+        std::cout << std::setw(10) << std::right << _nick_name.substr(0, 9) << "." << "|";
+    if (_phone_number.length() < 10)
+        std::cout << std::setw(10) << std::right << _phone_number << "|";
+    else
+        std::cout << std::setw(10) << std::right << _phone_number.substr(0, 9) << "." << "|";
+    if (_darkest_secret.length() < 10)
+        std::cout << std::setw(10) << std::right << _darkest_secret << "|";
+    else
+        std::cout << std::setw(10) << std::right << _darkest_secret.substr(0, 9) << "." << "|";
+    std::cout << std::endl;
+    std::cout << std::endl;
+}
