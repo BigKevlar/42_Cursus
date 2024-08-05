@@ -4,13 +4,13 @@
 Phonebook::Phonebook()
 {
     this->_index = 0; // Aqui estamos inicializando por 1a vez index.
-    std::cout << "Constructor say: Welcome!" << std::endl;
+    std::cout << "Constructor: program ON" << std::endl;
 }
 
 /* Destructor estandar.*/
 Phonebook::~Phonebook()
 {
-    std::cout << "Destructor say: Bye bye!" << std::endl;
+    std::cout << "Destructor: program OFF" << std::endl;
 }
 
 static int ft_isdigit(std::string str)
@@ -38,7 +38,7 @@ void    Phonebook::add()
     while(str == "" && (!std::cin.eof()))
     {
         std::cout << "Enter the first name: ";
-        if (str != "" && std::getline(std::cin, str))
+        if (std::getline(std::cin, str) && str != "")
             this->_contact[this->_index % 8].set_first_name(str);
         else
             std::cout << "Error, please try again..." << std::endl;
@@ -49,7 +49,7 @@ void    Phonebook::add()
     while (str == "" && (!std::cin.eof()))
     {
         std::cout << "Enter the last name: ";
-        if (str != "" && std::getline(std::cin, str))
+        if (std::getline(std::cin, str) && str != "")
             this->_contact[this->_index % 8].set_last_name(str);
         else
             std::cout << "Error, please try again..." << std::endl;
@@ -60,7 +60,7 @@ void    Phonebook::add()
     while (str == "" && (!std::cin.eof()))
     {
         std::cout << "Enter the nick name: ";
-        if (str != "" && std::getline(std::cin, str))
+        if (std::getline(std::cin, str) && str != "")
             this->_contact[this->_index % 8].set_nick_name(str);
         else
             std::cout << "Error, please try again..." << std::endl;
@@ -70,17 +70,22 @@ void    Phonebook::add()
     str = "";
     while(str == "" && (!std::cin.eof()))
     {
-        if (str != "" && std::getline(std::cin, str) && ft_isdigit(str))
+        std::cout << "Enter the phone number: ";
+        if (std::getline(std::cin, str) && str != "" && ft_isdigit(str))
             this->_contact[this->_index % 8].set_phone_number(str);
         else
+        {
             std::cout << "Error, please try again..." << std::endl;
+            str = "";
+        }
     }
 
     /* Ahora insertamos el sercreto oscuuuuuuuuuurooooo. */
     str = "";
     while (str == "" && (!std::cin.eof()))
     {
-        if (str != "" && std::getline(std::cin, str))
+        std::cout << "Enter the ejem ejem: ";
+        if (std::getline(std::cin, str) && str != "")
             this->_contact[this->_index % 8].set_phone_number(str);
         else
             std::cout << "Error, please try again..." << std::endl;
@@ -109,7 +114,7 @@ void    Phonebook::search()
     while (!std::cin.eof())
     {
         std::cout << "Select an index (1 to 8): ";
-        if (str != "" && std::getline(std::cin, str))
+        if (std::getline(std::cin, str) && str != "")
         {
             if (str.size() == 1 && str[0] >= '1' && str[0] <= '8' && this->_contact[str[0] - 1 - '0'].get_first_name().size())
             {

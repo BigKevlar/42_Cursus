@@ -9,7 +9,7 @@ int main(int ac, char **av)
     while (1)
     {
         std::cout << "Enter an option (ADD, SEARCH, EXIT): ";
-        if (!std::getline(std::cin, str, '\n'));
+        if (!std::getline(std::cin, str, '\n'))
             break ;
         if (str == "ADD")
             Phonebook.add();
