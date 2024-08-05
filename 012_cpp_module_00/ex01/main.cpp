@@ -5,12 +5,12 @@ int main(int ac, char **av)
     Phonebook       Phonebook;
     std::string     str;
 
-    // ¿Inicializamos phonebook a "" todos los parametros?
     std::system("clear");
     while (1)
     {
         std::cout << "Enter an option (ADD, SEARCH, EXIT): ";
-        std::getline(std::cin, str);
+        if (!std::getline(std::cin, str, '\n'));
+            break ;
         if (str == "ADD")
             Phonebook.add();
         else if (str == "SEARCH")
@@ -23,4 +23,5 @@ int main(int ac, char **av)
         else
             std::cout << "Wrong option! Remenber..." << std::endl;
     }
+    return (0);
 }

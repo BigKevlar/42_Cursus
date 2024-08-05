@@ -7,16 +7,19 @@ class Phonebook
 {
     /* ATRIBUTOS */
     private:
-        Contact _contacts[8];
+        Contact _contact[8];
+        int     _index;
     /* METODOS */
     public:
         /* CONSTRUCTOR ESTANDAR */ 
         Phonebook();
         /* DESTRUCTOR ESTANDAR */
         ~Phonebook();
+        /* FUNCIONES DE ACCION DEL PHONEBOOK */
         void    add();
         void    search();
-        void    exit();
+        void    print(Contact contact);
+        Contact get_contact(int index);
 };
 
 #endif
