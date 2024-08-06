@@ -7,7 +7,10 @@ Phonebook::Phonebook()
 }
 
 /* Destructor estandar.*/
-Phonebook::~Phonebook(){}
+Phonebook::~Phonebook()
+{
+    std::cout << "Phonebook deleted!" << std::endl;
+}
 
 static int ft_isdigit(std::string str)
 {
@@ -108,6 +111,36 @@ void Phonebook::add()
     }
 }
 
+void    Phonebook::show_phonebook()
+{
+    int i;
+    
+    std::cout << "|";
+    std::cout << std::setw(10) << std::right << "Index" << "|";
+    std::cout << std::setw(10) << std::right << "First Name" << "|";
+    std::cout << std::setw(10) << std::right << "Last Name" << "|";
+    std::cout << std::setw(10) << std::right << "Nickname" << "|" << std::endl;
+    i = 0;
+    while (i < 8)
+    {
+        std::cout << "|";
+        std::cout << std::setw(10) << std::right << i + 1 << "|";
+        if (this->_contact[i].get_first_name().length() < 10)
+            std::cout << std::setw(10) << std::right << this->_contact[i].get_first_name() << "|";
+        else
+            std::cout << std::setw(10) << std::right << this->_contact[i].get_first_name().substr(0, 9) + "." << "|";
+        if (this->_contact[i].get_last_name().length() < 10)
+            std::cout << std::setw(10) << std::right << this->_contact[i].get_last_name() << "|";
+        else
+            std::cout << std::setw(10) << std::right << this->_contact[i].get_last_name().substr(0, 9) + "." << "|";
+        if (this->_contact[i].get_nick_name().length() <= 10)
+            std::cout << std::setw(10) << std::right << this->_contact[i].get_nick_name() << "|" << std::endl;
+        else
+            std::cout << std::setw(10) << std::right << this->_contact[i].get_nick_name().substr(0, 9) + "." << "|" << std::endl;
+        i++;
+    }
+}
+
 /* Buscamos un contacto usando su index (si existe). */
 void Phonebook::search()
 {
@@ -120,16 +153,12 @@ void Phonebook::search()
     }
     while (!std::cin.eof())
     {
-        std::cout << "Select an index (1 to 8): ";
+        std::cout << std::endl;
+        this->show_phonebook();
+        std::cout << std::endl;
+        std::cout << "Select an existing contact (1 to 8): ";
         if (std::getline(std::cin, str) && str != "")
         {
-            std::cout << std::endl;
-            std::cout << std::setw(10) << std::right << "Index|";
-            std::cout << std::setw(10) << std::right << "First Name|";
-            std::cout << std::setw(10) << std::right << "Last Name|";
-            std::cout << std::setw(10) << std::right << "Nickname|";
-            std::cout << std::setw(10) << std::right << "Phone|";
-            std::cout << std::setw(10) << std::right << "Secret|" << std::endl;
             if (str.size() == 1 && str[0] >= '1' && str[0] <= '8' && this->_contact[str[0] - 1 - '0'].get_first_name().size())
             {
                 this->_contact[std::atoi(str.c_str()) - 1].print(Phonebook::_index);

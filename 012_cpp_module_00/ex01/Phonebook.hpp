@@ -18,6 +18,8 @@ class Phonebook
         /* FUNCIONES DE ACCION DEL PHONEBOOK */
         void    add();
         void    search();
+        /* OTRAS */
+        void    show_phonebook();
 };
 
 #endif
