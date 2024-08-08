@@ -25,7 +25,7 @@
 
 #define BUFFER_SIZE 424242
 #include <fcntl.h> // open, close
-//ESTOS DOS DE ARRIBA QUITARLOS PARA EL EXAMEN. SOLO SIRVEN PARA EL MAIN DE PRUEBA!!!
+/* ESTOS DOS DE ARRIBA QUITARLOS PARA EL EXAMEN. SOLO SIRVEN PARA EL MAIN DE PRUEBA!!! */
 
 #include <unistd.h> // read
 #include <stdlib.h> // malloc, free
