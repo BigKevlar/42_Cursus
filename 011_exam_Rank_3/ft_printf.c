@@ -38,7 +38,7 @@ void	put_str(char *str, int *len)
 	{
 		write(1, str, 1);
 		str++;
-		(*len++);
+		(*len)++;
 	}
 }
 
