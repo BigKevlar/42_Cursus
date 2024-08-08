@@ -23,11 +23,13 @@
     No call to another function will be done on the file descriptor between 2 calls of get_next_line. Finally we consider that get_next_line has an undefined behaviour when reading from a binary file.
 */
 
-#define BUFFER_SIZE 42
+#define BUFFER_SIZE 424242
+#include <fcntl.h> // open, close
+//ESTOS DOS DE ARRIBA QUITARLOS PARA EL EXAMEN. SOLO SIRVEN PARA EL MAIN DE PRUEBA!!!
+
 #include <unistd.h> // read
 #include <stdlib.h> // malloc, free
-#include <fcntl.h>
-#include <stdio.h>
+#include <stdio.h> // printf, EOF
 
 char	*get_next_line(int fd)
 {
@@ -36,25 +38,31 @@ char	*get_next_line(int fd)
 	int		bytes;
 	char	chr;
 
-	if ((fd < 0) || (BUFFER_SIZE <= 0))
+	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
 	pos = 0;
+	line = (char *)malloc((BUFFER_SIZE + 1));
+	if (!line)
+		return (NULL);
 	bytes = read(fd, &chr, 1);
-	line = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	while (bytes > 0)
 	{
-		line[pos] = chr;
-		if (chr == '\n')
+		if (chr == '\n' || chr == EOF)
 			break ;
-		bytes = read(fd, &chr, 1);
+		line[pos] = chr;
 		pos++;
+		bytes = read(fd, &chr, 1);
 	}
-	if ((bytes <= 0) && (pos == 0))
-		return (free(line), NULL);
 	line[pos] = '\0';
+	if (bytes <= 0 && pos == 0)
+	{
+		free(line);
+		return (NULL);
+	}
 	return (line);
 }
 
+/* RECORDAR QUITAR EL MAIN PARA EL EXAMEN!!! */
 int	main(int argc, char **argv)
 {
 	int		fd;
