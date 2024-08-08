@@ -22,64 +22,87 @@
 #include <iomanip>
 #include <ctime>
 #include <sstream>
-#include <Account.hpp>
+#include "Account.hpp"
+
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
 
 Account::Account(int initial_deposit)
 {
-    this->_nbAccounts = 0;
-	this->_totalAmount = 0;
-	this->_totalNbDeposits = 0;
-	this->_totalNbWithdrawals = 0;
-
-    this->_accountIndex = 0;
-    this->_amount = 0;
+    this->_accountIndex = this->_nbAccounts;
+        this->_nbAccounts++;
+    this->_amount = initial_deposit;
     this->_nbDeposits = 0;
     this->_nbWithdrawals = 0;
 };
 
-Account::~Account(){};
+Account::~Account() {};
 
 int Account::getNbAccounts()
 {
-    return(_nbAccounts);
+    return (_nbAccounts);
 }
 
 int Account::getTotalAmount()
 {
-    return(_totalAmount);
+    return (_totalAmount);
 }
 
 int Account::getNbDeposits()
 {
-    return(_totalNbDeposits);
+    return (_totalNbDeposits);
 }
 
 int Account::getNbWithdrawals()
 {
-    return(_totalNbWithdrawals);
+    return (_totalNbWithdrawals);
 }
 
-/* [19920104_091532] */
-void	_displayTimestamp()
-{
-        std::time_t now;
-
-        now = std::time(NULL);
-        std::cout << "[" << std::put_time(localtime(&now), "%Y%m%d_%H%M%S ") << "]";
-}
-
-/* [19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0 */
-void    Account::displayAccountsInfos()
-{
-    Account::_displayTimestamp();
-    std::cout << "accounts:" << getNbAccounts() << ";";
-    std::cout << "total:" << getTotalAmount() << ";";
-    std::cout << "deposits;" << getNbDeposits() << ";";
-    std::cout << "withdrawals:" << getNbWithdrawals() << ";" << std::endl; 
-}
-
+/*
 void	makeDeposit( int deposit );
 bool	makeWithdrawal( int withdrawal );
 int		checkAmount( void ) const;
 void	displayStatus( void ) const;
 Account( void );
+*/
+
+/*
+    Ponemos el tiempo como en la version del archivo de registro:
+
+        [19920104_091532]
+*/
+void _displayTimestamp()
+{
+    std::time_t now;
+
+    now = std::time(NULL);
+    std::cout << "[" << std::put_time(localtime(&now), "%Y%m%d_%H%M%S ") << "]";
+}
+
+/*
+    Ponemos el registro total cuando llegamos a 8 cuentas creadas:
+
+        [19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
+*/
+void Account::displayAccountsInfos()
+{
+    Account::_displayTimestamp();
+    std::cout << "accounts:" << getNbAccounts() << ";";
+    std::cout << "total:" << getTotalAmount() << ";";
+    std::cout << "deposits;" << getNbDeposits() << ";";
+    std::cout << "withdrawals:" << getNbWithdrawals() << ";" << std::endl;
+}
+
+/*
+    [19920104_091532] index:0;amount:42;created
+*/
+void Account::displayStatus() const
+{
+    Account::_displayTimestamp();
+    std::cout << "index:" << this->_accountIndex << "; ";
+    std::cout << "amount:" << this->checkAmount() << "; ";
+    std::cout << "deposits:" << this->_nbDeposits << "; ";
+    std::cout << "withdrawals:" << this->_nbWithdrawals << std::endl;
+}
