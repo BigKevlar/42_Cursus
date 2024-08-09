@@ -38,7 +38,7 @@ char	*get_next_line(int fd)
 	int		bytes;
 	char	chr;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0)
 		return (NULL);
 	line = (char *)malloc(10000000);
 	if (!line)
