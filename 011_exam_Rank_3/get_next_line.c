@@ -29,7 +29,7 @@
 
 #include <unistd.h> // read
 #include <stdlib.h> // malloc, free
-#include <stdio.h> // printf, EOF
+#include <stdio.h> // EOF
 
 char	*get_next_line(int fd)
 {
