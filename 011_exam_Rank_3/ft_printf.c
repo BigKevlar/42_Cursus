@@ -38,7 +38,7 @@ void	put_str(char *str, int *len)
 	{
 		write(1, str, 1);
 		str++;
-		(*len)++;
+		*len += 1;
 	}
 }
 
@@ -51,12 +51,12 @@ void	put_num(long long int num, int base, int *len)
 	{
 		num *= -1;
 		write(1, "-", 1);
-		(*len)++;
+		*len += 1;
 	}
 	if (num >= base)
 		put_num((num / base), base, len);
 	write(1, &hex[num % base], 1);
-	(*len)++;
+	*len += 1;
 }
 
 int	ft_printf(const char *format, ...)
