@@ -40,17 +40,17 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	line = (char *)malloc((BUFFER_SIZE + 1));
+	line = (char *)malloc(10000000);
 	if (!line)
 		return (NULL);
 	pos = 0;
 	bytes = read(fd, &chr, 1);
 	while (bytes > 0)
 	{
-		if (chr == '\n' || chr == EOF)
-			break ;
 		line[pos] = chr;
 		pos++;
+		if (chr == '\n' || chr == EOF)
+			break ;
 		bytes = read(fd, &chr, 1);
 	}
 	line[pos] = '\0';
