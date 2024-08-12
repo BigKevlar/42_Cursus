@@ -130,7 +130,7 @@ void Account::displayAccountsInfos()
 */
 void	Account::makeDeposit(int deposit)
 {
-    this->_nbDeposits += 1;
+    this->_nbDeposits += 1; // ESTE VALOR MUERE EN LA FUNCION!!!
     _displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
     std::cout << "p_amount:" << this->checkAmount() << ";";
