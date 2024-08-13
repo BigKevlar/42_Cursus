@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/13 19:21:22 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/13 19:21:23 by jmartos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream> // Entrada/salida estandar, contiene el namespace "std".
 
 int main(int ac, char **av)
@@ -18,6 +30,7 @@ int main(int ac, char **av)
             std::cout << str;
             i++;
         }
+        std::cout << std::endl;
     }
     else
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;

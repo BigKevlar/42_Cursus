@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/13 19:22:20 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/13 19:22:21 by jmartos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
     Resultado de la compilacion de "tests.cpp":
 
@@ -86,11 +98,6 @@ int Account::checkAmount() const
 }
 
 /*
-bool	makeWithdrawal( int withdrawal );
-Account( void );
-*/
-
-/*
     [19920104_091532]
 */
 void Account::_displayTimestamp()
@@ -108,9 +115,9 @@ void Account::displayStatus() const
 {
     _displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
-    std::cout << "amount:" << this->checkAmount() << ";";
+    std::cout << "amount:" << this->_amount << ";";
     std::cout << "deposits:" << this->_nbDeposits << ";";
-    std::cout << "withdrawals:" << this->_nbWithdrawals << ";" << std::endl;
+    std::cout << "withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
 /*
@@ -120,9 +127,9 @@ void Account::displayAccountsInfos()
 {
     _displayTimestamp();
     std::cout << "accounts:" << getNbAccounts() << ";";
-    std::cout << "total:" << getTotalAmount() << ";"; // AQUI HAY UN FALLO!
-    std::cout << "deposits;" << getNbDeposits() << ";";
-    std::cout << "withdrawals:" << getNbWithdrawals() << ";" << std::endl;
+    std::cout << "total:" << getTotalAmount() << ";";
+    std::cout << "deposits;" << getNbDeposits() << ";"; // NO SE SUMA???
+    std::cout << "withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
 /*
@@ -130,14 +137,16 @@ void Account::displayAccountsInfos()
 */
 void	Account::makeDeposit(int deposit)
 {
-    this->_nbDeposits += 1; // ESTE VALOR MUERE EN LA FUNCION!!!
+    this->_nbDeposits += 1; // ESTO NO SE ESTA SUMANDO CON CADA ITERACION!!!
     _displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
     std::cout << "p_amount:" << this->checkAmount() << ";";
     std::cout << "deposit:" << deposit << ";";
-    this->_totalAmount = this->checkAmount() + deposit;
-    std::cout << "amount:" << this->_totalAmount << ";";
+    this->_amount += deposit;
+    std::cout << "amount:" << this->_amount << ";";
     std::cout << "nb_deposits:" << this->_nbDeposits << std::endl;
+    this->_totalAmount += deposit;
+    this->_totalNbDeposits += this->_nbDeposits;
 }
 
 /*
@@ -145,7 +154,6 @@ void	Account::makeDeposit(int deposit)
 */
 bool	Account::makeWithdrawal(int withdrawal)
 {
-    this->_nbWithdrawals += 1;
     _displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
     std::cout << "p_amount:" << this->checkAmount() << ";";
@@ -154,9 +162,12 @@ bool	Account::makeWithdrawal(int withdrawal)
         std::cout << "withdrawal:refused" << std::endl;    
         return (false);
     }
+    this->_nbWithdrawals += 1;
     std::cout << "withdrawal:" << withdrawal << ";";
-    this->_totalAmount = this->checkAmount() - withdrawal;
+    this->_amount = this->checkAmount() - withdrawal;
     std::cout << "amount:" << this->_totalAmount << ";";
     std::cout << "nb_withdrawal:" << this->_nbWithdrawals << std::endl;
+    this->_totalAmount -= withdrawal;
+    this->_totalNbWithdrawals += _nbWithdrawals;
     return (true);
 }
