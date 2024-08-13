@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:21:58 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/13 19:21:59 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/13 19:30:58 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(int ac, char **av)
             Phonebook.search();
         else if (str == "EXIT")
         {
-            std::cout << "Godbye!" << std::endl;
+            std::cout << "Goodbye!" << std::endl;
             return (0);
         }
         else

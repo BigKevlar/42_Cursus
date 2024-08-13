@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:22:10 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/13 19:22:11 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/13 19:31:22 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void Phonebook::add()
     str = "";
     while (str == "" && (!std::cin.eof()))
     {
-        std::cout << "Enter the ejem ejem: ";
+        std::cout << "Enter the darkest secret: ";
         if (std::getline(std::cin, str) && str != "")
             this->_contact[this->_index].set_darkest_secret(str);
         else
