@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:10:10 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/14 20:49:21 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/14 20:28:10 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class Zombie
         void announce();
 };
 
-Zombie  *newZombie(std::string name);
-void    randomChump(std::string name);
+Zombie  *zombieHorde( int N, std::string name );
 
 #endif
