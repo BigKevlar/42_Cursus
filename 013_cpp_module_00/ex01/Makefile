@@ -8,7 +8,7 @@ $(NAME): $(OBJS)
 	$(CPP98) $(OBJS) -o $(NAME)
 	
 clean:
-	rm -f $(OBJS) $(NAME)
+	rm -f $(OBJS)
 	
 fclean: clean
 	rm -f $(NAME)

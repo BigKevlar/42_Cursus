@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 19:22:12 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/14 16:21:04 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/14 16:10:10 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/14 16:22:23 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
-# include "Contact.hpp"
+#include <iostream>
 
-class Phonebook
+class Zombie
 {
-    /* ATRIBUTOS */
     private:
-        Contact _contact[8];
-        int     _index;
-    /* METODOS */
+    
+        static std::string _name;
+    
     public:
-        /* CONSTRUCTOR ESTANDAR */ 
-        Phonebook();
-        /* DESTRUCTOR ESTANDAR */
-        ~Phonebook();
-        /* FUNCIONES DE ACCION DEL PHONEBOOK */
-        void    add();
-        void    search();
-        /* OTRAS */
-        void    show_phonebook();
-};
+    
+        Zombie();
+        ~Zombie();
 
+        void announce();  
+};
 #endif

@@ -1,5 +1,5 @@
-NAME = the_job_of_your_dreams
-SRCS = tests.cpp Account.cpp
+NAME = braiiiiiiinnnzzzz
+SRCS = 
 OBJS = $(SRCS:.cpp=.o)
 CPP98 = c++ -Wall -Wextra -Werror -std=c++98
 
@@ -8,7 +8,7 @@ $(NAME): $(OBJS)
 	$(CPP98) $(OBJS) -o $(NAME)
 	
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(NAME)
 	
 fclean: clean
 	rm -f $(NAME)
