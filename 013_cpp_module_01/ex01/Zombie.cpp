@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 17:52:07 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/14 20:50:31 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/15 13:52:07 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 /*
     Constructor...
 */
-Zombie::Zombie(std::string name)
+Zombie::Zombie()
 {
-    this->_name = name;
-    std::cout << "Zombie " << this->_name << " appeared!" << std::endl;
+    std::cout << "Zombie appeared!" << std::endl;
 }
 
 /*
@@ -26,13 +25,18 @@ Zombie::Zombie(std::string name)
 */
 Zombie::~Zombie()
 {
-    std::cout << "Zombie " << this->_name << " died... again." << std::endl;
+    std::cout << "Zombie died... again." << std::endl;
 }
 
 /*
-    Aviso de creacion de un nuevo zombie, ya sea random o para qudarse.
+    Aviso de creacion de un nuevo zombie en la orda.
 */
 void    Zombie::announce()
 {
     std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void    Zombie::setName(std::string name)
+{
+    this->_name = name;
 }

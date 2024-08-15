@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:22:03 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/13 19:22:04 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:46:57 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,45 +19,55 @@ Contact::Contact(){}
 Contact::~Contact(){}
 
 /* Getters. Recordemos que lo usaremos para tomar el valor que hay en nuestra clase en sus atributos privados. */
-std::string Contact::get_first_name(){
+std::string Contact::get_first_name()
+{
     return (this->_first_name);
 }
 
-std::string Contact::get_last_name(){
+std::string Contact::get_last_name()
+{
     return (this->_last_name);
 }
 
-std::string Contact::get_nick_name(){
+std::string Contact::get_nick_name()
+{
     return (this->_nick_name);
 }
 
-std::string Contact::get_phone_number(){
+std::string Contact::get_phone_number()
+{
     return (this->_phone_number);
 }
 
-std::string Contact::get_darkest_secret(){
+std::string Contact::get_darkest_secret()
+{
     return (this->_darkest_secret);
 }
 
 /* Setters. Recodar que los usaremos para sobreescribir el valor de nuestros atributos privados */
 
-void    Contact::set_first_name(std::string str){
+void    Contact::set_first_name(std::string str)
+{
     this->_first_name = str;
 }
 
-void    Contact::set_last_name(std::string str){
+void    Contact::set_last_name(std::string str)
+{
     this->_last_name = str;
 }
 
-void    Contact::set_nick_name(std::string str){
+void    Contact::set_nick_name(std::string str)
+{
     this->_nick_name = str;
 }
 
-void    Contact::set_phone_number(std::string str){
+void    Contact::set_phone_number(std::string str)
+{
     this->_phone_number = str;
 }
 
-void    Contact::set_darkest_secret(std::string str){
+void    Contact::set_darkest_secret(std::string str)
+{
     this->_darkest_secret = str;
 }
 

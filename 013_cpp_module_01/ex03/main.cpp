@@ -5,25 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 18:55:45 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/15 16:19:09 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/15 16:18:41 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/15 16:26:44 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
-    Zombie  *Charmander = newZombie("Charmander");;
-    Zombie  *Squirtel = newZombie("Squirtel");
-    Zombie  *Bulbasur = newZombie("Bulbasur");
-    
-    Charmander->announce();
-    Squirtel->announce();
-    Bulbasur->announce();
-    randomChump("Pikachu");
-    delete(Charmander);
-    delete(Squirtel);
-    delete(Bulbasur);
-    return (0);
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	/*
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	*/
 }

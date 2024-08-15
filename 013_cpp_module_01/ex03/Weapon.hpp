@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 18:55:45 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/15 16:19:09 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/15 14:50:19 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/15 16:27:52 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-int main()
+#include <iostream>
+
+class Weapon
 {
-    Zombie  *Charmander = newZombie("Charmander");;
-    Zombie  *Squirtel = newZombie("Squirtel");
-    Zombie  *Bulbasur = newZombie("Bulbasur");
-    
-    Charmander->announce();
-    Squirtel->announce();
-    Bulbasur->announce();
-    randomChump("Pikachu");
-    delete(Charmander);
-    delete(Squirtel);
-    delete(Bulbasur);
-    return (0);
-}
+    private:
+        std::string _type;
+    public:
+        Weapon(std::string _type);
+        ~Weapon();
+        std::string getType();
+        void        setType(std::string type);
+};
+
+#endif

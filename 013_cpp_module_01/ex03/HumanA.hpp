@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 18:55:45 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/15 16:19:09 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/15 15:31:13 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/15 16:29:52 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-int main()
+#include "Weapon.hpp"
+
+class HumanA
 {
-    Zombie  *Charmander = newZombie("Charmander");;
-    Zombie  *Squirtel = newZombie("Squirtel");
-    Zombie  *Bulbasur = newZombie("Bulbasur");
-    
-    Charmander->announce();
-    Squirtel->announce();
-    Bulbasur->announce();
-    randomChump("Pikachu");
-    delete(Charmander);
-    delete(Squirtel);
-    delete(Bulbasur);
-    return (0);
-}
+    private:
+        std::string _name;
+        Weapon      *_weapon;
+    public:
+        HumanA(std::string _name, Weapon &weapon);
+        ~HumanA();
+        std::string getName();
+        void        setName(std::string name);
+        void        setWeapon(std::string weapon);
+        void        attack();
+};
+
+#endif

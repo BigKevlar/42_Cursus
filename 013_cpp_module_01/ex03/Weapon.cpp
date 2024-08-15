@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 18:55:45 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/15 16:19:09 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/15 14:56:19 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/15 16:28:04 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int main()
+Weapon::Weapon(std::string _type)
 {
-    Zombie  *Charmander = newZombie("Charmander");;
-    Zombie  *Squirtel = newZombie("Squirtel");
-    Zombie  *Bulbasur = newZombie("Bulbasur");
-    
-    Charmander->announce();
-    Squirtel->announce();
-    Bulbasur->announce();
-    randomChump("Pikachu");
-    delete(Charmander);
-    delete(Squirtel);
-    delete(Bulbasur);
-    return (0);
+    std::cout << "Weapon type " << this->_type << " created!" << std::endl;
+};
+
+Weapon::~Weapon()
+{
+    std::cout << "Weapon type " << this->_type << " destroyed!" << std::endl;
+};
+
+std::string    Weapon::getType()
+{
+    return (this->_type);
+}
+
+void    Weapon::setType(std::string type)
+{
+    this->_type = type;
 }

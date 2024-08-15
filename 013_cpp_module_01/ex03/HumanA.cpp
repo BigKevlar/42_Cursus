@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 18:55:45 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/15 16:19:09 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/15 15:52:13 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/15 16:28:32 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-int main()
+HumanA::HumanA(std::string _name)
 {
-    Zombie  *Charmander = newZombie("Charmander");;
-    Zombie  *Squirtel = newZombie("Squirtel");
-    Zombie  *Bulbasur = newZombie("Bulbasur");
-    
-    Charmander->announce();
-    Squirtel->announce();
-    Bulbasur->announce();
-    randomChump("Pikachu");
-    delete(Charmander);
-    delete(Squirtel);
-    delete(Bulbasur);
-    return (0);
+    std::cout << "HumanA " << this->_name << " appeared!" << std::endl;
+};
+
+HumanA::~HumanA()
+{
+    std::cout << "HumanA " << this->_name << " disappeared!" << std::endl;
+};
+
+std::string    HumanA::getName()
+{
+    return (this->_name);
+}
+
+void    HumanA::setName(std::string name)
+{
+    this->_name = name;
 }

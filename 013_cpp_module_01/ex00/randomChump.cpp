@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 20:25:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/14 20:26:31 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/15 13:19:34 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 */
 void    randomChump(std::string name)
 {
-    Zombie  *random_zombie;
+    Zombie  *randomZombie;
     
-    random_zombie = newZombie(name);
-    random_zombie->announce();
-    delete (random_zombie);
+    randomZombie = newZombie(name);
+    randomZombie->announce();
+    delete (randomZombie);
 }
