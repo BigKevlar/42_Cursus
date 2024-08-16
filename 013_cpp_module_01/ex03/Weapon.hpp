@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:50:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/15 16:27:52 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/16 21:05:24 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class Weapon
     public:
         Weapon(std::string _type);
         ~Weapon();
-        std::string getType();
-        void        setType(std::string type);
+        const std::string   &getType();
+        void                setType(std::string type);
 };
 
 #endif

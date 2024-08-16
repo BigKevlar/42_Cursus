@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:56:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/15 16:28:04 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/16 21:23:02 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Weapon::~Weapon()
     std::cout << "Weapon type " << this->_type << " destroyed!" << std::endl;
 };
 
-std::string    Weapon::getType()
+const std::string    &Weapon::getType()
 {
     return (this->_type);
 }
