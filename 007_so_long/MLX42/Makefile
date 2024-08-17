@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
+#                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
-#                                                      +:+                     #
-#    By: W2Wizard <w2.wizzard@gmail.com>              +#+                      #
-#                                                    +#+                       #
-#    Created: 2022/02/26 21:32:49 by W2Wizard      #+#    #+#                  #
-#    Updated: 2022/12/11 12:05:17 by juan-aga         ###   ########.fr        #
+#                                                     +:+ +:+         +:+      #
+#    By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/02/26 21:32:49 by W2Wizard          #+#    #+#              #
+#    Updated: 2024/08/17 20:25:26 by jmartos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ ifdef DEBUG
 	CFLAGS += -g
 else
 	CFLAGS	+= -Ofast -D NDEBUG
+	CFLAGS	+= -fPIE
 endif
 
 # Recursive wildcard/find function, the subst is to guarantee unix file paths
