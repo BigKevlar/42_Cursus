@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:50:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/16 21:05:24 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/19 00:18:33 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 #define WEAPON_HPP
 
 #include <iostream>
+#include <string>
 
 class Weapon
 {
     private:
         std::string _type;
     public:
-        Weapon(std::string _type);
+        Weapon(std::string type);
         ~Weapon();
-        const std::string   &getType();
-        void                setType(std::string type);
+        const std::string       &getType();
+        void                    setType(std::string type);
 };
 
 #endif
