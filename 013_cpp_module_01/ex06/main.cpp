@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 16:10:10 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/22 19:31:43 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/22 20:15:03 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/22 20:46:10 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Harl.hpp"
 
-#include <iostream>
-
-class Zombie
+int	main(int ac, char **av)
 {
-	private:
-		std::string	_name;
+	Harl	Harl;
 	
-	public:
-		Zombie(std::string name);
-		~Zombie();
-		void	announce();
-};
-
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-
-#endif
+    if (ac == 2)
+		Harl.filter(av[1]);
+    else
+    {
+        std::cout << "Error! Arguments incorrect." << std::endl;
+		return (0);
+    }
+}

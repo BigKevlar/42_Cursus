@@ -1,7 +1,7 @@
-NAME = hi_this_is_brain
+NAME =	hi_this_is_brain
 SRCS =	main.cpp
-OBJS = $(SRCS:.cpp=.o)
-CPP98 = c++ -Wall -Wextra -Werror -std=c++98
+OBJS =	$(SRCS:.cpp=.o)
+CPP98 =	c++ -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 $(NAME): $(OBJS)

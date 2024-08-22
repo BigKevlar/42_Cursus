@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 23:46:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/19 00:33:18 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/22 19:32:08 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 #include "Weapon.hpp"
 
 /*
-    A ESTA CLASE LE VAMOS A PASAR EL ARMA POR PUNTERO MEDIANTE EL USO DE
-    UN SETTER, Y NO EN EL CONSTRUCTOR.
+	A ESTA CLASE LE VAMOS A PASAR EL ARMA POR PUNTERO MEDIANTE EL USO DE
+	UN SETTER, Y NO EN EL CONSTRUCTOR.
 */
 class HumanB
 {
-    private:
-        std::string _name;
-        Weapon      *_weapon_type;
-    public:
-        HumanB(std::string name);
-        ~HumanB();
-        void        setWeapon(Weapon &weapon_type);
-        void        attack();
+	private:
+		std::string	_name;
+		Weapon		*_weapon_type;
+	public:
+		HumanB(std::string name);
+		~HumanB();
+		void	setWeapon(Weapon &weapon_type);
+		void	attack();
 };
 
 #endif

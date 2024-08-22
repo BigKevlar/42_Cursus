@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 15:31:13 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/19 00:32:55 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/22 19:32:11 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 #include "Weapon.hpp"
 
 /*
-    A ESTA CLASE LE VAMOS A PASAR EL ARMA POR REFERENCIA Y EN EL CONSTRUCTOR,
-    SIN NINGUN TIPO DE SETTER.
+	A ESTA CLASE LE VAMOS A PASAR EL ARMA POR REFERENCIA Y EN EL CONSTRUCTOR,
+	SIN NINGUN TIPO DE SETTER.
 */
 class HumanA
 {
-    private:
-        std::string _name;
-        Weapon      &_weapon_type;
-    public:
-        HumanA(std::string name, Weapon &weapon_type);
-        ~HumanA();
-        void        attack();
+	private:
+		std::string	_name;
+		Weapon		&_weapon_type;
+	public:
+		HumanA(std::string name, Weapon &weapon_type);
+		~HumanA();
+		void	attack();
 };
 
 #endif

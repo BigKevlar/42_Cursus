@@ -1,8 +1,5 @@
-NAME =	braiiiiiiinnnzzzz
-SRCS =	main.cpp \
-		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp
+NAME =	sed_is_for_losers
+SRCS =	main.cpp
 OBJS =	$(SRCS:.cpp=.o)
 CPP98 =	c++ -Wall -Wextra -Werror -std=c++98
 
