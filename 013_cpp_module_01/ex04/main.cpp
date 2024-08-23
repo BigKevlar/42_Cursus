@@ -6,17 +6,17 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:13:53 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/22 22:22:08 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:18:08 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream> // Para los open y demas por el estilo.
 
-void	replace(std::ifstream &read, std::ofstream &write, std::string src, std::string dst)
+void replace(std::ifstream &read, std::ofstream &write, std::string src, std::string dst)
 {
-	std::string	line;
-	int			i;
+	std::string line;
+	int i;
 
 	while (std::getline(read, line))
 	{
@@ -31,7 +31,7 @@ void	replace(std::ifstream &read, std::ofstream &write, std::string src, std::st
 	}
 }
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
 	if (ac != 4)
 	{
@@ -42,9 +42,17 @@ int	main(int ac, char **av)
 	std::ofstream	outfile; // Archivo al que escribiremos.
 
 	infile.open(av[1]);
-	outfile.open(std::string(av[1]) + ".replace");
-	if (!infile || !infile.is_open() || !outfile.is_open() || std::string(av[2]).empty())
+	if (!infile || !infile.is_open() || std::string(av[2]).empty())
 	{
+		if (infile.is_open())
+			infile.close();
+		std::cout << "Error! Fail searching file or directory." << std::endl;
+		exit(1);
+	}
+	outfile.open(std::string(av[1]) + ".replace");
+	if (!outfile.is_open())
+	{
+		infile.close();
 		std::cout << "Error! Fail searching file or directory." << std::endl;
 		exit(1);
 	}
