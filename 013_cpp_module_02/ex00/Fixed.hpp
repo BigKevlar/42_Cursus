@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 17:49:23 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/24 18:55:11 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/25 19:54:16 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class Fixed
 {
 	private:
 		int					_fixed_point_number;
-		const static int	_bits;
+		static const int	_bits;
 	public:
 		Fixed(); // OBLIGATORIO!
 		Fixed(const Fixed &copy); // OBLIGATORIO!
