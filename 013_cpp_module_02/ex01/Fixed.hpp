@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 17:49:23 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/24 19:51:39 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:56:28 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,3 @@ class Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 };
-
-kesesrdsfbgr
