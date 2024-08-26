@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 18:25:07 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/26 16:40:10 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:23:23 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ std::ostream	&operator<<(std::ostream &output_stream, const Fixed &_fixed_point_
 	return (output_stream);
 }
 
-/* Sobrecarga de los operadores de comparacion. */
+/* Sobrecarga de los operadores de comparacion, conviertiendo previamente ambos valores a float. */
 bool	Fixed::operator>(const Fixed &copy) const
 {
 	return (this->toFloat() > copy.toFloat());
