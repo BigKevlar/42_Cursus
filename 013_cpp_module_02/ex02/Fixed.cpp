@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 18:25:07 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/26 18:23:23 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:24:05 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ bool	Fixed::operator!=(const Fixed &copy) const
 	return (this->toFloat() != copy.toFloat());
 }
 
-/* Sobrecarga de los operadores aritmeticos. */
+/* Sobrecarga de los operadores aritmeticos, conviertiendo previamente ambos valores a float. */
 Fixed	Fixed::operator+(Fixed const &copy)
 {
 	Fixed	result(this->toFloat() + copy.toFloat());
