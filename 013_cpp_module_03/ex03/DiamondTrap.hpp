@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 15:45:17 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/27 17:00:26 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:56:40 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class DiamondTrap: public ScavTrap, public FragTrap
 {
 	private:
 		std::string	_name; // Nombre del DiamondTrap.
+
+		using ScavTrap::_hit_points;
 	public:
 		/* Constructores y destructor. */
 		DiamondTrap();

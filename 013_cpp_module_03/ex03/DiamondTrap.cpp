@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:42:02 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/27 18:19:59 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:58:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,16 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &copy)
 	return (*this);
 }
 
-/**/
+/* Funcion de ataque. */
 void	DiamondTrap::attack(const std::string &target_)
 {
 	ScavTrap::attack(target_);
-	std::cout << "- _hit_points: " << DiamondTrap::_hit_points << std::endl;
-	std::cout << "- _energy_points: " << DiamondTrap::_energy_points << std::endl;
-	std::cout << "- _attack_damage: " << DiamondTrap::_attack_damage << std::endl;
+	std::cout << "- _hit_points: " << _hit_points << std::endl;
+	std::cout << "- _energy_points: " << _energy_points << std::endl;
+	std::cout << "- _attack_damage: " << _attack_damage << std::endl;
 }
 
-/**/
+/* Funcion para mostrar los nombres. */
 void	DiamondTrap::whoAmI(void)
 {
 	std::cout << "I'm " << _name << ", but my friends call me " << ClapTrap::_name << std::endl;

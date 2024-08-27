@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:00:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/27 18:16:52 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:49:41 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ FragTrap::FragTrap()
 {
 	std::cout << "[ (FT) default constructor called. FragTrap appeared! ]" << std::endl;
 	_name = "FragTrap";
-	_hit_points = 100;
+	_hit_points = 300;
 	_energy_points = 100;
 	_attack_damage = 30;
 }
@@ -27,7 +27,7 @@ FragTrap::FragTrap(std::string name_)
 {
 	std::cout << "[ (FT) constructor called. " << _name << " appeared! ]" << std::endl;
 	_name = name_;
-	_hit_points = 100;
+	_hit_points = 300;
 	_energy_points = 100;
 	_attack_damage = 30;
 }

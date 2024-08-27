@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 18:25:07 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/26 18:24:05 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:38:35 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,44 +92,44 @@ std::ostream	&operator<<(std::ostream &output_stream, const Fixed &_fixed_point_
 /* Sobrecarga de los operadores de comparacion, conviertiendo previamente ambos valores a float. */
 bool	Fixed::operator>(const Fixed &copy) const
 {
-	return (this->toFloat() > copy.toFloat());
+	return (this->getRawBits() > copy.getRawBits());
 }
 
 bool	Fixed::operator<(const Fixed &copy) const
 {
-	return (this->toFloat() < copy.toFloat());
+	return (this->getRawBits() < copy.getRawBits());
 }
 
 bool	Fixed::operator>=(const Fixed &copy) const
 {
-	return (this->toFloat() >= copy.toFloat());
+	return (this->getRawBits() >= copy.getRawBits());
 }
 
 bool	Fixed::operator<=(const Fixed &copy) const
 {
-	return (this->toFloat() <= copy.toFloat());
+	return (this->getRawBits() <= copy.getRawBits());
 }
 
 bool	Fixed::operator==(const Fixed &copy) const
 {
-	return (this->toFloat() == copy.toFloat());
+	return (this->getRawBits() == copy.getRawBits());
 }
 
 bool	Fixed::operator!=(const Fixed &copy) const
 {
-	return (this->toFloat() != copy.toFloat());
+	return (this->getRawBits() != copy.getRawBits());
 }
 
 /* Sobrecarga de los operadores aritmeticos, conviertiendo previamente ambos valores a float. */
 Fixed	Fixed::operator+(Fixed const &copy)
 {
-	Fixed	result(this->toFloat() + copy.toFloat());
+	Fixed	result(this->getRawBits() + copy.getRawBits());
 	return (result);
 }
 
 Fixed	Fixed::operator-(Fixed const &copy)
 {
-	Fixed	result(this->toFloat() - copy.toFloat());
+	Fixed	result(this->getRawBits() - copy.getRawBits());
 	return (result);
 }
 
