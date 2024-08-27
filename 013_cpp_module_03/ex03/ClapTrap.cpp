@@ -6,36 +6,35 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 18:38:55 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/27 18:12:17 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:18:22 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 /* Constructor por defecto: crea un nuevo ClapTrap por defecto e inicializa sus valores. */
-ClapTrap::ClapTrap(): _name("DefaultTrap"), _hit_points(10), _energy_points(10), _attack_damage(10)
+ClapTrap::ClapTrap(): _name("ClapTrap"), _hit_points(10), _energy_points(10), _attack_damage(10)
 {
-	std::cout << "[ (CT) Default constructor called. DefaultTrap appeared! ]" << std::endl;
-	
+	std::cout << "[ (CT) default constructor called. ClapTrap appeared! ]" << std::endl;
 }
 
 /* Constructor para nuevos ClapTrap: crea un nuevo ClapTrap con un nombre personal e inicializa sus valores. */
 ClapTrap::ClapTrap(std::string name_): _name(name_), _hit_points(10), _energy_points(10), _attack_damage(10)
 {
-	std::cout << "[ (CT) Constructor called. " << _name << " appeared! ]" << std::endl;
+	std::cout << "[ (CT) constructor called. " << _name << " appeared! ]" << std::endl;
 }
 
 /* Constructor de copia: crea una clase objeto "cpy" y lo copia a este mismo. */
 ClapTrap::ClapTrap(const ClapTrap &copy_)
 {
-	std::cout << "[ (CT) Copy constructor called. ]" << std::endl;
+	std::cout << "[ (CT) copy constructor called. ]" << std::endl;
 	*this = copy_;
 }
 
 /* Destructor por defecto. */
 ClapTrap::~ClapTrap()
 {
-	std::cout << "[ (CT) Destructor called. ]" << std::endl;
+	std::cout << "[ (CT) destructor called. ]" << std::endl;
 }
 
 /* Sobrecarga del operador de asignacion de copia. */
@@ -68,7 +67,7 @@ void	ClapTrap::attack(const std::string &target_)
 	std::cout << _name << " (CT) attacks " << target_ << ", causing " << _attack_damage << " of damage!" << std::endl;
 }
 
-/* Funcion de recibir daño. */
+/* Funcion de ataque. */
 void	ClapTrap::takeDamage(unsigned int amount_)
 {
 	_hit_points -= amount_;
@@ -77,7 +76,7 @@ void	ClapTrap::takeDamage(unsigned int amount_)
 	std::cout << _name << " (CT) takes " << amount_ << " points of damage!" << std::endl;
 }
 
-/* Funcion de recuperar vida. */
+/* Funcion de ataque. */
 void	ClapTrap::beRepaired(unsigned int amount_)
 {
 	_energy_points -= 1;

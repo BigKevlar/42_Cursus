@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 19:29:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/27 18:05:33 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/27 13:57:45 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/27 14:35:21 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
+#include <iostream>
 #include "ClapTrap.hpp"
 
-int main(void)
+class ScavTrap: public ClapTrap
 {
-	ClapTrap	PJ("Soldier");
-
-	PJ.attack("zombie");
-	PJ.takeDamage(8);
-	PJ.beRepaired(30);
-	PJ.attack("zombie");
-	
-	return (0);
-}
+	private:
+	public:
+		/* Constructores y destructor. */
+		ScavTrap();
+		ScavTrap(std::string name_);
+		ScavTrap(const ScavTrap &copy);
+		~ScavTrap();
+		/* Operador de copia. */
+		ScavTrap &operator=(const ScavTrap &copy);
+		/* Funciones de clase. */
+		void	attack(const std::string &target);
+		void	guardGate();
+};
