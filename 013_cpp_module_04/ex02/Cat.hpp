@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/29 13:09:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 16:31:00 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/29 13:34:31 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/31 17:19:41 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Animal
+class Cat: public AAnimal
 {
-	protected:
-		std::string	_type;
+	private:
+		Brain *_brain;
 	public:
-		Animal();
-		Animal(const Animal &copy_);
-		virtual	~Animal();
-		Animal &operator=(const Animal &copy_);
-		std::string const	&getType(void) const;
-		virtual void 		makeSound(void) const;
+		Cat();
+		Cat(const Cat &copy_);
+		~Cat();
+		Cat &operator=(const AAnimal &copy_);
+		Cat &operator=(const Cat &copy_);
+		void	makeSound(void) const;
+		Brain	&getBrain(void) const;
 };

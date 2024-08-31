@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:13:41 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 14:09:49 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:51:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "AAnimal.hpp"
 
-Brain::Brain()
+AAnimal::AAnimal(): _type("AAnimal")
 {
-	std::cout << "[ (B) Default constructor called. Brain with 100 ideas created! ]" << std::endl;
+	std::cout << "[ (AA) Default constructor called. AAnimal appeared! ]" << std::endl;
 }
 
-Brain::Brain(const Brain &copy_)
+AAnimal::AAnimal(const AAnimal &copy_)
 {
-	std::cout << "[ (B) Copy constructor called. ]" << std::endl;
-	for (int i = 0; i < 100; i++)
-		ideas_[i] = copy_.ideas_[i];
+	std::cout << "[ (AA) Copy constructor called. ]" << std::endl;
 	*this = copy_;
 }
 
-Brain::~Brain()
+AAnimal::~AAnimal()
 {
-	std::cout << "[ (B) Destructor called. ]" << std::endl;
+	std::cout << "[ (AA) Destructor called. ]" << std::endl;
 }
 
-Brain &Brain::operator=(const Brain &copy_)
+AAnimal &AAnimal::operator=(const AAnimal &copy_)
 {
 	if (this != &copy_)
 	{
-		std::cout << "[ (B) Coping... ]" << std::endl;
-		for (int i = 0; i < 100; i++)
-			ideas_[i] = copy_.ideas_[i];
-		return (*this);
+		std::cout << "[ (AA) Coping... ]" << std::endl;
+		_type = copy_._type;
 	}
 	else
 	{
-		std::cout << "[ (B) They are the same. Copy abort! ]" << std::endl;
-		return (*this);
+		std::cout << "[ (AA) They are the same. Copy abort! ]" << std::endl;
 	}
+	return (*this);
+}
+
+std::string const	&AAnimal::getType(void) const
+{
+	return (this->_type);
 }

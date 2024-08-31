@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:09:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/29 18:11:38 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:31:05 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,14 @@
 class WrongAnimal
 {
 	protected:
-		/* Atributos privados. */
 		std::string	_type;
 	public:
-		/* Constructores y destructor. */
 		WrongAnimal();
-		WrongAnimal(std::string type_);
 		WrongAnimal(const WrongAnimal &copy_);
 		virtual	~WrongAnimal();
-		/* Operador de copia. */
 		WrongAnimal &operator=(const WrongAnimal &copy_);
-		/* Funciones de clase. */
 		virtual std::string const	&getType(void) const;
-		void 				makeSound(void) const;	// Hemos quitado el virtual, para que lo coja del padre.
-													// Asi vemos que al ponerlo como virtual o no
+		void 						makeSound(void) const;	// Hemos quitado el virtual, para que lo coja del padre.
+															// Asi vemos que al ponerlo como virtual o no toma
+															// el suyo y no el del padre.
 };

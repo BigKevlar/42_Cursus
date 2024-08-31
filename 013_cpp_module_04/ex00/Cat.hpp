@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:34:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/29 18:44:16 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 14:56:54 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,13 @@
 
 #include "Animal.hpp"
 
-class Cat: virtual public Animal
+class Cat: public Animal
 {
+	/* El privado lo hereda de Animal. */
 	public:
-		/* Constructores y destructor. */
 		Cat();
-		Cat(std::string type_);
 		Cat(const Cat &copy_);
 		~Cat();
-		/* Operador de copia. */
-		Cat &operator=(const Cat &copy_);
-		/* Funciones de clase. */
-		void 	makeSound(void) const;
+		const Cat	&operator=(const Cat &copy_);
+		void		makeSound(void) const;
 };

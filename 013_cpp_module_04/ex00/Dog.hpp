@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:34:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/29 18:44:19 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 14:57:04 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,13 @@
 
 #include "Animal.hpp"
 
-class Dog: virtual public Animal
+class Dog: public Animal
 {
+	/* El privado lo hereda de Animal. */
 	public:
-		/* Constructores y destructor. */
 		Dog();
-		Dog(std::string type_);
 		Dog(const Dog &copy_);
 		~Dog();
-		/* Operador de copia. */
-		Dog &operator=(const Dog &copy_);
-		/* Funciones de clase. */
-		void 	makeSound(void) const;
+		const	Dog &operator=(const Dog &copy_);
+		void	makeSound(void) const;
 };

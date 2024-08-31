@@ -6,20 +6,20 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:34:34 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 17:10:57 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 17:23:51 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(): Animal()
+Cat::Cat(): AAnimal()
 {
 	std::cout << "[ (C) Default constructor called. Cat appeared! ]" << std::endl;
 	_type = "Cat";
 	_brain = new Brain();
 }
 
-Cat::Cat(const Cat &copy_): Animal(copy_)
+Cat::Cat(const Cat &copy_): AAnimal(copy_)
 {
 	std::cout << "[ (C) Copy constructor called. ]" << std::endl;
 	_type = copy_._type;
@@ -32,19 +32,34 @@ Cat::~Cat()
 	delete (_brain);
 }
 
+Cat &Cat::operator=(const AAnimal &copy_)
+{
+	if (this != &copy_)
+	{
+		std::cout << "[ (C) Coping... ]" << std::endl;
+		_type = copy_.getType();
+		*_brain = copy_.getBrain(); 
+	}
+	else
+	{
+		std::cout << "[ (C) They are the same. Copy abort! ]" << std::endl;
+	}
+	return (*this);
+}
+
 Cat &Cat::operator=(const Cat &copy_)
 {
 	if (this != &copy_)
 	{
 		std::cout << "[ (C) Coping... ]" << std::endl;
 		_type = copy_._type;
-		return (*this);
+		*_brain = copy_.getBrain();
 	}
 	else
 	{
 		std::cout << "[ (C) They are the same. Copy abort! ]" << std::endl;
-		return (*this);
 	}
+	return (*this);
 }
 
 void	Cat::makeSound(void) const

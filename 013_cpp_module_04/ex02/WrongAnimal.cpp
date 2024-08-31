@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:13:41 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 13:58:47 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:52:08 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,25 @@ WrongAnimal::WrongAnimal(const WrongAnimal &copy_)
 	*this = copy_;
 }
 
+/* Destructor por defecto. */
 WrongAnimal::~WrongAnimal()
 {
 	std::cout << "[ (WA) Destructor called. ]" << std::endl;
 }
 
+/* Sobrecarga del operador de asignacion de copia. */
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy_)
 {
 	if (this != &copy_)
 	{
 		std::cout << "[ (WA) Coping... ]" << std::endl;
 		_type = copy_._type;
-		return (*this);
 	}
 	else
 	{
 		std::cout << "[ (WA) They are the same. Copy abort! ]" << std::endl;
-		return (*this);
 	}
+	return (*this);
 }
 
 std::string const	&WrongAnimal::getType(void) const

@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:34:34 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/29 18:27:24 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 13:59:05 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat(): WrongAnimal()
 {
-	std::cout << "[ (WC) Default constructor called. Random_Dog appeared! ]" << std::endl;
+	std::cout << "[ (WC) Default constructor called. Wrong_Cat appeared! ]" << std::endl;
 	_type = "WrongCat";
 }
 
@@ -23,13 +23,11 @@ WrongCat::WrongCat(const WrongCat &copy_): WrongAnimal(copy_)
 	std::cout << "[ (WC) Copy constructor called. ]" << std::endl;
 }
 
-/* Destructor por defecto. */
 WrongCat::~WrongCat()
 {
 	std::cout << "[ (WC) Destructor called. ]" << std::endl;
 }
 
-/* Sobrecarga del operador de asignacion de copia. */
 WrongCat &WrongCat::operator=(const WrongCat &copy_)
 {
 	if (this != &copy_)
@@ -47,5 +45,5 @@ WrongCat &WrongCat::operator=(const WrongCat &copy_)
 
 void	WrongCat::makeSound(void) const
 {
-	std::cout << "[ (WC) The animal " << _type << " says... MIAAAGRAAAUUUU! " << std::endl;
+	std::cout << "[ (WC) " << "... MIAAAGRAAAUUUU! It's a " << _type << ". ]" << std::endl;
 }

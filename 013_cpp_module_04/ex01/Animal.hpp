@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:09:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/29 20:28:58 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:30:56 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,12 @@
 class Animal
 {
 	protected:
-		/* Atributos privados. */
 		std::string	_type;
 	public:
-		/* Constructores y destructor. */
 		Animal();
-		Animal(std::string type_);
 		Animal(const Animal &copy_);
 		virtual	~Animal();
-		/* Operador de copia. */
 		Animal &operator=(const Animal &copy_);
-		/* Funciones de clase. */
 		std::string const	&getType(void) const;
-		virtual void 				makeSound(void) const;
-		virtual Brain &getBrain(void) const = 0;
+		virtual void		makeSound(void) const;
 };

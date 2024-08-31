@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:13:41 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 14:09:49 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:51:30 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,10 @@ Brain &Brain::operator=(const Brain &copy_)
 		std::cout << "[ (B) Coping... ]" << std::endl;
 		for (int i = 0; i < 100; i++)
 			ideas_[i] = copy_.ideas_[i];
-		return (*this);
 	}
 	else
 	{
 		std::cout << "[ (B) They are the same. Copy abort! ]" << std::endl;
-		return (*this);
 	}
+	return (*this);
 }

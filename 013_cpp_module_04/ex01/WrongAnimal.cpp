@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:13:41 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/29 18:27:46 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:46:13 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongAnimal::WrongAnimal(): _type("WrongAnimal")
 {
-	std::cout << "[ (WA) Default constructor called. Random animal appeared! ]" << std::endl;
+	std::cout << "[ (WA) Default constructor called. Wrong_Animal appeared! ]" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy_)

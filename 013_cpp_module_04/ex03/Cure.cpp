@@ -1,50 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/29 13:34:34 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 16:45:12 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/08/31 19:33:35 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/08/31 22:25:11 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Cure.hpp"
 
-Cat::Cat(): Animal()
+Cure::Cure(): AMateria()
 {
-	std::cout << "[ (C) Default constructor called. Cat appeared! ]" << std::endl;
-	_type = "Cat";
+	std::cout << "[ (C) Default constructor called. " << _type << " created! ]" << std::endl;
 }
 
-Cat::Cat(const Cat &copy_): Animal(copy_)
+Cure::Cure(const Cure &copy_): AMateria("cure")
 {
-	std::cout << "[ (C) Copy constructor called. ]" << std::endl;
+	std::cout << "[ (C) Constructor called. ]" << std::endl;
+	*this = copy_;
 }
 
-Cat::~Cat()
+Cure::~Cure()
 {
 	std::cout << "[ (C) Destructor called. ]" << std::endl;
 }
 
-const	Cat &Cat::operator=(const Cat &copy_)
+const Cure &Cure::operator=(const Cure &copy_)
 {
 	if (this != &copy_)
 	{
 		std::cout << "[ (C) Coping... ]" << std::endl;
 		_type = copy_._type;
-		return (*this);
 	}
 	else
 	{
 		std::cout << "[ (C) They are the same. Copy abort! ]" << std::endl;
-		return (*this);
 	}
+	return (*this);
 }
 
-void	Cat::makeSound(void) const
+AMateria	*Cure::clone(void) const
 {
-	Animal::makeSound();
-	std::cout << "[ (D) " << "... MIAAAAUUU! It's a " << _type << ". ]" << std::endl;
+    return (new Cure());
+}
+
+void		Cure::use(ICharacter &target_)
+{
+    std::cout << "* shoots an ice bolt at " << target_.getName() << std::endl;
 }

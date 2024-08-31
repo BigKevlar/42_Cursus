@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:13:41 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/29 18:27:11 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:45:07 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal(): _type("Animal")
 {
-	std::cout << "[ (A) Default constructor called. Random animal appeared! ]" << std::endl;
+	std::cout << "[ (A) Default constructor called. Animal appeared! ]" << std::endl;
 }
 
 Animal::Animal(const Animal &copy_)
@@ -23,13 +23,11 @@ Animal::Animal(const Animal &copy_)
 	*this = copy_;
 }
 
-/* Destructor por defecto. */
 Animal::~Animal()
 {
 	std::cout << "[ (A) Destructor called. ]" << std::endl;
 }
 
-/* Sobrecarga del operador de asignacion de copia. */
 Animal &Animal::operator=(const Animal &copy_)
 {
 	if (this != &copy_)
@@ -52,5 +50,5 @@ std::string const	&Animal::getType(void) const
 
 void	Animal::makeSound(void) const
 {
-	std::cout << "[ (A) ...unrecognized animal noise... " << std::endl;
+	std::cout << "[ (A) Animal says... ]" << std::endl;
 }

@@ -1,5 +1,5 @@
-NAME =	i_dont_want_to_set_the_world_on_fire
-SRCS =	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+NAME =	interface_recap
+SRCS =	main.cpp Character.cpp AMateria.cpp Ice.cpp Cure.cpp MateriaSource.cpp
 OBJS =	$(SRCS:.cpp=.o)
 CPP98 =	g++ -Wall -Wextra -Werror -std=c++98
 

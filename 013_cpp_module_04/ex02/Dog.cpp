@@ -6,20 +6,20 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:34:34 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 17:11:09 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/31 17:24:23 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(): Animal()
+Dog::Dog(): AAnimal()
 {
 	std::cout << "[ (D) Default constructor called. Dog appeared! ]" << std::endl;
 	_type = "Dog";
 	_brain = new Brain();
 }
 
-Dog::Dog(const Dog &copy_): Animal(copy_)
+Dog::Dog(const Dog &copy_): AAnimal(copy_)
 {
 	std::cout << "[ (D) Copy constructor called. ]" << std::endl;
 	_type = copy_._type;
@@ -32,19 +32,34 @@ Dog::~Dog()
 	delete (_brain);
 }
 
+Dog &Dog::operator=(const AAnimal &copy_)
+{
+	if (this != &copy_)
+	{
+		std::cout << "[ (D) Coping... ]" << std::endl;
+		_type = copy_.getType();
+		*_brain = copy_.getBrain(); 
+	}
+	else
+	{
+		std::cout << "[ (D) They are the same. Copy abort! ]" << std::endl;
+	}
+	return (*this);
+}
+
 Dog &Dog::operator=(const Dog &copy_)
 {
 	if (this != &copy_)
 	{
 		std::cout << "[ (D) Coping... ]" << std::endl;
 		_type = copy_._type;
-		return (*this);
+		*_brain = copy_.getBrain();
 	}
 	else
 	{
 		std::cout << "[ (D) They are the same. Copy abort! ]" << std::endl;
-		return (*this);
 	}
+	return (*this);
 }
 
 void	Dog::makeSound(void) const
