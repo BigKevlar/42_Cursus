@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:51:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 17:38:13 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/01 18:54:59 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int main(void)
 	delete (i);
 	delete (Cat3);
 	delete (Cat4);
+	delete (Cat5);
+	delete (Cat6);
 	
 	return (0);
 }

@@ -6,15 +6,15 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 19:33:35 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 22:25:11 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/01 17:52:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(): AMateria()
+Cure::Cure(): AMateria("cure")
 {
-	std::cout << "[ (C) Default constructor called. " << _type << " created! ]" << std::endl;
+	std::cout << "[ (C) Default constructor called. Materia " << _type << " created! ]" << std::endl;
 }
 
 Cure::Cure(const Cure &copy_): AMateria("cure")

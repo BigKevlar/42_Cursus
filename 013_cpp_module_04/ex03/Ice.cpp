@@ -6,15 +6,15 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 19:33:35 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 22:25:07 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/01 17:52:42 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(): AMateria()
+Ice::Ice(): AMateria("ice")
 {
-	std::cout << "[ (I) Default constructor called. " << _type << " created! ]" << std::endl;
+	std::cout << "[ (I) Default constructor called. Materia " << _type << " created! ]" << std::endl;
 }
 
 Ice::Ice(const Ice &copy_): AMateria("ice")

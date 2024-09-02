@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 21:22:20 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/31 21:34:24 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/01 18:18:51 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@
 class MateriaSource: public IMateriaSource
 {
     private:
-        std::string _type;
         AMateria	*_materia[4];
 	public:
     	MateriaSource();
-		MateriaSource(std::string name_);
 		MateriaSource(const MateriaSource &copy_);
 		~MateriaSource();
 		MateriaSource &operator=(const MateriaSource &copy_);

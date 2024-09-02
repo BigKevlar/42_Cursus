@@ -1,7 +1,7 @@
 NAME =	interface_recap
 SRCS =	main.cpp Character.cpp AMateria.cpp Ice.cpp Cure.cpp MateriaSource.cpp
 OBJS =	$(SRCS:.cpp=.o)
-CPP98 =	g++ -Wall -Wextra -Werror -std=c++98
+CPP98 =	g++ -g -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
