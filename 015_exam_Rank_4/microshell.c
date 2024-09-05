@@ -32,10 +32,10 @@
     Do not leak file descriptors!
 */
 
-#include <string.h>
 #include <unistd.h>
-#include <sys/wait.h>
 #include <stdlib.h>
+#include <string.h>
+#include <sys/wait.h>
 
 void err(char *str)
 {
@@ -60,16 +60,16 @@ void set_pipe(int has_pipe, int *fd, int end)
 
 int	exec(char **av, int i, char **env)
 {
-	int has_pipe, fd[2], pid, status;
+	int has_pipe;
+	int	fd[2];
+	int	pid;
+	int	status;
 
 	has_pipe = av[i] && !strcmp(av[i], "|");
-
 	if (!has_pipe && !strcmp(*av, "cd"))
 		return cd(av, i);
-
 	if (has_pipe && pipe(fd) == -1)
 		err("error: fatal\n"), exit(1);
-
 	if ((pid = fork()) == -1)
 		err("error: fatal\n"), exit(1);
 	if (!pid)
@@ -89,7 +89,8 @@ int	exec(char **av, int i, char **env)
 int main(int ac, char **av, char **env)
 {
 	(void)ac;
-	int i = 0, status = 0;
+	int	i = 0;
+	int	status = 0;
 
 	while (av[i])
 	{
@@ -100,5 +101,5 @@ int main(int ac, char **av, char **env)
 		if (i)
 			status = exec(av, i, env);
 	}
-	return status;
+	return (status);
 }
