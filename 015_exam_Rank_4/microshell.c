@@ -32,11 +32,12 @@
     Do not leak file descriptors!
 */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/wait.h>
+#include <unistd.h> // fork(), execve()
+#include <stdlib.h> // exit()
+#include <string.h> // strcmp()
+#include <sys/wait.h> //waitpid()
 
+/*  */
 void err(char *str)
 {
 	while (*str)
@@ -46,16 +47,19 @@ void err(char *str)
 int cd(char **av, int i)
 {
 	if (i != 2)
-		return err("error: cd: bad arguments\n"), 1;
+		return (err("error: cd: bad arguments\n"), 1);
 	if (chdir(av[1]) == -1)
-		return err("error: cd: cannot change directory to "), err(av[1]), err("\n"), 1;
-	return 0;
+		return (err("error: cd: cannot change directory to "), err(av[1]), err("\n"), 1);
+	return (0);
 }
 
 void set_pipe(int has_pipe, int *fd, int end)
 {
 	if (has_pipe && (dup2(fd[end], end) == -1 || close(fd[0]) == -1 || close(fd[1]) == -1))
-		err("error: fatal\n"), exit(1);
+	{
+		err("error: fatal\n");
+		exit(1);
+	}
 }
 
 int	exec(char **av, int i, char **env)
@@ -67,10 +71,8 @@ int	exec(char **av, int i, char **env)
 
 	has_pipe = av[i] && !strcmp(av[i], "|");
 	if (!has_pipe && !strcmp(*av, "cd"))
-		return cd(av, i);
-	if (has_pipe && pipe(fd) == -1)
-		err("error: fatal\n"), exit(1);
-	if ((pid = fork()) == -1)
+		return (cd(av, i));
+	if ((has_pipe && pipe(fd) == -1) || (pid = fork()) == -1)
 		err("error: fatal\n"), exit(1);
 	if (!pid)
 	{
