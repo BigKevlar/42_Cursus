@@ -41,6 +41,32 @@ Y para solucionarlo cambie el registro de claves de nombre para que a la hora de
 
 Ahora hacemos update de nuevo y solucionado.        
 
+*******
+* C++ *
+*******
+
+- Para seguir la norma de la "forma canonica ortodoxa" en C++, hay que declarar lo siguiente obligatoriamente:
+
+	<Example>();				// constructor por defecto.
+	~Example();				// destructor.
+	Example(const Example &copy_);		// constructor de copia.
+	Example	&operator=(const Fixed &copy_);	// sobrecarga del operador de copia.
+	
+- Forma para declarar y usar Getters y Setters:
+
+	const std::string	&getSomething(void);
+	void			setSomething(std::string something_);
+
+	const std::string	&Example::getSomething(void)
+	{
+		return (this->_something);
+	}
+
+	void			Example::setSomething(std::string something_)
+	{
+		this->_something = something_;
+	}
+
 *************************
 * EDITOR DE TEXTO "VIM" *
 *************************
