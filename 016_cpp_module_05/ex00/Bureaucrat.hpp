@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:59:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/13 13:19:55 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/16 12:11:58 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ class Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat &copy);
 		const std::string	&getName(void);
 		unsigned int		&getGrade(void);
-
+		void				upGrade(unsigned int grade_);
+		void				downGrade(unsigned int grade_);
 };

@@ -6,12 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:59:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/13 13:20:25 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/16 12:46:58 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
 
 Bureaucrat::Bureaucrat(): _name("Bureaucrat"), _grade(150)
 {
@@ -52,4 +51,22 @@ const std::string	&Bureaucrat::getName(void)
 unsigned int	&Bureaucrat::getGrade(void)
 {
 	return (this->_grade);
+}
+
+void	Bureaucrat::upGrade(void)
+{
+	unsigned int	tmp_grade;
+
+	tmp_grade = _grade + upgrade_;
+	if (tmp_grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
+}
+
+void	Bureaucrat::downGrade(void)
+{
+	unsigned int	tmp_grade;
+
+	tmp_grade = _grade + upgrade_;
+	if (tmp_grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
 }
