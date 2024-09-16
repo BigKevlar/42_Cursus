@@ -45,13 +45,54 @@ Ahora hacemos update de nuevo y solucionado.
 * C++ *
 *******
 
-- Para seguir la norma de la "forma canonica ortodoxa" en C++, hay que declarar lo siguiente obligatoriamente:
+- Para seguir la norma de la "forma canonica ortodoxa" en C++ hay que declarar lo siguiente obligatoriamente:
 
 	<Example>();				// constructor por defecto.
 	~Example();				// destructor.
 	Example(const Example &copy_);		// constructor de copia.
 	Example	&operator=(const Fixed &copy_);	// sobrecarga del operador de copia.
 	
+	Example::Example(): _name("Example"), _grade(150)
+	{
+		std::cout << "[ Default constructor called! ]" << std::endl;
+	}
+
+	Example::~Example()
+	{
+		std::cout << "[ Destructor called! ]" << std::endl;
+	}
+
+	Example::Example(const Example &copy_)
+	{
+		std::cout << "[ Copy constructor called! ]" << std::endl;
+		*this = copy_;
+	}
+
+	Example &Example::operator=(const Example &copy_)
+	{
+		if (this != &copy_)
+		{
+			std::cout << "[ Coping... ]" << std::endl;
+			_grade = copy_._grade;
+			return (*this);
+		}
+		else
+		{
+			std::cout << "[ Same info. Copy abort! ]" << std::endl;
+			return (*this);
+		}
+	}
+
+	const std::string	&Example::getName(void)
+	{
+		return (this->_name);
+	}
+
+	unsigned int	&Example::getGrade(void)
+	{
+		return (this->_grade);
+	}
+
 - Forma para declarar y usar Getters y Setters:
 
 	const std::string	&getSomething(void);
