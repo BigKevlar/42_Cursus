@@ -37,7 +37,6 @@
 #include <string.h> // strcmp()
 #include <sys/wait.h> //waitpid()
 
-/*  */
 void err(char *str)
 {
 	while (*str)
@@ -56,10 +55,7 @@ int cd(char **av, int i)
 void set_pipe(int has_pipe, int *fd, int end)
 {
 	if (has_pipe && (dup2(fd[end], end) == -1 || close(fd[0]) == -1 || close(fd[1]) == -1))
-	{
-		err("error: fatal\n");
-		exit(1);
-	}
+		err("error: fatal\n"), exit(1);
 }
 
 int	exec(char **av, int i, char **env)
@@ -85,7 +81,7 @@ int	exec(char **av, int i, char **env)
 	}
 	waitpid(pid, &status, 0);
 	set_pipe(has_pipe, fd, 0);
-	return WIFEXITED(status) && WEXITSTATUS(status);
+	return (WIFEXITED(status) && WEXITSTATUS(status));
 }
 
 int main(int ac, char **av, char **env)
