@@ -83,16 +83,6 @@ Ahora hacemos update de nuevo y solucionado.
 		}
 	}
 
-	const std::string	&Example::getName(void)
-	{
-		return (this->_name);
-	}
-
-	unsigned int	&Example::getGrade(void)
-	{
-		return (this->_grade);
-	}
-
 - Forma para declarar y usar Getters y Setters:
 
 	const std::string	&getSomething(void);
@@ -107,6 +97,10 @@ Ahora hacemos update de nuevo y solucionado.
 	{
 		this->_something = something_;
 	}
+	
+- Para trabajar con "excepciones", se declaran y manejan de la siguiente manera:
+
+	
 
 *************************
 * EDITOR DE TEXTO "VIM" *
