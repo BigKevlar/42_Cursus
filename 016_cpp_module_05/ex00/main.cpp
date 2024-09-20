@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 16:43:58 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/19 17:38:04 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/20 14:59:45 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int main(void)
 {
+	std::cout << std::endl;
 	{
+		std::cout << "EXAMPLE_0" << std::endl;
 		try
 		{
 			Bureaucrat human0;
@@ -25,7 +27,9 @@ int main(void)
 			std::cout << e.what() << std::endl;
 		}
 	}
+	std::cout << std::endl;
 	{
+		std::cout << "EXAMPLE_1" << std::endl;
 		try
 		{
 			Bureaucrat human1("Juan", 1042);
@@ -35,7 +39,9 @@ int main(void)
 			std::cout << e.what() << std::endl;
 		}
 	}
+	std::cout << std::endl;
 	{
+		std::cout << "EXAMPLE_2" << std::endl;
 		try
 		{
 			Bureaucrat human2("Ale", -42);
@@ -45,7 +51,9 @@ int main(void)
 			std::cout << e.what() << std::endl;
 		}
 	}
+	std::cout << std::endl;
 	{
+		std::cout << "EXAMPLE_3" << std::endl;
 		try
 		{
 			Bureaucrat human3("Victor", 42);
@@ -57,7 +65,9 @@ int main(void)
 			std::cout << e.what() << std::endl;
 		}
 	}
+	std::cout << std::endl;
 	{
+		std::cout << "EXAMPLE_4" << std::endl;
 		try
 		{
 			Bureaucrat human4("Nestor", 42);
@@ -69,7 +79,9 @@ int main(void)
 			std::cout << e.what() << std::endl;
 		}
 	}
+	std::cout << std::endl;
 	{
+		std::cout << "EXAMPLE_5" << std::endl;
 		try
 		{
 			Bureaucrat human5("Leia", 1);
@@ -80,7 +92,9 @@ int main(void)
 			std::cout << e.what() << std::endl;
 		}
 	}
+	std::cout << std::endl;
 	{
+		std::cout << "EXAMPLE_6" << std::endl;
 		try
 		{
 			Bureaucrat human6("Luis", 150);
