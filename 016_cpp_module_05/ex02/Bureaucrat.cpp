@@ -6,12 +6,12 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:59:08 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/20 15:31:18 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/23 16:22:01 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name("NPC"), _grade(150)
 {
@@ -58,12 +58,12 @@ std::ostream	&operator<<(std::ostream &str, Bureaucrat &bureaucrat)
 	return (str << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade());
 }
 
-const std::string	&Bureaucrat::getName(void)
+const std::string	&Bureaucrat::getName(void) const
 {
 	return (this->_name);
 }
 
-unsigned int	&Bureaucrat::getGrade(void)
+unsigned int const	&Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
 }
@@ -94,7 +94,7 @@ void	Bureaucrat::downGrade(void)
 		_grade += 1;
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
@@ -104,5 +104,17 @@ void	Bureaucrat::signForm(Form &form)
 	catch (std::exception &e)
 	{
 		std::cout << this->_name << " cannot sign " << form.getName() << " because: " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(const AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << _name << " cannot execute " << form.getName() << " because: " << e.what() << std::endl;
 	}
 }

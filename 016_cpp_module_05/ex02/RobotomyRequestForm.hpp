@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:56:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/20 16:00:07 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:30:32 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@
 class RobotomyRequestForm: public AForm
 {
 	private:
-		const std::string	_name;
-		bool				_sign;
-		const unsigned int	_grade2Sign;
-		const unsigned int	_grade2Execute;
+		std::string	_target;
 	public:
-
+		RobotomyRequestForm();
+		~RobotomyRequestForm();
+		RobotomyRequestForm(std::string _target);
+		RobotomyRequestForm(const RobotomyRequestForm &copy_);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &copy_);
+		const std::string	&getTarget(void) const;
+		void				executing(const Bureaucrat &bureaucrat) const;
 };
+
+std::ostream	&operator<<(std::ostream &str, RobotomyRequestForm &form);

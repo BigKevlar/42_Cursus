@@ -13,13 +13,14 @@
 #pragma once
 
 #include <iostream>
+#include <fstream> // outfile.open
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
 class AForm
 {
-	protected:
+	private:
 		const std::string	_name;
 		bool				_sign;
 		const unsigned int	_grade2Sign;
@@ -28,12 +29,12 @@ class AForm
 		AForm();
 		~AForm();
 		AForm(const std::string name_, bool signed_, const unsigned int	grade2Sign_, const unsigned int grade2Execute_);
-		AForm(const AForm &copy);
-		AForm &operator=(const AForm &copy);
-		const std::string	&getName(void);
-		bool				&getSign(void);
-		const unsigned int	&getGrade2Sign(void);
-		const unsigned int	&getGrade2Execute(void);
+		AForm(const AForm &copy_);
+		AForm &operator=(const AForm &copy_);
+		const std::string	&getName(void) const;
+		bool const			&getSign(void) const;
+		const unsigned int	&getGrade2Sign(void) const;
+		const unsigned int	&getGrade2Execute(void) const;
 		class GradeTooHighException: public std::exception
 		{
 			public:
@@ -44,8 +45,15 @@ class AForm
 			public:
 				virtual char const	*what() const throw();
 		};
-		void	beSigned(Bureaucrat &bureaucrat);
-		void	signForm(Bureaucrat &bureaucrat);
+		class NoSignedException: public std::exception
+		{
+			public:
+				virtual char const	*what() const throw();
+		};
+		void			beSigned(Bureaucrat &bureaucrat);
+		void			signForm(Bureaucrat &bureaucrat);
+		void			execute(Bureaucrat const &executor) const;
+		virtual void	executing(Bureaucrat const &executor) const = 0;
 };
 
-std::ostream	&operator<<(std::ostream &str, AForm &ref);
+std::ostream	&operator<<(std::ostream &str, AForm &form);

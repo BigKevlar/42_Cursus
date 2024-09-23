@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:30:06 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/20 14:54:32 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/23 15:37:23 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ Form &Form::operator=(const Form &copy_)
 {
 	if (this != &copy_)
 	{
-		std::cout << "[ Coping... ]" << std::endl;
+		std::cout << "[ (F) Coping... ]" << std::endl;
 		_sign = copy_._sign;
 		return (*this);
 	}
 	else
 	{
-		std::cout << "[ Same info. Copy abort! ]" << std::endl;
+		std::cout << "[ (F) Same info. Copy abort! ]" << std::endl;
 		return (*this);
 	}
 }

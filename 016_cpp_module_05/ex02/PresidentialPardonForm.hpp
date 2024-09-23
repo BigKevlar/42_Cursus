@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 15:56:47 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/20 16:00:34 by jmartos-         ###   ########.fr       */
+/*   Created: 2024/09/20 15:56:40 by jmartos-          #+#    #+#             */
+/*   Updated: 2024/09/23 18:44:12 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@
 class PresidentialPardonForm: public AForm
 {
 	private:
-		const std::string	_name;
-		bool				_sign;
-		const unsigned int	_grade2Sign;
-		const unsigned int	_grade2Execute;
+		std::string	_target;
 	public:
-		
+		PresidentialPardonForm();
+		~PresidentialPardonForm();
+		PresidentialPardonForm(std::string _target);
+		PresidentialPardonForm(const PresidentialPardonForm &copy_);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &copy_);
+		const std::string	&getTarget(void) const;
+		void				executing(const Bureaucrat &bureaucrat) const;
 };
+
+std::ostream	&operator<<(std::ostream &str, PresidentialPardonForm &form);

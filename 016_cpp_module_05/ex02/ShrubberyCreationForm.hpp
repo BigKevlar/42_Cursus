@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:56:07 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/20 16:00:09 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:27:03 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@
 class ShrubberyCreationForm: public AForm
 {
 	private:
-		const std::string	_name;
-		bool				_sign;
-		const unsigned int	_grade2Sign;
-		const unsigned int	_grade2Execute;
+		std::string	_target;
 	public:
-		
+		ShrubberyCreationForm();
+		~ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string _target);
+		ShrubberyCreationForm(const ShrubberyCreationForm &copy_);
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy_);
+		const std::string	&getTarget(void) const;
+		void				executing(const Bureaucrat &bureaucrat) const;
 };
+
+std::ostream	&operator<<(std::ostream &str, ShrubberyCreationForm &form);
