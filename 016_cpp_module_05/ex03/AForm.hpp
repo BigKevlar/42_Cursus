@@ -29,7 +29,7 @@ class AForm
 		const unsigned int	_grade2Execute;
 	public:
 		AForm();
-		~AForm();
+		virtual ~AForm() {}
 		AForm(const std::string name_, bool signed_, const unsigned int	grade2Sign_, const unsigned int grade2Execute_);
 		AForm(const AForm &copy_);
 		AForm &operator=(const AForm &copy_);
