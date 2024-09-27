@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:27:20 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/25 20:33:12 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/27 18:53:40 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <string>
 #include <cmath>
 #include <cfloat>
+#include <sstream>	// std::stringstream (string -> double)
+#include <iomanip>	//std::cout << std::fixed
+					//std::setprecision(1)
 
 class ScalarConverter
 {
