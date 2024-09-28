@@ -1,5 +1,5 @@
-NAME =	conversion_of_scalar_types
-SRCS =	main.cpp ScalarConverter.cpp
+NAME =	identify_real_type
+SRCS =	main.cpp Base.cpp
 OBJS =	$(SRCS:.cpp=.o)
 CPP98 =	g++ -g -Wall -Wextra -Werror -std=c++98
 
