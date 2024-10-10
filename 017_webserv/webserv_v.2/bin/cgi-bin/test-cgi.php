@@ -2,9 +2,11 @@
 
 <?php
 /*
-    Ejemplo de entrada de peticion del cliente al servidor:
+    Ejemplo de entrada de peticion del cliente al servidor (metodo < URI < version http):
 
         GET /index.html HTTP/1.1
+
+    
 */
 // Obligatorio: Enviar la cabecera HTTP para especificar que la salida es HTML
 header("Content-Type: text/html");
