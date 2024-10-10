@@ -6,7 +6,7 @@
 /*   By: vzurera- <vzurera-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 09:32:08 by vzurera-          #+#    #+#             */
-/*   Updated: 2024/10/06 13:53:50 by vzurera-         ###   ########.fr       */
+/*   Updated: 2024/10/07 14:36:50 by vzurera-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 	size_t				Communication::write_bytes;														//	Total number of bytes uploaded by the server
 
 	const size_t		Communication::CHUNK_SIZE = 4096;												//	Size of the buffer for read and write operations
-	const size_t		Communication::HEADER_MAXSIZE = 8192;											//	Maximum size allowed for the header (8 KB by default)
+	const size_t		Communication::HEADER_MAXSIZE = 2048;											//	Maximum size allowed for the header (8 KB by default)
 
 #pragma endregion
 
@@ -58,16 +58,16 @@
 
 				//	Needs to get the header
 					if (event->header == "") {
-						if (event->read_buffer.size() > HEADER_MAXSIZE)	{																		//	Header too big, return error
-							event->header_map["Connection"] = "close";																			//	Set 'Connection' to close
-							event->header_map["Write-Only"] = "true";																			//	Don't read from the client anymore
-							Epoll::set(event->fd, false, false);																				//	Close read and write monitor for EPOLL
-							Protocol::error_page(event, "431", event->VServ, event->Loc);														//	Request Header Fields Too Large
-							return (1);
-						}
 
 						int result = Protocol::parse_header(event);																				//	Try to parse the header (maybe the header is not there yet)
 						if (result == 0) {																										//	There is a header
+							if (event->header.size() > HEADER_MAXSIZE) {																		//	Header too big, return error
+								event->header_map["Connection"] = "close";																		//	Set 'Connection' to close
+								event->header_map["Write-Only"] = "true";																		//	Don't read from the client anymore
+								Epoll::set(event->fd, false, false);																			//	Close read and write monitor for EPOLL
+								Protocol::check_code(event, true, "431");																		//	Request Header Fields Too Large
+								return (1);
+							}
 							event->read_size = event->read_buffer.size() - event->header.size();												//	Set 'read_size'
 							event->read_buffer.erase(event->read_buffer.begin(), event->read_buffer.begin() + event->header.size());			//	Remove the header from 'read_buffer'
 							Protocol::process_request(event);																					//	Process the request
@@ -81,7 +81,12 @@
 						event->header_map["Connection"] = "close";																				//	Set 'Connection' to close
 						event->header_map["Write-Only"] = "true";																				//	Don't read from the client anymore
 						Epoll::set(event->fd, false, false);																					//	Close read and write monitor for EPOLL
-						Protocol::error_page(event, "413", event->VServ, event->Loc);															//	Payload Too Large
+						if (event->response_method == "CGI") {
+							if (event->pid != 0) { kill(event->pid, SIGKILL); event->pid = 0; }
+							Event::remove(event->cgi_fd);		event->cgi_fd = -1;
+							Event::remove(event->cgi_read_fd);	event->cgi_read_fd = -1;
+						}
+						Protocol::check_code(event, true, "413");																				//	Payload Too Large
 						return (1);
 					}
 
@@ -89,7 +94,7 @@
 					if (event->response_method == "CGI") {
 						EventInfo * cgi_event = Event::get(event->cgi_fd);																		//	Get the CGI's event
 						if (cgi_event)
-							cgi_event->write_buffer.insert(cgi_event->write_buffer.end(), buffer, buffer + bytes_read);							//	Copy the data to the 'write_buffer' of the CGI
+							cgi_event->write_buffer.insert(cgi_event->write_buffer.end(), event->read_buffer.begin(), event->read_buffer.end());	//	Copy the data to the 'write_buffer' of the CGI
 					}
 
 				//	Clear 'read_buffer' (Not needed if not a CGI)
@@ -293,8 +298,6 @@
 				//	Needs to get the header
 					if (event->read_info == 0 && event->read_maxsize == 0 && event->header == "") {
 						size_t content_length = 0;
-						if (event->read_buffer.size() > HEADER_MAXSIZE) { Event::remove(event->fd); return (1); }				//	Header too big, return error	
-	
 						int result = Protocol::parse_header(event);																//	Try to parse the header (maybe the header is not there yet)
 						if (result == 0) {																						//	There is a header
 							event->read_size += event->read_buffer.size() - bytes_read;

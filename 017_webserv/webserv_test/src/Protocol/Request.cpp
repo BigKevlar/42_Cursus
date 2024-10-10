@@ -6,7 +6,7 @@
 /*   By: vzurera- <vzurera-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 11:52:00 by vzurera-          #+#    #+#             */
-/*   Updated: 2024/10/07 12:27:01 by vzurera-         ###   ########.fr       */
+/*   Updated: 2024/10/07 14:32:58 by vzurera-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,8 @@
 				size_t pos = header.find("\r\n\r\n");																//	Find the end of the header
 
 				if (pos == std::string::npos)	return (1);															//	Incomplete header
-				else							event->header = header.substr(0, pos);								//	Get only the header content
+				else							event->header = header.substr(0, pos + 4);							//	Get only the header content
+
 
 				std::istringstream stream(header); std::string line;
 
@@ -158,7 +159,7 @@
 							event->header_map["Path"] = Security::decode_url(value2);
 							event->header_map["Protocol"] = value3;
 						} else return (2);																			//	There are errors in the first line
-					} if (event->type == CGI) {
+					} else if (event->type == CGI) {
 						if (first_line >> value1 && first_line >> value2) {											//	Get the data from the first line (Protocol, Code and Code description)
 							EventInfo * c_event = Event::get(event->client->fd);
 							if (!c_event) return (3);
@@ -180,7 +181,7 @@
 									code = 302;
 								}
 								event->read_buffer.insert(event->read_buffer.begin(), status.begin(), status.end());
-								event->header_map["Code"] = code;
+								event->header_map["Code"] = Utils::ltos(code);
 								c_event->header_map["Code"] = event->header_map["Code"];
 								c_event->response_map["Code"] = event->header_map["Code"];
 								event->header_map["Code-Description"] = Settings::error_codes[code];
@@ -330,7 +331,6 @@
 
 				if (path.empty() || Utils::file_exists(Utils::fullpath(root + "/" + path))) {
 					if (just_check) return (0);
-					Log::log("NOP", Log::MEM_ACCESS);
 					event->response_map["Method"] = "Error";
 					event->response_map["Code"] = code;
 				} else {
@@ -907,11 +907,14 @@
 			std::string									body_maxsize;
 			if (event->Loc)								body_maxsize = event->Loc->get("body_maxsize");
 			if (body_maxsize.empty() && event->VServ)	body_maxsize = event->VServ->get("body_maxsize");									//	Get 'body_maxsize'
+			if (body_maxsize.empty())					body_maxsize = Settings::global.get("body_maxsize");									//	Get 'body_maxsize'
 			if (!body_maxsize.empty()) {
 				event->body_maxsize   =	Utils::sstol(body_maxsize);																			//	Get 'body_maxsize' in numeric format
 				size_t content_length =	Utils::sstol(event->header_map["Content-Length"]);													//	Get 'Content-Length' in numeric format
-				if (event->body_maxsize > 0 && content_length > event->body_maxsize)														//	If 'Content-Length' is greater than 'body_maxsize'...
+				if (event->body_maxsize > 0 && (content_length >= event->body_maxsize || event->read_buffer.size() >= event->body_maxsize)) {	//	If 'Content-Length' is greater than 'body_maxsize'...
 					error_page(event, "413", event->VServ, event->Loc);																		//	Payload too large
+					event->response_method = event->response_map["Method"];
+				}
 			}
 
 		//	Response method is a file, check if must be cached

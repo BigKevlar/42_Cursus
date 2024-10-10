@@ -144,7 +144,7 @@
 				size_t pos = header.find("\r\n\r\n");																//	Find the end of the header
 
 				if (pos == std::string::npos)	return (1);															//	Incomplete header
-				else							event->header = header.substr(0, pos);								//	Get only the header content
+				else							event->header = header.substr(0, pos + 4);							//	Get only the header content
 
 
 				std::istringstream stream(header); std::string line;
@@ -181,7 +181,7 @@
 									code = 302;
 								}
 								event->read_buffer.insert(event->read_buffer.begin(), status.begin(), status.end());
-								event->header_map["Code"] = code;
+								event->header_map["Code"] = Utils::ltos(code);
 								c_event->header_map["Code"] = event->header_map["Code"];
 								c_event->response_map["Code"] = event->header_map["Code"];
 								event->header_map["Code-Description"] = Settings::error_codes[code];
