@@ -1,2 +1,0 @@
-chmod +x bin/cgi-bin/*
-cd bin && ./webserv "$@"

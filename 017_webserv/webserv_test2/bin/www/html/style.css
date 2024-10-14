@@ -130,7 +130,7 @@ header {
   
   .logout-link {
 	position: absolute;
-	top: 10px;
+	top: 20px;
 	right: 20px;
 	color: white;
 	background-color: rgba(0, 0, 0, 0.5);
@@ -208,7 +208,7 @@ header {
 	background-color: #ff1a1a;
   }
   
-/* Estilo CSS del login.php de "Webserv_42 Kobayashi's team work!"*/
+/* Estilo CSS del login.php de "Webserv_42 Kobayashi's team work!" */
 
 .animated-title {
     font-size: 3em;
@@ -236,5 +236,15 @@ header {
     }
 }
 
-/**/
+/* Estilo para el mensaje de bienvenida. */
+.welcome-text {
+    position: absolute; /* Permite que el texto se posicione sobre el banner */
+    top: 20px; /* Ajusta la posición vertical del texto */
+    left: 20px; /* Ajusta la posición horizontal del texto */
+    color: white; /* Cambia el color del texto para que sea visible */
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 24px; /* Cambia el tamaño de la fuente según tus necesidades */
+    z-index: 1; /* Asegura que el texto esté por encima del banner */
+    margin: 0; /* Elimina el margen superior e inferior del h2 */
+}
 

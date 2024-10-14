@@ -93,8 +93,11 @@ foreach ($files as $file) {
 <body>
   <header>
     <img src="banner.jpg" alt="Banner" class="banner">
-    <a href="logout.php" class="logout-link">Logout</a>
+    <h2 class="welcome-text">Bienvenido, <?php echo htmlspecialchars($username); ?>!</h2>
+<!-- El estilo CSS del boton de logout se llama ".logout-link" -->
+    <a href="logout.php" class="logout-link">Logout</a> 
   </header>
+
 
   <!-- Separador bonito debajo del banner -->
   <hr class="separator">
