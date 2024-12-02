@@ -1,68 +1,61 @@
-version: '2.29.4'
+volumes:
+    
+    mariadb_data:                                           # Nombre del volumen para MariaDB.
+        driver: local                                       # Controlador por defecto de manejo de volumenes de Docker (necesario declararlo si vamos a editarlo con "driver_opts").
+        driver_opts:
+            type: none                                      # Volumen sin extension.
+            device: ./resources/mariadb                     # Directorio del volumen. Asi sabremos que "mariadb_data" es como un quick_access hacia esa ruta.
+            o: bind                                         # Tipo "bind mount", para que los cambios en la ruta "device" se ejecuten en el servidor.
 
-services:
+networks:                                                   # ...
 
-    nginx:
-        container_name: nginx_inception
-        build:
-            context: ./requirements/nginx
-            dockerfile: Dockerfile
-        volumes:
-            - wordpress_data:/var/www/html
-        ports:
-            - 443:443
-        depends_on:
-            - wordpress
+    inception_network:
+        driver: bridge
 
-    wordpress:
-        container_name: wordpress_inception
-        build:
-            context: ./requirements/wordpress
-            dockerfile: Dockerfile
-        volumes:
-            - wordpress_data:/var/www/html
-        networks:
-            - inception_net
-        env_file:
-            - .env
-        depends_on:
-            - mariadb
-        restart: unless-stopped
+services:                                                   # Apps que vamos a desplegar.
 
     mariadb:
-        container_name: mariadb_inception
-        build:
-            context: ./requirements/mariadb
-            dockerfile: Dockerfile
-            args:
-                MDB_ROOT: ${DB_ROOT}
-                MDB_ROOT_PASS: ${DB_ROOT_PASS}
-                MDB_USER: ${DB_USER}
-                MDB_USER_PASS: ${DB_USER_PASS}ç
-        volumes:
-            - mariadb_data:/var/lib/mysql
-        ports:
-            - 4242:4242
-        networks:
-            - inception
-        env_file:
-            - .env
-        restart: unless-stopped
-    
-    volumes:
-        wordpress_data:
-            driver: local
-            driver_opts:
-                type: none
-                device: ./data/wordpress
-                o: bind
-        mariadb_data:
-            driver: local
-            driver_opts:
-                type: none
-                device: ./data/mariadb
-                o: bind
+            container_name: mariadb_inception               # Nombre del contenedor.
+            env_file: .env                                  # Archivo que contiene las vatiables de entorno (si no las queremos poner aqui con "environment").
+            build:                                          # Contruccion de informacion para el Dockerfile:
+                context: ./resources/mariadb                # Ruta local de configuracion de MariaDB.
+                dockerfile: Dockerfile                      # Configuracion a traves de un "Dockerfile" dentro de esa ruta.
+                args:                                       # Sustitucion de "variables de entorno VS argumentos" para el archivo de configuracion.
+                    MARIADB_NAME: ${MARIADB_NAME}
+                    MARIADB_ROOT_PASS: ${MARIADB_ROOT_PASS}
+                    MARIADB_USER: ${MARIADB_USER}
+                    MARIADB_USER_PASS: ${MARIADB_USER_PASS}
+            volumes:                                        # Volumen de nuestro Docker: "source:destination" (hay que configurarlo a parte, mirar mas abajo).
+                - mariadb_data:/var/lib/mysql
+            ports:                                          # Mapeo de puertos: "localPort:dockerPort".
+                - "3306:3306"
+            networks:                                       # Red local virtual.
+                - inception_network
+            restart: always                                 # Modo de reinicio en caso de cierre inesperado.
 
-    networks:
-        inception:
-            driver: bridge
+#    nginx:
+#        container_name: nginx_inception
+#        build:
+#            context: ./requirements/nginx
+#            dockerfile: Dockerfile
+#        volumes:
+#            - wordpress_data:/var/www/html
+#        ports:
+#            - 443:443
+#        depends_on:
+#            - wordpress
+#
+#    wordpress:
+#        container_name: wordpress_inception
+#        build:
+#            context: ./requirements/wordpress
+#            dockerfile: Dockerfile
+#        volumes:
+#            - wordpress_data:/var/www/html
+#        networks:
+#            - inception_network
+#        env_file:
+#            - .env
+#        depends_on:
+#            - mariadb
+#        restart: unless-stopped

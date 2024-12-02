@@ -1,17 +1,18 @@
 018_INCEPTION (JMARTOS-)
 
-    Tenemos que crear una maquina virtual (Alpine o Debian) en la que haremos uso
-    de "docker compose" para crear nuestros dockers o contenedores, en los cuales
-    en cada uno correremos un servicio: 
-    MariaDB, WordPress y NGINX (en orden de dependencia).
+    Tenemos que crear una maquina virtual (Alpine o Debian) mediante el uso
+    de "docker-compose" para crear nuestros dockers o contenedores, en los cuales
+    en cada uno correremos un servicio:
+    
+    MariaDB < WordPress < NGINX.
 
-    Usaremos "debian-12.7.0-amd64-netinst" o "alpine-standard-3.20.3-x86_64" si es
-    necesario haber con maquinas virtuales.
+    Usaremos "debian-12.7.0-amd64-netinst" o "alpine-standard-3.20.3-x86_64" 
+    para la ejecucion..
 
-    Vamos a empezar por preparar todo para la instalacion.
+    Empezamos por preparar todo para la instalacion.
 
     En los equipos de 42_Malaga, a fecha de 04/11/2024, ya tenemos instalados
-    tanto Docker 26.1.3 como Docker Compose 2.29.4, por lo que no es necesario
+    tanto "Docker 26.1.3" como "Docker Compose 2.29.4", por lo que no es necesario
     hacer anda mas.
 
     La distribucion sera la siguiente:
@@ -21,7 +22,7 @@
     Luego tendremos un directorio llamado "requirements" en el que guardaremos
     la cofiguracion de cada uno de nuestros servicios.
 
-DOCKERFILE
+DOCKERFILE de "NGINX"
 
     # (LA LISTA DE DOCKERFILE VA EN ORDEN ASCENDENTE).
     # MONTAMOS IMAGEN.
