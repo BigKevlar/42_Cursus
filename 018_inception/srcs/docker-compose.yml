@@ -4,8 +4,15 @@ volumes:
         driver: local                                       # Controlador por defecto de manejo de volumenes de Docker (necesario declararlo si vamos a editarlo con "driver_opts").
         driver_opts:
             type: none                                      # Volumen sin extension.
-            device: ./resources/mariadb                     # Directorio del volumen. Asi sabremos que "mariadb_data" es como un quick_access hacia esa ruta.
+            device: ~/data/mariadb                          # Directorio del volumen. Asi sabremos que "mariadb_data" es como un quick_access hacia esa ruta.
             o: bind                                         # Tipo "bind mount", para que los cambios en la ruta "device" se ejecuten en el servidor.
+
+    wordpress_data:
+        driver: local
+        driver_opts:
+            type: none
+            device: ~/data/wordpress
+            o: bind
 
 networks:                                                   # ...
 
@@ -15,47 +22,65 @@ networks:                                                   # ...
 services:                                                   # Apps que vamos a desplegar.
 
     mariadb:
-            container_name: mariadb_inception               # Nombre del contenedor.
-            env_file: .env                                  # Archivo que contiene las vatiables de entorno (si no las queremos poner aqui con "environment").
-            build:                                          # Contruccion de informacion para el Dockerfile:
-                context: ./resources/mariadb                # Ruta local de configuracion de MariaDB.
-                dockerfile: Dockerfile                      # Configuracion a traves de un "Dockerfile" dentro de esa ruta.
-                args:                                       # Sustitucion de "variables de entorno VS argumentos" para el archivo de configuracion.
-                    MARIADB_NAME: ${MARIADB_NAME}
-                    MARIADB_ROOT_PASS: ${MARIADB_ROOT_PASS}
-                    MARIADB_USER: ${MARIADB_USER}
-                    MARIADB_USER_PASS: ${MARIADB_USER_PASS}
-            volumes:                                        # Volumen de nuestro Docker: "source:destination" (hay que configurarlo a parte, mirar mas abajo).
-                - mariadb_data:/var/lib/mysql
-            ports:                                          # Mapeo de puertos: "localPort:dockerPort".
-                - "3306:3306"
-            networks:                                       # Red local virtual.
-                - inception_network
-            restart: always                                 # Modo de reinicio en caso de cierre inesperado.
+        container_name: mariadb_inception                   # Nombre del contenedor.
+        image: mariadb_42image                              # Imagen para MariaDB (si no lo podemos lo nombra con la ruta).
+        env_file: .env                                      # Archivo que contiene las vatiables de entorno (si no las queremos poner aqui con "environment").
+        build:                                              # Contruccion de informacion para el Dockerfile:
+            context: resources/mariadb                      # Ruta local de configuracion de MariaDB.
+            dockerfile: Dockerfile                          # Configuracion a traves de un "Dockerfile" dentro de esa ruta.
+            args:                                           # Sustitucion de "variables de entorno VS argumentos" para el archivo de configuracion.
+                MARIADB_NAME: ${MARIADB_NAME}
+                MARIADB_ROOT_PASS: ${MARIADB_ROOT_PASS}
+                MARIADB_USER: ${MARIADB_USER}
+                MARIADB_PASS: ${MARIADB_PASS}
+        volumes:                                            # Volumen de nuestro Docker: "source:destination" (hay que configurarlo a parte, mirar mas abajo).
+            - mariadb_data:/var/lib/mysql
+        ports:                                              # Mapeo de puertos: "localPort:dockerPort".
+            - "3306:3306"
+        networks:                                           # Red local virtual.
+            - inception_network
+        restart: always                                     # Modo de reinicio en caso de cierre inesperado.
+        tty: true                                           # Muestra una pseudo-terminal.
 
-#    nginx:
-#        container_name: nginx_inception
-#        build:
-#            context: ./requirements/nginx
-#            dockerfile: Dockerfile
-#        volumes:
-#            - wordpress_data:/var/www/html
-#        ports:
-#            - 443:443
-#        depends_on:
-#            - wordpress
-#
-#    wordpress:
-#        container_name: wordpress_inception
-#        build:
-#            context: ./requirements/wordpress
-#            dockerfile: Dockerfile
-#        volumes:
-#            - wordpress_data:/var/www/html
-#        networks:
-#            - inception_network
-#        env_file:
-#            - .env
-#        depends_on:
-#            - mariadb
-#        restart: unless-stopped
+    wordpress:
+        container_name: wordpress_inception
+        image: wordpress_42image
+        env_file: .env
+        build:
+            context: ./resources/wordpress
+            dockerfile: Dockerfile
+            args:
+                WP_DB_HOST: ${WP_DB_HOST}
+                WP_TITLE: ${WP_TITLE}
+                WP_GROUP: ${WP_GROUP}
+                WP_ADMIN: ${WP_ADMIN}
+                WP_ADMIN_PASS: ${WP_ADMIN_PASS}
+                WP_ADMIN_MAIL: ${WP_ADMIN_MAIL}
+                WP_USER: ${WP_USER}
+                WP_USER_PASS: ${WP_USER_PASS}
+                WP_USER_MAIL: ${WP_USER_MAIL}
+        volumes:
+            - wordpress_data:/var/www/html
+        networks:
+            - inception_network
+        depends_on:
+            - mariadb
+        restart: always
+    
+    nginx:
+        container_name: nginx_inception
+        image: nginx_42image
+        env_file: .env
+        build:
+            context: ./resources/nginx
+            dockerfile: Dockerfile
+            args:
+                DOMAIN_NAME: ${DOMAIN_NAME}
+        volumes:
+            - wordpress_data:/var/www/html
+        ports:
+            - 443:443
+        networks:
+            - inception_network
+        depends_on:
+            - wordpress

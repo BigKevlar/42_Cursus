@@ -1,20 +1,26 @@
 # MONTAMOS IMAGEN.
 FROM debian:bullseye
 
+ARG DOMAIN_NAME
+
+ENV DOMAIN_NAME=${DOMAIN_NAME}
+
 # EJECUTAMOS LOS PRIMEROS COMANDOS.
-RUN apt update -y && apt upgrade -y && apt install nginx openssl
+RUN apt-get update -y && apt-get install -y && apt-get install nginx openssl -y
 
 # COPIAMOS...
-COPY config/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # INSTALAMOS DEPENDENCIAS.
 RUN mkdir -p /etc/nginx/ssl
 
-RUN openssl 
-
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt -subj "/CN=${DOMAIN_NAME}/C=ES/L=Malaga"
 
 # 
-EXPOSE
+EXPOSE 443
 
-#
-CMD ["nginx", "-g", "daemon off";]
+RUN sed -i "s/PATATA/$DOMAIN_NAME/g" /etc/nginx/conf.d/default.conf
+
+RUN cat /etc/nginx/conf.d/default.conf
+
+CMD ["nginx", "-g", "daemon off;"]
