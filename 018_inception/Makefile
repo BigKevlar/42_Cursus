@@ -8,11 +8,20 @@ all:
 up:
 	docker-compose -f ./srcs/docker-compose.yml up -d
 
+down:
+	docker-compose -f ./srcs/docker-compose.yml down
+
+stop:
+	docker-compose -f ./srcs/docker-compose.yml stop
+
 mariadb:
 	docker exec -it mariadb_inception bash
 
-down:
-	docker-compose -f ./srcs/docker-compose.yml down
+wordpress:	
+	docker exec -it wordpress_inception bash
+
+nginx:	
+	docker exec -it nginx_inception bash
 
 fclean:
 	docker-compose -f ./srcs/docker-compose.yml down

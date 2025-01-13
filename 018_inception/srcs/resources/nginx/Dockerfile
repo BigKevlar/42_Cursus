@@ -21,6 +21,7 @@ EXPOSE 443
 
 RUN sed -i "s/PATATA/$DOMAIN_NAME/g" /etc/nginx/conf.d/default.conf
 
+# SOLO PARA DEBUG.
 RUN cat /etc/nginx/conf.d/default.conf
 
 CMD ["nginx", "-g", "daemon off;"]
