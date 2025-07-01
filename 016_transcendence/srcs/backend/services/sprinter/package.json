@@ -1,0 +1,15 @@
+{
+	"name": "sprinter",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Backend for sprinter game",
+	"author": "jose-mgo",
+	"main": "src/app.js",
+	"dependencies": {
+		"fastify": "^4.29.0",
+		"fastify-plugin": "^4.5.1",
+  		"@fastify/websocket": "^8.0.0",
+  		"dotenv": "^16.0.0"
+	}
+}
+

@@ -1,0 +1,15 @@
+{
+	"name": "ai",
+	"version": "1.0.0",
+	"private": true,
+	"description": "AI oppenent with multiples threads",
+	"author": "jmartos-dev",
+	"main": "src/app.js",
+	"type": "module",
+	"dependencies": {
+		"@fastify/websocket": "^8.0.0",
+		"fastify": "^4.29.0",
+		"fastify-plugin": "^4.5.1"
+	}
+}
+

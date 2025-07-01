@@ -1,0 +1,133 @@
+services:
+  # ----------------- WEB SERVER (80, 443) ----------------- #
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ./srcs/backend/nginx
+      args:
+        - HOST_NAME=${HOST_NAME-localhost}
+    ports:
+      - "8443:443"
+    networks:
+      - frontend-net
+      - backend-net
+    restart: unless-stopped
+
+  # --------------------- WEB PAGE (80) -------------------- #
+
+  web:
+    container_name: web
+    build:
+      context: ./srcs/frontend/web
+      dockerfile: Dockerfile
+    networks:
+      - frontend-net
+    restart: unless-stopped
+
+  # -------------------- GATEWAY (3000) -------------------- #
+
+  gateway:
+    container_name: gateway
+    build:
+      context: ./srcs/backend/gateway
+      dockerfile: Dockerfile
+    environment:
+      - SERVICE_URL=gateway:3000
+      - AUTH_SERVICE_URL=${AUTH_SERVICE_URL-http://auth:4000}
+      - TOURNAMENT_SERVICE_URL=${TOURNAMENT_SERVICE_URL-http://tournament:8080}
+      - GAME_SERVICE_URL=${GAME_SERVICE_URL-http://game:8080}
+      - SPRINTER_SERVICE_URL=${GAME_SERVICE_URL-http://sprinter:8080}
+      - JWT_SECRET=${JWT_SECRET}
+    networks:
+      - backend-net
+      - service-net
+    restart: unless-stopped
+
+  # --------------- MICRO-SERVICES --------------- #
+
+  # auth (4000)
+  auth:
+    container_name: auth
+    build:
+      context: ./srcs/backend/services/auth
+      dockerfile: Dockerfile
+    volumes:
+      - auth_data:/app/data
+    environment:
+      - SERVICE_URL=auth:4000
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - GOOGLE_CLIENT_REDIRECT=${GOOGLE_CLIENT_REDIRECT}
+      - JWT_SECRET=${JWT_SECRET}
+      - REFRESH_SECRET=${REFRESH_SECRET}
+    networks:
+      - service-net
+    restart: unless-stopped
+
+  # Game (8080)
+  game:
+    container_name: game
+    build:
+      context: ./srcs/backend/services/game
+      dockerfile: Dockerfile
+    environment:
+      - SERVICE_URL=game:8080
+    networks:
+      - service-net
+    restart: unless-stopped
+  
+  # AI (8080)
+  ai:
+    container_name: ai
+    build:
+      context: ./srcs/backend/services/AI
+      dockerfile: Dockerfile
+    environment:
+      - SERVICE_URL=ai:8080
+    networks:
+      - service-net
+    restart: unless-stopped
+
+  # sprinter (8080)
+  sprinter:
+    container_name: sprinter
+    build:
+      context: ./srcs/backend/services/sprinter
+      dockerfile: Dockerfile
+    environment:
+      - SERVICE_URL=sprinter:8080
+    networks:
+      - service-net
+    restart: unless-stopped
+  
+    # tournament (8080)
+  tournament:
+    container_name: tournament
+    build:
+      context: ./srcs/backend/services/tournament
+      dockerfile: Dockerfile
+    environment:
+      - SERVICE_URL=tournament:8080
+    networks:
+      - service-net
+    restart: unless-stopped
+    
+# ------------------------- VOLUMES ------------------------ #
+
+volumes:
+  auth_data:
+    name: auth_data
+
+# ------------------------- NETWORK ------------------------ #
+
+networks:
+  frontend-net:
+    name: frontend-net
+    driver: bridge
+  backend-net:
+    name: backend-net
+    driver: bridge
+  service-net:
+    name: service-net
+    driver: bridge
